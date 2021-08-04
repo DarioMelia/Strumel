@@ -17,6 +17,8 @@ router.get("/login", (req,res) => {
 
 router.post("/submit", admin.addObras);
 
+router.post("/delete",admin.deleteObra);
+
 
 
 

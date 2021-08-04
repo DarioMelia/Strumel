@@ -28,3 +28,16 @@ exports.addObras = (req,res) => {
     }
 
 }
+
+
+
+exports.deleteObra = (req,res) => {
+    const id = req.body.delete;
+    Obra.deleteOne({_id:id}, err => {
+        if(!err){
+            res.redirect("/admin");
+        }else{
+            console.log("No se pudo borrar por " + err.message)
+        }
+    })
+}
