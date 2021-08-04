@@ -14,10 +14,20 @@ router.get("/login", (req,res) => {
    res.send("Admin/Login works");
 })
 
+router.get("/obras/:obraID", async (req,res) => {
+   const obra = await Obra.findById(req.params.obraID);
+   
+   res.render("admin/admin-obra.ejs",{
+      obra: obra
+   })
+})
+
 
 router.post("/submit", admin.addObras);
 
 router.post("/delete",admin.deleteObra);
+
+router.post("/update/:obraID", admin.updateObra);
 
 
 

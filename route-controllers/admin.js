@@ -4,7 +4,7 @@ const Obra = require("../models/obra.js");
 
 exports.addObras = (req,res) => {
     const {titulo, resumen, contenido, fecha, imgUrl} = req.body;
-    console.log(titulo + resumen + contenido + fecha);
+    
     const obra = {
         titulo: titulo,
         resumen:resumen,
@@ -38,6 +38,24 @@ exports.deleteObra = (req,res) => {
             res.redirect("/admin");
         }else{
             console.log("No se pudo borrar por " + err.message)
+        }
+    })
+}
+
+
+exports.updateObra = (req,res) => {
+    const id = req.params.obraID;
+    const {titulo, resumen, contenido, imgUrl} = req.body;
+    Obra.findByIdAndUpdate(id,{
+        titulo:titulo,
+        resumen:resumen,
+        contenido:contenido,
+        imgUrl:imgUrl
+    }, err => {
+        if(!err){
+            res.redirect("/admin/obras/" + id);
+        }else{
+            console.log("No se ha podido actualizar por: " + err.message);
         }
     })
 }
