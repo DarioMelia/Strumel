@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/adminStyles.css">
+</head>
+<body>
+    <section id="submit">
+       <form action="/admin/submit" method="POST">
+        <input type="text" name="titulo" placeholder="Título">
+        <textarea name="resumen" rows="2" placeholder="Resumen..."></textarea>
+        <textarea name="contenido" rows="4" placeholder="Contenido..."></textarea>
+        <input type="date" name="fecha" value="2021-01-01">
+        <input type="text" name="imgUrl" placeholder="Link a la imagen">
+        <button type="submit">Añadir</button>
+
+    </form>
+    </section>
+    <section id="obras">
+        
+      <p><%= obras.map(obra => {return obra.titulo}).join() %></p>
+    </section>
+
+</body>
+</html>

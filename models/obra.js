@@ -8,6 +8,6 @@ const obraSchema = new mongoose.Schema({
     imgUrl: String
 })
 
-const Obra = new mongoose.model("obra", obraShema);
+const Obra = new mongoose.model("obra", obraSchema);
 
 module.exports = Obra;
