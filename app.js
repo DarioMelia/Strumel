@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const passport = require("passport");
 const ejs = require("ejs");
 
 const app = express();
@@ -12,6 +14,14 @@ const obrasRoutes = require("./routes/obras.js");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
+
+app.use(session({                      //express-session para iniciar una sesión, guardada por cockies
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized:false
+  }));
+  app.use(passport.initialize());        //inicializar y configurar passport para trabajar con la sesión previamente creada
+  app.use(passport.session());
 
 const PORT = process.env.PORT || 3000
 

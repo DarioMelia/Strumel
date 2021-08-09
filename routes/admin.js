@@ -1,26 +1,19 @@
 const express = require("express");
 
 const Obra = require("../models/obra.js");
+const User = require("../models/user.js");
 const admin = require("../route-controllers/admin.js");
 const router = express.Router();
+const passport = require("passport");
 
-router.get("/", async (req,res) => {
-    const obras = await Obra.find();
-     
-   res.render("admin/admin.ejs", {obras:obras})
-})
+router.get("/", admin.adminGet)
 
 router.get("/login", (req,res) => {
-   res.send("Admin/Login works");
+   res.render("admin/login");
 })
 
-router.get("/obras/:obraID", async (req,res) => {
-   const obra = await Obra.findById(req.params.obraID);
-   
-   res.render("admin/admin-obra.ejs",{
-      obra: obra
-   })
-})
+
+router.get("/obras/:obraID", admin.obrasGet)
 
 
 router.post("/submit", admin.addObras);
@@ -28,6 +21,8 @@ router.post("/submit", admin.addObras);
 router.post("/delete",admin.deleteObra);
 
 router.post("/update/:obraID", admin.updateObra);
+
+router.post("/login",  passport.authenticate('local', { failureRedirect: '/admin/login', successRedirect: "/admin"}));
 
 
 

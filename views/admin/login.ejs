@@ -1,0 +1,31 @@
+<%- include("../partials/adminHead") %>
+
+<body>
+  <div class="flex--centered full-viewport">
+
+    <div class="login__card">
+
+      <div class="logo__title">
+        
+        <h1 class="title">Strumel<span class="admin-subtitle">Admin</span></h1>
+      </div>
+
+      <form class="login__form" action="/admin/login" method="POST">
+
+        <div class="login__input__div">
+            <input class="login__input" type="text" name="username" placeholder="Nombre de usuario" autocomplete="off">
+            <span class="login__span"></span>
+        </div>
+
+        <div class="login__input__div">
+            <input class="login__input" type="password" name="password" placeholder="Contraseña">
+            <span class="login__span"></span>
+        </div>
+
+        <button class="btn btn--login">Iniciar sesión</button>
+    
+    </form>
+    </div>
+  </div>
+  <script src="/js/loginScript.js"></script>
+</body>

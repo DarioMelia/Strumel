@@ -1,7 +1,35 @@
 const Obra = require("../models/obra.js");
+const passport = require("passport");
+
+
+exports.adminGet = async (req,res) => {
+    res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stal   e=0, post-check=0, pre-check=0');
+    if(req.isAuthenticated()){
+       const obras = await Obra.find();
+      
+       res.render("admin/admin.ejs", {obras:obras})
+    }else{
+       res.redirect("/admin/login")
+    }
+     
+ }
+
+exports.obrasGet = async (req,res) => {
+    if(req.isAuthenticated()){
+ 
+    const obra = await Obra.findById(req.params.obraID);
+    
+    res.render("admin/admin-obra.ejs",{
+       obra: obra
+    })
+ }else{
+    res.redirect("/admin/login");
+ }
+ }
 
 
 
+// %%%%%%%%%%%%%%% API %%%%%%%%%%%%%%%%
 exports.addObras = (req,res) => {
     const {titulo, resumen, contenido, fecha, imgUrl} = req.body;
     
@@ -59,3 +87,4 @@ exports.updateObra = (req,res) => {
         }
     })
 }
+
