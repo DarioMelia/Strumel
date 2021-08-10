@@ -18,6 +18,10 @@
 
 body {
   height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  background-size:fill;
+  background-blend-mode:darken;
   
 }
 
@@ -185,7 +189,7 @@ body {
 
 .login__card{
     padding: 1.5rem;
-    background-color: white;
+    background-color: transparent;
     
 }
 
@@ -202,6 +206,7 @@ body {
   border: none;
   border-bottom: 1px black solid;
   font-size: 1.35rem;
+  background-color: transparent;
 }
 
 .login__span {
