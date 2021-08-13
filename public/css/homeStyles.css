@@ -1,0 +1,21 @@
+:root{
+    --main-color: rgb(45, 79, 192);
+    --second-color: rgb(187, 133, 17);
+    --accent-color: rgb(165, 13, 170);
+
+}
+
+
+
+
+/* %%%%%%%%%%%%%%%%%%% NAV %%%%%%%%%%%%%%%%%%%%%%% */
+
+#nav{
+    position:fixed;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
