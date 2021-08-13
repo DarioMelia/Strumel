@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:hover {
+  outline: none;
+}
+
+.flex--centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .full-viewport {
+    width: 100vw;
+    height: 100vh;
+  }

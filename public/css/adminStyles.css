@@ -1,19 +1,7 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-*:focus,
-*:hover {
-  outline: none;
-}
 
 :root{
     --login-color:rgb(219, 0, 66);
-    --main-color: orangered;
     
 }
 
@@ -26,16 +14,7 @@ body {
   
 }
 
-.flex--centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.full-viewport {
-  width: 100vw;
-  height: 100vh;
-}
 
 .form-label {
   font-size: clamp(1.3em, 4.5vw, 1.6em);
