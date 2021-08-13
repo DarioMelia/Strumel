@@ -1,25 +1,52 @@
-:root{
-    --main-color: rgb(45, 79, 192);
-    --second-color: rgb(187, 133, 17);
-    --accent-color: rgb(165, 13, 170);
-
+:root {
+  --main-color: rgb(45, 79, 192);
+  --second-color: rgb(187, 133, 17);
+  --accent-color: rgb(165, 13, 170);
+  scroll-behavior: smooth;
 }
-
-
-
 
 /* %%%%%%%%%%%%%%%%%%% NAV %%%%%%%%%%%%%%%%%%%%%%% */
 
-#nav{
-    position:fixed;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+#nav {
+  position: fixed;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav__item {
+  position: relative;
+}
+.nav__link {
+  position: absolute;
+  transform: tranlateX(100%);
+  opacity: 0;
+  transition: transform 200ms ease-in,
+  opacity 100ms ease-out 100ms;
 }
 
-.nav__link{
-    display:none;
+.nav__item:hover .nav__link {
+  opacity: 1;
+  transform: translateX(-140%);
+}
+
+.current-section{
+   
+    opacity: 1;
+  transform: translateX(-140%);
 }
 
 
+#home{
+    background: var(--main-color);
+}
+
+#habilidades-calculador{
+    background: var(--second-color);
+}
+#obras{
+    background: var(--accent-color);
+}
+#contacto{
+    background: var(--main-color);
+}
