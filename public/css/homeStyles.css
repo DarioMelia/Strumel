@@ -14,6 +14,7 @@ body {
 
 #nav {
   position: fixed;
+  z-index: 2;
   right: 15px;
   display: flex;
   align-items: center;
@@ -39,8 +40,27 @@ body {
 /* %%%%%%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%%%%%%% */
 
 #hero{
+    position:relative;
     padding: var(--section-padding);
+    background: var(--main-color);
+    
 }
+
+.hero__bg-img{
+    position:absolute;
+    bottom:0;
+   
+    mix-blend-mode: soft-light;
+    width: 1200px;
+    
+}
+
+.hero__bg-img img{
+    width: 100%;
+    transform: scaleX(-1);
+    object-fit: contain;
+}
+    
 .logo__title{
     display:flex;
     align-items: center;
@@ -72,9 +92,7 @@ body {
 }
 
 
-#hero {
-  background: var(--main-color);
-}
+
 
 #habilidades-calculador {
   background: var(--second-color);
