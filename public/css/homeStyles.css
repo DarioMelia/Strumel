@@ -16,6 +16,7 @@
 }
 .nav__item {
   position: relative;
+  
 }
 .nav__link {
   position: absolute;
@@ -37,7 +38,7 @@
 }
 
 
-#home{
+#hero{
     background: var(--main-color);
 }
 
