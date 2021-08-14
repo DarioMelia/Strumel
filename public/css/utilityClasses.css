@@ -12,12 +12,37 @@
 }
 
 .flex--centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .full-viewport {
-    width: 100vw;
-    height: 100vh;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-viewport {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 85%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* %%%%%%%%%%%%% LOGO-TITLE %%%%%%%%%%%%%%%%%%% */
+.logo__title {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.logo__title img {
+  width: clamp(60px, 16vw, 100px);
+  height: clamp(60px, 16vw, 100px);
+}
+
+.title {
+  max-width: fit-content;
+  margin: 0 auto;
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-size: clamp(4.5rem, 22vw, 6rem);
+  position: relative;
+}

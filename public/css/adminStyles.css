@@ -84,19 +84,7 @@ body {
   background-color: rgb(148, 175, 202);
 }
 
-.logo__title {
-  text-align: center;
-  margin-top: 1.5rem;
-}
 
-.title {
-  max-width: fit-content;
-  margin: 0 auto;
-  font-family: "Kanit", sans-serif;
-  font-weight: 600;
-  font-size: clamp(4.5rem, 22vw, 6rem);
-  position: relative;
-}
 
 .admin-subtitle {
   font-family: "Major Mono Display", monospace;
@@ -107,10 +95,7 @@ body {
   bottom: -16px;
 }
 
-.logo__title img {
-  width: clamp(60px, 16vw, 100px);
-  height: clamp(60px, 16vw, 100px);
-}
+
 
 .obra__image {
   width: 80vw;

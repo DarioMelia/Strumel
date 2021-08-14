@@ -2,9 +2,14 @@
   --main-color: rgb(45, 79, 192);
   --second-color: rgb(187, 133, 17);
   --accent-color: rgb(165, 13, 170);
+
+  --section-padding: clamp(1.5rem, 15vw, 2.5rem);
   scroll-behavior: smooth;
 }
 
+body {
+  width: 100vw;
+}
 /* %%%%%%%%%%%%%%%%%%% NAV %%%%%%%%%%%%%%%%%%%%%%% */
 
 #nav {
@@ -16,38 +21,67 @@
 }
 .nav__item {
   position: relative;
-  
 }
 .nav__link {
   position: absolute;
   transform: tranlateX(100%);
   opacity: 0;
-  transition: transform 200ms ease-in,
-  opacity 100ms ease-out 100ms;
+  transition: transform 200ms ease-in, opacity 100ms ease-out 100ms;
 }
 
-.nav__item:hover .nav__link {
+.nav__item:hover .nav__link,
+.current-section {
   opacity: 1;
   transform: translateX(-140%);
 }
 
-.current-section{
-   
-    opacity: 1;
-  transform: translateX(-140%);
-}
 
+/* %%%%%%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%%%%%%% */
 
 #hero{
-    background: var(--main-color);
+    padding: var(--section-padding);
+}
+.logo__title{
+    display:flex;
+    align-items: center;
+    margin: 0;
 }
 
-#habilidades-calculador{
-    background: var(--second-color);
+.title{
+    margin:0;
+  font-size: clamp(3.4rem, 16vw, 6rem);
+
 }
-#obras{
-    background: var(--accent-color);
+.logo__title img {
+    width: clamp(50px, 16vw, 100px);
+    height: clamp(50px, 16vw, 100px);
+  }
+
+
+
+
+
+
+
+
+
+@media (max-width: 450px){
+    .container{
+        width: 95%;
+    }
 }
-#contacto{
-    background: var(--main-color);
+
+
+#hero {
+  background: var(--main-color);
+}
+
+#habilidades-calculador {
+  background: var(--second-color);
+}
+#obras {
+  background: var(--accent-color);
+}
+#contacto {
+  background: var(--main-color);
 }
