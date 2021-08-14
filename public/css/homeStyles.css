@@ -9,6 +9,7 @@
 
 body {
   width: 100vw;
+  overflow-x: hidden;
 }
 /* %%%%%%%%%%%%%%%%%%% NAV %%%%%%%%%%%%%%%%%%%%%%% */
 
@@ -29,18 +30,10 @@ body {
     padding-left: 1%;
     padding-right: 2%;
     border-radius: 15px;
-    
-    
-
-    
-    
-    
 
 }
-a:link, a:visited, a:active {
-    text-decoration:none;
-    color: white;
-}
+
+
 
 .nav__item {
   position: relative;
@@ -74,23 +67,26 @@ a:link, a:visited, a:active {
 #hero{
     position:relative;
     padding: var(--section-padding);
-    background: var(--main-color);
+    background-color: var(--main-color);
+    
     
 }
 
 .hero__bg-img{
     position:absolute;
-    bottom:0;
+    bottom:-4px;
+    left: -400px;
    
-    mix-blend-mode: soft-light;
-    width: 1200px;
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+    
+    min-width: 100vw;
     
 }
 
 .hero__bg-img img{
-    width: 100%;
-    transform: scaleX(-1);
-    object-fit: contain;
+   
+    object-fit: cover;
 }
     
 .logo__title{
@@ -121,14 +117,20 @@ a:link, a:visited, a:active {
     .container{
         width: 95%;
     }
+
+
+}
+
+@media (min-width: 2000px){
+  .hero__bg-img{
+    left:0;
+  }
 }
 
 
 
 
-#habilidades-calculador {
-  background: var(--second-color);
-}
+
 #obras {
   background: var(--accent-color);
 }

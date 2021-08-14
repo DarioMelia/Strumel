@@ -11,6 +11,11 @@
   outline: none;
 }
 
+a:link, a:visited, a:active {
+  text-decoration:none;
+  color: white;
+}
+
 .flex--centered {
   display: flex;
   align-items: center;
