@@ -15,7 +15,7 @@ body {
 #nav {
   position: fixed;
   z-index: 2;
-  right: 15px;
+  
   display: flex;
   align-items: center;
   justify-content: flex-end;
