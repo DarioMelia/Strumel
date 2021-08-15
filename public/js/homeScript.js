@@ -1,6 +1,8 @@
 
+
+// %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
+
 const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
-console.log(navLinks)
 
 
 var observer = new IntersectionObserver(entries => {

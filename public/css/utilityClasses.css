@@ -23,7 +23,7 @@ a:link, a:visited, a:active {
 }
 
 .full-viewport {
-  width: 100vw;
+  width: calc(100vw - (100vw - 100%));
   height: 100vh;
 }
 
