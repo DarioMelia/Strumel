@@ -9,7 +9,7 @@
   --title-ff: "Kanit", sans-serif;
 
   --section-padding: clamp(1.5rem, 15vw, 2.5rem);
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 body {
@@ -82,9 +82,15 @@ body {
   
 }
 
-.nav__item:hover .nav__link,
+@media (min-width: 750px){
+  .nav__item:hover .nav__link{
+    opacity: 1;
+    transform: translateX(-140%);
+  }
+}
+
 .current-section {
-  opacity: 2;
+  opacity: 1;
   transform: translateX(-140%);
 }
 
@@ -192,23 +198,51 @@ body {
 @media (max-width: 750px){
 .nav__item{
   display:none;
+  
 }
+
 .nav__btn{
   width: 1.5rem;
   height: 1.5rem;
   displaY:flex;
   align-items: center;
 }
+.nav__link{
+  visibility: hidden;
+}
 
+.nav__link::after{
+ visibility: visible;
+ right: -20px;
+}
 .nav__list{
   padding:.7rem;
 }
 .nav__burger{
   display:list-item;
 }
+
+.burger--close{
+  visibility: hidden;
+}
+.burger--close::after,
+.burger--close::before{
+  visibility: visible;
+  transform: scale(0.8);
+  transition: transform 200ms 200ms;
+  top:0;bottom:0;
+}
+
+.burger--close::after{
+  transform: rotate(45deg);
+}
+.burger--close::before{
+  transform: rotate(-45deg);
+}
 .nav__open{
   display:flex;
 }
+
 }
 
 @media (min-width: 2000px){
@@ -224,12 +258,12 @@ body {
   animation: scaleUp 250ms ease-in-out forwards;
 }
 .nav__list.shrink{
-  animation: scaleDown 250ms ease-in-out forwards;
+  animation: scaleDown 250ms ease-in-out;
 }
 
 @keyframes scaleUp{
   0%{
-    transform: scaleY(0.5);
+    transform: scaleY(0.4);
   }
   100%{
     transform:scaleY(1);
@@ -240,7 +274,7 @@ body {
     transform: scaleY(1);
   }
   100%{
-    transform:scaleY(0);
+    transform:scaleY(0.2);
   }
 }
 

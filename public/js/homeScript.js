@@ -9,16 +9,21 @@ var observer = new IntersectionObserver(entries => {
     
     if(entries[0].intersectionRatio >= 0.6){
         const id = entries[0].target.id;
-        console.log(id)
+      
         const navLink = navLinks.filter(link => link.name === id);
-        console.log(navLink[0].name)
+     
+        
+       
         navLink[0].classList.add("current-section");
-
+       
+        
+    
     }else if(entries[0].intersectionRatio < 0.6){
         const id = entries[0].target.id;
-        console.log(id)
+        
+       
         const navLink = navLinks.filter(link => link.name === id);
-        console.log(navLink[0].name)
+       
         navLink[0].classList.remove("current-section");
     }
 }, { threshold: 0.6})
@@ -93,27 +98,37 @@ window.onload = function() {
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
 
 const burger = document.querySelector(".nav__btn");
+const burgerLine = document.querySelector(".nav__burger");
 const navItems = document.querySelectorAll(".nav__item");
 const navList = document.querySelector(".nav__list");
 
+
+
 burger.addEventListener("click", e =>{
 navItems.forEach(item =>{
-    item.classList.toggle("nav__open");
-    
+    item.classList.add("nav__open");
 })
-navList.classList.remove("grow");
+burgerLine.classList.toggle("burger--close");
+
+
 void navList.offsetWidth; 
-navList.classList.add("grow");
-// if(navList.classList.contains("grow")){
-//     console.log("if del grow")
-//     navList.classList.remove("grow");
-//     navList.classList.add("shrink");
-// }else{
-//     navList.classList.add("grow");
-//     if(navList.classList.contains("shrink")){
-//         navList.classList.remove("shrink");
-//     }
-// }
+
+if(navList.classList.contains("grow")){
+    navList.classList.remove("grow");
+    navList.classList.add("shrink");
+    setTimeout(()=>{
+        navItems.forEach(item =>{
+            item.classList.remove("nav__open");
+            
+        })
+    }, 220);
+    
+}else{
+    navList.classList.add("grow");
+    if(navList.classList.contains("shrink")){
+        navList.classList.remove("shrink");
+    }
+}
 
 
 })

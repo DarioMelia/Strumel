@@ -33,6 +33,10 @@ a:link, a:visited, a:active {
   margin: 0 auto;
 }
 
+.display-none{
+  display:none;
+}
+
 /* %%%%%%%%%%%%% LOGO-TITLE %%%%%%%%%%%%%%%%%%% */
 .logo__title {
   text-align: center;
