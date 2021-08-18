@@ -29,6 +29,7 @@ body {
   
 }
 .nav__list{
+  transform-origin: center;
   font-size: 1.5rem;
     list-style-type: none;
     line-height: 4;
@@ -71,8 +72,12 @@ body {
 
 .nav__burger{
  position:relative;
+
  display:none;
 
+}
+.nav__btn{
+  display:none;
 }
 
 .nav__burger,
@@ -95,6 +100,9 @@ body {
   bottom: -6px;
 
 }
+
+
+
 
 
 /* %%%%%%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%%%%%%% */
@@ -164,12 +172,21 @@ body {
 .nav__item{
   display:none;
 }
+.nav__btn{
+  width: 1.5rem;
+  height: 1.5rem;
+  displaY:flex;
+  align-items: center;
+}
 
 .nav__list{
-  padding: 1.15rem .7rem;
+  padding:.7rem;
 }
 .nav__burger{
   display:list-item;
+}
+.nav__open{
+  display:flex;
 }
 }
 
@@ -181,6 +198,30 @@ body {
 
 
 
+/* %%%%%%%%%%%%%%%%%% ANIMATIONS %%%%%%%%%%%%%%%%%%%% */
+.nav__list.grow{
+  animation: scaleUp 250ms ease-in-out forwards;
+}
+.nav__list.shrink{
+  animation: scaleDown 250ms ease-in-out forwards;
+}
+
+@keyframes scaleUp{
+  0%{
+    transform: scaleY(0.5);
+  }
+  100%{
+    transform:scaleY(1);
+  }
+}
+@keyframes scaleDown{
+  0%{
+    transform: scaleY(1);
+  }
+  100%{
+    transform:scaleY(0);
+  }
+}
 
 
 #obras {

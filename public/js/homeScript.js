@@ -89,3 +89,31 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
 };
+
+//%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
+
+const burger = document.querySelector(".nav__btn");
+const navItems = document.querySelectorAll(".nav__item");
+const navList = document.querySelector(".nav__list");
+
+burger.addEventListener("click", e =>{
+navItems.forEach(item =>{
+    item.classList.toggle("nav__open");
+    
+})
+navList.classList.remove("grow");
+void navList.offsetWidth; 
+navList.classList.add("grow");
+// if(navList.classList.contains("grow")){
+//     console.log("if del grow")
+//     navList.classList.remove("grow");
+//     navList.classList.add("shrink");
+// }else{
+//     navList.classList.add("grow");
+//     if(navList.classList.contains("shrink")){
+//         navList.classList.remove("shrink");
+//     }
+// }
+
+
+})
