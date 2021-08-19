@@ -188,9 +188,10 @@ justify-content: space-between;
 
 .habilidades{
 background:red;
+overflow: hidden;
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: flex-start;
 justify-content: center;
 gap: 3.2em;
 width:35%;
@@ -206,6 +207,7 @@ height:600px;
 .hab-item{
   display: flex;
   align-items: center;
+
   gap: .3em;
   width: 75%;
   font-size: 2rem;
@@ -219,6 +221,10 @@ height:600px;
   border-radius: 50%;
 }
 
+.slide-set{
+  display:flex;
+  gap:100%;
+}
 
 
 
@@ -314,6 +320,21 @@ height:600px;
   100%{
     transform:scaleY(0.2);
   }
+}
+
+
+
+.slide-set-1 > * {
+ 
+  animation: 12s habAutoplay infinite ease-in-out;
+}
+.slide-set-1 > *:nth-child(1) {animation-delay: 0s}
+.slide-set-1 > *:nth-child(2) {animation-delay: 4s}
+
+@keyframes habAutoplay {
+  0% {transform:translateX(100%);}
+ 
+  100% {transform: translateX(-100%);}
 }
 
 
