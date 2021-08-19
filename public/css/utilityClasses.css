@@ -15,7 +15,10 @@ a:link, a:visited, a:active {
   text-decoration:none;
   color: white;
 }
-
+select{
+  position:relative;
+  z-index:2;
+}
 .flex{
   display:flex;
 }
