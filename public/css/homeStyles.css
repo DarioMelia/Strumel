@@ -187,19 +187,18 @@ justify-content: space-between;
 }
 
 .habilidades{
-background:red;
-overflow: hidden;
+
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-justify-content: center;
-gap: 3.2em;
+justify-content: space-around;
+
 width:35%;
 height:600px;
 }
 
 .calculadora{
-background:green;
+outline: 1px solid red;
 width:60%;
 height:600px;
 
@@ -209,22 +208,32 @@ height:600px;
 .hab-item{
   display: flex;
   align-items: center;
-
+  top:0;
   gap: .3em;
-  width: 75%;
-  font-size: 2rem;
-  color: white;
+  width: 100%;
+  font-size: 3rem;
+  color: black;
 
+}
+
+.hab-title{
+white-space: nowrap;
+}
+
+.hab-title h5{
+  font-size: .6em;
 }
 
 .habilidades .fas{
   padding: .5em;
+  color: white;
   background: var(--main-color);
   border-radius: 50%;
 }
 
 .slide-set{
   position:relative;
+  height: 30px;
 }
 
 
@@ -326,19 +335,25 @@ height:600px;
 
 
 
-.slide-set-1 > * {
-  position: absolute;right:-500px;
+.slide-set > * {
+  position: absolute;right:-150px;opacity: 0;
   animation: 12s habAutoplay infinite ease-in-out;
 }
 .slide-set-1 > *:nth-child(1) {animation-delay: 0s}
 .slide-set-1 > *:nth-child(2) {animation-delay: 6s}
 
+.slide-set-2 > *:nth-child(1) {animation-delay: 1s}
+.slide-set-2 > *:nth-child(2) {animation-delay: 7s}
+
+.slide-set-3 > *:nth-child(1) {animation-delay: 2s}
+.slide-set-3 > *:nth-child(2) {animation-delay: 8s}
+
 @keyframes habAutoplay {
-  0% {right: 500px}
-  4% {right: 0}
-  44.33% {right: 0}
-  46.33% {right: -500px}
-  100% {right: -500px}
+  0% {right: 150px; opacity:0;}
+  4% {right: 0; opacity:1;}
+  44.33% {right: 0; opacity:1;}
+  48.33% {right: -150px; opacity:0;}
+  100% {right: -150px; opacity:0;}
 }
 
 
