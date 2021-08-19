@@ -178,7 +178,25 @@ body {
 
 
 
+/* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
 
+.calculator-flex{
+display:flex;
+justify-content: space-between;
+
+}
+
+.habilidades{
+background:red;
+width:35%;
+height:600px;
+}
+
+.calculadora{
+background:green;
+width:60%;
+height:600px;
+}
 
 
 
@@ -200,7 +218,6 @@ body {
   display:none;
   
 }
-
 .nav__btn{
   width: 1.5rem;
   height: 1.5rem;

@@ -16,6 +16,9 @@ a:link, a:visited, a:active {
   color: white;
 }
 
+.flex{
+  display:flex;
+}
 .flex--centered {
   display: flex;
   align-items: center;

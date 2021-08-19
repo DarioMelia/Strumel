@@ -12,7 +12,6 @@ var observer = new IntersectionObserver(entries => {
       
         const navLink = navLinks.filter(link => link.name === id);
      
-        
        
         navLink[0].classList.add("current-section");
        
