@@ -188,6 +188,11 @@ justify-content: space-between;
 
 .habilidades{
 background:red;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 2.5em;
 width:35%;
 height:600px;
 }
@@ -196,6 +201,22 @@ height:600px;
 background:green;
 width:60%;
 height:600px;
+}
+
+.hab-item{
+  display: flex;
+  align-items: center;
+  gap: .3em;
+  width: 75%;
+  font-size: 2rem;
+  color: white;
+
+}
+
+.habilidades .fas{
+  padding: .5em;
+  background: var(--main-color);
+  border-radius: 50%;
 }
 
 
