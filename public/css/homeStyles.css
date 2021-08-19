@@ -137,7 +137,7 @@ body {
 #hero{
     position:relative;
     overflow: hidden;
-    padding: var(--section-padding);
+    padding: 1rem 0;
     background-color: var(--main-color);
     
     
@@ -179,7 +179,10 @@ body {
 
 
 /* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
+#habilidades-calculador{
+  padding-bottom: 4rem;
 
+}
 .calculator-flex{
 display:flex;
 justify-content: space-between;
@@ -194,7 +197,7 @@ align-items: flex-start;
 justify-content: space-around;
 
 width:35%;
-height:600px;
+min-height:600px;
 }
 
 .calculadora{
@@ -210,10 +213,10 @@ height:600px;
   align-items: center;
   top:0;
   gap: .3em;
-  width: 100%;
-  font-size: 3rem;
+  width: 50%;
+  font-size: clamp(1rem, 10vw, 2.5rem);
   color: black;
-
+  
 }
 
 .hab-title{
@@ -241,7 +244,7 @@ white-space: nowrap;
 
 @media (max-width: 450px){
     .container{
-        width: 95%;
+        width: 93%;
     }
 
     .hero__bg-img{
@@ -297,6 +300,31 @@ white-space: nowrap;
   display:flex;
 }
 
+}
+@media (max-width: 1000px){
+   .calculator-flex{
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .habilidades,
+  .calculadora{
+    width: 100% !important;
+    overflow:hidden;
+  }
+
+  .habilidades{
+    
+    min-height: 400px;
+  }
+}
+@media (max-width: 1400px){
+
+  .habilidades,
+  .calculadora{
+    width: 50%;
+  }
 }
 
 @media (min-width: 2000px){
