@@ -7,7 +7,7 @@ const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
 
 var observer = new IntersectionObserver(entries => {
     
-    if(entries[0].intersectionRatio >= 0.6){
+    if(entries[0].intersectionRatio >= 0.8){
         const id = entries[0].target.id;
       
         const navLink = navLinks.filter(link => link.name === id);
@@ -17,7 +17,7 @@ var observer = new IntersectionObserver(entries => {
        
         
     
-    }else if(entries[0].intersectionRatio < 0.6){
+    }else if(entries[0].intersectionRatio < 0.8){
         const id = entries[0].target.id;
         
        
@@ -25,7 +25,7 @@ var observer = new IntersectionObserver(entries => {
        
         navLink[0].classList.remove("current-section");
     }
-}, { threshold: 0.6})
+}, { threshold: 0.8})
 
 
 observer.observe(document.getElementById("hero"));
