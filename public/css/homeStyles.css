@@ -260,6 +260,7 @@ white-space: nowrap;
 #gallery {
   width: 100%;
   display: block;
+  border-radius: 98px 4px 100px 4px;
   overflow: hidden;
   position: relative;
 }
@@ -321,7 +322,7 @@ white-space: nowrap;
   justify-content: center;
   
   color: rgb(255, 255, 255);
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 4px 5px rgba(0, 0, 0, 0.9);
   
 }
 .gallery figure.on div h2 {
@@ -338,6 +339,7 @@ white-space: nowrap;
   width: auto;
   margin-bottom: 0;
   padding: 1rem;
+  text-shadow: none;
 }
 
 .gallery__descript::before{
@@ -345,16 +347,16 @@ white-space: nowrap;
   position: absolute;
   z-index: -1;
   transition: height 250ms ease-in;
-  top: 0; left: 0;
+  top: -8px; left: 0;
   width: 100%;
-  height: 0;
+  height: 2px;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(14, 68, 247, 0.7);
 }
 
 .gallery figure.on:hover .gallery__descript::before{
   
-  height:100%;
+  height:calc(100% + 9px);
 
 }
 .gallery figure.on div a {
@@ -365,15 +367,15 @@ white-space: nowrap;
   font-weight: 600;
   transition: 0.3s ease;
 }
-.gallery figure.on div a:after {
-  content: "\f054";
-  font-family: "FontAwesome";
-  margin-left: 5px;
+.gallery__btn i {
+  margin-left: 9px;
   display: inline-block;
-  color: #00ff00;
+  color: rgb(29, 70, 252);
   transition: 0.3s ease;
+  text-shadow: none;
+  font-size: .85em;
 }
-.gallery figure.on div a:hover::after {
+.gallery__btn:hover i{
   transform: translateX(3px);
   transition: 0.3s ease;
 }
