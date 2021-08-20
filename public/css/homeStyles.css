@@ -20,11 +20,11 @@ body {
 
 #nav {
   position: fixed;
-  z-index: 2;
-  
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  top:0;bottom:0;right:0;
   
   
 }
@@ -137,10 +137,8 @@ body {
 #hero{
     position:relative;
     overflow: hidden;
-    padding: 1rem 0;
+    padding-top: 1rem;
     background-color: var(--main-color);
-    
-    
 }
 
 .hero__bg-img{
@@ -190,7 +188,8 @@ font-weight: 700;
 
 /* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
 #habilidades-calculador{
-  padding-bottom: 4rem;
+  padding: 1rem 0 4rem 0;
+  
 
 }
 .calculator-flex{
@@ -201,13 +200,17 @@ justify-content: space-between;
 
 .habilidades{
 
-display: flex;
+width:35%;
+min-height:600px;
+}
+
+.habilidades > div{
+  position:relative; top: -30px;
+  min-height: 100%;
+  display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: space-around;
-
-width:35%;
-min-height:600px;
 }
 
 .calculadora{
@@ -250,7 +253,141 @@ white-space: nowrap;
 }
 
 
+/* %%%%%%%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%%%%% */
+#obras{
+  padding: min(3rem, 5vw);
+}
+#gallery {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+#gallery:before {
+  display: block;
+  content: "";
+  padding-top: 50%;
+}
+.gallery {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.gallery figure {
+  margin: 0;
+  padding: 0;
+  width: 10%;
+  height: 100%;
+  position: relative;
+  flex-basis: 10%;
+  transition: 0.8s ease-in-out;
+  filter: saturate(25%);
+  z-index:4;
+}
+.gallery figure:not(.on):hover {
+  cursor: pointer;
+  
 
+}
+.gallery figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery figure.on {
+  flex-basis: 100%;
+  transition: 0.8s linear;
+  z-index: 5;
+  filter: saturate(100%);
+}
+
+
+.gallery figure.on div {
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
+  right: 5%;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  color: rgb(255, 255, 255);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
+  
+}
+.gallery figure.on div h2 {
+  font-size: 3em;
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.gallery figure.on div p {
+  position:relative;
+  font-size: 1.7em;
+  z-index: 1;
+  width: auto;
+  margin-bottom: 0;
+  padding: 1rem;
+}
+
+.gallery__descript::before{
+  content:"";
+  position: absolute;
+  z-index: -1;
+  transition: height 250ms ease-in;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery figure.on:hover .gallery__descript::before{
+  
+  height:100%;
+
+}
+.gallery figure.on div a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+.gallery figure.on div a:after {
+  content: "\f054";
+  font-family: "FontAwesome";
+  margin-left: 5px;
+  display: inline-block;
+  color: #00ff00;
+  transition: 0.3s ease;
+}
+.gallery figure.on div a:hover::after {
+  transform: translateX(3px);
+  transition: 0.3s ease;
+}
+.gallery figure.on div a:hover {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
+  transition: 0.3s ease;
+}
+
+
+
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+                 /* %%%%% MEDIAQUERIES %%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 @media (max-width: 450px){
     .container{
@@ -259,6 +396,14 @@ white-space: nowrap;
 
     .hero__bg-img{
       left: -800px;
+    }
+    .habilidades{
+      justify-content: flex-start !important;
+      min-height: 400px;
+    }
+    .habilidades > div{
+      transform: translateX(0) !important;
+      height: 400px;
     }
 
 }
@@ -273,6 +418,11 @@ white-space: nowrap;
   height: 1.5rem;
   displaY:flex;
   align-items: center;
+  transition: transform 150ms ease-in;
+}
+
+.nav__btn:active{
+  transform: rotate(180deg);
 }
 .nav__link{
   visibility: hidden;
@@ -296,15 +446,17 @@ white-space: nowrap;
 .burger--close::before{
   visibility: visible;
   transform: scale(0.8);
-  transition: transform 200ms 200ms;
-  top:0;bottom:0;
+  transition: transform 200ms 400ms;
+  
 }
 
 .burger--close::after{
   transform: rotate(45deg);
+  top:0;bottom:0;
 }
 .burger--close::before{
   transform: rotate(-45deg);
+  top:0;bottom:0;
 }
 .nav__open{
   display:flex;
@@ -323,10 +475,19 @@ white-space: nowrap;
     width: 100% !important;
     overflow:hidden;
   }
-
+  .hab-item{
+    font-size: clamp(1.7rem, 7vw, 2.7rem);
+  }
   .habilidades{
+    min-height: 450px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .habilidades > div{
     
-    min-height: 400px;
+    transform: translateX(-150px);
+    height:450px;
   }
 }
 @media (max-width: 1400px){
@@ -367,12 +528,12 @@ white-space: nowrap;
     transform: scaleY(1);
   }
   100%{
-    transform:scaleY(0.2);
+    transform:scaleY(0.25);
   }
 }
 
 
-
+/* %% HABILIDADES %% */
 .slide-set > * {
   position: absolute;right:-150px;opacity: 0;
   animation: 12s habAutoplay infinite ease-in-out;
@@ -396,8 +557,31 @@ white-space: nowrap;
 
 
 #obras {
-  background: var(--accent-color);
-}
-#contacto {
   background: var(--main-color);
 }
+#contacto {
+  background: var(--accent-color);
+}
+
+/* %% GALERIA %% */
+.gallery figure.on div{
+  animation: infoIn 1.2s;
+}
+@keyframes infoIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+

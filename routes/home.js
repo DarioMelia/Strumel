@@ -1,13 +1,9 @@
 const express = require("express");
+const controllers = require("../route-controllers/home.js");
 const router = express.Router();
 
-router.get("/", (req,res) => {
-    try{
-        res.render("home");
-    }catch(err){
-        console.log(err.message)
-    }
-})
+
+router.get("/", controllers.homeGet);
 
 
 module.exports = router;

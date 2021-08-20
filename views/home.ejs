@@ -16,13 +16,14 @@ crossorigin="anonymous"
 />  
     <link rel="stylesheet" href="/css/utilityClasses.css" />
     <link rel="stylesheet" href="/css/homeStyles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Strumel</title>
   </head>
   <body>
 
     <!-- %%%%%%%%%%%%%%% NAV %%%%%%%%%%%%%%%%%% -->
 
-    <nav id="nav" class="full-viewport">
+    <nav id="nav">
       <ul class="nav__list">
         <li class="nav__btn"><span class="nav__burger"></span></li>
         
@@ -109,38 +110,39 @@ crossorigin="anonymous"
          
         <div class="habilidades">
 
-          <div class="slide-set slide-set-1">
-            <div class="hab-item">
-              <i class="fas fa-tools"></i><h3 class="hab-title">Reformas</h3>
-            </div>
-            <div class="hab-item">
-              <i class="fas fa-house-damage"></i><h3 class="hab-title">Reparaciones</h3>
-            </div>
-           
-          </div>
-
-          <div class="slide-set slide-set-2">
-            <div class="hab-item">
-              <i class="fas fa-paint-roller"></i><h3 class="hab-title">Pintura</h3>
-            </div>
-            <div class="hab-item">
-              <i class="fas fa-shower"></i><h3 class="hab-title">Fontanería</h3>
-            </div>
-          </div>
-
-          <div class="slide-set slide-set-3">
-            <div class="hab-item">
-              <i class="fas fa-building"></i><h3 class="hab-title">Obra nueva</h3>
-            </div>
+          <div>
+            <div class="slide-set slide-set-1">
+              <div class="hab-item">
+                <i class="fas fa-tools"></i><h3 class="hab-title">Reformas</h3>
+              </div>
+              <div class="hab-item">
+                <i class="fas fa-house-damage"></i><h3 class="hab-title">Reparaciones</h3>
+              </div>
             
-            <div class="hab-item">
-              <i class="fas fa-check"></i>
-              <div class="hab-title">
-                <h3 >+30 años</h3>
-                <h5 >de experiencia</h5>
+            </div>
+            <div class="slide-set slide-set-2">
+              <div class="hab-item">
+                <i class="fas fa-paint-roller"></i><h3 class="hab-title">Pintura</h3>
+              </div>
+              <div class="hab-item">
+                <i class="fas fa-shower"></i><h3 class="hab-title">Fontanería</h3>
+              </div>
+            </div>
+            <div class="slide-set slide-set-3">
+              <div class="hab-item">
+                <i class="fas fa-building"></i><h3 class="hab-title">Obra nueva</h3>
+              </div>
+            
+              <div class="hab-item">
+                <i class="fas fa-check"></i>
+                <div class="hab-title">
+                  <h3 >+30 años</h3>
+                  <h5 >de experiencia</h5>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
 
 
@@ -167,9 +169,40 @@ crossorigin="anonymous"
       </div>
 
     </section>
-    <section id="obras" class="full-viewport"></section>
+
+
+
+    <!-- %%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%% -->
+
+    <section id="obras">
+      <div class="container">
+        <div id="gallery">
+          <div class="gallery">
+            <% obras.forEach((obra, i) => { %>
+              <%if(i === 0){%>
+                <figure class="on">
+              <%}else{%>
+                <figure>
+              <%}%>
+                <img src="<%= obra.imgUrl %>"/>
+                <div>
+                  <h2><%= obra.titulo %></h2>
+                  <p class="gallery__descript"><%= obra.resumen %></p>
+                  
+                  <p><a href="/obras/:<%= obra._id %>">Saber más</a></p>
+                </div>
+              </figure>
+              
+            <% }); %>
+        
+
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="contacto" class="full-viewport"></section>
 
     <script src="/js/homeScript.js"></script>
+    
   </body>
 </html>

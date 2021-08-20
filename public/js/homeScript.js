@@ -7,7 +7,7 @@ const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
 
 var observer = new IntersectionObserver(entries => {
     
-    if(entries[0].intersectionRatio >= 0.8){
+    if(entries[0].intersectionRatio >= 0.7){
         const id = entries[0].target.id;
       
         const navLink = navLinks.filter(link => link.name === id);
@@ -17,7 +17,7 @@ var observer = new IntersectionObserver(entries => {
        
         
     
-    }else if(entries[0].intersectionRatio < 0.8){
+    }else if(entries[0].intersectionRatio < 0.7){
         const id = entries[0].target.id;
         
        
@@ -25,7 +25,7 @@ var observer = new IntersectionObserver(entries => {
        
         navLink[0].classList.remove("current-section");
     }
-}, { threshold: 0.8})
+}, { threshold: 0.7})
 
 
 observer.observe(document.getElementById("hero"));
@@ -109,7 +109,6 @@ navItems.forEach(item =>{
 })
 burgerLine.classList.toggle("burger--close");
 
-
 void navList.offsetWidth; 
 
 if(navList.classList.contains("grow")){
@@ -120,7 +119,7 @@ if(navList.classList.contains("grow")){
             item.classList.remove("nav__open");
             
         })
-    }, 220);
+    }, 240);
     
 }else{
     navList.classList.add("grow");
@@ -131,3 +130,38 @@ if(navList.classList.contains("grow")){
 
 
 })
+
+
+
+// %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%
+
+$(document).ready(function() {
+    var item = 0,
+      itemNo = $(".gallery figure").length;
+    function transitionSlide() {
+      item++;
+      if (item > itemNo - 1) {
+        item = 0;
+      }
+      $(".gallery figure").removeClass("on");
+      $(".gallery figure")
+        .eq(item)
+        .addClass("on");
+
+    }
+  
+    var autoTransition = setInterval(transitionSlide, 9000);
+  
+    $(".gallery figure").click(function() {
+        console.log("!pinchao")
+      clearInterval(autoTransition);
+      item = $(this).index();
+      $(".gallery figure").removeClass("on");
+      
+      $(".gallery figure")
+        .eq(item)
+        .addClass("on");
+      
+      autoTransition = setInterval(transitionSlide, 9000);
+    });
+  });
