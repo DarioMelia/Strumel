@@ -339,7 +339,13 @@ white-space: nowrap;
   font-size: 3rem;
   color: rgb(255, 255, 255);
   text-shadow: 0 4px 5px rgba(0, 0, 0, 0.9);
-  
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.8px);
+ 
 }
 
 .gallery figure:not(.on) div{
@@ -355,6 +361,7 @@ white-space: nowrap;
 .gallery figure.on div p {
   position:relative;
   font-size: .6em;
+  display: inline-block;
   z-index: 1;
   width: auto;
   margin-bottom: 0;
@@ -362,20 +369,23 @@ white-space: nowrap;
   text-shadow: none;
 }
 
+.gallery__descript{
+  display: inline-block;
+}
 .gallery__descript::before{
   content:"";
   position: absolute;
   z-index: -1;
-  transition: height 250ms ease-in;
   top: -8px; left: 0;
   width: 100%;
   height: 2px;
   border-radius: 5px;
-  background-color: rgba(14, 68, 247, 0.7);
+  background-color: rgba(14, 68, 247, 0.5);
 }
 
-.gallery figure.on:hover .gallery__descript::before{
-  
+.gallery__descript--grow::before{
+  transition: height 250ms 900ms ease-in;
+  backdrop-filter: blur(3.2px);
   height:calc(100% + 9px);
 
 }
@@ -386,23 +396,57 @@ white-space: nowrap;
   font-size: 0.8em;
   font-weight: 600;
   transition: 0.3s ease;
-}
-.gallery__btn i {
-  margin-left: 9px;
+  position: relative;
+  margin: 1em;
   display: inline-block;
-  color: rgb(29, 70, 252);
-  transition: 0.3s ease;
-  text-shadow: none;
-  font-size: .85em;
+  padding: 0.5em 1em;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  
 }
-.gallery__btn:hover i{
-  transform: translateX(3px);
-  transition: 0.3s ease;
+.gallery figure.on div a:before,
+.gallery figure.on div a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-color: var(--main-color);
+  box-sizing: border-box;
+  border-style: solid;
+  width: 1em;
+  height: 1em;
+  transition: all 0.3s ease-in-out;
 }
-.gallery figure.on div a:hover {
+
+.gallery figure.on div a:before {
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
+  z-index: 5;
+}
+
+.gallery figure.on div a:after {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
+}
+
+.gallery figure.on div a:hover:before,
+.gallery figure.on div a:hover:after,
+.gallery figure.on div a:focus:before,
+.gallery figure.on div a:focus:after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-color: var(--main-color);
+}
+
+.gallery figure.on div a:hover,
+.gallery figure.on div a:focus {
+  color:white;
+  background-color: rgba(14, 20, 255, 0.43);
+  border-color: var(--main-color);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
-  transition: 0.3s ease;
 }
+
 
 .wave-svg {
   position: absolute;
@@ -548,13 +592,25 @@ white-space: nowrap;
     height: 10%;
   }
 
-
-
   .gallery figure.on div{
     font-size: clamp(1.5rem, 10vw, 2.5rem);
-    padding: 1em 0;
+    padding: 1em .5em;
     width: 95%;
   }
+
+  .gallery figure.on div a:before,
+  .gallery figure.on div a:after{
+    animation: galleryBtnAuto 3s infinite ease-in-out;
+  }
+
+  
+  .gallery figure.on div a{
+    color:white;
+    background-color: rgba(14, 20, 255, 0.43);
+    border-color: var(--main-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
+  }
+ 
 }
 @media (max-width: 1400px){
 
@@ -648,6 +704,30 @@ white-space: nowrap;
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@keyframes galleryBtnAuto {
+  0%{
+    width: 1em;
+    height: 1em;
+  }
+
+  20%{
+    width: 1em;
+    height: 1em;
+  }
+  50%{
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+  }
+  80%{
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+  }
+  100%{
+    width: 1em;
+    height: 1em;
   }
 }
 

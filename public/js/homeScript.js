@@ -144,9 +144,18 @@ $(document).ready(function() {
         item = 0;
       }
       $(".gallery figure").removeClass("on");
+      $(".gallery__descript").removeClass("gallery__descript--grow");
+    
+
       $(".gallery figure")
         .eq(item)
         .addClass("on");
+
+        setTimeout(() => {
+            $(".gallery__descript")
+            .eq(item)
+            .addClass("gallery__descript--grow");
+        }, 250);
 
     }
   
@@ -157,10 +166,18 @@ $(document).ready(function() {
       clearInterval(autoTransition);
       item = $(this).index();
       $(".gallery figure").removeClass("on");
+      $(".gallery__descript").removeClass("gallery__descript--grow");
       
       $(".gallery figure")
         .eq(item)
         .addClass("on");
+
+
+        setTimeout(() => {
+            $(".gallery__descript")
+            .eq(item)
+            .addClass("gallery__descript--grow");
+        }, 250);
       
       autoTransition = setInterval(transitionSlide, 9000);
     });

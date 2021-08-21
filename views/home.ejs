@@ -193,17 +193,23 @@ crossorigin="anonymous"
         <div id="gallery">
           <div class="gallery">
             <% obras.forEach((obra, i) => { %>
-              <%if(i === 0){%>
+               <%if(i === 0){%>          <!--  principio if -->
                 <figure class="on">
               <%}else{%>
                 <figure>
-              <%}%>
+              <%}%>                       <!--  final if -->
                 <img src="<%= obra.imgUrl %>"/>
                 <div>
                   <h2><%= obra.titulo %></h2>
-                  <p class="gallery__descript"><%= obra.resumen %></p>
+                  <%if(i === 0){%>                                                                <!--  principio if -->
+                    <p class="gallery__descript gallery__descript--grow"><%= obra.resumen %></p>
+                  <%}else{%>
+                    <p class="gallery__descript"><%= obra.resumen %></p>
+                  <%}%>                                                                            <!--  principio if -->
                   
-                  <p class="gallery__btn"><a href="/obras/:<%= obra._id %>">Saber más</a><i class="fas fa-chevron-right"></i></p>
+                  
+                  <p class="gallery__btn"><a href="/obras/:<%= obra._id %>">Saber más</a></p>
+                  
                 </div>
               </figure>
               
