@@ -217,10 +217,24 @@ justify-content: space-around;
 .calculadora{
 outline: 1px solid red;
 width:60%;
-height:600px;
+height:600px;}
+
+.calculadorita{
+  display: flex;
+  flex-direction: column;
+  font-size: 3em;
+  text-align: center;
+  padding: 0.5em;
+  line-height: 3;
+}
+select{
+  font-size: 0.35em;
+  border-radius: 15px;
+  padding: 1em;
+}
 
   
-}
+
 
 .hab-item{
   display: flex;

@@ -142,16 +142,34 @@ crossorigin="anonymous"
         <div class="calculadora">
           
          <form>
-          <label for="vivienda">Tipo De Vivienda</label>
-          <select id="vivienda">
+           <div class="calculadorita">
 
-          <option value="grande">Grande</option>
-          <option value="pequeña">Pequeña</option>
-          <option value="mediana">Mediana</option>
+               <label for="vivienda">Tipo De Vivienda</label>
+              <select id="vivienda">
 
-          </select>
+                <option value="grande">Grande</option>
+               <option value="pequeña">Pequeña</option>
+               <option value="mediana">Mediana</option>
+
+              </select>
+           
+
+               <label for="servicio">Tipo De Servicio</label>
+               <select id="servicio">
+               <option value="reformas">Reformas</option>
+               <option value="pintura">Pintura</option>
+               <option value="obra-nueva">Obra Nueva</option>
+               <option value="reparación">Reparación</option>
+               <option value="fontanería">Fontanería</option>
+               </select>
+             <!-- range slide -->
+               <p class="Metros">Metros</p>           
+              <input type="range" id="Metros" min="0" max="500">
+        
+
+       
+           </div>
            </form>
-
           
 
 
