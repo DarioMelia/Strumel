@@ -167,19 +167,20 @@ body {
 
 .title{
     margin:0;
-  font-size: clamp(3.4rem, 16vw, 6rem);
+  /* font-size: clamp(3.4rem, 16vw, 6rem); */
+  font-size: clamp(3.4rem, 16vw, 12rem);
   font-family: "Black Ops One";
   
 }
 
 .logo__title img {
-    width: clamp(50px, 16vw, 100px);
-    height: clamp(50px, 16vw, 100px);
+    width: clamp(50px, 16vw, 200px);
+    height: clamp(50px, 16vw, 200px);
   }
 
 .presentation{
   text-align: center;
-padding-top: 3em;
+
 font-size: 3em;
 font-family: "PT Serif",serif;
 font-weight: 700;
@@ -216,10 +217,24 @@ justify-content: space-around;
 .calculadora{
 outline: 1px solid red;
 width:60%;
-height:600px;
+height:600px;}
+
+.calculadorita{
+  display: flex;
+  flex-direction: column;
+  font-size: 3em;
+  text-align: center;
+  padding: 0.5em;
+  line-height: 3;
+}
+select{
+  font-size: 0.35em;
+  border-radius: 15px;
+  padding: 1em;
+}
 
   
-}
+
 
 .hab-item{
   display: flex;
