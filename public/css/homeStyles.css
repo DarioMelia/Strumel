@@ -129,7 +129,30 @@ body {
 }
 
 
+/* %%%%%%%%%%%%%%%%%%% HEADER %%%%%%%%%%%%%%%%%%%%%%% */
+/* .header{
+  position:fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 6;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.header__title{
+background-color: papayawhip;
+border-radius: 5px;
+padding: .5em 3em;
+}
+.header__contact{
+  background-color: papayawhip;
+  border-radius: 5px;
+  padding: .5em 3em;
+}
+.header .title{
+  font-size: 1.4rem;
+ 
+} */
 
 
 /* %%%%%%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%%%%%%% */
@@ -345,7 +368,7 @@ white-space: nowrap;
 .gallery figure.on div {
   position: absolute;
   
-  padding: 20px 50px;
+  padding: .5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -607,7 +630,7 @@ white-space: nowrap;
 
   .gallery figure.on div{
     font-size: clamp(1.5rem, 10vw, 2.5rem);
-    padding: 1em .5em;
+    padding: .5em;
     width: 95%;
   }
 
