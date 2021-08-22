@@ -227,9 +227,19 @@ justify-content: space-around;
 }
 
 .calculadora{
-outline: 1px solid red;
+/* outline: 1px solid red;
 width:60%;
-height:600px;}
+height:600px; */
+background: rgba( 28, 31, 182, 0.90 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20.0px );
+-webkit-backdrop-filter: blur( 20.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding-left: 3em;
+padding-right: 3em;
+padding-bottom: 3em;
+}
 
 .calculadorita{
   display: flex;
@@ -244,6 +254,12 @@ select{
   border-radius: 15px;
   padding: 1em;
 }
+
+input#metros{
+size: 100px;
+
+}
+
 
   
 
