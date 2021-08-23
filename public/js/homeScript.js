@@ -33,18 +33,14 @@ var observer = new IntersectionObserver(entries => {
     }
 }, { threshold: 0.7})
 
-var headerOb = new IntersectionObserver(entries => {
-    if(entries[0].intersectionRatio < 0.5){
-        header.classList.add("header-fixed");
-    }
-}, {threshold:0.5});
+
 
 observer.observe(document.getElementById("hero"));
 observer.observe(document.getElementById("habilidades-calculador"));
 observer.observe(document.getElementById("obras"));
 observer.observe(document.getElementById("contacto"));
 
-headerOb.observe(header);
+
 
 
 // %%%%%%%%%%%%% TYPEWRITER %%%%%%%%%%%%%%%%
