@@ -248,27 +248,35 @@ height:600px; */
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding-left: 3em;
-  padding-right: 3em;
-  padding-bottom: 3em;
+  outline: 30px solid blue;
+  
+  
+}
+.form_calculator{
+  display: flex;
+justify-content: center;
+line-height: 3px;
+  padding-top:3em;
+
+
 }
 
 .calculadorita {
   display: flex;
   flex-direction: column;
-  font-size: 3em;
-  text-align: center;
+  /* font-size: clamp(1rem,10wv,3em); */
+  justify-content: center;
   padding: 0.5em;
-  line-height: 3;
+  line-height: 4;
 }
 select {
-  font-size: 0.35em;
+  /* font-size: clamp(1rem,10wv,3em); */
   border-radius: 15px;
-  padding: 1em;
+  padding: 0.25em;
 }
 
 input#metros {
-  size: 100px;
+  /* font-size: clamp(1rem,10wv,3em); */
 }
 
 .hab-item {
