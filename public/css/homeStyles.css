@@ -320,7 +320,7 @@ input#metros {
 }
 .gallery {
   display: flex;
-
+ 
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -332,6 +332,7 @@ input#metros {
   left: 0;
   right: 0;
 }
+
 .gallery figure {
   margin: 0;
   padding: 0;
@@ -496,6 +497,39 @@ input#metros {
   fill: #ffffff;
 }
 
+
+/* %%%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
+
+#contacto{
+ padding: 8rem 0;
+ background-color: rgb(80, 80, 80);
+ background-image: url("images/contact-img.jpg");
+ background-size: cover;
+ background-blend-mode: multiply;
+}
+
+
+.contact__methods{
+  padding: 3.3rem;
+  border-radius: 10px;
+  font-size: 2.2rem;
+  color: white;
+  background:rgba(197, 208, 243, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.contact__item{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.contact__item + .contact__item{
+  margin-top: 1.5rem;
+}
+
+
+
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* %%%%% MEDIAQUERIES %%%%%% */
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
@@ -516,6 +550,7 @@ input#metros {
     transform: translateX(0) !important;
     height: 400px;
   }
+  
 }
 
 @media (max-width: 750px) {
@@ -724,9 +759,7 @@ input#metros {
 #obras {
   background: var(--main-color);
 }
-#contacto {
-  background: var(--accent-color);
-}
+
 
 /* %% GALERIA %% */
 .gallery figure.on div {
