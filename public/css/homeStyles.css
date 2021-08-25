@@ -239,46 +239,85 @@ body {
 }
 
 .calculadora {
-  width:40%;
-  height:600px; 
+    width:5%;
+  height:5%;   
   background: rgba(28, 31, 182, 0.9);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
   
-  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  
+ 
+  align-self: center;
+
+  box-shadow:
+        0 0 20px black,
+        0 0 20px rgba(14, 68, 247, 0.5);
   
   
 }
 .form_calculator{
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  line-height: 3px;
+  line-height: 3px; */
+  /* padding: 0 2rem; */
   
 
 
 }
 
 .calculadorita {
+  margin: 0 auto;
+  width: 65%;
   display: flex;
   flex-direction: column;
   /* font-size: clamp(1rem,10wv,3em); */
   justify-content: center;
-  padding: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   line-height: 4;
-}
-select {
-  /* font-size: clamp(1rem,10wv,3em); */
-  border-radius: 15px;
-  padding: 0.25em;
+  text-align: center;
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.2px);
+-webkit-backdrop-filter: blur(7.2px);
 }
 
-input#metros {
-  /* font-size: clamp(1rem,10wv,3em); */
+.primer{
+  padding-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  
 }
+
+.segundo{
+  padding-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.tercero{
+  
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  width: 60%;
+  align-self: center;
+}
+.calculadora select{
+  width: 60%;
+  align-self: center;
+  border:none;
+  border-bottom: 1px solid white;
+  padding: 0.25em;
+  background: transparent;
+}
+
+
+
 
 .hab-item {
   display: flex;
