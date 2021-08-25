@@ -155,7 +155,7 @@ body {
 #hero {
   position: relative;
   overflow: hidden;
-  padding-top: 3rem;
+  padding-top: 4.5rem;
   background: rgb(8,79,255);
   background: linear-gradient(169deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
 }
@@ -164,22 +164,23 @@ body {
   position: absolute;
   inset: 0;
   background-color: transparent;
-  z-index: 2;
+  z-index: 3;
 }
 .hero__bg-img {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   bottom: -4px;
   left: -400px;
 
   -webkit-filter: invert(100%); /* Safari/Chrome */
   filter: invert(100%);
 
-  min-width: 100vw;
+  
 }
 
 .hero__bg-img img {
   object-fit: cover;
+  
 }
 
 .logo__title {
@@ -193,8 +194,7 @@ body {
 
 .title {
   margin: 0;
-  /* font-size: clamp(3.4rem, 16vw, 6rem); */
-  font-size: clamp(3.4rem, 16vw, 12rem);
+  font-size: clamp(2.6rem, 16vw, 12rem);
   font-family: "Black Ops One";
 }
 
@@ -203,12 +203,12 @@ body {
   height: clamp(50px, 16vw, 200px);
 }
 
+
 .presentation {
   position: relative;
   z-index: 4;
   text-align: center;
-
-  font-size: 3em;
+  font-size: 3.5rem;
   font-family: "PT Serif", serif;
   font-weight: 700;
 }
@@ -341,7 +341,7 @@ backdrop-filter: blur(7.2px);
 .habilidades .fas {
   padding: 0.5em;
   color: white;
-  background: var(--main-color);
+  background: rgba(8,79,255,.8) ;
   border-radius: 50%;
 }
 
@@ -355,7 +355,7 @@ backdrop-filter: blur(7.2px);
   padding: 9rem 0;
   position: relative;
   background: rgb(8,79,255);
-  background: linear-gradient(169deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
+  background: linear-gradient(180deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
 }
 #gallery {
   width: 100%;
@@ -371,7 +371,6 @@ backdrop-filter: blur(7.2px);
 }
 .gallery {
   display: flex;
- 
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -464,7 +463,7 @@ backdrop-filter: blur(7.2px);
   width: 100%;
   height: 2px;
   border-radius: 5px;
-  background-color: rgba(14, 68, 247, 0.5);
+  background: linear-gradient(180deg, rgba(8,79,255,.5) 12%, rgba(24,131,187,.5) 47%, rgba(155,197,255,.5) 100%);
 }
 
 .gallery__descript--grow::before {
@@ -491,7 +490,7 @@ backdrop-filter: blur(7.2px);
   content: "";
   display: block;
   position: absolute;
-  border-color: var(--main-color);
+  border-color: rgba(24,131,187,1);
   box-sizing: border-box;
   border-style: solid;
   width: 1em;
@@ -518,14 +517,14 @@ backdrop-filter: blur(7.2px);
 .gallery figure.on div a:focus:after {
   width: calc(100% + 12px);
   height: calc(100% + 12px);
-  border-color: var(--main-color);
+  border-color: rgba(24,131,187,.5);
 }
 
 .gallery figure.on div a:hover,
 .gallery figure.on div a:focus {
   color: white;
-  background-color: rgba(14, 20, 255, 0.43);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
+  background: rgba(24,131,187,.5) ;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 3px rgba(0, 0, 0, 0.5);
 }
 
 .wave-svg {
@@ -557,9 +556,28 @@ backdrop-filter: blur(7.2px);
  background-image: url("images/contact-img.jpg");
  background-size: cover;
  background-blend-mode: multiply;
+ position:relative;
 }
 
+.contact-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
 
+.contact-waves svg {
+  position: relative;
+  display: block;
+  width: calc(170% + 1.3px);
+  height: 63px;
+}
+
+.contact-waves .shape-fill {
+  fill: rgba(155,197,255,1);
+}
 .contact__methods{
   padding: 3.3rem;
   border-radius: 10px;
@@ -608,9 +626,7 @@ backdrop-filter: blur(7.2px);
     width: 93%;
   }
 
-  .hero__bg-img {
-    left: -800px;
-  }
+ 
   .habilidades {
     justify-content: flex-start !important;
     min-height: 400px;
@@ -618,6 +634,10 @@ backdrop-filter: blur(7.2px);
   .habilidades > div {
     transform: translateX(0) !important;
     height: 400px;
+  }
+
+  .contact__methods{
+    padding: 1.5rem;
   }
   
 }
@@ -675,8 +695,23 @@ backdrop-filter: blur(7.2px);
   .nav__open {
     display: flex;
   }
+  .presentation{
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
 }
+ /* %% HERO %% */
+
 @media (max-width: 1000px) {
+
+   /* %% HERO %% */
+
+   #hero{
+     padding-top: 20vh;
+   }
+
+   .hero__bg-img img{
+    width: max(200%,250vw);
+   }
   .calculator-flex {
     flex-direction: column;
     align-items: center;
@@ -709,7 +744,7 @@ backdrop-filter: blur(7.2px);
   }
 
   #gallery {
-    height: 90vh;
+    height: 100vh;
     width: 100%;
   }
 
@@ -719,7 +754,7 @@ backdrop-filter: blur(7.2px);
   }
 
   .gallery figure.on div {
-    font-size: clamp(1.5rem, 10vw, 2.5rem);
+    font-size: clamp(1.2rem, 8vw, 2.5rem);
     padding: 0.5em;
     width: 95%;
   }
@@ -732,7 +767,7 @@ backdrop-filter: blur(7.2px);
   .gallery figure.on div a {
     color: white;
     animation: galleryBgAuto 4s infinite ease-in-out;
-    border-color: var(--main-color);
+    border-color: rgba(24,131,187,.5);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
   }
 }
@@ -869,13 +904,13 @@ backdrop-filter: blur(7.2px);
     background: transparent;
   }
   50% {
-    background-color: rgba(14, 20, 255, 0.43);
+    background: rgba(24,131,187,.5);
   }
   80% {
-    background-color: rgba(14, 20, 255, 0.43);
+    background: rgba(24,131,187,.5);
   }
   100% {
-    background-color: transparent;
+    background: transparent;
   }
 }
 
