@@ -882,7 +882,7 @@ backdrop-filter: blur(7.2px);
 /* %%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
 
 .contact__item::after{
-  animation: transitionLeftRight 6s infinite ease-in-out;
+  animation: transitionLeftRight 7s infinite ease-in-out;
 }
 
 @keyframes transitionLeftRight {
