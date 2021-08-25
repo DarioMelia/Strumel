@@ -238,9 +238,8 @@ body {
 }
 
 .calculadora {
-  /* outline: 1px solid red;
-width:60%;
-height:600px; */
+  width:40%;
+  height:600px; 
   background: rgba(28, 31, 182, 0.9);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
@@ -253,9 +252,11 @@ height:600px; */
 }
 .form_calculator{
   display: flex;
-justify-content: center;
-line-height: 3px;
-  padding-top:3em;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  line-height: 3px;
+  
 
 
 }
