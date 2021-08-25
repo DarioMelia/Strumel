@@ -238,15 +238,15 @@ body {
 }
 
 .calculadora {
-  width:40%;
-  height:600px; 
+  width:30%;
+  height:400px; 
   background: rgba(28, 31, 182, 0.9);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 2px 79px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  outline: 30px solid blue;
+  
   
   
 }
