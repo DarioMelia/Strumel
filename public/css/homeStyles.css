@@ -549,8 +549,6 @@ input#metros {
   transform: scaleX(0);
   transform-origin: left;
   
- 
-  
 }
 
 .contact__item + .contact__item{
@@ -845,7 +843,7 @@ input#metros {
 /* %%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
 
 .contact__item::after{
-  animation: transitionLeftRight 6s infinite ease-in-out forwards;
+  animation: transitionLeftRight 6s infinite ease-in-out;
 }
 
 @keyframes transitionLeftRight {
@@ -865,11 +863,14 @@ input#metros {
 
   55%{
     transform: scaleX(1);
+    
   }
   85%{
     transform: scaleX(0);
+    
   }
   100%{
+    
     transform: scaleX(0);
   }
 }
