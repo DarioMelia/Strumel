@@ -220,6 +220,7 @@ body {
 .calculator-flex {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .habilidades {
@@ -527,12 +528,28 @@ input#metros {
 }
 
 .contact__item{
+  position:relative;
   display: flex;
   align-items: center;
+  width: fit-content;
   gap: 2vw;
+  padding: 1rem 0;
   font-size: clamp(.75rem, 4vw, 1.8rem);
 }
-.contact__item a{
+.contact__item::after{
+  content:"";
+  height: 2px;
+  box-shadow: 3x 3px 12px 5px rgba(255, 255, 255, 0.81);
+  width:100% ;
+  background: white;
+  position: absolute;
+  border-radius: 100%;
+  bottom:0;
+  left:0;
+  transform: scaleX(0);
+  transform-origin: left;
+  
+ 
   
 }
 
@@ -821,5 +838,38 @@ input#metros {
   }
   100% {
     background-color: transparent;
+  }
+}
+
+
+/* %%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
+
+.contact__item::after{
+  animation: transitionLeftRight 6s infinite ease-in-out forwards;
+}
+
+@keyframes transitionLeftRight {
+  0%{
+    bottom:0;
+    left:0;
+    transform: scaleX(0);
+  }
+
+  15%{
+    transform: scaleX(0);
+  }
+ 
+  45%{
+    transform: scaleX(1);
+  }
+
+  55%{
+    transform: scaleX(1);
+  }
+  85%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(0);
   }
 }
