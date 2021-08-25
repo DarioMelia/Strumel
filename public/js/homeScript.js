@@ -2,7 +2,8 @@
 AOS.init({                         //Iniciamos la librería para las animaciones de scroll.
     easing: 'ease-in-sine',
     duration: 400,
-    offset: 250           //acepta paramaetros
+    offset: 250,
+    mirror: true           //acepta paramaetros
   });
 
 // %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
