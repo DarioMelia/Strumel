@@ -55,6 +55,17 @@ crossorigin="anonymous"/>
       </ul>
     </nav>
 
+<!-- %%%%%%%%%%%%%%% HEADER %%%%%%%%%%%%%%%%%% -->
+<header class="header">
+  <div class="header__title">
+    <h2 class="title">Strumel</h2>
+  </div>
+  <div class="header__contact">
+    <i class="fas fa-phone"></i><h2 class="telefono"><a href="tel:+34634549959">618919454</a></h2>
+  </div>
+  
+</header>
+
 <!-- %%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%% -->
     
 <section id="hero" class="full-viewport">
@@ -65,6 +76,7 @@ crossorigin="anonymous"/>
         <img src="/css/images/obraBg3.png" alt="" />
       </div>
 
+    
 
       <div class="container">
           <!-- / LOGO / -->
@@ -139,33 +151,40 @@ crossorigin="anonymous"/>
 
            <!-- / CALCULADORA / --> 
 
-        <div class="calculadora" data-aos="fade-left">
+        <div class="calculadora" data-aos="fade-left" data-aos-delay="300">
           
-         <form>
+         <form class=form_calculator>
            <div class="calculadorita">
 
-               <label for="vivienda">Tipo De Vivienda</label>
-              <select id="vivienda">
+            
 
-                <option value="grande">Grande</option>
-               <option value="pequeña">Pequeña</option>
-               <option value="mediana">Mediana</option>
+                <label for="vivienda">Tipo De Vivienda</label>
+                 <select id="vivienda">
 
-              </select>
+                 <option value="grande">Grande</option>
+                 <option value="pequeña">Pequeña</option>
+                 <option value="mediana">Mediana</option>
+                
+                </select>
+                 
            
+               
+                 <label for="servicio">Tipo De Servicio</label>
+                 <select id="servicio">
+               
+                 <option value="reformas">Reformas</option>
+                 <option value="pintura">Pintura</option>
+                 <option value="obra-nueva">Obra Nueva</option>
+                 <option value="reparación">Reparación</option>
+                 <option value="fontanería">Fontanería</option>
+                 </select>
+                 
 
-               <label for="servicio">Tipo De Servicio</label>
-               <select id="servicio">
-               <option value="reformas">Reformas</option>
-               <option value="pintura">Pintura</option>
-               <option value="obra-nueva">Obra Nueva</option>
-               <option value="reparación">Reparación</option>
-               <option value="fontanería">Fontanería</option>
-               </select>
-             <!-- range slide -->
-               <p class="Metros">Metros</p>           
-              <input type="range" id="Metros" min="0" max="500">
-        
+               
+                     <!-- range slide -->
+               <label for="metros">Metros</label>           
+              <input type="range" id="metros" min="0" max="500">
+              
 
        
            </div>
@@ -220,7 +239,23 @@ crossorigin="anonymous"/>
         </div>
       </div>
     </section>
-    <section id="contacto" class="full-viewport"></section>
+    <section id="contacto">
+
+      <div class="container">
+        <div class="contact__methods">
+
+          <div class="contact__item">
+            <i class="fas fa-envelope"></i><h2><a href="mailto:dario@meliabasus.com">dario@meliabasus.com</a></h2>
+          </div>
+
+          <div class="contact__item">
+            <i class="fas fa-phone"></i><h2><a href="tel:+3466666666">618919454</a></h2>
+          </div>
+
+        </div>
+      </div>
+      
+    </section>
 
     <script src="js/particles/particles.js"></script>
     <script src="js/particles/particlesConfig.js"></script>

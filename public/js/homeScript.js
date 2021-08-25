@@ -2,12 +2,13 @@
 AOS.init({                         //Iniciamos la librería para las animaciones de scroll.
     easing: 'ease-in-sine',
     duration: 400,
-    offset: 300           //acepta paramaetros
+    offset: 250           //acepta paramaetros
   });
 
 // %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
 
 const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
+const header = document.querySelector(".logo__title");
 
 
 var observer = new IntersectionObserver(entries => {
@@ -33,10 +34,12 @@ var observer = new IntersectionObserver(entries => {
 }, { threshold: 0.7})
 
 
+
 observer.observe(document.getElementById("hero"));
 observer.observe(document.getElementById("habilidades-calculador"));
 observer.observe(document.getElementById("obras"));
 observer.observe(document.getElementById("contacto"));
+
 
 
 
