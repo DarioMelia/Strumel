@@ -251,9 +251,7 @@ body {
  
   align-self: center;
 
-  box-shadow:
-        0 0 20px black,
-        0 0 20px rgba(14, 68, 247, 0.5);
+  box-shadow: 8px 8px 20px 10px rgba(0,0,0,0.40);
   
   
 }
@@ -283,7 +281,7 @@ body {
   /* From https://css.glass */
 background: rgba(255, 255, 255, 0.2);
 border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 11px 11px 20px 10px rgba(0,0,0,0.29);
 backdrop-filter: blur(7.2px);
 -webkit-backdrop-filter: blur(7.2px);
 }
@@ -352,7 +350,7 @@ backdrop-filter: blur(7.2px);
 
 /* %%%%%%%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%%%%% */
 #obras {
-  padding: 9rem 0;
+  padding: 10rem 0;
   position: relative;
   background: rgb(8,79,255);
   background: linear-gradient(180deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
@@ -363,6 +361,7 @@ backdrop-filter: blur(7.2px);
   border-radius: 98px 4px 100px 4px;
   overflow: hidden;
   position: relative;
+  box-shadow: 11px 11px 20px 10px rgba(0,0,0,0.29);
 }
 #gallery:before {
   display: block;
@@ -381,6 +380,7 @@ backdrop-filter: blur(7.2px);
   bottom: 0;
   left: 0;
   right: 0;
+  
 }
 
 .gallery figure {
@@ -551,7 +551,7 @@ backdrop-filter: blur(7.2px);
 /* %%%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
 
 #contacto{
- padding: 8rem 0;
+ padding: 9rem 0;
  background-color: rgb(80, 80, 80);
  background-image: url("images/contact-img.jpg");
  background-size: cover;
@@ -581,7 +581,7 @@ backdrop-filter: blur(7.2px);
 .contact__methods{
   padding: 3.3rem;
   border-radius: 10px;
-  
+  box-shadow: 11px 11px 20px 10px rgba(0,0,0,0.29);
   color: white;
   background:rgba(197, 208, 243, 0.12);
   backdrop-filter: blur(6px);
