@@ -108,11 +108,17 @@ body {
   margin-top: 3.5rem;
 }
 
+
+
 .btns-edit {
   position: fixed;
   top: 10px;
   right: 10px;
+  
 }
+
+
+
 .edit__overlay {
   position: fixed;
   width: 100vw;
@@ -249,7 +255,7 @@ body {
 }
 
 @media (min-width: 1025px) {
-  .flex {
+  .admin-flex {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -262,8 +268,8 @@ body {
     gap: 10px;
     margin: 0;
   }
-
-  .title--submit {
+ 
+  .title.title--submit {
     margin: 0;
   }
 
@@ -288,11 +294,11 @@ body {
 
 @media (max-width: 450px) {
   .grid--obras {
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    grid-auto-rows: 270px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
   }
 
   .obra__overlay {
-    max-height: 270px;
+    max-height: 250px;
   }
 }
