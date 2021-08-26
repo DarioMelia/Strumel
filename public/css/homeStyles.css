@@ -26,6 +26,7 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
+  font-family: var(--main-ff);
 }
 .nav__list {
   transform-origin: center;
@@ -68,7 +69,6 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-
   border-bottom: 10px solid rgba(3, 3, 3, 0.7);
   transform: rotate(90deg);
   background: transparent;
@@ -126,7 +126,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   background-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(7px);
   border-radius: 5px;
@@ -171,11 +170,8 @@ body {
   z-index: 2;
   bottom: -4px;
   left: -400px;
-
   -webkit-filter: invert(100%); /* Safari/Chrome */
   filter: invert(100%);
-
-  
 }
 
 .hero__bg-img img {
@@ -248,19 +244,6 @@ body {
   padding: 1em 0;
 }
 
-.form_calculator{
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  line-height: 3px; */
-  /* padding: 0 2rem; */
-  
- 
-
-
-}
-
 .calculadorita {
   margin: 0 auto;
   width: 60%;
@@ -277,7 +260,6 @@ body {
   background-size: cover;
   border-radius: 16px;
   box-shadow: 6px 6px 12px 4px rgba(0,0,0,0.29);
-  /* backdrop-filter: blur(7.2px); */
 }
 
 .calculadorita label{
@@ -445,7 +427,6 @@ body {
 
 .gallery figure.on div {
   position: absolute;
-
   padding: 0.5em;
   display: flex;
   flex-direction: column;
@@ -453,7 +434,6 @@ body {
   font-size: 3rem;
   color: rgb(255, 255, 255);
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
-
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.11);
   border-radius: 16px;
