@@ -194,7 +194,7 @@ body {
 
 .title {
   margin: 0;
-  font-size: clamp(2.6rem, 16vw, 12rem);
+  font-size: clamp(2.6rem, 16vw, 9rem);
   font-family: "Black Ops One";
 }
 
@@ -217,6 +217,7 @@ body {
 #habilidades-calculador {
   padding: 1rem 0 4rem 0;
   overflow-x: hidden;
+  
 }
 .calculator-flex {
   display: flex;
@@ -282,6 +283,8 @@ body {
 .calculadorita label{
   text-align: left;
   width: auto;
+  transform: translateY(22%);
+  
 }
 
 .primer{
@@ -676,18 +679,12 @@ body {
     height: 400px;
   }
 
-  .calculadorita{
+  .calculadora .calculadorita{
     width: 92% !important;
     align-self: stretch;
     justify-content: center;
     font-size: min(1.5rem, 5vw);
     box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.29);
-  }
-
-  .primer,
-  .segundo,
-  .tercero{
-    width: 82%;
   }
 
   .contact__methods{
@@ -758,10 +755,15 @@ body {
 
    /* %% CALC HAB %% */
 
-   .calculadorita{
-     width: 90%;
+   .calculadora .calculadorita{
+     width: 85% !important;
      font-size: clamp(1.2rem, 8vw, 1.5rem) ;
-     
+   }
+
+   .primer,
+   .segundo,
+   .tercero{
+     width: 82% !important;
    }
 
 
@@ -805,7 +807,7 @@ body {
   }
 
   .calculadorita{
-    width: 800px;
+    width: 55% !important;
   }
 
 
@@ -859,6 +861,12 @@ body {
   .calculadorita{
     width: 75%;
   }
+
+  .primer,
+   .segundo,
+   .tercero{
+     width: 75%;
+   }
 }
 
 @media (min-width: 2000px) {
