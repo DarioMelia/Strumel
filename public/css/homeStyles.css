@@ -220,6 +220,7 @@ body {
 .presentation .wrap{
   font-size: .9em;
   font-weight: 500;
+  color: rgb(250, 250, 250);
 }
 
 /* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
@@ -627,6 +628,7 @@ body {
   align-items: center;
   justify-content: center;
   
+  
 }
 
 .contact__item{
@@ -681,12 +683,12 @@ body {
     min-height: 400px;
   }
   .habilidades > div {
-    transform: translateX(0) !important;
+    transform: translateX(4vw) !important;
     height: 400px;
   }
 
-  .calculadora .calculadorita{
-    width: 92% !important;
+  .calculadora div.calculadorita{
+    width: 91% !important;
     align-self: stretch;
     justify-content: center;
     font-size: min(1.5rem, 5vw);
@@ -767,7 +769,7 @@ body {
 
    .calculadora .calculadorita{
      width: 85% !important;
-     font-size: clamp(1.2rem, 8vw, 1.5rem) ;
+     font-size: clamp(1.3rem, 8vw, 1.5rem) ;
    }
 
    .primer,
