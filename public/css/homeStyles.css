@@ -237,23 +237,74 @@ body {
 }
 
 .hero__btn{
-  padding: .6em .8em;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
+  padding: .3em .4em;
+  box-sizing: border-box;
+  height: auto;
+  background: rgba(253, 253, 253, 0);
+  backdrop-filter: blur(1px);
   font-size: clamp(1rem, 5vw, 1.5rem);
-  color: rgb(20, 20, 20);
+  color: rgb(0, 0, 0);
+  font-family: var(--second-ff);
+  font-weight: 500;
+}
+
+
+.hero__btn--conocenos{
+  border: none;
+  }
+  
+a.hero__btn--galeria {
+    color: rgb(0, 0, 0);
+    display: inline-block;
+  }
+
+.hero__btn:before,
+.hero__btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-color: black;
+  border-style: solid;
+  width: 1em;
+  height: 1em;
+  transition: all 400ms ease-in-out;
+}
+
+.hero__btn--conocenos:before {
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
   
 }
 
-button.hero__btn{
-border: none;
-
+.hero__btn--conocenos:after {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
 }
 
-a.hero__btn{
-  color: rgb(20, 20, 20);
-
+.hero__btn--galeria:before {
+  bottom: -6px;
+  left: -6px;
+  border-width: 0 0 2px 2px;
+  
 }
+
+.hero__btn--galeria:after {
+  top: -6px;
+  right: -6px;
+  border-width: 2px 2px 0 0;
+}
+
+
+.hero__btn:hover:before,
+.hero__btn:hover:after,
+.hero__btn:focus:before,
+.hero__btn:focus:after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+}
+
 
 /* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
 #habilidades-calculador {
@@ -705,11 +756,45 @@ a.hero__btn{
 /* %%%%% MEDIAQUERIES %%%%%% */
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
+@media (hover: none) {
+  .gallery figure.on div a::before,
+  .gallery figure.on div a::after{
+    animation: galleryBtnAuto 4s infinite ease-in-out;
+  }
+
+  .hero__btn::after,
+  .hero__btn::before {
+    animation: galleryBtnAuto 8s infinite ease-in-out;
+  }
+
+  .gallery figure.on div a {
+    color: white;
+    animation: galleryBgAuto 4s infinite ease-in-out;
+    border-color: rgba(24,131,187,.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  
+  .contact__item::after{
+    transform-origin: inherit;
+    animation: transitionLeftRight 7s infinite ease-in-out;
+  }
+  .contact__item:nth-child(2):after{
+    animation-delay: 3.5s;
+  }
+}
+
 @media (max-width: 450px) {
   .container {
     width: 93%;
   }
 
+  .hero__btns{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
  
   .habilidades {
     justify-content: flex-start !important;
@@ -879,27 +964,8 @@ a.hero__btn{
     width: 95%;
   }
 
-  .gallery figure.on div a:before,
-  .gallery figure.on div a:after {
-    animation: galleryBtnAuto 4s infinite ease-in-out;
-  }
-
-  .gallery figure.on div a {
-    color: white;
-    animation: galleryBgAuto 4s infinite ease-in-out;
-    border-color: rgba(24,131,187,.5);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
-  }
-
   /* %% CONTACT %% */
 
-  .contact__item::after{
-    transform-origin: inherit;
-    animation: transitionLeftRight 7s infinite ease-in-out;
-  }
-  .contact__item:nth-child(2):after{
-    animation-delay: 3.5s;
-  }
 }
 @media (max-width: 1400px) {
   .habilidades,
@@ -1021,11 +1087,11 @@ a.hero__btn{
     width: 1em;
     height: 1em;
   }
-  50% {
+  45% {
     width: calc(100% + 12px);
     height: calc(100% + 12px);
   }
-  80% {
+  85% {
     width: calc(100% + 12px);
     height: calc(100% + 12px);
   }
