@@ -50,8 +50,8 @@ select{
   margin-top: 1.5rem;
 }
 .logo__title img {
-  width: clamp(60px, 16vw, 100px);
-  height: clamp(60px, 16vw, 100px);
+  width: clamp(60px, 16vw, 90px);
+  height: clamp(60px, 16vw, 90px);
 }
 
 .title {
