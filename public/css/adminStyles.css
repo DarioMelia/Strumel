@@ -218,7 +218,6 @@ body {
   display: block;
   position: absolute;
   border-color: var(--login-color);
-  box-sizing: border-box;
   border-style: solid;
   width: 1em;
   height: 1em;
