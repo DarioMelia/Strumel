@@ -19,58 +19,8 @@ body {
 .form-label {
   font-size: clamp(1.3em, 4.5vw, 1.6em);
 }
-.grid--obras {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-auto-rows: 400px;
-  gap: 10px;
-}
 
-.obra__box {
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: 1;
-  grid-template-rows: 1;
-}
-
-.obra__box img {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.obra__overlay {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  max-height: 400px;
-
-  background: rgba(212, 161, 23, 0.6);
-  position: relative;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  transition: transform 300ms ease-in-out;
-  transform: translateY(100%);
-}
-
-.obra__overlay h2 {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 20ch;
-}
-
-.obra__overlay--inner {
-  text-align: center;
-  color: whitesmoke;
-}
-
-.obra__box:hover .obra__overlay {
-  transform: translateY(-0%);
-}
+/* %%% GRID EN UTILITY CLASSES %%% */
 
 #submit {
   display: flex;
@@ -291,13 +241,4 @@ body {
   }
 }
 
-@media (max-width: 450px) {
-  .grid--obras {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 250px;
-  }
 
-  .obra__overlay {
-    max-height: 250px;
-  }
-}

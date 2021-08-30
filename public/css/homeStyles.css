@@ -1,15 +1,4 @@
-:root {
-  --main-color: rgb(45, 79, 192);
-  --second-color: rgb(187, 133, 17);
-  --accent-color: rgb(165, 13, 170);
 
-  --main-ff: "Open Sans", sans-serif;
-  --second-ff: 'Montserrat', sans-serif;
-  --title-ff: "Black Ops One";
-
-  --section-padding: clamp(1.5rem, 15vw, 2.5rem);
-  scroll-behavior: smooth;
-}
 
 body {
   width: calc(100vw - (100vw - 100%));
@@ -118,41 +107,7 @@ body {
   bottom: -6px;
 }
 
-/* %%%%%%%%%%%%%%%%%%% HEADER %%%%%%%%%%%%%%%%%%%%%%% */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 6;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(7px);
-  border-radius: 5px;
-  padding: 0.5em 3vw;
-  transition: top 0.4s ease-in-out;
-}
 
-
-
-.header__contact {
-  display: flex;
-  align-items: center;
-  font-family: var(--second-ff);
-  font-size: .9em;
-  gap: 4px;
-}
-
-.header .title {
-  font-size: 1.4rem;
-}
-
-
-.telefono a{
-  color: black;
-}
 
 /* %%%%%%%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%%%%%%%% */
 
