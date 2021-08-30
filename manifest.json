@@ -1,0 +1,17 @@
+{
+    "name": "Strumel",
+    "short_name": "Strumel",
+    "icons": [{
+        "src": "/public/css/svg/logo.svg",
+        "sizes": "512x512"
+    }],
+    "start_url": "/",
+    "scope": "/",
+    "display": "fullscreen",
+    "orientation": "portrait-primary",
+    "background-color": "rgb(24,131,187)",
+    "theme-color": "rgb(24,131,187)",
+    "description": "Construcciones, reformas y estructuras metálicas en Madrid",
+    "dir": "ltr",
+    "lang": "es"
+}

@@ -9,7 +9,7 @@ const app = express();
 
 const homeRoutes = require("./routes/home.js");
 const adminRoutes = require("./routes/admin.js");
-const obrasRoutes = require("./routes/obras.js");
+
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended:true}));
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 3000
 
 app.use("/", homeRoutes);
 app.use("/admin", adminRoutes);
-app.use("/obras", obrasRoutes);
+
 
 
 mongoose.connect(process.env.DB_URL,{useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false})

@@ -382,6 +382,7 @@ a.hero__btn--galeria {
   border-radius: 5px;
   align-self: center;
   padding: 1em 0;
+  text-align: center;
 }
 
 .calculadorita {
@@ -436,6 +437,12 @@ a.hero__btn--galeria {
   background: rgba(39, 43, 250,.5);
   backdrop-filter: blur(6px);
   margin-top: -5px;
+}
+
+.calculadora h2{
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .calculadora-btn{
@@ -794,7 +801,8 @@ a.hero__btn--galeria {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.4rem;
+    bottom: 18%;
   }
  
   .habilidades {
