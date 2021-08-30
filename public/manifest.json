@@ -2,7 +2,7 @@
     "name": "Strumel",
     "short_name": "Strumel",
     "icons": [{
-        "src": "/public/css/svg/logo.svg",
+        "src": "/css/svg/logo.svg",
         "sizes": "512x512"
     }],
     "start_url": "/",
