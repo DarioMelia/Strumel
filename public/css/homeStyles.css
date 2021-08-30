@@ -396,7 +396,7 @@ a.hero__btn--galeria {
 
 .calculadora h2{
   margin-bottom: 1rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -494,11 +494,12 @@ a.hero__btn--galeria {
   justify-content: center;
   z-index: 5;
   filter: saturate(100%);
-  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 8px 2px 18px -3px rgba(0,0,0,0);
+  box-shadow: -15px 0px 13px -7px #3b3b3b, 15px 0px 13px -7px #3b3b3b, 8px 2px 18px -3px rgba(0,0,0,0);
 }
 
 .gallery figure.on div {
   position: absolute;
+  max-width: 95%;
   padding: 0.5em;
   display: flex;
   flex-direction: column;
@@ -775,6 +776,10 @@ a.hero__btn--galeria {
     justify-content: center;
     font-size: min(1.5rem, 5vw);
     box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.29);
+  }
+
+  .calculadora h2{
+    font-size: 1.65rem;
   }
 
   .contact__methods{
