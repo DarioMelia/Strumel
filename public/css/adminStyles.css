@@ -20,6 +20,8 @@ body {
   font-size: clamp(1.3em, 4.5vw, 1.6em);
 }
 
+
+
 /* %%% GRID EN UTILITY CLASSES %%% */
 
 #submit {
@@ -58,13 +60,15 @@ body {
   margin-top: 3.5rem;
 }
 
-
+.btns-edit img{
+  height: 35px;
+  width: 35px;
+}
 
 .btns-edit {
   position: fixed;
   top: 10px;
   right: 10px;
-  
 }
 
 
@@ -72,11 +76,11 @@ body {
 .edit__overlay {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background: rgba(0, 0, 0, 0.7);
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   display: none;
   z-index: 2;
@@ -100,10 +104,16 @@ body {
 
 .edit__overlay__inner {
   padding: 1.5rem clamp(1rem, 8vw, 2.5rem);
+  font-size: clamp(.8rem, 4vw, 1.4rem);
   position: relative;
   border-radius: 10px;
   background-color: lightgray;
   width: 90vw;
+}
+
+.edit__overlay__inner input,
+.edit__overlay__inner textarea{
+  font-size: clamp(.8rem, 4vw, 1.4rem);
 }
 
 /* %%%%%%%%%%%%%%%%%%% LOGIN %%%%%%%%%%%%%%%%%%%%%%%%% */
@@ -126,6 +136,17 @@ body {
 @media (max-width: 450px){
   .login__form{
     grid-template-columns: 1fr;
+  }
+
+  .btns-edit{
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    top: inherit;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
   }
 }
 
@@ -210,6 +231,8 @@ body {
   background-color: var(--login-color);
   border-color: var(--login-color);
 }
+
+
 
 @media (min-width: 1025px) {
   .admin-flex {
