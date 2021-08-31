@@ -68,7 +68,7 @@ select{
   margin: 0 auto;
   font-family: var(--title-ff);
   font-weight: 600;
-  font-size: clamp(4.5rem, 22vw, 6rem);
+  font-size: clamp(3.2rem, 15vw, 5.3rem);
   position: relative;
 }
 
