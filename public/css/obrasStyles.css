@@ -15,7 +15,15 @@
   
 .obra__overlay {
     max-height: 600px;
+    font-size: clamp(1rem, 8vw, 1.5rem);
+    font-family: var(--second-ff);
+    
   }
+
+.obra__overlay h2{
+  max-width: 40ch;
+  font-size: 1em;
+}
 
   
 @media (max-width: 450px) {
@@ -26,5 +34,8 @@
   
     .obra__overlay {
       max-height: 250px;
+    }
+    .obra__overlay h2{
+      max-width: 20ch;
     }
   }
