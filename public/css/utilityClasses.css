@@ -142,16 +142,20 @@ select{
   max-height: 400px;
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
+  font-size: clamp(.8rem, 4vw, 1.3rem);
+  font-family: var(--second-ff);
 
   position: relative;
   display: grid;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   transition: transform 300ms ease-in-out;
   transform: translateY(100%);
 }
 
-.obra__overlay h2 {
+
+.obra__overlay--inner h2 {
+  font-size: 1.1em;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -159,8 +163,11 @@ select{
   max-width: 20ch;
 }
 
+
 .obra__overlay--inner {
+  width: 90%;
   text-align: center;
+  justify-self: center;
   color: whitesmoke;
 }
 
@@ -180,5 +187,8 @@ select{
 
   .container{
     width: 95%;
+  }
+  .obra__overlay h2{
+    max-width: 20ch !important;
   }
 }
