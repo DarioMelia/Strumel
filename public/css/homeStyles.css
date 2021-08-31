@@ -375,10 +375,20 @@ a.hero__btn--galeria {
 
 .tercero input[type=range]{
   -webkit-appearance: none;
-}
-.tercero input[type=range]::-webkit-slider-runnable-track {
+  position: relative;
+  width: 100%; /* Specific width is required for Firefox. */
   background: linear-gradient(90deg, rgba(0,134,255,.7) 0%, rgba(127,201,255,.7) 100%);
   border: none;
+  border-radius: 6px;
+  height: 5px;
+}
+
+.tercero input[type=range]::-webkit-slider-runnable-track,
+.tercero input[type=range]::-ms-track,
+.tercero input[type=range]::-moz-range-track {
+  background: linear-gradient(90deg, rgba(0,134,255,.7) 0%, rgba(127,201,255,.7) 100%);
+  border: none;
+  width: 100%;
   border-radius: 6px;
   height: 5px;
 }
@@ -391,8 +401,18 @@ a.hero__btn--galeria {
   border-radius: 50%;
   background: rgba(39, 43, 250,.5);
   backdrop-filter: blur(6px);
-  margin-top: -5px;
 }
+
+.tercero input[type=range]::-moz-range-thumb {
+  position: absolute;
+  z-index: 4;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgba(89, 29, 230, 0.9);
+}
+
 
 .calculadora h2{
   margin-bottom: 1rem;
@@ -1126,3 +1146,4 @@ a.hero__btn--galeria {
     transform-origin: right;  
   }
 }
+
