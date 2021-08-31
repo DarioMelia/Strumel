@@ -116,9 +116,17 @@ body {
 
 .login__form {
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 0.85fr;
+  justify-content: center;
+  grid-auto-rows: .8fr;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+@media (max-width: 450px){
+  .login__form{
+    grid-template-columns: 1fr;
+  }
 }
 
 .login__input {

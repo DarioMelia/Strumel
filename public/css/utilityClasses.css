@@ -68,7 +68,7 @@ select{
   margin: 0 auto;
   font-family: var(--title-ff);
   font-weight: 600;
-  font-size: clamp(3.2rem, 15vw, 5.3rem);
+  font-size: clamp(3rem, 15vw, 5.6rem);
   position: relative;
 }
 
@@ -170,11 +170,15 @@ select{
 
 @media (max-width: 450px) {
   .grid--obras {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 250px;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-auto-rows: 245px;
   }
 
   .obra__overlay {
-    max-height: 250px;
+    max-height: 245px;
+  }
+
+  .container{
+    width: 95%;
   }
 }
