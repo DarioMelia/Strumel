@@ -66,7 +66,8 @@ body {
 }
 
 @media (min-width: 750px) {
-  .nav__item:hover .nav__link {
+  .nav__item:hover .nav__link,
+  .nav__item:focus .nav__link {
     opacity: 1;
     transform: translateX(-140%);
   }
@@ -433,17 +434,23 @@ a.hero__btn--galeria {
   transition: transform 230ms ease-in, border-radius 230ms ease-in-out;
 }
 
-.calculadora-btn:hover{
+.calculadora-btn:hover,
+.calculadora-btn:focus{
   transform: scale(1.05);
   border-radius:.1em .7em .1em .7em;
 }
 .calculadora select{
   width: 100%;
   border:none;
+  outline: none !important;
   border-bottom: 2px solid rgb(73, 158, 255);
   padding: 0.25em;
   background: transparent;
   font-size: .65em;
+}
+
+.calculadora select:focus{
+  background: rgba(176, 215, 252, 0.767);
 }
 
 .calculadora hr{
@@ -517,7 +524,7 @@ a.hero__btn--galeria {
   box-shadow: -15px 0px 13px -7px #3b3b3b, 15px 0px 13px -7px #3b3b3b, 8px 2px 18px -3px rgba(0,0,0,0);
 }
 
-.gallery figure.on div {
+.gallery figure.on >div {
   position: absolute;
   max-width: 95%;
   padding: 0.5em;
@@ -534,7 +541,7 @@ a.hero__btn--galeria {
   backdrop-filter: blur(3.8px);
 }
 
-.gallery figure:not(.on) div {
+.gallery figure:not(.on) >div {
   display: none;
 }
 .gallery figure.on div h2 {
@@ -575,8 +582,11 @@ a.hero__btn--galeria {
   backdrop-filter: blur(3.2px);
   height: calc(100% + 9px);
 }
-.gallery figure.on div a {
+.gallery figure.on div button {
   color: #fff;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.8em;
@@ -589,8 +599,8 @@ a.hero__btn--galeria {
   transition: all 0.3s ease-in-out;
   text-align: center;
 }
-.gallery figure.on div a:before,
-.gallery figure.on div a:after {
+.gallery figure.on div button:before,
+.gallery figure.on div button:after {
   content: "";
   display: block;
   position: absolute;
@@ -602,34 +612,40 @@ a.hero__btn--galeria {
   transition: all 0.3s ease-in-out;
 }
 
-.gallery figure.on div a:before {
+.gallery figure.on div button:before {
   top: -6px;
   left: -6px;
   border-width: 2px 0 0 2px;
   z-index: 5;
 }
 
-.gallery figure.on div a:after {
+.gallery figure.on div button:after {
   bottom: -6px;
   right: -6px;
   border-width: 0 2px 2px 0;
 }
 
-.gallery figure.on div a:hover:before,
-.gallery figure.on div a:hover:after,
-.gallery figure.on div a:focus:before,
-.gallery figure.on div a:focus:after {
+.gallery figure.on div button:hover:before,
+.gallery figure.on div button:hover:after,
+.gallery figure.on div button:focus:before,
+.gallery figure.on div button:focus:after {
   width: calc(100% + 12px);
   height: calc(100% + 12px);
   border-color: rgba(24,131,187,.5);
 }
 
-.gallery figure.on div a:hover,
-.gallery figure.on div a:focus {
+.gallery figure.on div button:hover,
+.gallery figure.on div button:focus {
   color: white;
   background: rgba(24,131,187,.5) ;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 3px rgba(0, 0, 0, 0.5);
 }
+
+.obra-info{
+ position: absolute;
+ display: none;
+}
+
 
 .wave-svg {
   position: absolute;
@@ -728,7 +744,8 @@ a.hero__btn--galeria {
   
 }
 
-.contact__item:hover.contact__item::after{
+.contact__item:hover.contact__item::after,
+.contact__item:focus.contact__item::after{
   transform-origin: left;
   transform: scaleX(1);
 }
@@ -741,8 +758,8 @@ a.hero__btn--galeria {
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 @media (hover: none) {
-  .gallery figure.on div a::before,
-  .gallery figure.on div a::after{
+  .gallery figure.on div button::before,
+  .gallery figure.on div button::after{
     animation: galleryBtnAuto 4s infinite ease-in-out;
   }
 
@@ -751,7 +768,7 @@ a.hero__btn--galeria {
     animation: galleryBtnAuto 8s infinite ease-in-out;
   }
 
-  .gallery figure.on div a {
+  .gallery figure.on div button {
     color: white;
     animation: galleryBgAuto 4s infinite ease-in-out;
     border-color: rgba(24,131,187,.5);
@@ -947,7 +964,7 @@ a.hero__btn--galeria {
     height: 10%;
   }
 
-  .gallery figure.on div {
+  .gallery figure.on >div {
     font-size: clamp(1.2rem, 8vw, 2.5rem);
     padding: 0.5em;
     width: 95%;

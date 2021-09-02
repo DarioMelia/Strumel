@@ -87,6 +87,9 @@ TxtType.prototype.tick = function() {
     }, delta);
 };
 
+const figures = document.querySelectorAll(".gallery figure");         //Gallery consts
+const descriptions = document.querySelectorAll(".gallery__descript"); //Gallery consts
+
 window.onload = function() {
     var elements = document.getElementsByClassName('typewrite');
     for (var i=0; i<elements.length; i++) {
@@ -101,6 +104,54 @@ window.onload = function() {
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
+
+   
+    
+   // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%     
+        var item = 0,
+          itemNo = figures.length;
+    console.log("itemNo:" + itemNo)
+        function transitionSlide() {
+          item++;
+          if (item > itemNo - 1) {
+            item = 0;
+          }
+    
+         handleClassChanges(item);
+    
+        }
+      
+        var autoTransition = setInterval(transitionSlide, 9000);
+      
+        figures.forEach(figure => {
+            figure.addEventListener("click", (e) => {
+                clearInterval(autoTransition);
+                var figuresArray = Array.prototype.slice.call( document.querySelector(".gallery").children);
+                console.log(figuresArray);
+                console.log(e.target.parentElement)
+                item = figuresArray.indexOf(e.target.parentElement);
+                console.log("clickItem:" + item);
+               handleClassChanges(item);
+    
+                autoTransition = setInterval(transitionSlide, 9000);
+            })
+        })
+    
+        function handleClassChanges(item){
+            figures.forEach(figure => {
+                figure.classList.remove("on");
+            });
+        
+            descriptions.forEach(description => {
+              description.classList.remove("gallery__descript--grow");
+            });
+        
+            figures[item].classList.add("on");
+        
+            setTimeout(() => {
+                descriptions[item].classList.add("gallery__descript--grow");
+            }, 250);
+          }
 };
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
@@ -142,52 +193,6 @@ if(navList.classList.contains("grow")){
 
 
 
-// %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%
-
-$(document).ready(function() {
-    var item = 0,
-      itemNo = $(".gallery figure").length;
-    function transitionSlide() {
-      item++;
-      if (item > itemNo - 1) {
-        item = 0;
-      }
-      $(".gallery figure").removeClass("on");
-      $(".gallery__descript").removeClass("gallery__descript--grow");
-    
-
-      $(".gallery figure")
-        .eq(item)
-        .addClass("on");
-
-        setTimeout(() => {
-            $(".gallery__descript")
-            .eq(item)
-            .addClass("gallery__descript--grow");
-        }, 250);
-
-    }
-  
-    var autoTransition = setInterval(transitionSlide, 9000);
-  
-    $(".gallery figure").click(function() {
-        console.log("!pinchao")
-      clearInterval(autoTransition);
-      item = $(this).index();
-      $(".gallery figure").removeClass("on");
-      $(".gallery__descript").removeClass("gallery__descript--grow");
-      
-      $(".gallery figure")
-        .eq(item)
-        .addClass("on");
 
 
-        setTimeout(() => {
-            $(".gallery__descript")
-            .eq(item)
-            .addClass("gallery__descript--grow");
-        }, 250);
-      
-      autoTransition = setInterval(transitionSlide, 9000);
-    });
-  });
+ 
