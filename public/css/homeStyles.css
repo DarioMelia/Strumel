@@ -666,22 +666,28 @@ a.hero__btn--galeria {
 
 .obra-info--inner{
   font-size: clamp(1rem, 5vw, 1.7rem);
-  background: rgba(255, 255, 255, 0.11);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.281);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.8px);
   display: grid;
-  gap: 1.2rem;
+  gap: 2rem;
   justify-items: center;
   grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr ;
   color: white;
-  max-width: 95%;
+  max-width: 85%;
+  max-height: 95vh;
 }
 
 .obra-info__img{
-  max-height: 65vh;
-  width: 90%;
+  max-height: 60vh;
+  justify-self: center;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
 }
 .obra-info--inner img{
   height: 100%;
@@ -690,16 +696,29 @@ a.hero__btn--galeria {
 }
 
 .obra-info--inner p{
+  margin-top: 1rem;
   font-size: .85em;
 }
 
 .obra-info--inner .contenido-scroll{
   max-width: 70%;
-  max-height: 25vh;
+  max-height: 100%;
   overflow-y: auto;
+  scrollbar-color: white grey;
+  scrollbar-width: thin;
 }
 
+.contenido-scroll::-webkit-scrollbar,
+.contenido-scroll::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
 
+.contenido-scroll::-webkit-scrollbar-thumb {        
+  box-shadow: inset 0 0 0 10px;
+}
 
 .obra-info--close{
   border: none;
@@ -890,14 +909,10 @@ a.hero__btn--galeria {
 
   /* %%%%% GALERIA %%%% */
   .obra-info--inner{
-    width: 95%;
+    max-width: 95% !important;
+    padding: 1rem;
+    grid-template-rows: 8fr 6fr;
   }
-
-  .obra-info__img{
-    max-height: 45vh;
-  }
-
-  
 }
 
 @media (max-width: 750px) {
@@ -1044,9 +1059,12 @@ a.hero__btn--galeria {
   }
 
     /* %%%%% GALERRY OVERLAY %%%% */
-
+    .obra-info--inner{
+      text-align: left;
+    }
     .obra-info--inner .contenido-scroll{
       max-width:100%;
+      text-align: left;
     }
 
     .obra-info__img{
