@@ -526,6 +526,7 @@ a.hero__btn--galeria {
 
 .gallery figure.on >div {
   position: absolute;
+  pointer-events: none;
   max-width: 95%;
   padding: 0.5em;
   display: flex;
@@ -584,6 +585,7 @@ a.hero__btn--galeria {
 }
 .gallery figure.on div button {
   color: #fff;
+  pointer-events: auto;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -643,8 +645,71 @@ a.hero__btn--galeria {
 
 .obra-info{
  position: absolute;
- display: none;
+ transform: scale(0);
+ transition: transform 400ms ease-in-out;
+ inset: 0;
+ width: 100vw;
+ height: 100vh;
+ background: rgba(0, 0, 0, 0.699);
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
+
+.obra-info.open{
+  position: fixed;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+  z-index: 20;
+}
+
+
+.obra-info--inner{
+  font-size: clamp(1rem, 5vw, 1.7rem);
+  background: rgba(255, 255, 255, 0.11);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.8px);
+  display: grid;
+  gap: 1.2rem;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  color: white;
+  max-width: 95%;
+}
+
+.obra-info__img{
+  max-height: 65vh;
+  width: 90%;
+}
+.obra-info--inner img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.obra-info--inner p{
+  font-size: .85em;
+}
+
+.obra-info--inner .contenido-scroll{
+  max-width: 70%;
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+
+
+.obra-info--close{
+  border: none;
+  background: transparent;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 10px;
+  right: 10px;
+}
+
 
 
 .wave-svg {
@@ -823,6 +888,15 @@ a.hero__btn--galeria {
     padding: 1.5rem;
   }
 
+  /* %%%%% GALERIA %%%% */
+  .obra-info--inner{
+    width: 95%;
+  }
+
+  .obra-info__img{
+    max-height: 45vh;
+  }
+
   
 }
 
@@ -903,7 +977,6 @@ a.hero__btn--galeria {
      width: 82% !important;
    }
 
-
 }
  
 
@@ -969,6 +1042,16 @@ a.hero__btn--galeria {
     padding: 0.5em;
     width: 95%;
   }
+
+    /* %%%%% GALERRY OVERLAY %%%% */
+
+    .obra-info--inner .contenido-scroll{
+      max-width:100%;
+    }
+
+    .obra-info__img{
+      width: auto;
+    }
 
   /* %% CONTACT %% */
 

@@ -127,13 +127,14 @@ window.onload = function() {
             figure.addEventListener("click", (e) => {
                 clearInterval(autoTransition);
                 var figuresArray = Array.prototype.slice.call( document.querySelector(".gallery").children);
-                console.log(figuresArray);
-                console.log(e.target.parentElement)
+
                 item = figuresArray.indexOf(e.target.parentElement);
-                console.log("clickItem:" + item);
-               handleClassChanges(item);
-    
+
+            if(e.target.type != "submit"){
+                handleClassChanges(item);
                 autoTransition = setInterval(transitionSlide, 9000);
+            }
+               
             })
         })
     
@@ -191,7 +192,32 @@ if(navList.classList.contains("grow")){
 
 })
 
+// %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
 
+const galleryBtns = document.querySelectorAll(".gallery__btn button");
+const obraOverlays = document.querySelectorAll(".obra-info");
+const closeBtns = document.querySelectorAll(".obra-info--close");
+
+galleryBtns.forEach(btn => {
+    btn.addEventListener("click", obraOverlayHandler);
+})
+
+closeBtns.forEach(btn => {
+    btn.addEventListener("click", closeHandler);
+})
+
+
+function obraOverlayHandler(e){
+    console.log(e.target);
+    const index = parseInt(e.target.name, 10);
+    obraOverlays[index].classList.add("open");
+}
+
+function closeHandler(e){
+    const index = parseInt(e.target.parentElement.name, 10);
+    
+    obraOverlays[index].classList.remove("open");
+}
 
 
 

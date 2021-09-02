@@ -220,14 +220,7 @@
                   <%}else{%>
                     <p class="gallery__descript"><%= obra.resumen %></p>
                   <%}%>                                                                      
-                  <p class="gallery__btn"><button>Saber más</button></p>
-
-                 <!-- %%% OBRA OVERLAY %%% -->
-                  <div class="obra-info">
-                   <div class="obra-info--inner">
-                    <h2>hola</h2>
-                  </div>
-                 </div>
+                  <p class="gallery__btn"><button name="<%= i %>">Saber más</button></p>
 
                 </div>
                
@@ -240,6 +233,30 @@
           </div>
         </div>
       </div>
+      <!-- %%% OBRA OVERLAY %%% -->
+        <% obras.forEach((obra, i)=> { %>
+          <div class="obra-info">
+            <div class="obra-info--inner">
+
+              <button class="obra-info--close" name=<%= i %>>
+                <i class="far fa-times-circle"></i>
+              </button>
+
+             <div class="obra-info__img">
+               <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>">
+              </div>
+
+             <h3><%= obra.resumen %></h3>
+             <div class="contenido-scroll">
+               <p><%= obra.contenido %></p>
+             </div>
+
+           </div>
+          </div>
+
+        <% }) %>
+         
+        
     </section>
 
 
