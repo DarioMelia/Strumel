@@ -667,7 +667,7 @@ a.hero__btn--galeria {
 
 
 .obra-info--inner{
-  font-size: clamp(1rem, 5vw, 1.7rem);
+  font-size: clamp(1rem, 5vw, 1.6rem);
   position: relative;
   text-align: center;
   background: rgba(255, 255, 255, 0.281);

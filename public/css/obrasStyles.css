@@ -23,6 +23,35 @@
   max-width: 25ch;
   
 }
+.toggle-overlay{
+  height:40px;
+  width: 40px;
+  border-radius: 50%;
+  
+  position: absolute;
+  display:flex;
+  background: rgba(247, 247, 247, 0) ;
+  backdrop-filter: blur(2px);
+  align-items: center;
+  justify-content: center;
+  top:5px;
+  right: 5px;
+}
+.toggle-overlay::after,
+.toggle-overlay::before{
+  position: absolute;
+  transform-origin: center;
+  content:"";
+  width: 20px;
+  height: 3px;
+  background: rgb(255, 255, 255);
+}
+
+.toggle-overlay::before{
+  transform: rotate(90deg);
+}
+
+
 
   
 @media (max-width: 450px) {

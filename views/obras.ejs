@@ -7,6 +7,7 @@
             <%obras.forEach(obra => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                 <div class="obra__box" data-aos="fade-up">
                         <img src="<%=obra.imgUrl%>" alt="<%=obra.titulo%>">
+                        <span class="toggle-overlay"></span>
                         <div class="obra__overlay">
                             <div class="obra__overlay--inner">
                                 <h1><%=obra.titulo%></h1>
@@ -19,12 +20,6 @@
         </div>
     </section>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({                         //Iniciamos la librería para las animaciones de scroll.
-    easing: 'ease-in-sine',
-    duration: 400,
-    offset: 150
-  });
-    </script>
+    <script src="/js/obraScript.js"></script>
 </body>
 </html>
