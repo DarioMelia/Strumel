@@ -197,6 +197,7 @@ body {
   padding: .3em .4em;
   box-sizing: border-box;
   height: auto;
+  position: relative;
   background: rgba(253, 253, 253, 0);
   backdrop-filter: blur(1px);
   font-size: clamp(1rem, 5vw, 1.5rem);
@@ -646,7 +647,8 @@ a.hero__btn--galeria {
 .obra-info{
  position: absolute;
  transform: scale(0);
- transition: transform 400ms ease-in-out;
+ opacity: 0;
+ transition: opacity 300ms ease-in, transform 400ms ease-in-out;
  inset: 0;
  width: 100vw;
  height: 100vh;
@@ -659,13 +661,14 @@ a.hero__btn--galeria {
 .obra-info.open{
   position: fixed;
   transform: scale(1);
-  transition: transform 300ms ease-in-out;
+  opacity: 1;
   z-index: 20;
 }
 
 
 .obra-info--inner{
   font-size: clamp(1rem, 5vw, 1.7rem);
+  position: relative;
   text-align: center;
   background: rgba(255, 255, 255, 0.281);
   padding: 2rem;
@@ -676,15 +679,14 @@ a.hero__btn--galeria {
   gap: 2rem;
   justify-items: center;
   grid-template-columns: 1fr;
-  grid-template-rows: max-content 1fr ;
+  grid-template-rows: minmax(60vh,max-content) 1fr ;
   color: white;
   max-width: 85%;
-  max-height: 95vh;
+  max-height: 90vh;
 }
 
 .obra-info__img{
   max-height: 60vh;
-  justify-self: center;
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
@@ -724,12 +726,20 @@ a.hero__btn--galeria {
   border: none;
   background: transparent;
   position: absolute;
+  z-index: 5;
+  color: black;
   font-size: 1.5rem;
-  top: 10px;
-  right: 10px;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
 }
 
-
+.obra-info__date{
+  position: absolute;
+  top: 4px;
+  color: white;
+  font-size: 1.2rem;
+}
 
 .wave-svg {
   position: absolute;
@@ -910,7 +920,7 @@ a.hero__btn--galeria {
   /* %%%%% GALERIA %%%% */
   .obra-info--inner{
     max-width: 95% !important;
-    padding: 1rem;
+    padding: 2rem 1rem; 
     grid-template-rows: 8fr 6fr;
   }
 }

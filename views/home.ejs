@@ -241,7 +241,7 @@
               <button class="obra-info--close" name=<%= i %>>
                 <i class="far fa-times-circle"></i>
               </button>
-
+              <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
              <div class="obra-info__img">
                <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>">
               </div>

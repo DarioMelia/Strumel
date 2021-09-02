@@ -25,15 +25,3 @@ exports.obrasGet = async (req,res) => {
     }
 
 }
-
-exports.obraGet = async (req,res) => {
-
-    try{
-        const obra = await Obra.findById(req.params.obraID);
-
-        res.render("obra", {obra:obra});
-    }catch(err){
-        res.send(err.message);
-    }
-    
-}
