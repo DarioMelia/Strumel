@@ -217,24 +217,21 @@ select{
 /* %%%%%% OBRA INFO %%%%%%% */
 
 .obra-info{
+  display: none;
   font-family: var(--main-ff);
   position: relative;
-  transform: scale(0);
-  opacity: 0;
-  transition: opacity 300ms ease-in, transform 400ms ease-in-out;
   inset: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.699);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ 
  }
  
  .obra-info.open{
    position: fixed;
-   transform: scale(1);
-   opacity: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    z-index: 20;
  }
  
