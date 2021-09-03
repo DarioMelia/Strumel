@@ -300,7 +300,7 @@ select{
  }
  
  .contenido-scroll{
-   max-width: 75%;
+   max-width: 90%;
    padding: 1px;
    overflow-y: auto;
    scrollbar-color: white grey;
