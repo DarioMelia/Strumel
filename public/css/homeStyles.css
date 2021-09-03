@@ -194,14 +194,6 @@ body {
 }
 
 .hero__btn{
-  padding: .3em .4em;
-  box-sizing: border-box;
-  height: auto;
-  position: relative;
-  background: rgba(253, 253, 253, 0);
-  backdrop-filter: blur(1px);
-  font-size: clamp(1rem, 5vw, 1.5rem);
-  color: rgb(0, 0, 0);
   font-family: var(--second-ff);
   font-weight: 500;
 }
@@ -216,17 +208,7 @@ a.hero__btn--galeria {
     display: inline-block;
   }
 
-.hero__btn:before,
-.hero__btn:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-color: black;
-  border-style: solid;
-  width: 1em;
-  height: 1em;
-  transition: all 400ms ease-in-out;
-}
+
 
 .hero__btn--conocenos:before {
   top: -6px;
@@ -235,14 +217,15 @@ a.hero__btn--galeria {
   
 }
 
-.hero__btn--conocenos:after {
+.hero__btn--conocenos::after {
   bottom: -6px;
   right: -6px;
   border-width: 0 2px 2px 0;
 }
 
-.hero__btn--galeria:before {
-  bottom: -6px;
+.hero__btn--galeria::before {
+  bottom: -6px ;
+  top: inherit;
   left: -6px;
   border-width: 0 0 2px 2px;
   
@@ -252,15 +235,6 @@ a.hero__btn--galeria {
   top: -6px;
   right: -6px;
   border-width: 2px 2px 0 0;
-}
-
-
-.hero__btn:hover:before,
-.hero__btn:hover:after,
-.hero__btn:focus:before,
-.hero__btn:focus:after {
-  width: calc(100% + 12px);
-  height: calc(100% + 12px);
 }
 
 
@@ -644,102 +618,7 @@ a.hero__btn--galeria {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-.obra-info{
- position: absolute;
- transform: scale(0);
- opacity: 0;
- transition: opacity 300ms ease-in, transform 400ms ease-in-out;
- inset: 0;
- width: 100vw;
- height: 100vh;
- background: rgba(0, 0, 0, 0.699);
- display: flex;
- align-items: center;
- justify-content: center;
-}
 
-.obra-info.open{
-  position: fixed;
-  transform: scale(1);
-  opacity: 1;
-  z-index: 20;
-}
-
-
-.obra-info--inner{
-  font-size: clamp(1rem, 5vw, 1.6rem);
-  position: relative;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.281);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.8px);
-  display: grid;
-  gap: 2rem;
-  justify-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(60vh,max-content) 1fr ;
-  color: white;
-  max-width: 85%;
-  max-height: 90vh;
-}
-
-.obra-info__img{
-  max-height: 60vh;
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-}
-.obra-info--inner img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.obra-info--inner p{
-  margin-top: 1rem;
-  font-size: .85em;
-}
-
-.obra-info--inner .contenido-scroll{
-  max-width: 70%;
-  max-height: 100%;
-  overflow-y: auto;
-  scrollbar-color: white grey;
-  scrollbar-width: thin;
-}
-
-.contenido-scroll::-webkit-scrollbar,
-.contenido-scroll::-webkit-scrollbar-thumb {
-  width: 26px;
-  border-radius: 13px;
-  background-clip: padding-box;
-  border: 10px solid transparent;
-}
-
-.contenido-scroll::-webkit-scrollbar-thumb {        
-  box-shadow: inset 0 0 0 10px;
-}
-
-.obra-info--close{
-  border: none;
-  background: transparent;
-  position: absolute;
-  z-index: 5;
-  color: black;
-  font-size: 1.5rem;
-  top: 4px;
-  right: 4px;
-  cursor: pointer;
-}
-
-.obra-info__date{
-  position: absolute;
-  top: 4px;
-  color: white;
-  font-size: 1.2rem;
-}
 
 .wave-svg {
   position: absolute;
@@ -857,11 +736,6 @@ a.hero__btn--galeria {
     animation: galleryBtnAuto 4s infinite ease-in-out;
   }
 
-  .hero__btn::after,
-  .hero__btn::before {
-    animation: galleryBtnAuto 8s infinite ease-in-out;
-  }
-
   .gallery figure.on div button {
     color: white;
     animation: galleryBgAuto 4s infinite ease-in-out;
@@ -917,12 +791,7 @@ a.hero__btn--galeria {
     padding: 1.5rem;
   }
 
-  /* %%%%% GALERIA %%%% */
-  .obra-info--inner{
-    max-width: 95% !important;
-    padding: 2rem 1rem; 
-    grid-template-rows: 8fr 6fr;
-  }
+  
 }
 
 @media (max-width: 750px) {
@@ -1068,18 +937,7 @@ a.hero__btn--galeria {
     width: 95%;
   }
 
-    /* %%%%% GALERRY OVERLAY %%%% */
-    .obra-info--inner{
-      text-align: left;
-    }
-    .obra-info--inner .contenido-scroll{
-      max-width:100%;
-      text-align: left;
-    }
-
-    .obra-info__img{
-      width: auto;
-    }
+    
 
   /* %% CONTACT %% */
 
@@ -1194,29 +1052,6 @@ a.hero__btn--galeria {
   }
 }
 
-@keyframes galleryBtnAuto {
-  0% {
-    width: 1em;
-    height: 1em;
-  }
-
-  20% {
-    width: 1em;
-    height: 1em;
-  }
-  45% {
-    width: calc(100% + 12px);
-    height: calc(100% + 12px);
-  }
-  85% {
-    width: calc(100% + 12px);
-    height: calc(100% + 12px);
-  }
-  100% {
-    width: 1em;
-    height: 1em;
-  }
-}
 
 @keyframes galleryBgAuto {
   0% {

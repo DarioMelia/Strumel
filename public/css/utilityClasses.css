@@ -156,11 +156,6 @@ select{
 
 .obra__overlay--inner h2 {
   font-size: 1.1em;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 20ch;
 }
 
 
@@ -171,10 +166,160 @@ select{
   color: whitesmoke;
 }
 
-.obra__box:hover .obra__overlay {
-  transform: translateY(-0%);
+
+.btn--animated{
+  padding: .3em .4em;
+  cursor: pointer;
+  height: auto;
+  position: relative;
+  background: rgba(253, 253, 253, 0);
+  backdrop-filter: blur(1px);
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  color: rgb(0, 0, 0);
+  border:none;
 }
 
+.btn--animated:before,
+.btn--animated:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-color: black;
+  border-style: solid;
+  width: 1em;
+  height: 1em;
+  transition: width 400ms ease-in-out, height 400ms ease-in-out;
+}
+
+.btn--animated:before {
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
+  z-index: 5;
+}
+
+.btn--animated:after {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
+}
+
+.btn--animated:hover:before,
+.btn--animated:hover:after,
+.btn--animated:focus:before,
+.btn--animated:focus:after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+}
+
+
+
+/* %%%%%% OBRA INFO %%%%%%% */
+
+.obra-info{
+  font-family: var(--main-ff);
+  position: absolute;
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 300ms ease-in, transform 400ms ease-in-out;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.699);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .obra-info.open{
+   position: fixed;
+   transform: scale(1);
+   opacity: 1;
+   z-index: 20;
+ }
+ 
+ 
+ .obra-info--inner{
+   font-size: clamp(1rem, 5vw, 1.6rem);
+   position: relative;
+   text-align: center;
+   background: rgba(255, 255, 255, 0.281);
+   padding: 2rem;
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(3.8px);
+   display: grid;
+   gap: 2rem;
+   justify-items: center;
+   grid-template-columns: 1fr;
+   grid-template-rows: minmax(60vh,max-content) 1fr ;
+   color: white;
+   max-width: 85%;
+   max-height: 90vh;
+ }
+ 
+ .obra-info__img{
+   max-height: 60vh;
+   width: 100%;
+   border-radius: 16px;
+   overflow: hidden;
+ }
+ .obra-info--inner img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+ }
+ 
+ .obra-info--inner p{
+   margin-top: 1rem;
+   font-size: .85em;
+ }
+ 
+ .obra-info--inner .contenido-scroll{
+   max-width: 70%;
+   max-height: 100%;
+   overflow-y: auto;
+   scrollbar-color: white grey;
+   scrollbar-width: thin;
+ }
+ 
+ .contenido-scroll::-webkit-scrollbar,
+ .contenido-scroll::-webkit-scrollbar-thumb {
+   width: 26px;
+   border-radius: 13px;
+   background-clip: padding-box;
+   border: 10px solid transparent;
+ }
+ 
+ .contenido-scroll::-webkit-scrollbar-thumb {        
+   box-shadow: inset 0 0 0 10px;
+ }
+ 
+ .obra-info--close{
+   border: none;
+   background: transparent;
+   position: absolute;
+   z-index: 5;
+   color: black;
+   font-size: 1.5rem;
+   top: 4px;
+   right: 4px;
+   cursor: pointer;
+ }
+ 
+ .obra-info__date{
+   position: absolute;
+   top: 4px;
+   color: white;
+   font-size: 1.2rem;
+ }
+
+@media (hover:none){
+  .btn--animated::after,
+  .btn--animated::before {
+    animation: galleryBtnAuto 8s infinite ease-in-out;
+  }
+} 
 @media (max-width: 450px) {
   .grid--obras {
     grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -190,5 +335,53 @@ select{
   }
   .obra__overlay h2{
     max-width: 20ch !important;
+  }
+
+  /* %%%%% GALERIA %%%% */
+  .obra-info--inner{
+    max-width: 95% !important;
+    padding: 2rem 1rem; 
+    grid-template-rows: 8fr 6fr;
+  }
+}
+
+@media (max-width:1000px){
+  /* %%%%% GALERRY OVERLAY %%%% */
+  .obra-info--inner{
+    text-align: left;
+  }
+  .obra-info--inner .contenido-scroll{
+    max-width:100%;
+    text-align: left;
+  }
+
+  .obra-info__img{
+    width: auto;
+  }
+}
+
+/* %%%%%%%% ANIMATIONS %%%%%%%% */
+
+@keyframes galleryBtnAuto {
+  0% {
+    width: 1em;
+    height: 1em;
+  }
+
+  20% {
+    width: 1em;
+    height: 1em;
+  }
+  45% {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+  }
+  85% {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+  }
+  100% {
+    width: 1em;
+    height: 1em;
   }
 }

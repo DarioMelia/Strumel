@@ -1,3 +1,7 @@
+:root{
+  --overlay-color: rgb(255, 255, 255);
+}
+
 #obras{
     padding: 6rem 5vw;
     background: rgb(63,94,251);
@@ -12,7 +16,10 @@
     gap: 30px;
     
   }
-  
+
+.obra__box{
+  border-radius: 10px;
+}
 .obra__overlay {
     max-height: 450px;
     height: 100%;
@@ -20,40 +27,80 @@
   }
 
 .obra__overlay--inner h2{
-  max-width: 25ch;
-  
+  margin: .5rem auto;
+  line-height: 1.5;
+
 }
+.obra__overlay.appear{
+  transform: translateY(-0%);
+}
+
 .toggle-overlay{
-  height:40px;
-  width: 40px;
-  border-radius: 50%;
+  height:30px;
+  width: 30px;
+  cursor: pointer;
   
+  border-radius: 50%;
+  border: 2px solid var(--overlay-color);
   position: absolute;
+  z-index: 10;
   display:flex;
-  background: rgba(247, 247, 247, 0) ;
+  background: rgba(0, 0, 0, 0.397) ;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
   backdrop-filter: blur(2px);
   align-items: center;
   justify-content: center;
   top:5px;
   right: 5px;
+  transition: border-radius 450ms ease-in-out;
+}
+
+.toggle-overlay.square{
+  border-radius: 5px;
+  
 }
 .toggle-overlay::after,
 .toggle-overlay::before{
   position: absolute;
   transform-origin: center;
   content:"";
-  width: 20px;
+  width: 15px;
   height: 3px;
-  background: rgb(255, 255, 255);
+  background: var(--overlay-color);
+  transition: transform 450ms ease-out;
 }
 
 .toggle-overlay::before{
   transform: rotate(90deg);
 }
 
+.toggle-overlay.cross::after{
+  transform: rotate(225deg);
+}
+
+.toggle-overlay.cross::before{
+  border-radius: 5px;
+  transform: rotate(315deg);
+}
+
+.info-btn{
+  background: transparent;
+  backdrop-filter: none;
+  margin-top: 1.5rem;
+  font-family: var(--second-ff);
+  color:rgb(245, 24, 134);
+  font-weight: 500;
+}
+
+.info-btn::after,
+.info-btn::before{
+  border-color: rgb(245, 24, 134);
+}
 
 
-  
+
 @media (max-width: 450px) {
     .obras__grid {
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));

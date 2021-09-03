@@ -4,19 +4,45 @@
 
     <section id="obras">
         <div class="obras__grid">
-            <%obras.forEach(obra => { %>   <!-- %%%%%%% OBRA.FOREACH -->
+            <%obras.forEach((obra,i) => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                 <div class="obra__box" data-aos="fade-up">
                         <img src="<%=obra.imgUrl%>" alt="<%=obra.titulo%>">
                         <span class="toggle-overlay"></span>
                         <div class="obra__overlay">
                             <div class="obra__overlay--inner">
+                                <% let resumen = obra.resumen %>
+                                <%if(resumen.length > 60){resumen = obra.resumen.substring(0,60) + "..."}%>   
+
                                 <h1><%=obra.titulo%></h1>
-                                <h2><%=obra.resumen%></h2>
-                                <p><%=obra.fecha.toLocaleDateString("de-DE")%></p>
+                                <h2><%=resumen%></h2>
+                                <button class="btn--animated info-btn" name="<%= i %>">Saber Más</button>
+                                
                             </div>
                         </div>
                 </div>
             <%})%>
+                <!-- %%% OBRA OVERLAY %%% -->
+        <% obras.forEach((obra, i)=> { %>
+            <div class="obra-info">
+              <div class="obra-info--inner">
+  
+                <button class="obra-info--close" name=<%= i %>>
+                  <i class="far fa-times-circle"></i>
+                </button>
+                <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
+               <div class="obra-info__img">
+                 <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>">
+                </div>
+                <div class="contenido-scroll">
+               <h3><%= obra.resumen %></h3>
+               
+                 <p><%= obra.contenido %></p>
+               </div>
+  
+             </div>
+            </div>
+  
+          <% }) %>
         </div>
     </section>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

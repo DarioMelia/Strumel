@@ -36,7 +36,17 @@ body {
   background-color: rgb(148, 175, 202);
 }
 
+.obra__box:hover .obra__overlay {
+  transform: translateY(-0%);
+}
 
+.obra__overlay--inner h2{
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 20ch;
+}
 
 .admin-subtitle {
   font-family: "Major Mono Display", monospace;
