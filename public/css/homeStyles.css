@@ -440,7 +440,7 @@ a.hero__btn--galeria {
 
 /* %%%%%%%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%%%%% */
 #obras {
-  padding: 10rem 0;
+  padding: 8rem 0;
   position: relative;
   background: rgb(8,79,255);
   background: linear-gradient(180deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
@@ -458,6 +458,47 @@ a.hero__btn--galeria {
   content: "";
   padding-top: 50%;
 }
+
+.all-obras-link{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.all-obras-link a{
+  display: inline-block;
+  position: relative;
+  color:rgb(156, 229, 252);
+  min-height: 0.000001vh;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  padding: .5em;
+  display:flex;
+  justify-content: center;
+}
+
+.all-obras-link a:hover,
+.all-obras-link a:focus{
+  color:turquoise;
+}
+
+.all-obras-link a::after,
+.all-obras-link a::before{
+  content:"";
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  border-color: rgb(156, 229, 252);
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  position: absolute;
+  top: 0px;
+}
+
+.all-obras-link a::after{
+  top: -6px;
+}
+
+
 .gallery {
   display: flex;
   width: 100%;
@@ -764,7 +805,7 @@ a.hero__btn--galeria {
 
   .hero__btns{
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     gap: 2.4rem;
     bottom: 18%;
@@ -791,10 +832,29 @@ a.hero__btn--galeria {
     font-size: 1.65rem;
   }
 
+  
+
+  /* %%%% GALERIA %%% */
+  #obras{
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+
+  .wave-svg{
+    width: 200%;
+    height: 40%;
+  }
+
+  /* %%%% CONTACTOS %%%% */
+  #contacto{
+    overflow: hidden;
+  }
   .contact__methods{
     padding: 1.5rem;
   }
-
+  .contact-waves{
+    width: 120%;
+  }
   
 }
 
@@ -1039,6 +1099,32 @@ a.hero__btn--galeria {
 
 
 /* %% GALERIA %% */
+
+.all-obras-link a::after,
+.all-obras-link a::before{
+  animation: linkAtention 1s infinite ease-in;
+}
+
+
+@keyframes linkAtention {
+  0%{
+    transform:  translateY(-4px) rotate(45deg);
+    
+  }
+
+  50%{
+    
+    transform: translateY(-0px) rotate(45deg) ;
+  }
+
+
+  100%{
+    transform:  translateY(-4px) rotate(45deg);
+    
+  }
+}
+
+
 .gallery figure.on div {
   animation: infoIn 1.2s;
 }

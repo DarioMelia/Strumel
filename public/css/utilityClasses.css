@@ -87,6 +87,10 @@ select{
   font-size: clamp(3rem, 15vw, 5.6rem);
   position: relative;
 }
+a.title{
+  display: inline-block;
+  color: black;
+}
 
 
 /* %%%%%%%%%%%%%%%%%%% HEADER %%%%%%%%%%%%%%%%%%%%%%% */
@@ -155,7 +159,7 @@ select{
   grid-row: 1 / -1;
   grid-column: 1 / -1;
   
-  max-height: 350px;
+  max-height: 400px;
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
   min-height: 0.0000001vw; /*Safari workAround */
