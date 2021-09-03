@@ -218,7 +218,7 @@ select{
 
 .obra-info{
   font-family: var(--main-ff);
-  position: absolute;
+  position: relative;
   transform: scale(0);
   opacity: 0;
   transition: opacity 300ms ease-in, transform 400ms ease-in-out;
@@ -240,9 +240,9 @@ select{
  
  
  .obra-info--inner{
-   font-size: clamp(1rem, 5vw, 1.6rem);
-   position: relative;
+   font-size: clamp(.9rem, 4vw, 1.6rem);
    text-align: center;
+   position: relative;
    background: rgba(255, 255, 255, 0.281);
    padding: 2rem;
    border-radius: 16px;
@@ -252,32 +252,34 @@ select{
    gap: 2rem;
    justify-items: center;
    grid-template-columns: 1fr;
-   grid-template-rows: minmax(60vh,max-content) 1fr ;
+   grid-template-rows: 55vh 1fr ;
    color: white;
-   max-width: 85%;
    max-height: 90vh;
+   max-width: 900px;
+   width: 100%;
  }
  
  .obra-info__img{
-   max-height: 60vh;
+   max-height: 55vh;
    width: 100%;
+   grid-row: 1fr;
    border-radius: 16px;
    overflow: hidden;
+  
  }
  .obra-info--inner img{
-   height: 100%;
-   width: 100%;
-   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
  }
  
  .obra-info--inner p{
    margin-top: 1rem;
-   font-size: .85em;
+   font-size: .93em;
  }
  
- .obra-info--inner .contenido-scroll{
-   max-width: 70%;
-   max-height: 100%;
+ .contenido-scroll{
+   max-width: 75%;
    overflow-y: auto;
    scrollbar-color: white grey;
    scrollbar-width: thin;
@@ -339,9 +341,13 @@ select{
 
   /* %%%%% GALERIA %%%% */
   .obra-info--inner{
-    max-width: 95% !important;
     padding: 2rem 1rem; 
-    grid-template-rows: 8fr 6fr;
+    width: 95% !important;
+    grid-template-rows: 47vh 1fr;
+  }
+
+  .obra-info__img{
+    grid-row: 1fr;
   }
 }
 
@@ -349,6 +355,7 @@ select{
   /* %%%%% GALERRY OVERLAY %%%% */
   .obra-info--inner{
     text-align: left;
+    width: 80%;
   }
   .obra-info--inner .contenido-scroll{
     max-width:100%;
