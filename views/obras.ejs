@@ -2,7 +2,16 @@
 <body>
     <%- include('partials/header') %>
 
+    
     <section id="obras">
+      <div id="particles-js"></div>
+      <div class="logo__title" data-aos="zoom-out-up" data-aos-duration="650" data-aos-delay="250">
+        <img src="css/svg/logo-admin.svg" />
+  
+          <!-- / TITULO / -->
+          <h1 class="title">STRUMEL</h1>
+        </div>
+
         <div class="obras__grid">
             <%obras.forEach((obra,i) => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                 <div class="obra__box" data-aos="fade-up">
@@ -27,7 +36,7 @@
               <div class="obra-info--inner">
   
                 <button class="obra-info--close" name=<%= i %>>
-                  <i class="far fa-times-circle"></i>
+                  <i class="fas fa-times"></i>
                 </button>
                 <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
                <div class="obra-info__img">
@@ -45,6 +54,8 @@
           <% }) %>
         </div>
     </section>
+    <script src="js/particles/particles.js"></script>
+    <script src="js/particles/particlesConfig.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/obraScript.js"></script>
 </body>

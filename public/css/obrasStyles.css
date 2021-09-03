@@ -2,12 +2,46 @@
   --overlay-color: rgb(255, 255, 255);
 }
 
+.logo__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  
+  position: relative;
+  z-index: 4;
+}
+
+.title {
+  margin: 0;
+  min-height: 0.0000001vw; /*Safari workAround */
+  font-size: clamp(2.6rem, 16vw, 9rem);
+  font-family: var(--title-ff);
+}
+
+.logo__title img {
+  min-height: 0.0000001vw; /*Safari workAround */
+  width: clamp(50px, 16vw, 200px);
+  height: clamp(50px, 16vw, 200px);
+}
+
+
 #obras{
-    padding: 6rem 5vw;
+    padding: 2rem 5vw;
     background: rgb(63,94,251);
     background: linear-gradient(150deg, rgba(63,94,251,1) 0%, rgba(171,95,224,1) 39%, rgba(201,77,188,1) 68%, rgba(252,70,107,1) 100%);
 }
 
+
+#particles-js{
+  position: fixed;
+  inset: 0;
+  top:0;left:0;bottom:0;right:0;
+  background: rgb(63,94,251);
+  background: linear-gradient(150deg, rgba(63,94,251,1) 0%, rgba(171,95,224,1) 39%, rgba(201,77,188,1) 68%, rgba(252,70,107,1) 100%);
+  z-index: 1;
+}
 
 .obras__grid {
     display: grid;
@@ -19,6 +53,8 @@
 
 .obra__box{
   border-radius: 10px;
+  position: relative;
+  z-index: 3;
 }
 .obra__overlay {
     max-height: 450px;
@@ -101,7 +137,7 @@
 
 
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .obras__grid {
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       grid-auto-rows: 245px;

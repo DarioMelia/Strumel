@@ -155,7 +155,7 @@ select{
   grid-row: 1 / -1;
   grid-column: 1 / -1;
   
-  max-height: 400px;
+  max-height: 350px;
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
   min-height: 0.0000001vw; /*Safari workAround */
@@ -257,7 +257,7 @@ select{
  
  .obra-info--inner{
    min-height: 0.0000001vw; /*Safari workAround */
-   font-size: clamp(1rem, 4vw, 1.6rem);
+   font-size: clamp(1.2rem, 3.8vw, 1.6rem);
    text-align: center;
    position: relative;
    background: rgba(255, 255, 255, 0.281);
@@ -289,17 +289,25 @@ select{
   height: 100%;
   object-fit: cover;
  }
- 
+ .obra-info--inner h3{
+   color: rgb(255, 255, 255);
+
+ }
  .obra-info--inner p{
    margin-top: 1rem;
    font-size: .93em;
+   color: rgb(236, 236, 236);
  }
  
  .contenido-scroll{
    max-width: 75%;
+   padding: 1px;
    overflow-y: auto;
    scrollbar-color: white grey;
    scrollbar-width: thin;
+   border-top: 2px solid rgba(53, 53, 53, 0.301);
+   border-bottom: 2px solid rgba(53, 53, 53, 0.301);
+   border-radius: 10px;
  }
  
  .contenido-scroll::-webkit-scrollbar,
@@ -319,17 +327,17 @@ select{
    background: transparent;
    position: absolute;
    z-index: 5;
-   color: black;
+   color: rgb(22, 22, 22);
    font-size: 1.5rem;
-   top: 4px;
-   right: 4px;
+   top: 6px;
+   right: 10px;
    cursor: pointer;
  }
  
  .obra-info__date{
    position: absolute;
    top: 4px;
-   color: white;
+   color: rgb(209, 209, 209);
    font-size: 1.2rem;
  }
 
