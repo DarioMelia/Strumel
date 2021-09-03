@@ -6,6 +6,11 @@ AOS.init({                         //Iniciamos la librería para las animaciones
     mirror: true           //acepta paramaetros
   });
 
+
+
+
+   
+
 // %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
 
 const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
@@ -153,6 +158,8 @@ window.onload = function() {
                 descriptions[item].classList.add("gallery__descript--grow");
             }, 250);
           }
+        const loader = document.getElementById("loader");
+        // loader.classList.add("display-none");
 };
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%

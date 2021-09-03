@@ -20,6 +20,7 @@
   outline: none;
 }
 
+
 a:link, a:visited, a:active {
   text-decoration:none;
   color: white;
@@ -50,8 +51,21 @@ select{
 }
 
 .display-none{
-  display:none;
+  display:none !important;
 }
+
+
+/* %%%%%%%%%%% LOADER %%%%%%%%%%% */
+/* #loader{
+  position:fixed;
+  top:0;right:0;bottom:0;left:0;
+  background: cornflowerblue;
+  z-index: 100;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+
+} */
 
 /* %%%%%%%%%%%%% LOGO-TITLE %%%%%%%%%%%%%%%%%%% */
 .logo__title {
@@ -59,6 +73,7 @@ select{
   margin-top: 1.5rem;
 }
 .logo__title img {
+  min-height: 0vw; /*Safari workAround */
   width: clamp(60px, 16vw, 90px);
   height: clamp(60px, 16vw, 90px);
 }
@@ -68,6 +83,7 @@ select{
   margin: 0 auto;
   font-family: var(--title-ff);
   font-weight: 600;
+  min-height: 0vw; /*Safari workAround */
   font-size: clamp(3rem, 15vw, 5.6rem);
   position: relative;
 }
@@ -142,6 +158,7 @@ select{
   max-height: 400px;
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
+  min-height: 0vw; /*Safari workAround */
   font-size: clamp(.8rem, 4vw, 1.3rem);
   font-family: var(--second-ff);
 
@@ -174,6 +191,7 @@ select{
   position: relative;
   background: rgba(253, 253, 253, 0);
   backdrop-filter: blur(1px);
+  min-height: 0vw; /*Safari workAround */
   font-size: clamp(1rem, 5vw, 1.5rem);
   color: rgb(0, 0, 0);
   border:none;
@@ -221,6 +239,7 @@ select{
   font-family: var(--main-ff);
   position: relative;
   inset: 0;
+  top:0;left:0;bottom:0;right:0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.699);
@@ -237,7 +256,8 @@ select{
  
  
  .obra-info--inner{
-   font-size: clamp(.9rem, 4vw, 1.6rem);
+   min-height: 0vw; /*Safari workAround */
+   font-size: clamp(1rem, 4vw, 1.6rem);
    text-align: center;
    position: relative;
    background: rgba(255, 255, 255, 0.281);
