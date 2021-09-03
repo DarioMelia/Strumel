@@ -17,7 +17,7 @@ body {
 
 
 .form-label {
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(1.3em, 4.5vw, 1.6em);
 }
 
@@ -32,7 +32,7 @@ body {
 #submit form {
   max-width: 1200px;
   margin: 3.5rem auto;
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   padding: 1.5rem clamp(1rem, 8vw, 2.5rem);
   border-radius: 10px;
   background-color: rgb(148, 175, 202);
@@ -53,7 +53,7 @@ body {
 .admin-subtitle {
   font-family: "Major Mono Display", monospace;
   color: orangered;
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(1rem, 10vw, 2rem);
   position: absolute;
   right: 0;
@@ -117,7 +117,7 @@ body {
 }
 
 .edit__overlay__inner {
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   padding: 1.5rem clamp(1rem, 8vw, 2.5rem);
   font-size: clamp(.8rem, 4vw, 1.4rem);
   position: relative;
@@ -128,7 +128,7 @@ body {
 
 .edit__overlay__inner input,
 .edit__overlay__inner textarea{
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(.8rem, 4vw, 1.4rem);
 }
 
@@ -274,7 +274,7 @@ body {
   }
 
   .obra__image {
-    min-height: 0vw; /*Safari workAround */
+    min-height: 0.0000001vw; /*Safari workAround */
     width: clamp(400px, 30vw, 1000px);
     height: clamp(400px, 30vw, 1000px);
   }

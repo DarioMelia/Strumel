@@ -152,13 +152,13 @@ body {
 
 .title {
   margin: 0;
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(2.6rem, 16vw, 9rem);
   font-family: var(--title-ff);
 }
 
 .logo__title img {
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   width: clamp(50px, 16vw, 200px);
   height: clamp(50px, 16vw, 200px);
 }
@@ -276,7 +276,7 @@ a.hero__btn--galeria {
   top: 0;
   gap: 0.3em;
   width: 50%;
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(1rem, 10vw, 2.5rem);
   color: rgb(66, 66, 66);
 }
@@ -698,7 +698,7 @@ a.hero__btn--galeria {
   width: fit-content;
   gap: 8px;
   padding: 1rem 0;
-  min-height: 0vw; /*Safari workAround */
+  min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(.75rem, 4vw, 1.8rem);
 }
 
@@ -855,7 +855,7 @@ a.hero__btn--galeria {
  
   /* %% HERO %% */
   .presentation{
-    min-height: 0vw; /*Safari workAround */
+    min-height: 0.0000001vw; /*Safari workAround */
     font-size: clamp(1.5rem, 8vw, 3rem);
   }
 
@@ -867,7 +867,7 @@ a.hero__btn--galeria {
 
    .calculadora .calculadorita{
      width: 85% !important;
-     min-height: 0vw; /*Safari workAround */
+     min-height: 0.0000001vw; /*Safari workAround */
      font-size: clamp(1.3rem, 8vw, 1.5rem) ;
    }
 
@@ -903,7 +903,7 @@ a.hero__btn--galeria {
     overflow: hidden;
   }
   .hab-item {
-    min-height: 0vw; /*Safari workAround */
+    min-height: 0.0000001vw; /*Safari workAround */
     font-size: clamp(1.7rem, 7vw, 2.7rem);
   }
   .habilidades {
@@ -939,7 +939,7 @@ a.hero__btn--galeria {
   }
 
   .gallery figure.on >div {
-    min-height: 0vw; /*Safari workAround */
+    min-height: 0.0000001vw; /*Safari workAround */
     font-size: clamp(1.2rem, 8vw, 2.5rem);
     padding: 0.5em;
     width: 95%;
