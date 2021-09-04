@@ -567,18 +567,18 @@ a.hero__btn--galeria {
 .gallery figure.on div h2 {
   font-size: 1em;
   width: 100%;
-  padding-bottom: 20px;
-  margin-bottom: 10px;
+  padding-bottom: .8em;
+  
 }
 
 .gallery figure.on div p {
   position: relative;
-  font-size: 0.6em;
+  font-size: 0.7em;
   display: inline-block;
   z-index: 1;
   width: auto;
   margin-bottom: 0;
-  padding: 1rem;
+  padding: .6em;
   text-shadow: none;
 }
 
@@ -590,7 +590,7 @@ a.hero__btn--galeria {
   content: "";
   position: absolute;
   z-index: -1;
-  top: -8px;
+  top: -5px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -942,7 +942,7 @@ a.hero__btn--galeria {
 }
  
 
-@media (max-width: 1000px) {
+@media (max-width: 1025px) {
 
    /* %% HERO %% */
 
@@ -1006,7 +1006,7 @@ a.hero__btn--galeria {
 
   .gallery figure.on >div {
     min-height: 0.0000001vw; /*Safari workAround */
-    font-size: clamp(1.2rem, 8vw, 2.5rem);
+    font-size: clamp(1rem, 6vw, 2.5rem);
     padding: 0.5em;
     width: 95%;
   }

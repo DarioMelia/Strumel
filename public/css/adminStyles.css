@@ -38,6 +38,10 @@ body {
   background-color: rgb(148, 175, 202);
 }
 
+#obras{
+  padding-bottom: 6rem;
+}
+
 .obra__box:hover .obra__overlay {
   transform: translateY(-0%);
 }
