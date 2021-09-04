@@ -163,7 +163,7 @@ a.title{
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
   min-height: 0.0000001vw; /*Safari workAround */
-  font-size: clamp(.7rem, 3.4vw, 1.3rem);
+  font-size: clamp(.8rem, 3.4vw, 1.3rem);
   font-family: var(--second-ff);
   position: relative;
   display: grid;
@@ -175,7 +175,7 @@ a.title{
 
 
 .obra__overlay--inner h2 {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 
@@ -451,4 +451,6 @@ a.title{
     transform: scale(1)
   }
 }
+
+
 

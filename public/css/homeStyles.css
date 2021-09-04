@@ -871,6 +871,11 @@ a.hero__btn--galeria {
     align-items: center;
     transition: transform 150ms ease-in;
   }
+   
+  .nav__list:not(.grow) .nav__burger::after,
+  .nav__list:not(.grow) .nav__burger::before{
+    animation: transitionLeftRight2 5s 500ms linear infinite backwards;
+  }
 
   .nav__btn:active {
     transform: rotate(180deg);
@@ -999,7 +1004,8 @@ a.hero__btn--galeria {
   }
 
   #gallery {
-    height: 90vh;
+    height: 87vh;
+    min-height: 540px;
     width: 100%;
   }
 
@@ -1213,4 +1219,37 @@ a.hero__btn--galeria {
     transform-origin: right;  
   }
 }
+
+
+@keyframes transitionLeftRight2 {
+  0%{
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  5%{
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  15%{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  85%{
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  95%{
+    
+    transform: scaleX(0);
+    transform-origin: right;  
+  }
+  100%{
+    
+    transform: scaleX(0);
+    transform-origin: right;  
+  }
+}
+
 
