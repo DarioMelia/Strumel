@@ -163,9 +163,8 @@ a.title{
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
   min-height: 0.0000001vw; /*Safari workAround */
-  font-size: clamp(.8rem, 4vw, 1.3rem);
+  font-size: clamp(.7rem, 3.4vw, 1.3rem);
   font-family: var(--second-ff);
-
   position: relative;
   display: grid;
   align-items: center;
@@ -294,6 +293,7 @@ a.title{
   object-fit: cover;
  }
  .obra-info--inner h3{
+   font-size: 1em;
    color: rgb(255, 255, 255);
 
  }
@@ -307,8 +307,9 @@ a.title{
    max-width: 90%;
    padding: 1px;
    overflow-y: auto;
-   scrollbar-color: white grey;
+   scrollbar-color: rgb(187, 187, 187) rgb(100, 100, 100);
    scrollbar-width: thin;
+   
    border-top: 2px solid rgba(53, 53, 53, 0.301);
    border-bottom: 2px solid rgba(53, 53, 53, 0.301);
    border-radius: 10px;
@@ -323,7 +324,10 @@ a.title{
  }
  
  .contenido-scroll::-webkit-scrollbar-thumb {        
-   box-shadow: inset 0 0 0 10px;
+   box-shadow: inset 0 0 0 10px rgba(148, 148, 148, 0.575);
+ }
+ .contenido-scroll::-webkit-scrollbar-thumb:hover{        
+  box-shadow: inset 0 0 0 10px rgba(177, 177, 177, 0.925);
  }
  
  .obra-info--close{
