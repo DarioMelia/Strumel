@@ -804,10 +804,13 @@ a.hero__btn--galeria {
 
   .hero__btns{
     flex-direction: column;
-    
     align-items: center;
-    gap: 2.4rem;
+    /* gap: 2.4rem; */
     bottom: 18%;
+  }
+
+  .hero__btn--galeria{
+    margin-top: 2.4rem;
   }
  
   .habilidades {
@@ -984,7 +987,11 @@ a.hero__btn--galeria {
   /* %% GALLERY %% */
   .gallery {
     flex-direction: column;
-    gap: 12px;
+    /* gap: 10px; */
+  }
+  
+  .gallery > figure + figure{
+    margin-top:10px;  /* gap workaround */
   }
 
   #gallery {
