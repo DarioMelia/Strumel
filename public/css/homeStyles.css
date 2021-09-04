@@ -129,14 +129,13 @@ body {
 }
 .hero__bg-img {
   position: absolute;
+  width: 2676px;
+  height: 607px;
   z-index: 2;
   bottom: -10px;
   left: -400px;
-  
-}
-
-.hero__bg-img img {
-  object-fit: cover;
+  background-image: url(images/obraBg.png);
+  background-size: cover;
   
 }
 
@@ -962,8 +961,11 @@ a.hero__btn--galeria {
      padding-top: 20vh;
    }
 
-   .hero__bg-img img{
-    width: max(200%,250vw);
+   .hero__bg-img{
+    left: -950px;
+    transform: scale(.8);
+    transform-origin: bottom;
+  
    }
   .calculator-flex {
     flex-direction: column;
