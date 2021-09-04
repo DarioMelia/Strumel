@@ -75,7 +75,6 @@
   height:30px;
   width: 30px;
   cursor: pointer;
-  
   border-radius: 50%;
   border: 2px solid var(--overlay-color);
   position: absolute;
@@ -88,15 +87,19 @@
   backdrop-filter: blur(2px);
   align-items: center;
   justify-content: center;
-  top:5px;
-  right: 5px;
+  top:8px;
+  right: 8px;
   transition: border-radius 450ms ease-in-out;
 }
 
 .toggle-overlay.square{
   border-radius: 5px;
-  
 }
+
+.toggle-overlay:not(.square){
+animation: grow-shrink 3.5s linear infinite;
+}
+
 .toggle-overlay::after,
 .toggle-overlay::before{
   position: absolute;

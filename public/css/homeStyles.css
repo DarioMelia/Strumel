@@ -884,6 +884,10 @@ a.hero__btn--galeria {
     visibility: visible;
     right: -20px;
   }
+
+  .nav__list.shrink .nav__link::after{
+   visibility: hidden;
+  }
   .nav__list {
     padding: 0.7rem;
   }
