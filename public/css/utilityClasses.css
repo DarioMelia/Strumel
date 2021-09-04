@@ -437,12 +437,10 @@ a.title{
   }
 
   50%{
-     transform: scale(1.08);
+     transform: scale(1.06);
   }
 
-  60%{
-    transform: scale(0.96)
-  }
+
   63%{
     transform: scale(1);
   }

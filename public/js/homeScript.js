@@ -172,28 +172,38 @@ const navList = document.querySelector(".nav__list");
 
 
 burger.addEventListener("click", e =>{
+    
 navItems.forEach(item =>{
     item.classList.add("nav__open");
 })
-burgerLine.classList.toggle("burger--close");
+burgerLine.classList.add("burger--close");
 
 void navList.offsetWidth; 
 
 if(navList.classList.contains("grow")){
-    navList.classList.remove("grow");
-    navList.classList.add("shrink");
-    setTimeout(()=>{
-        navItems.forEach(item =>{
-            item.classList.remove("nav__open");
-            
-        })
-    }, 240);
+    burgerLine.classList.remove("burger--close");
+    burger.classList.toggle("nav__btn--spin");
+    setTimeout(() => {
+        navList.classList.remove("grow");
+        navList.classList.add("shrink");
+        setTimeout(()=>{
+            navItems.forEach(item =>{
+                item.classList.remove("nav__open");
+                
+            })
+        }, 252);
+    }, 500);
+    
     
 }else{
     navList.classList.add("grow");
     if(navList.classList.contains("shrink")){
         navList.classList.remove("shrink");
     }
+    setTimeout(()=>{
+            burger.classList.toggle("nav__btn--spin");
+      
+    }, 100);
 }
 
 

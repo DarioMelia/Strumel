@@ -864,6 +864,7 @@ a.hero__btn--galeria {
   .nav__item {
     display: none;
   }
+ 
   .nav__btn {
     width: 1.5rem;
     height: 1.5rem;
@@ -872,12 +873,11 @@ a.hero__btn--galeria {
     transition: transform 150ms ease-in;
   }
    
-  .nav__list:not(.grow) .nav__burger::after,
-  .nav__list:not(.grow) .nav__burger::before{
-    animation: transitionLeftRight2 5s 500ms linear infinite backwards;
+  .nav__list:not(.grow) .nav__btn{
+    animation: grow-shrink 3.5s linear infinite;
   }
 
-  .nav__btn:active {
+  .nav__btn--spin {
     transform: rotate(180deg);
   }
   .nav__link {
@@ -887,11 +887,12 @@ a.hero__btn--galeria {
 
   .nav__link::after {
     visibility: visible;
+    transition: opacity 150ms;
     right: -20px;
   }
 
   .nav__list.shrink .nav__link::after{
-   visibility: hidden;
+   opacity: 0;
   }
   .nav__list {
     padding: 0.7rem;
@@ -902,20 +903,22 @@ a.hero__btn--galeria {
 
   .burger--close {
     visibility: hidden;
+    transition: transform 200ms 400ms;
   }
-  .burger--close::after,
-  .burger--close::before {
+  .burger--close.nav__burger::after,
+  .burger--close.nav__burger::before {
     visibility: visible;
     transform: scale(0.8);
     transition: transform 200ms 400ms;
+    -moz-transition: transform 200ms 400ms;
   }
 
-  .burger--close::after {
+  .burger--close.nav__burger::after {
     transform: rotate(45deg);
     top: 0;
     bottom: 0;
   }
-  .burger--close::before {
+  .burger--close.nav__burger::before {
     transform: rotate(-45deg);
     top: 0;
     bottom: 0;
@@ -1053,7 +1056,7 @@ a.hero__btn--galeria {
 .nav__list.grow {
   animation: scaleUp 250ms ease-in-out forwards;
 }
-.nav__list.shrink {
+.nav__list.shrink{
   animation: scaleDown 250ms ease-in-out;
 }
 
@@ -1070,7 +1073,7 @@ a.hero__btn--galeria {
     transform: scaleY(1);
   }
   100% {
-    transform: scaleY(0.25);
+    transform: scaleY(0.26);
   }
 }
 
@@ -1212,38 +1215,6 @@ a.hero__btn--galeria {
     transform: scaleX(0);
     transform-origin: right;
     
-  }
-  100%{
-    
-    transform: scaleX(0);
-    transform-origin: right;  
-  }
-}
-
-
-@keyframes transitionLeftRight2 {
-  0%{
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-  5%{
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-
-  15%{
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  85%{
-    transform: scaleX(1);
-    transform-origin: right;
-  }
-  95%{
-    
-    transform: scaleX(0);
-    transform-origin: right;  
   }
   100%{
     
