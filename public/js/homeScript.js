@@ -228,12 +228,14 @@ function obraOverlayHandler(e){
     console.log(e.target);
     const index = parseInt(e.target.name, 10);
     obraOverlays[index].classList.add("open");
+    document.body.classList.add("overflow-hidden");
 }
 
 function closeHandler(e){
     const index = parseInt(e.target.parentElement.name, 10);
     
     obraOverlays[index].classList.remove("open");
+    document.body.classList.remove("overflow-hidden");
 }
 
 

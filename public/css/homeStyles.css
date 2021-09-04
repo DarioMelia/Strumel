@@ -962,8 +962,8 @@ a.hero__btn--galeria {
    }
 
    .hero__bg-img{
-    left: -950px;
-    transform: scale(.8);
+    left: -960px;
+    transform: scale(.75);
     transform-origin: bottom;
   
    }
