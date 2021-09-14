@@ -205,6 +205,27 @@ if(navList.classList.contains("grow")){
 
 })
 
+
+
+// %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%
+
+const nextHabBtns = document.querySelectorAll(".next-hab-btn");
+nextHabBtns.forEach(btn => {
+    btn.addEventListener("click", habSlideHandler);
+})
+
+
+
+function habSlideHandler(e){
+const currentSlideSet = e.target.parentElement.parentElement;
+const items= currentSlideSet.querySelectorAll(".hab-item");
+items.forEach(item => {
+    item.classList.toggle("hab-active");
+})
+
+
+}
+
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
 
 const galleryBtns = document.querySelectorAll(".gallery__btn button");

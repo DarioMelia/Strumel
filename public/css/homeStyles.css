@@ -253,6 +253,7 @@ a.hero__btn--galeria {
 
 .habilidades {
   width: 35%;
+  
   min-height: 600px;
   font-family: var(--second-ff);
   
@@ -264,24 +265,65 @@ a.hero__btn--galeria {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
+}
+
+
+.slide-set {
+  position: relative;
+  width: 100%;
+}
+
+.next-hab-btn{
+  position: absolute;
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 2.65rem;
+  right: 0;
+  bottom: 5px;
+  color:rgb(73, 158, 255);
+  mix-blend-mode: screen;
+  z-index: 6;
+  cursor: pointer;
 }
 
 .hab-item {
   display: flex;
-  align-items: center;
-  top: 0;
   gap: 0.3em;
-  width: 50%;
+  align-items: center;
+  width: min(400px, 65vw);
+  position: absolute;
+  top: 0;
+  height: 50px;
   min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(1rem, 10vw, 2.5rem);
   color: rgb(66, 66, 66);
+  transform: translateX(-800px);
+  transition: transform 400ms ease-in, opacity 200ms;
+  opacity: 0;
+  
+  }
+
+.hab-active{
+  position:static;
+  transform-origin: right;
+  transform: translateX(0);
+  cursor: pointer;
+  opacity:1;
 }
+
 
 .hab-title {
   white-space: nowrap;
-  
+  transition: transform 200ms ease-in-out;
+}
+.hab-active:hover .hab-title,
+.hab-active:hover .fas,
+.hab-active:focus .hab-title,
+.hab-active:focus .fas{
+  transform: scale(1.05);
 }
 
 .hab-item h3{
@@ -294,17 +336,15 @@ a.hero__btn--galeria {
   margin-left: 12px;
 }
 
-.habilidades .fas {
+.hab-item .fas {
   padding: 0.5em;
   color: white;
-  background: rgba(8,79,255,.8) ;
+  background: rgba(8,79,255,.8);
+  transition: transform 200ms ease-in-out;
   border-radius: 50%;
 }
 
-.slide-set {
-  position: relative;
-  height: 30px;
-}
+
 
 
 /* %%% CALCULADORA %%% */
@@ -811,15 +851,26 @@ a.hero__btn--galeria {
   .hero__btn--galeria{
     margin-top: 2.4rem;
   }
+
  
   .habilidades {
-    justify-content: flex-start !important;
     min-height: 400px;
   }
   .habilidades > div {
-    transform: translateX(4vw) !important;
     height: 400px;
   }
+  .hab-item{
+    min-width: 250px;
+  }
+  .slide-set .next-hab-btn{
+   
+   justify-content: center;
+   height: auto;
+   width: 100%;
+   right: 0 !important;
+   bottom: -40px;
+  }
+ 
 
   .calculadora div.calculadorita{
     width: 91% !important;
@@ -986,11 +1037,14 @@ a.hero__btn--galeria {
     min-height: 450px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    
   }
   .habilidades > div {
-    transform: translateX(-150px);
     height: 450px;
+  }
+
+  .next-hab-btn{
+    right: -30px !important;
   }
 
   .calculadorita{
@@ -1036,6 +1090,13 @@ a.hero__btn--galeria {
   .calculadora {
     width: 50%;
   }
+  .habilidades{
+    min-width: 480px;
+  }
+
+  .next-hab-btn{
+    right: 90px;
+  }
 
   .calculadorita{
     width: 75%;
@@ -1080,9 +1141,10 @@ a.hero__btn--galeria {
 }
 
 /* %% HABILIDADES %% */
-.slide-set > * {
-  position: absolute;right:-150px;opacity: 0;
-  animation: 16s habAutoplay infinite ease-in-out;
+
+/* .slide-set > * {
+  position: absolute;
+  animation: 16s habAutoplay infinite ease-in-out; 
 }
 .slide-set-1 > *:nth-child(1) {animation-delay: 0s}
 .slide-set-1 > *:nth-child(2) {animation-delay: 8s}
@@ -1114,7 +1176,7 @@ a.hero__btn--galeria {
     right: -150px;
     opacity: 0;
   }
-}
+} */
 
 
 
