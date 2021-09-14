@@ -7,10 +7,6 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   });
 
 
-
-
-  
-
 // %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
 
 const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
