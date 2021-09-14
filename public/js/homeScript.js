@@ -209,7 +209,7 @@ if(navList.classList.contains("grow")){
 
 // %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%
 
-const nextHabBtns = document.querySelectorAll(".next-hab-btn");
+const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
 nextHabBtns.forEach(btn => {
     btn.addEventListener("click", habSlideHandler);
 })
@@ -218,7 +218,7 @@ nextHabBtns.forEach(btn => {
 
 function habSlideHandler(e){
 const currentSlideSet = e.target.parentElement.parentElement;
-const items= currentSlideSet.querySelectorAll(".hab-item");
+const items = currentSlideSet.querySelectorAll(".hab-item");
 items.forEach(item => {
     item.classList.toggle("hab-active");
 })
