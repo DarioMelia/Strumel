@@ -168,8 +168,98 @@
            <!-- / CALCULADORA / --> 
 
         <div class="calculadora" data-aos="fade-left"  data-aos-offset="100">
+            
+          <form action="/" id="calc__form">
+            <p class="calc__des">Estoy buscando...</p>
+            
+            <div class="calc__tab tab--main">
+              <div class="calc__input">
+                <label for="baño">Reforma baño</label>
+                <input type="radio" id="baño" name="tipo-reforma" value="reforma-baño">
+              </div>
+              <div class="calc__input">
+                <label for="cocina">Reforma cocina</label>
+                <input type="radio" id="cocina" name="tipo-reforma" value="reforma-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="integral">Reforma integral</label>
+                <input type="radio" id="integral" name="tipo-reforma" value="reforma-integral">
+              </div>
+            </div>
+
+            <div class="calc__tab tab--baño">
+              <div class="calc__input">
+                <label for="lavabo">Lavabo</label>
+                <input type="checkbox" id="lavabo" name="lista-baño" value="lavabo">
+              </div>
+              <div class="calc__input">
+                <label for="bañera">Bañera</label>
+                <input type="checkbox" id="bañera" name="lista-baño" value="bañera">
+              </div>
+              <div class="calc__input">
+                <label for="platoDeDucha">Plato de ducha</label>
+                <input type="checkbox" id="platoDeDucha" name="lista-baño" value="platoDeDucha">
+              </div>
+              <div class="calc__input">
+                <label for="mampara">Mampara</label>
+                <input type="checkbox" id="mampara" name="lista-baño" value="mampara">
+              </div>
+              <div class="calc__input">
+                <label for="wc">WC</label>
+                <input type="checkbox" id="wc" name="lista-baño" value="wc">
+              </div>
+              <div class="calc__input">
+                <label for="suelos">Suelos</label>
+                <input type="checkbox" id="suelos" name="lista-baño" value="suelos">
+              </div>
+              <div class="calc__input">
+                <label for="paredes">Paredes</label>
+                <input type="checkbox" id="paredes" name="lista-baño" value="paredes">
+              </div>
+              <div class="calc__input">
+                <label for="techos">Techos</label>
+                <input type="checkbox" id="techos" name="lista-baño" value="techos">
+              </div>
           
-         <form class="form__calculator">
+            </div>
+
+            <div class="calc__tab tab--cocina">
+              <div class="calc__input">
+                <label for="baño">Reforma baño</label>
+                <input type="radio" id="baño" name="tipo-reforma" value="reforma-baño">
+              </div>
+              <div class="calc__input">
+                <label for="cocina">Reforma cocina</label>
+                <input type="radio" id="cocina" name="tipo-reforma" value="reforma-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="integral">Reforma integral</label>
+                <input type="radio" id="integral" name="tipo-reforma" value="reforma-integral">
+              </div>
+            </div>
+
+            <div class="calc__tab tab--integral">
+              <div class="calc__input">
+                <label for="baño">Reforma baño</label>
+                <input type="radio" id="baño" name="tipo-reforma" value="reforma-baño">
+              </div>
+              <div class="calc__input">
+                <label for="cocina">Reforma cocina</label>
+                <input type="radio" id="cocina" name="tipo-reforma" value="reforma-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="integral">Reforma integral</label>
+                <input type="radio" id="integral" name="tipo-reforma" value="reforma-integral">
+              </div>
+            </div>
+
+            <div class="calc__btns">
+              <button class="prev-btn" type="button" onclick="nextPrev(-1)">Atrás</button>
+              <button class="next-btn" type="button" onclick="nextPrev(1)">Siguiente</button>
+            </div>
+          </form>
+          
+         <!-- <form class="form__calculator">
            
            <div class="calculadorita">
 
@@ -199,7 +289,6 @@
                  </select>
                 </div>
                
-                     <!-- range slide -->
                   <div class="tercero">
                <label for="metros">Metros</label>           
               <input type="range" id="metros" min="0" max="500">
@@ -208,7 +297,7 @@
             <button class="calculadora-btn">Calcular</button>
             <hr>
            </div>
-           </form>
+           </form> -->
 
         </div>
       </div>

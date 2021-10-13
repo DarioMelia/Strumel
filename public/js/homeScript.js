@@ -226,6 +226,48 @@ items.forEach(item => {
 
 }
 
+
+// %%%%%%%%%%%% CALCULADORA %%%%%%%%%%%%%
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var tabs = document.querySelectorAll(".calc__tab");
+  tabs[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.querySelector(".calc__btns .prev-btn").style.display = "none";
+  } else {
+    document.querySelector(".calc__btns .prev-btn").style.display = "inline";
+  }
+  if (n == (tabs.length - 1)) {
+    document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
+  } else {
+    document.querySelector(".calc__btns .next-btn").innerHTML = "Siguiente";
+  }
+
+}
+
+function nextPrev(n) {
+    // This function will figure out which tab to display
+    var tabs = document.getElementsByClassName("calc__tab");
+    // Exit the function if any field in the current tab is invalid:
+    // if (n == 1 && !validateForm()) return false;
+    // Hide the current tab:
+    tabs[currentTab].style.display = "none";
+    // Increase or decrease the current tab by 1:
+    currentTab = currentTab + n;
+    // if you have reached the end of the form... :
+    if (currentTab >= tabs.length) {
+      //...the form gets submitted:
+      document.getElementById("calc__form").submit();
+      return false;
+    }
+    // Otherwise, display the correct tab:
+    showTab(currentTab);
+  }
+
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
 
 const galleryBtns = document.querySelectorAll(".gallery__btn button");
