@@ -36,6 +36,13 @@ body {
   align-items: center;
 }
 
+.nav__item img{
+  width: 25px;
+  height: 25px;
+  margin-top: 15px;
+  transform: translateX(-3px);
+}
+
 .nav__link {
   position: absolute;
   transform: tranlateX(100%);
@@ -351,12 +358,15 @@ a.hero__btn--galeria {
 
 .calculadora {
   width:60%;
-  height:auto;   
+  height:calc(auto + 80px);   
   border-radius: 5px;
   align-self: center;
-  padding: 1em 0;
   text-align: center;
+  position: relative;
 }
+
+
+
 
 .calculadorita {
   margin: 0 auto;
