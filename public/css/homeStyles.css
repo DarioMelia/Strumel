@@ -13,8 +13,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  top: 0;
-  bottom: 0;
+  top:48%;
+  bottom: 48%;
   right: 0;
   font-family: var(--main-ff);
 }
@@ -27,6 +27,7 @@ body {
   padding: 0 0.6em;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  overflow: hidden;
 }
 
 .nav__item {
@@ -41,25 +42,25 @@ body {
   height: 25px;
   margin-top: 15px;
   transform: translateX(-3px);
+  position: relative;
+  z-index: 3;
+}
+.nav__item .fas{
+  position: relative;
+  z-index: 3;
 }
 
 .nav__link {
   position: absolute;
-  transform: tranlateX(100%);
+  left: -15px;
   opacity: 0;
-  transition: transform 200ms ease-in, opacity 100ms ease-out 100ms;
-  line-height: 1;
-  background-color: rgba(3, 3, 3, 0.7);
-  border-top-left-radius: 20px 40px;
-  border-bottom-left-radius: 20px 40px;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  backdrop-filter: blur(8px);
-  padding: 15px;
-  display: flex;
-  align-items: center;
+  transition: opacity 200ms ease-out 100ms;
+  background-color: rgba(216, 216, 216, 0.137);
+  width:70px;
+  height:100%;
+ 
 }
-.nav__link::after {
+/* .nav__link::after {
   content: "";
   position: absolute;
   right: -15px;
@@ -70,19 +71,19 @@ body {
   border-bottom: 10px solid rgba(3, 3, 3, 0.7);
   transform: rotate(90deg);
   background: transparent;
-}
+} */
 
 @media (min-width: 750px) {
   .nav__item:hover .nav__link,
   .nav__item:focus .nav__link {
     opacity: 1;
-    transform: translateX(-140%);
+   
   }
 }
 
 .current-section {
   opacity: 1;
-  transform: translateX(-140%);
+  z-index: 1;
 }
 
 /* NAV BURGER */
@@ -385,7 +386,11 @@ display:none;
   border-bottom: 0;
 }
 
-
+@supports (accent-color: green){
+  .calc__tab input{
+    accent-color: rgb(98, 237, 255);
+  }
+}
 
 .calc__btns{
   margin-top: 7px;
@@ -970,14 +975,7 @@ display:none;
     transform: rotate(180deg);
   }
   .nav__link {
-    visibility: hidden;
-    backdrop-filter: none;
-  }
-
-  .nav__link::after {
-    visibility: visible;
-    transition: opacity 150ms;
-    right: -20px;
+   left: -11px;
   }
 
   .nav__list.shrink .nav__link::after{
