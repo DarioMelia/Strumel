@@ -246,12 +246,14 @@ function showTab(n, chosenTabs) {
     tabs[n].style.display = "block";
   } else {
       chosenTabs[n].style.display = "block";
+      adaptCalcDesscription(chosenTabs[n]);
       if (n == (chosenTabs.length - 1)) {
         document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
       } else {
         document.querySelector(".calc__btns .next-btn").innerHTML = "Siguiente";
       }
   }
+  
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.querySelector(".calc__btns .prev-btn").style.display = "none";
@@ -265,9 +267,8 @@ function showTab(n, chosenTabs) {
 function nextPrev(n) {
     // Esa función decide qué tab displayear
 
-    // Exit the function if any field in the current tab is invalid:
-    // if (n == 1 && !validateForm()) return false;
-    
+    ///%%%%%%% VALIDATION %%%%%%%%%
+
     //Si estamos en la tab principal...
     if(tabs[currentTab].classList.contains("tab--main")){
     //cogemos el valor de la opción elegida, si no, salimos de la función
@@ -278,35 +279,52 @@ function nextPrev(n) {
     } catch(err){
         if(err){
             return false}
-    }
-        
+    }    
     };
-    console.log("number has value: " + atLeastOneNumberHasValue(chosenTabs[1]));
-    if(!atLeastOneNumberHasValue(chosenTabs[1])){
 
+    if(chosenTabs[currentTab].classList.contains("tab--material")){
+        //cogemos el valor de la opción elegida, si no, salimos de la función
+        try{
+         var gamaMatElegida = document.querySelector('input[name="tipo-material"]:checked').value;
+         console.log(gamaMatElegida);
+        } catch(err){
+            if(err && n==1){
+                return false}
+        }    
+        };
     
-    if(currentTab == 1 && !atLeastOneCheckboxChecked(chosenTabs[1])){
-
-       
+    if(!atLeastOneNumberHasValue(chosenTabs[currentTab])){
+     //Si existen input-number, que al menos uno esté relleno
+     if(currentTab == 1 && !atLeastOneCheckboxChecked(chosenTabs[1])){
         //Si el usuario quiere ir hacia atrás pese a no haber sellecionado nada, puede
         if(n == 1){
         return false;
         }
-        
+     }
     }
-}
+
+    ///%%%%%%% End - VALIDATION %%%%%%%%%
+
     // Ocultar la tab actual
     chosenTabs[currentTab].style.display = "none";
     // Aumentar o disminuir currentTab en 1 segun si avanzamos o retrocedemos
     currentTab = currentTab + n;
-    // Al final del form, siguiente se ha convertido en terminar y submiteamos
-    if (currentTab >= chosenTabs.length) {
+
+    // Al final del form, siguiente se ha convertido en terminar y submiteamos, si está relleno los metros
+    if (currentTab >= chosenTabs.length && atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])) {
       document.getElementById("calc__form").submit();
       return false;
     }
+    if(currentTab >= chosenTabs.length && !atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])){//Si no están rellenos reseteamos current tab
+        currentTab = currentTab -1;
+        showTab(currentTab, chosenTabs);
+        return false;
+    }
     // Si no hemos llegado al final, mostramos el siguiente:
     showTab(currentTab, chosenTabs);
-  }
+  };
+
+
 
   function wichReforma(refElegida){
 
@@ -348,6 +366,35 @@ function nextPrev(n) {
           return true
       }else{return false}
   };
+
+  function adaptCalcDesscription(tab){
+      let tabName = tab.classList[1];
+      const calcDes = document.querySelector(".calc__des");
+      console.log(tabName)
+      switch(tabName){
+          case "tab--main":
+            calcDes.innerHTML = "Estoy buscando...";
+            break;
+          case "tab--bano":
+            calcDes.innerHTML = "¿Qué quiere cambiar de su baño?";
+            break;
+          case "tab--cocina":
+            calcDes.innerHTML = "¿Qué quiere cambiar de su cocina?";
+            break;
+          case "tab--integral":
+            calcDes.innerHTML = "¿Reforma íntegra o parcial?";
+            break;
+          case "tab--material":
+            calcDes.innerHTML = "Elija la gama de materiales que emplearemos";
+            break;
+          case "tab--metros":
+            calcDes.innerHTML = "Ya casi está";
+            break;
+          default:
+              calcDes.innerHTML ="Estoy buscando...";
+        }    
+
+  }
 
 
 
