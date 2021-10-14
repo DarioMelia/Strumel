@@ -242,11 +242,13 @@ const tabsIntegral = [tabs[0], tabs[3], tabs[4], tabs[5]];
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.
   
+  //Si es la primera vez, cogemos de tab, despues, segun la elección del jugador
   if(!chosenTabs){
     tabs[n].style.display = "block";
   } else {
       chosenTabs[n].style.display = "block";
       adaptCalcDesscription(chosenTabs[n]);
+      //CAmbiamos el contenido del boton siguiente por terminar al final.
       if (n == (chosenTabs.length - 1)) {
         document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
       } else {
@@ -254,7 +256,7 @@ function showTab(n, chosenTabs) {
       }
   }
   
-  // ... and fix the Previous/Next buttons:
+  // solo hacemos parecer el botón de atrás cuando no estemos en la primera página
   if (n == 0) {
     document.querySelector(".calc__btns .prev-btn").style.display = "none";
   } else {
