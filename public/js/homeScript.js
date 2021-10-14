@@ -311,7 +311,7 @@ function nextPrev(n) {
   function wichReforma(refElegida){
 
       switch(refElegida){
-          case "reforma-baño":
+          case "reforma-bano":
               return tabsBano;
               break;
           case "reforma-cocina":
