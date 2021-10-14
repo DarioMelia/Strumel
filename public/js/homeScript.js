@@ -210,8 +210,14 @@ if(navList.classList.contains("grow")){
 // %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%
 
 const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
+const habItems = document.querySelectorAll(".hab-item");
+
 nextHabBtns.forEach(btn => {
     btn.addEventListener("click", habSlideHandler);
+})
+
+habItems.forEach(item => {
+    item.addEventListener("click", habClickHandler);
 })
 
 
@@ -222,8 +228,14 @@ const items = currentSlideSet.querySelectorAll(".hab-item");
 items.forEach(item => {
     item.classList.toggle("hab-active");
 })
+}
 
-
+function habClickHandler(e){
+    const currentItem = e.target.parentElement.parentElement;
+    const habText = currentItem.querySelector(".hab-text");
+    console.log(e.target);
+   
+   habText.classList.toggle("hab-text-open");
 }
 
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%

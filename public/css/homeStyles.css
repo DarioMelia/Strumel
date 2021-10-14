@@ -307,13 +307,29 @@ a.hero__btn--galeria {
   }
 
 .hab-active{
-  position:static;
+  position:relative;
   transform-origin: right;
   transform: translateX(0);
   cursor: pointer;
+  z-index: 4;
   opacity:1;
 }
 
+.hab-text{
+  display:none;
+}
+
+.hab-text.hab-text-open{
+  display: block;
+  position: fixed;
+  
+  z-index: 8;
+  top:0;bottom:0;left:0;right:0;
+  padding: 2rem;
+  font-size: 1.4rem;
+  color: white;
+  background-color:rgba(32, 32, 49, 0.856);
+}
 
 .hab-title {
   white-space: nowrap;
