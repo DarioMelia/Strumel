@@ -9,7 +9,7 @@ AOS.init({                         //Iniciamos la librería para las animaciones
 
 // %%%%%%%%%%%%%%%%%%%%% SCROLLSPY %%%%%%%%%%%%%%%%%%%%%%%%
 
-const navLinks = Array.from(document.querySelectorAll(".nav__link")) ;
+const navLinks = Array.from(document.querySelectorAll(".nav__current")) ;
 const header = document.querySelector(".logo__title");
 
 
@@ -228,45 +228,130 @@ items.forEach(item => {
 
 
 // %%%%%%%%%%%% CALCULADORA %%%%%%%%%%%%%
+const tabs = document.querySelectorAll(".calc__tab");
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
-function showTab(n) {
-  // This function will display the specified tab of the form ...
-  var tabs = document.querySelectorAll(".calc__tab");
-  tabs[n].style.display = "block";
+var chosenTabs;
+const tabsBano = [tabs[0], tabs[1], tabs[4], tabs[5]];
+const tabsCocina = [tabs[0], tabs[2], tabs[4], tabs[5]];
+const tabsIntegral = [tabs[0], tabs[3], tabs[4], tabs[5]];
+
+
+
+function showTab(n, chosenTabs) {
+  // Esta funcion displayea la tab correspondiente dentro del array elegido.
+  
+  if(!chosenTabs){
+    tabs[n].style.display = "block";
+  } else {
+      chosenTabs[n].style.display = "block";
+      if (n == (chosenTabs.length - 1)) {
+        document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
+      } else {
+        document.querySelector(".calc__btns .next-btn").innerHTML = "Siguiente";
+      }
+  }
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.querySelector(".calc__btns .prev-btn").style.display = "none";
   } else {
     document.querySelector(".calc__btns .prev-btn").style.display = "inline";
   }
-  if (n == (tabs.length - 1)) {
-    document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
-  } else {
-    document.querySelector(".calc__btns .next-btn").innerHTML = "Siguiente";
-  }
+
 
 }
 
 function nextPrev(n) {
-    // This function will figure out which tab to display
-    var tabs = document.getElementsByClassName("calc__tab");
+    // Esa función decide qué tab displayear
+
     // Exit the function if any field in the current tab is invalid:
     // if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    tabs[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
+    
+    //Si estamos en la tab principal...
+    if(tabs[currentTab].classList.contains("tab--main")){
+    //cogemos el valor de la opción elegida, si no, salimos de la función
+    try{
+     var refElegida = document.querySelector('input[name="tipo-reforma"]:checked').value;
+     console.log(refElegida);
+     chosenTabs = wichReforma(refElegida); //Devuelve el array de tabs correspondiente a la eleccion del cliente
+    } catch(err){
+        if(err){
+            return false}
+    }
+        
+    };
+    console.log("number has value: " + atLeastOneNumberHasValue(chosenTabs[1]));
+    if(!atLeastOneNumberHasValue(chosenTabs[1])){
+
+    
+    if(currentTab == 1 && !atLeastOneCheckboxChecked(chosenTabs[1])){
+
+       
+        //Si el usuario quiere ir hacia atrás pese a no haber sellecionado nada, puede
+        if(n == 1){
+        return false;
+        }
+        
+    }
+}
+    // Ocultar la tab actual
+    chosenTabs[currentTab].style.display = "none";
+    // Aumentar o disminuir currentTab en 1 segun si avanzamos o retrocedemos
     currentTab = currentTab + n;
-    // if you have reached the end of the form... :
-    if (currentTab >= tabs.length) {
-      //...the form gets submitted:
+    // Al final del form, siguiente se ha convertido en terminar y submiteamos
+    if (currentTab >= chosenTabs.length) {
       document.getElementById("calc__form").submit();
       return false;
     }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
+    // Si no hemos llegado al final, mostramos el siguiente:
+    showTab(currentTab, chosenTabs);
   }
+
+  function wichReforma(refElegida){
+
+      switch(refElegida){
+          case "reforma-baño":
+              return tabsBano;
+              break;
+          case "reforma-cocina":
+              return tabsCocina;
+              break;
+          case "reforma-integral":
+              return tabsIntegral;
+              break;
+          default:
+              return undefined;
+
+      }
+  }
+
+  function atLeastOneCheckboxChecked(tab){
+      const checkboxes = Array.from(tab.querySelectorAll(".calc__checkbox"));
+      return checkboxes.reduce((acc,curr) => acc || curr.checked, false);
+  }
+
+  function atLeastOneNumberHasValue(tab){
+      let atLeastOne = false;
+      const numberInputs = Array.from(tab.querySelectorAll("input[type = number]"));
+    
+      if(numberInputs == []){return false};
+
+      numberInputs.forEach(input => {
+          
+          if(input.value){
+            console.log(input.value)
+              atLeastOne = true;
+          } 
+      })
+      if(atLeastOne){
+          return true
+      }else{return false}
+  };
+
+
+
+
 
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
 

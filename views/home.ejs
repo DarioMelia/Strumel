@@ -24,25 +24,25 @@
         <li class="nav__btn"><span class="nav__burger"></span></li>
         
         <li class="nav__item">
-          <a href="#hero" name="hero" class="nav__link"></a>
+          <a href="#hero" name="hero" class="nav__current"></a>
           <a href="#hero"><img src="/css/svg/favicon.svg"/></a>
         </li>
 
         <li class="nav__item">
           
-          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__link"></a>
+          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__current"></a>
           <a href="#habilidades-calculador"
             ><i class="fas fa-calculator"></i
           ></a>
         </li>
 
         <li class="nav__item">
-          <a href="#obras" name="obras" class="nav__link"></a>
+          <a href="#obras" name="obras" class="nav__current"></a>
           <a href="#obras"><i class="fas fa-th"></i></a>
         </li>
 
         <li class="nav__item">
-          <a href="#contacto" name="contacto" class="nav__link"></a>
+          <a href="#contacto" name="contacto" class="nav__current"></a>
           <a href="#contacto"><i class="fas fa-phone-square"></i></a>
         </li>
      
@@ -190,35 +190,35 @@
             <div class="calc__tab tab--baño">
               <div class="calc__input">
                 <label for="lavabo">Lavabo</label>
-                <input type="checkbox" id="lavabo" name="lista-baño" value="lavabo">
+                <input type="checkbox" id="lavabo" class="calc__checkbox" name="lista-baño" value="lavabo">
               </div>
               <div class="calc__input">
                 <label for="bañera">Bañera</label>
-                <input type="checkbox" id="bañera" name="lista-baño" value="bañera">
+                <input type="checkbox" id="bañera" class="calc__checkbox" name="lista-baño" value="bañera">
               </div>
               <div class="calc__input">
                 <label for="platoDeDucha">Plato de ducha</label>
-                <input type="checkbox" id="platoDeDucha" name="lista-baño" value="platoDeDucha">
+                <input type="checkbox" id="platoDeDucha" class="calc__checkbox" name="lista-baño" value="platoDeDucha">
               </div>
               <div class="calc__input">
                 <label for="mampara">Mampara</label>
-                <input type="checkbox" id="mampara" name="lista-baño" value="mampara">
+                <input type="checkbox" id="mampara" class="calc__checkbox" name="lista-baño" value="mampara">
               </div>
               <div class="calc__input">
                 <label for="wc">WC</label>
-                <input type="checkbox" id="wc" name="lista-baño" value="wc">
+                <input type="checkbox" id="wc" class="calc__checkbox" name="lista-baño" value="wc">
               </div>
               <div class="calc__input">
                 <label for="suelos-baño">Suelos</label>
-                <input type="checkbox" id="suelos-baño" name="lista-baño" value="suelos-baño">
+                <input type="checkbox" id="suelos-baño" class="calc__checkbox" name="lista-baño" value="suelos-baño">
               </div>
               <div class="calc__input">
                 <label for="paredes-baño">Paredes</label>
-                <input type="checkbox" id="paredes-baño" name="lista-baño" value="paredes-baño">
+                <input type="checkbox" id="paredes-baño" class="calc__checkbox" name="lista-baño" value="paredes-baño">
               </div>
               <div class="calc__input">
                 <label for="techos-baño">Techos</label>
-                <input type="checkbox" id="techos-baño" name="lista-baño" value="techos-baño">
+                <input type="checkbox" id="techos-baño" class="calc__checkbox" name="lista-baño" value="techos-baño">
               </div>
           
             </div>
@@ -226,70 +226,70 @@
             <div class="calc__tab tab--cocina">
               <div class="calc__input">
                 <label for="mobiliario">Mobiliario</label>
-                <input type="checkbox" id="mobiliario" name="lista-cocina" value="mobiliario">
+                <input type="checkbox" id="mobiliario" class="calc__checkbox" name="lista-cocina" value="mobiliario">
               </div>
               <div class="calc__input">
                 <label for="unirCyS">Unir cocina y salón</label>
-                <input type="checkbox" id="unirCyS" name="lista-cocina" value="unirCyS">
+                <input type="checkbox" id="unirCyS" class="calc__checkbox" name="lista-cocina" value="unirCyS">
               </div>
               <div class="calc__input">
                 <label for="islaCentral">Isla central</label>
-                <input type="checkbox" id="islaCentral" name="lista-cocina" value="islaCentral">
+                <input type="checkbox" id="islaCentral" class="calc__checkbox" name="lista-cocina" value="islaCentral">
               </div>
               <div class="calc__input">
                 <label for="suelos-cocina">Suelos</label>
-                <input type="checkbox" id="suelos-cocina" name="lista-cocina" value="suelos-cocina">
+                <input type="checkbox" id="suelos-cocina" class="calc__checkbox" name="lista-cocina" value="suelos-cocina">
               </div>
               <div class="calc__input">
                 <label for="paredes-cocina">Paredes</label>
-                <input type="checkbox" id="paredes-cocina" name="lista-cocina" value="paredes-cocina">
+                <input type="checkbox" id="paredes-cocina" class="calc__checkbox" name="lista-cocina" value="paredes-cocina">
               </div>
               <div class="calc__input">
                 <label for="techos-cocina">Techos</label>
-                <input type="checkbox" id="techos-cocina" name="lista-cocina" value="techos-cocina">
+                <input type="checkbox" id="techos-cocina" class="calc__checkbox" name="lista-cocina" value="techos-cocina">
               </div>
             </div>
 
             <div class="calc__tab tab--integral">
               <div class="calc__input">
-                <label for="baños">Número de baños</label>
-                <input type="number" id="baños" name="lista-integral" min="1" max="10">
+                <label for="baños">Baños</label>
+                <input type="number" id="baños" name="lista-integral" min="1" max="10" >
               </div>
               <div class="calc__input">
                 <label for="climatizacion">Climatización</label>
-                <input type="checkbox" id="climatizacion" name="lista-integral" value="climatizacion">
+                <input type="checkbox" id="climatizacion" class="calc__checkbox" name="lista-integral" value="climatizacion">
               </div>
               <div class="calc__input">
                 <label for="electricidad">Electricidad</label>
-                <input type="checkbox" id="electricidad" name="lista-integral" value="electricidad">
+                <input type="checkbox" id="electricidad" class="calc__checkbox" name="lista-integral" value="electricidad">
               </div>
               <div class="calc__input">
                 <label for="fontaneria">Fontanería</label>
-                <input type="checkbox" id="fontaneria" name="lista-integral" value="fontaneria">
+                <input type="checkbox" id="fontaneria" class="calc__checkbox" name="lista-integral" value="fontaneria">
               </div>
               <div class="calc__input">
                 <label for="habitaciones">Número de habitaciones</label>
                 <input type="number" id="habitaciones" name="lista-integral" min="1" max="20">
               </div>
               <div class="calc__input">
-                <label for="ventanas">Número de ventanas</label>
+                <label for="ventanas">Ventanas</label>
                 <input type="number" id="ventanas" name="lista-integral" min="1" max="40">
               </div>
               <div class="calc__input">
-                <label for="puertas">Número de puertas</label>
+                <label for="puertas">Puertas</label>
                 <input type="number" id="puertas" name="lista-integral" min="1" max="30">
               </div>
               <div class="calc__input">
                 <label for="suelos">Suelos</label>
-                <input type="checkbox" id="suelos" name="lista-integral" value="suelos">
+                <input type="checkbox" id="suelos" class="calc__checkbox" name="lista-integral" value="suelos">
               </div>
               <div class="calc__input">
                 <label for="paredes">Paredes</label>
-                <input type="checkbox" id="paredes" name="lista-integral" value="paredes">
+                <input type="checkbox" id="paredes" class="calc__checkbox" name="lista-integral" value="paredes">
               </div>
               <div class="calc__input">
                 <label for="techos">Techos</label>
-                <input type="checkbox" id="techos" name="lista-integral" value="techos">
+                <input type="checkbox" id="techos" class="calc__checkbox" name="lista-integral" value="techos">
               </div>
 
             </div>
