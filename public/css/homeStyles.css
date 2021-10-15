@@ -240,6 +240,7 @@ a.hero__btn--galeria {
 #habilidades-calculador {
   padding: 1rem 0 4rem 0;
   overflow-x: hidden;
+  background: url(/css/images/cubes-texture.png);
   
 }
 .calculator-flex {
@@ -347,17 +348,17 @@ a.hero__btn--galeria {
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  align-self: center;
   text-align: center;
   position: relative;
-  
 }
 
 .calc__des{
   font-size: 1.3rem;
   padding: .6em;
-  background-color: rgb(98, 237, 255);
+  background-color: rgba(98, 179, 255, 0.527);
+  border-radius:8px;
   text-align: left;
   width: fit-content;
   margin-bottom: .6em;
@@ -365,12 +366,17 @@ a.hero__btn--galeria {
 .calc__tab{
   font-size: 1.2rem;
   border-bottom: 1px solid grey;
+  border-radius: 5px;
+  overflow: hidden;
   display:none;
   min-width: 550px;
   background: url(/css/svg/calculadora-bg.svg);
   background-size: cover;
   transform:translateX(100%);
-  transition: transform 250ms ease-in-out;
+  transition: transform 300ms cubic-bezier(.11,.7,.54,1.22);
+}
+.calc__tab.tab--integral{
+  font-size: 1rem;
 }
 
 .calc__input{
@@ -391,7 +397,7 @@ a.hero__btn--galeria {
 
 @supports (accent-color: green){
   .calc__tab input{
-    accent-color: rgb(98, 237, 255);
+    accent-color: rgb(5, 123, 219);
   }
 }
 
@@ -410,7 +416,7 @@ a.hero__btn--galeria {
   background: none;
   border: 0;
   border-bottom: 1px solid grey;
-  transition: transform 150ms ease-in;
+  transition: transform 150ms ease-in-out;
   
 }
 @media (hover:hover){
@@ -421,132 +427,15 @@ a.hero__btn--galeria {
 
 .calc__btns .next-btn{
   font-weight: 600;
+  
 }
 .calc__btns .next-btn.submit-btn{
   padding: 7px;
-  background: linear-gradient(rgb(98, 237, 255), rgb(197, 232, 255));
+  background: linear-gradient(rgb(43, 126, 194), rgb(71, 168, 233));
   border-radius: 6px;
+  color: white;
   border: 0;
 }
-
-
-
-/* .calculadorita {
-  margin: 0 auto;
-  width: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 1.5rem;
-  padding: 1em 0;
-  line-height: 4;
-  text-align: center;
-  /* From https://css.glass */ /*
-  background: url("svg/calculadora-bg.svg");
-  background-size: cover;
-  border-radius: 16px;
-  box-shadow: 6px 6px 12px 4px rgba(0,0,0,0.29);
-}
-
-.calculadorita label{
-  text-align: left;
-  width: auto;
-  transform: translateY(22%);
-  
-}
-
-.primer, .segundo, .tercero{
-  padding-bottom: 1em;
-  display: flex;
-  flex-direction: column;
-  width:60%;
-  
-}
-
-.tercero input[type=range]{
-  -webkit-appearance: none;
-  position: relative;
-  width: 100%; /* Specific width is required for Firefox. *//*
-  background: linear-gradient(90deg, rgba(0,134,255,.7) 0%, rgba(127,201,255,.7) 100%);
-  border: none;
-  border-radius: 6px;
-  height: 5px;
-}
-
-.tercero input[type=range]::-webkit-slider-runnable-track,
-.tercero input[type=range]::-ms-track,
-.tercero input[type=range]::-moz-range-track {
-  background: linear-gradient(90deg, rgba(0,134,255,.7) 0%, rgba(127,201,255,.7) 100%);
-  border: none;
-  width: 100%;
-  border-radius: 6px;
-  height: 5px;
-}
-
-.tercero input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: rgba(39, 43, 250,.5);
-  backdrop-filter: blur(6px);
-}
-
-.tercero input[type=range]::-moz-range-thumb {
-  position: absolute;
-  z-index: 4;
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: rgba(89, 29, 230, 0.9);
-}
-
-
-.calculadora h2{
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.calculadora-btn{
-  font-size: 1.4rem;
-  color: white;
-  width: auto;
-  padding: .3em .8em;
-  border-radius: .7em .1em .7em .1em;
-  margin-bottom: 1em;
-  border: none;
-  background: rgba(24,131,187,.65);
-  box-shadow: 3px 3px 12px 2px rgba(0,0,0,0.29);
-  transition: transform 230ms ease-in, border-radius 230ms ease-in-out;
-}
-
-.calculadora-btn:hover,
-.calculadora-btn:focus{
-  transform: scale(1.05);
-  border-radius:.1em .7em .1em .7em;
-}
-.calculadora select{
-  width: 100%;
-  border:none;
-  outline: none !important;
-  border-bottom: 2px solid rgb(73, 158, 255);
-  padding: 0.25em;
-  background: transparent;
-  font-size: .65em;
-}
-
-.calculadora select:focus{
-  background: rgba(176, 215, 252, 0.767);
-}
-
-.calculadora hr{
-  width: 100%;
-} */
-
 
 
 /* %%%%%%%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%%%%% */
@@ -936,12 +825,15 @@ a.hero__btn--galeria {
     min-width: 250px;
   }
   .slide-set .next-hab-btn{
-   
    justify-content: center;
    height: auto;
    width: 100%;
    right: 0 !important;
    bottom: -40px;
+  }
+
+  .calculator-flex > .calculadora{
+    padding: 4rem 0 2rem 0;
   }
 
   /* %%%% GALERIA %%% */
@@ -1082,6 +974,13 @@ a.hero__btn--galeria {
 
   .next-hab-btn{
     right: -30px !important;
+  }
+
+  .calculadora{
+    padding: 6rem 0 3rem 0;
+  }
+  .calc__tab.tab--integral{
+    font-size: 1.2rem;
   }
 
 
