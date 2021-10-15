@@ -241,28 +241,38 @@ const tabsIntegral = [tabs[0], tabs[3], tabs[4], tabs[5]];
 
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.
-  
+  const nextBtn = document.querySelector(".calc__btns .next-btn");
+  const prevBtn = document.querySelector(".calc__btns .prev-btn");
+  if(nextBtn.classList.contains("submit-btn")){
+      nextBtn.classList.remove("submit-btn");
+  }
   //Si es la primera vez, cogemos de tab, despues, segun la elección del jugador
   if(!chosenTabs){
     tabs[n].style.display = "block";
+    setTimeout(()=>{tabs[n].style.transform = "translateX(0%)";},50);
   } else {
+      
+    chosenTabs[n].style.transform = "translateX(100%)"
       chosenTabs[n].style.display = "block";
+    setTimeout(()=>{chosenTabs[n].style.transform = "translateX(0%)";},25);
+    
       adaptCalcDesscription(chosenTabs[n]);
       //CAmbiamos el contenido del boton siguiente por terminar al final.
       if (n == (chosenTabs.length - 1)) {
-        document.querySelector(".calc__btns .next-btn").innerHTML = "Terminar";
+        nextBtn.innerHTML = "Terminar";
+        nextBtn.classList.add("submit-btn");
       } else {
-        document.querySelector(".calc__btns .next-btn").innerHTML = "Siguiente";
+        nextBtn.innerHTML = "Siguiente";
       }
   }
   
   // solo hacemos parecer el botón de atrás cuando no estemos en la primera página
   if (n == 0) {
-    document.querySelector(".calc__btns .prev-btn").style.display = "none";
+    prevBtn.style.display = "none";
   } else {
-    document.querySelector(".calc__btns .prev-btn").style.display = "inline";
+    prevBtn.style.display = "inline";
   }
-
+  
 
 }
 
@@ -317,7 +327,8 @@ function nextPrev(n) {
       document.getElementById("calc__form").submit();
       return false;
     }
-    if(currentTab >= chosenTabs.length && !atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])){//Si no están rellenos reseteamos current tab
+    if(currentTab >= chosenTabs.length && !atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])){
+        //Si no están rellenos reseteamos current tab
         currentTab = currentTab -1;
         showTab(currentTab, chosenTabs);
         return false;

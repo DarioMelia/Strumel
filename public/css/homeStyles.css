@@ -244,16 +244,12 @@ a.hero__btn--galeria {
 }
 .calculator-flex {
   display: flex;
-  justify-content: space-between;
-  
+  gap: 12rem;
 }
 
 .habilidades {
-  width: 35%;
-  
   min-height: 600px;
   font-family: var(--second-ff);
-  
 }
 
 .habilidades > div {
@@ -347,15 +343,19 @@ a.hero__btn--galeria {
 /* %%% CALCULADORA %%% */
 
 .calculadora {
-  width:60%;
   height:calc(auto + 80px);   
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   align-self: center;
   text-align: center;
   position: relative;
+  
 }
+
 .calc__des{
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: .6em;
   background-color: rgb(98, 237, 255);
   text-align: left;
@@ -363,16 +363,30 @@ a.hero__btn--galeria {
   margin-bottom: .6em;
 }
 .calc__tab{
-border-bottom: 1px solid grey;
-display:none;
+  font-size: 1.2rem;
+  border-bottom: 1px solid grey;
+  display:none;
+  min-width: 550px;
+  background: url(/css/svg/calculadora-bg.svg);
+  background-size: cover;
+  transform:translateX(100%);
+  transition: transform 250ms ease-in-out;
 }
 
 .calc__input{
+  font-family: var(--second-ff);
   display:flex;
   justify-content: space-between;
-  padding: 1em;
+  align-items: center;
+  padding: .7em;
   border: 1px solid rgba(163, 163, 163, 0.2);
   border-bottom: 0;
+}
+.calculadora :is(input[type = "radio"], input[type = "checkbox"]){
+  border:0;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
 }
 
 @supports (accent-color: green){
@@ -388,6 +402,32 @@ display:none;
   justify-content: flex-end;
 }
 
+.calc__btns > button{
+  font-size: 1rem;
+  font-family: var(--second-ff);
+  padding: 0 7px 5px 7px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid grey;
+  transition: transform 150ms ease-in;
+  
+}
+@media (hover:hover){
+.calc__btns > button:hover{
+  transform: scale(1.06);
+}
+}
+
+.calc__btns .next-btn{
+  font-weight: 600;
+}
+.calc__btns .next-btn.submit-btn{
+  padding: 7px;
+  background: linear-gradient(rgb(98, 237, 255), rgb(197, 232, 255));
+  border-radius: 6px;
+  border: 0;
+}
 
 
 
@@ -847,6 +887,7 @@ display:none;
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 @media (hover: none) {
+  
   .gallery figure.on div button::before,
   .gallery figure.on div button::after{
     animation: galleryBtnAuto 4s infinite ease-in-out;
@@ -885,7 +926,6 @@ display:none;
     margin-top: 2.4rem;
   }
 
- 
   .habilidades {
     min-height: 400px;
   }
@@ -903,21 +943,6 @@ display:none;
    right: 0 !important;
    bottom: -40px;
   }
- 
-
-  .calculadora div.calculadorita{
-    width: 91% !important;
-    align-self: stretch;
-    justify-content: center;
-    font-size: min(1.5rem, 5vw);
-    box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.29);
-  }
-
-  .calculadora h2{
-    font-size: 1.65rem;
-  }
-
-  
 
   /* %%%% GALERIA %%% */
   #obras{
@@ -1013,20 +1038,6 @@ display:none;
     bottom: -19px;
   }
 
-   /* %% CALC HAB %% */
-
-   .calculadora .calculadorita{
-     width: 85% !important;
-     min-height: 0.0000001vw; /*Safari workAround */
-     font-size: clamp(1.3rem, 8vw, 1.5rem) ;
-   }
-
-   .primer,
-   .segundo,
-   .tercero{
-     width: 82% !important;
-   }
-
 }
  
 
@@ -1052,7 +1063,7 @@ display:none;
 
   .habilidades,
   .calculadora {
-    width: 100% !important;
+    width: 100% ;
     overflow: hidden;
   }
   .hab-item {
@@ -1071,10 +1082,6 @@ display:none;
 
   .next-hab-btn{
     right: -30px !important;
-  }
-
-  .calculadorita{
-    width: 55% !important;
   }
 
 
@@ -1105,34 +1112,24 @@ display:none;
     padding: 0.5em;
     width: 95%;
   }
-
-    
-
-  /* %% CONTACT %% */
+  
 
 }
 @media (max-width: 1400px) {
-  .habilidades,
-  .calculadora {
-    width: 50%;
-  }
+
   .habilidades{
     min-width: 480px;
   }
-
+  .calculator-flex{
+    gap: 0;
+  }
+  .calc__tab{
+    min-width: min(400px, 80vw);
+  }
   .next-hab-btn{
     right: 90px;
   }
 
-  .calculadorita{
-    width: 75%;
-  }
-
-  .primer,
-   .segundo,
-   .tercero{
-     width: 75%;
-   }
 }
 
 @media (min-width: 2000px) {
