@@ -277,13 +277,20 @@ function showTab(n, chosenTabs) {
 }
 
 function showFinalTab(price){
+  const formatter = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 0
+  })
+  
+  const formattedPrice = formatter.format(Math.round(price));
   const finalTab = document.querySelector(".tab--final");
   const nextBtn = document.querySelector(".calc__btns .next-btn");
   const prevBtn = document.querySelector(".calc__btns .prev-btn");
   const calcDes = document.querySelector(".calc__des");
   const restartBtn = document.querySelector(".calc__restart-btn");
 
-  finalTab.querySelector(".calc__price").innerHTML = price +"€";
+  finalTab.querySelector(".calc__price").innerHTML = formattedPrice ;
   finalTab.style.display = "block";
   restartBtn.style.display = "block";
   restartBtn.addEventListener("click", e => {e.preventDefault()})
