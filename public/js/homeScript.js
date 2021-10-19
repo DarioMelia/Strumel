@@ -324,7 +324,8 @@ function nextPrev(n) {
 
     // Al final del form, siguiente se ha convertido en terminar y submiteamos, si está relleno los metros
     if (currentTab >= chosenTabs.length && atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])) {
-      getPrice(getcalcInputs(chosenTabs));
+      const finalPrice = getPrice(getCalcInputs(chosenTabs));
+      console.log(finalPrice);
       // document.getElementById("calc__form").submit();
       return false;
     }
@@ -410,11 +411,20 @@ function nextPrev(n) {
 
   }
 
-  function getcalcInputs(tabs){
+  function getCalcInputs(tabs){
     //Inicializo el array de objetos, uno por tab
+    
     let calcInputs = [];
     for(i=0;i <= tabs.length -1;i++){
        calcInputs[i] = {};
+       calcInputs[1] = {type: ""}
+    }
+    if(tabs[1].classList.contains("tab--bano")){
+      calcInputs[1].type = "bano";
+    } else if(tabs[1].classList.contains("tab--cocina")){
+      calcInputs[1].type = "cocina";
+    }else if(tabs[1].classList.contains("tab--integral")){
+      calcInputs[1].type = "integral";
     }
    //Por cada tabla...
     tabs.forEach((tab,i) => {
@@ -442,8 +452,113 @@ function nextPrev(n) {
   }
 
   function getPrice(calcInputs){
-    const price = 0;
+    let price = 0;
+    let gamaMultiplier = 1;
+    let addPrice = 0;
+    let metros = calcInputs[3].numValues.metros2;
+
+    switch(calcInputs[0].checkedInputs[0]){
+      case "bano":
+        price += 20;
+      break;
+      case "cocina":
+        price += 30;
+      break;
+      case "integral":
+        price += 50;
+      break;
+    }
+    switch(calcInputs[2].checkedInputs[0]){
+      case "gamaBaja":
+        gamaMultiplier = 1;
+        break;
+      case "gamaMedia":
+        gamaMultiplier = 1.3;
+        break;
+      case "gamaAlta":
+        gamaMultiplier = 1.7;
+    }
+
+    switch(calcInputs[1].type){
+      case "bano":
+        calcInputs[1].checkedInputs.forEach(input => {
+          switch(input){
+            case "lavabo":
+              addPrice += 100 * gamaMultiplier;
+            case "banera":
+              addPrice += 200 * gamaMultiplier;
+            case "platoDeDucha":
+                addPrice += 150 * gamaMultiplier;
+            case "mampara":
+              addPrice += 50 * gamaMultiplier;
+            case "wc":
+              addPrice += 80 * gamaMultiplier;
+            case "suelos-bano":
+              addPrice += 5 * gamaMultiplier * metros;
+            case "paredes-bano": 
+              addPrice +=3 *gamaMultiplier * metros;
+            case "techos-bano":
+              addPrice +=2.5 * gamaMultiplier * metros;
+          }
+        })
+        break;
+      case "cocina":
+        calcInputs[1].checkedInputs.forEach(input => {
+          switch(input){
+            case "mobiliario":
+              addPrice += 100 * gamaMultiplier;
+            case "unirCyS":
+              addPrice += 200 * gamaMultiplier;
+            case "islaCentral":
+                addPrice += 150 * gamaMultiplier;
+            case "suelos-cocina":
+              addPrice += 4 * gamaMultiplier * metros;
+            case "paredes-cocina": 
+              addPrice +=3.6 *gamaMultiplier * metros;
+            case "techos-cocina":
+              addPrice +=1.8 * gamaMultiplier * metros;
+          }
+        })
+        break;
+     case "integral":
+          calcInputs[1].checkedInputs.forEach(input => {
+            switch(input){
+              case "climatizacion":
+                addPrice += 600;
+              case "electricidad":
+                addPrice += 800;
+              case "fontanería":
+                  addPrice += 30 * metros;
+              case "suelos-integral":
+                addPrice += 3 * gamaMultiplier * metros;
+              case "paredes-integral": 
+                addPrice +=2.2 *gamaMultiplier * metros;
+              case "techos-integral":
+                addPrice +=2.6 * gamaMultiplier * metros;
+            }
+          })
+      break;
+
+    }
+
+    if(calcInputs[1].numValues.numBanos){
+      addPrice += 1400 * calcInputs[1].numValues.numBanos;
+    }
+    if(calcInputs[1].numValues.numHabitaciones){
+      addPrice += 1200 * calcInputs[1].numValues.numHabitaciones;
+    }
+    if(calcInputs[1].numValues.numVentanas){
+      addPrice += 250 * calcInputs[1].numValues.numVentanas;
+    }
+    if(calcInputs[1].numValues.numPuertas){
+      addPrice += 200 * calcInputs[1].numValues.numPuertas;
+    }
+
+
+
+    console.log(((price * metros) + addPrice))
     console.log(calcInputs);
+    return (price * metros) + addPrice;
   };
 
 
