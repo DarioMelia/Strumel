@@ -324,11 +324,12 @@ function nextPrev(n) {
 
     // Al final del form, siguiente se ha convertido en terminar y submiteamos, si está relleno los metros
     if (currentTab >= chosenTabs.length && atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])) {
-      document.getElementById("calc__form").submit();
+      getPrice(getcalcInputs(chosenTabs));
+      // document.getElementById("calc__form").submit();
       return false;
     }
+    //Si no están rellenos reseteamos current tab
     if(currentTab >= chosenTabs.length && !atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])){
-        //Si no están rellenos reseteamos current tab
         currentTab = currentTab -1;
         showTab(currentTab, chosenTabs);
         return false;
@@ -408,6 +409,42 @@ function nextPrev(n) {
         }    
 
   }
+
+  function getcalcInputs(tabs){
+    //Inicializo el array de objetos, uno por tab
+    let calcInputs = [];
+    for(i=0;i <= tabs.length -1;i++){
+       calcInputs[i] = {};
+    }
+   //Por cada tabla...
+    tabs.forEach((tab,i) => {
+    //Un array de inputs checkeables filtrado a uno de lso checkeados
+    const checkInputs = Array.from(tab.querySelectorAll("input[type = radio], input[type = checkbox]"));
+    let checkedInputs = checkInputs.filter(input => input.checked === true);
+    //Si de verdad hay alguno checkeado, se añade un array de los id's de los inputs checkeados
+     if(checkedInputs.length > 0){
+     calcInputs[i].checkedInputs = checkedInputs.map(input => input.id);
+     }
+
+     //Si al menos un input-numero tiene valor se crea el objeto que lo guarda.
+     //para cada input con value se crea una nueva key en numValues con el input.name, y se le da valor con el value
+     if(atLeastOneNumberHasValue(tab)){
+      calcInputs[i].numValues = {};
+      const numInputs = tab.querySelectorAll("input[type = number]");
+      numInputs.forEach(input => {
+        if(input.value){
+          calcInputs[i].numValues[input.name] = Number(input.value);
+        }})
+     }
+    
+    })
+    return calcInputs;
+  }
+
+  function getPrice(calcInputs){
+    const price = 0;
+    console.log(calcInputs);
+  };
 
 
 

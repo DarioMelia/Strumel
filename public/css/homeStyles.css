@@ -166,6 +166,7 @@ body {
   font-size: 3.7rem;
   font-family: var(--second-ff);
   font-weight: 500;
+  
 }
 
 .presentation__title{
@@ -177,6 +178,7 @@ body {
   font-size: .9em;
   font-weight: 500;
   color: rgb(250, 250, 250);
+  cursor:default;
 }
 
 .hero__btns{
