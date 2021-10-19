@@ -276,6 +276,23 @@ function showTab(n, chosenTabs) {
 
 }
 
+function showFinalTab(price){
+  const finalTab = document.querySelector(".tab--final");
+  const nextBtn = document.querySelector(".calc__btns .next-btn");
+  const prevBtn = document.querySelector(".calc__btns .prev-btn");
+  const calcDes = document.querySelector(".calc__des");
+  const restartBtn = document.querySelector(".calc__restart-btn");
+
+  finalTab.querySelector(".calc__price").innerHTML = price +"€";
+  finalTab.style.display = "block";
+  restartBtn.style.display = "block";
+  restartBtn.addEventListener("click", e => {e.preventDefault()})
+  nextBtn.style.display = "none";
+  prevBtn.style.display = "none";
+  calcDes.innerHTML = "Su precio aproximado es:";
+
+}
+
 function nextPrev(n) {
     // Esa función decide qué tab displayear
 
@@ -326,6 +343,9 @@ function nextPrev(n) {
     if (currentTab >= chosenTabs.length && atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])) {
       const finalPrice = getPrice(getCalcInputs(chosenTabs));
       console.log(finalPrice);
+      
+      showFinalTab(finalPrice);
+
       // document.getElementById("calc__form").submit();
       return false;
     }
@@ -385,7 +405,7 @@ function nextPrev(n) {
   function adaptCalcDesscription(tab){
       let tabName = tab.classList[1];
       const calcDes = document.querySelector(".calc__des");
-      console.log(tabName)
+      
       switch(tabName){
           case "tab--main":
             calcDes.innerHTML = "Estoy buscando...";
@@ -439,6 +459,7 @@ function nextPrev(n) {
      //Si al menos un input-numero tiene valor se crea el objeto que lo guarda.
      //para cada input con value se crea una nueva key en numValues con el input.name, y se le da valor con el value
      if(atLeastOneNumberHasValue(tab)){
+      
       calcInputs[i].numValues = {};
       const numInputs = tab.querySelectorAll("input[type = number]");
       numInputs.forEach(input => {
@@ -540,7 +561,7 @@ function nextPrev(n) {
       break;
 
     }
-
+   if(calcInputs[1].numValues){
     if(calcInputs[1].numValues.numBanos){
       addPrice += 1400 * calcInputs[1].numValues.numBanos;
     }
@@ -553,6 +574,7 @@ function nextPrev(n) {
     if(calcInputs[1].numValues.numPuertas){
       addPrice += 200 * calcInputs[1].numValues.numPuertas;
     }
+  }
 
 
 
@@ -560,6 +582,24 @@ function nextPrev(n) {
     console.log(calcInputs);
     return (price * metros) + addPrice;
   };
+
+  function restartCalc(){
+    const finalTab = document.querySelector(".tab--final");
+    const nextBtn = document.querySelector(".calc__btns .next-btn");
+    const prevBtn = document.querySelector(".calc__btns .prev-btn");
+    const calcDes = document.querySelector(".calc__des");
+    const form = document.getElementById("calc__form");
+    const restartBtn = document.querySelector(".calc__restart-btn");
+    
+    form.reset();
+    finalTab.style.display = "none";
+    nextBtn.style.display = "block";
+    nextBtn.innerHTML = "Siguiente";
+    restartBtn.style.display = "none";
+    calcDes.innerHTML = "Estoy buscando...";
+    currentTab = 0;
+    showTab(currentTab,undefined);
+  }
 
 
 

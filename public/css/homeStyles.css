@@ -381,6 +381,14 @@ a.hero__btn--galeria {
   font-size: 1rem;
 }
 
+.calc__restart-btn,.tab--final{
+ display: none;
+}
+.calc__price{
+  font-size: 2.5rem;
+  padding: 1.5rem;
+}
+
 .calc__input{
   font-family: var(--second-ff);
   display:flex;
@@ -431,7 +439,7 @@ a.hero__btn--galeria {
   font-weight: 600;
   
 }
-.calc__btns .next-btn.submit-btn{
+.calc__btns .next-btn.submit-btn, .calc__btns .calc__restart-btn{
   padding: 7px;
   background: linear-gradient(rgb(43, 126, 194), rgb(71, 168, 233));
   border-radius: 6px;
