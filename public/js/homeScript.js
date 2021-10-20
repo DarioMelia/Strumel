@@ -276,7 +276,7 @@ function showTab(n, chosenTabs) {
 
 }
 
-function showFinalTab(price){
+function showFinalTab(price, calcInputs){
   const formatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
@@ -285,6 +285,7 @@ function showFinalTab(price){
   
   const formattedPrice = formatter.format(Math.round(price));
   const finalTab = document.querySelector(".tab--final");
+  const choicesList = finalTab.querySelector(".choices__list");
   const nextBtn = document.querySelector(".calc__btns .next-btn");
   const prevBtn = document.querySelector(".calc__btns .prev-btn");
   const calcDes = document.querySelector(".calc__des");
@@ -297,6 +298,9 @@ function showFinalTab(price){
   nextBtn.style.display = "none";
   prevBtn.style.display = "none";
   calcDes.innerHTML = "Su precio aproximado es:";
+  
+  choicesList.innerHTML = insertChoicesHtml(calcInputs);
+
 
 }
 
@@ -348,10 +352,10 @@ function nextPrev(n) {
 
     // Al final del form, siguiente se ha convertido en terminar y submiteamos, si está relleno los metros
     if (currentTab >= chosenTabs.length && atLeastOneNumberHasValue(chosenTabs[chosenTabs.length - 1])) {
-      const finalPrice = getPrice(getCalcInputs(chosenTabs));
-      console.log(finalPrice);
-      
-      showFinalTab(finalPrice);
+      const calcInputs = getCalcInputs(chosenTabs);
+      const finalPrice = getPrice(calcInputs);
+     
+      showFinalTab(finalPrice, calcInputs);
 
       // document.getElementById("calc__form").submit();
       return false;
@@ -515,7 +519,7 @@ function nextPrev(n) {
               addPrice += 100 * gamaMultiplier;
             case "banera":
               addPrice += 200 * gamaMultiplier;
-            case "platoDeDucha":
+            case "plato-de-ducha":
                 addPrice += 150 * gamaMultiplier;
             case "mampara":
               addPrice += 50 * gamaMultiplier;
@@ -535,9 +539,9 @@ function nextPrev(n) {
           switch(input){
             case "mobiliario":
               addPrice += 100 * gamaMultiplier;
-            case "unirCyS":
+            case "unir-cocina-y-salón":
               addPrice += 200 * gamaMultiplier;
-            case "islaCentral":
+            case "isla-central":
                 addPrice += 150 * gamaMultiplier;
             case "suelos-cocina":
               addPrice += 4 * gamaMultiplier * metros;
@@ -549,22 +553,25 @@ function nextPrev(n) {
         })
         break;
      case "integral":
-          calcInputs[1].checkedInputs.forEach(input => {
-            switch(input){
-              case "climatizacion":
-                addPrice += 600;
-              case "electricidad":
-                addPrice += 800;
-              case "fontanería":
-                  addPrice += 30 * metros;
-              case "suelos-integral":
-                addPrice += 3 * gamaMultiplier * metros;
-              case "paredes-integral": 
-                addPrice +=2.2 *gamaMultiplier * metros;
-              case "techos-integral":
-                addPrice +=2.6 * gamaMultiplier * metros;
-            }
-          })
+       if(calcInputs[1].checkedInputs){
+        calcInputs[1].checkedInputs.forEach(input => {
+          switch(input){
+            case "climatizacion":
+              addPrice += 600;
+            case "electricidad":
+              addPrice += 800;
+            case "fontanería":
+                addPrice += 30 * metros;
+            case "suelos-integral":
+              addPrice += 3 * gamaMultiplier * metros;
+            case "paredes-integral": 
+              addPrice +=2.2 *gamaMultiplier * metros;
+            case "techos-integral":
+              addPrice +=2.6 * gamaMultiplier * metros;
+          }
+        })
+       }
+    
       break;
 
     }
@@ -606,6 +613,69 @@ function nextPrev(n) {
     calcDes.innerHTML = "Estoy buscando...";
     currentTab = 0;
     showTab(currentTab,undefined);
+  }
+
+
+  
+  function insertChoicesHtml(calcInputs){
+    let innerHtml = `<li>Reforma ${calcInputs[0].checkedInputs[0]}</li>`;
+    
+    if(calcInputs[0].checkedInputs[0] == "bano"){
+      innerHtml = `<li>Reforma baño.</li>`
+    }
+
+    switch(calcInputs[2].checkedInputs[0]){
+      case "gamaBaja":
+        innerHtml = innerHtml.concat(` `,`<li>Gama media de materiales</li>`);
+        break;
+      case "gamaMedia":
+        innerHtml = innerHtml.concat(` `,`<li>Gama comfort de materiales</li>`);
+        break;
+      case "gamaAlta":
+        innerHtml = innerHtml.concat(` `,`<li>Gama alta de materiales</li>`);
+        break;
+    }
+
+    if(calcInputs[1].numValues){
+    
+      if(calcInputs[1].numValues.numBanos){
+         innerHtml = innerHtml.concat(`<li>Baños: ${calcInputs[1].numValues.numBanos}</li>`)
+       }
+      if(calcInputs[1].numValues.numHabitaciones){
+        innerHtml = innerHtml.concat(`<li>Habitaciones: ${calcInputs[1].numValues.numHabitaciones}</li>`)
+      }
+      if(calcInputs[1].numValues.numVentanas){
+        innerHtml = innerHtml.concat(`<li>Ventanas: ${calcInputs[1].numValues.numVentanas}</li>`)
+      }
+      if(calcInputs[1].numValues.numPuertas){
+        innerHtml = innerHtml.concat(`<li>Puertas: ${calcInputs[1].numValues.numPuertas}</li>`)
+      }
+      
+    }
+
+    if(calcInputs[1].checkedInputs){
+      calcInputs[1].checkedInputs.forEach(input => {
+        sentenceCaseInput = input.replace(/-/g, ' ');
+        sentenceCaseInput = sentenceCaseInput.slice(0, 1).toUpperCase() + sentenceCaseInput.slice(1);
+        if(input === "fontaneria"){
+          innerHtml = innerHtml.concat(`<li>Fontanería</li>`)
+        }else if(input === "climatizacion"){
+          innerHtml = innerHtml.concat(`<li>Climatización</li>`)
+        }else  if(input === "banera"){
+          innerHtml = innerHtml.concat(`<li>Bañera</li>`)
+        }else{
+          innerHtml = innerHtml.concat(`<li>${sentenceCaseInput}</li>`);
+        }})
+    }
+
+    innerHtml = innerHtml.concat(`<li class = "calc__choices--metros">${calcInputs[3].numValues.metros2} m²</li>`);
+
+
+
+
+    
+    return innerHtml;
+
   }
 
 
