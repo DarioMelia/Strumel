@@ -358,12 +358,15 @@ a.hero__btn--galeria {
 
 .calc__des{
   font-size: 1.3rem;
+  color:rgb(24, 24, 24);
+  font-weight: 600;
   padding: .6em;
   background-color: rgba(98, 179, 255, 0.527);
   border-radius:8px;
   text-align: left;
   width: fit-content;
   margin-bottom: .6em;
+  box-shadow: 5px 7px 5px -1px rgba(0, 0, 0, 0.568);
 }
 .calc__tab{
   font-size: 1.2rem;
@@ -374,19 +377,12 @@ a.hero__btn--galeria {
   min-width: 550px;
   background: url(/css/svg/calculadora-bg.svg);
   background-size: cover;
+  box-shadow: 5px 7px 8px -1px rgba(0, 0, 0, 0.479);
   transform:translateX(100%);
   transition: transform 300ms cubic-bezier(.11,.7,.54,1.22);
 }
 .calc__tab.tab--integral{
   font-size: 1rem;
-}
-
-.calc__restart-btn,.tab--final{
- display: none;
-}
-.calc__price{
-  font-size: 2.5rem;
-  padding: 1.5rem;
 }
 
 .calc__input{
@@ -397,6 +393,10 @@ a.hero__btn--galeria {
   padding: .7em;
   border: 1px solid rgba(163, 163, 163, 0.2);
   border-bottom: 0;
+}
+
+.calc__input > label{
+  cursor: pointer;
 }
 .calculadora :is(input[type = "radio"], input[type = "checkbox"]){
   border:0;
@@ -440,11 +440,43 @@ a.hero__btn--galeria {
   
 }
 .calc__btns .next-btn.submit-btn, .calc__btns .calc__restart-btn{
+  font-family: var(--main-ff);
+  font-weight: 600;
   padding: 7px;
   background: linear-gradient(rgb(43, 126, 194), rgb(71, 168, 233));
   border-radius: 6px;
   color: white;
   border: 0;
+}
+
+.calc__user-choices{
+  padding-bottom: 1.5rem;
+}
+
+.calc__restart-btn,.tab--final{
+  display: none;
+}
+
+.calc__price{
+   font-size: 3rem;
+   backdrop-filter: blur(1px);
+   padding: 1.5rem;
+   transform:scale(0);
+   transition: transform 400ms ease-in-out;
+}
+.choices__list{
+  margin: 0 auto;
+  width: 80%;
+  columns:2;
+  column-gap:5rem;
+  text-align: left;
+  font-size: 1.2;
+}
+.choices__list li{
+  opacity: .6;
+  min-width: 140px;
+  font-family: var(--second-ff);
+  
 }
 
 
@@ -844,6 +876,11 @@ a.hero__btn--galeria {
 
   .calculator-flex > .calculadora{
     padding: 4rem 0 2rem 0;
+  }
+
+  .choices__list{
+    columns: 1;
+    column-gap: 0;
   }
 
   /* %%%% GALERIA %%% */

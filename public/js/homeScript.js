@@ -293,6 +293,7 @@ function showFinalTab(price, calcInputs){
 
   finalTab.querySelector(".calc__price").innerHTML = formattedPrice ;
   finalTab.style.display = "block";
+  setTimeout(() => finalTab.querySelector(".calc__price").style.transform = "scale(1)", 100);
   restartBtn.style.display = "block";
   restartBtn.addEventListener("click", e => {e.preventDefault()})
   nextBtn.style.display = "none";
@@ -606,6 +607,7 @@ function nextPrev(n) {
     const restartBtn = document.querySelector(".calc__restart-btn");
     
     form.reset();
+    finalTab.querySelector(".calc__price").style.transform = "scale(0)";
     finalTab.style.display = "none";
     nextBtn.style.display = "block";
     nextBtn.innerHTML = "Siguiente";
@@ -624,17 +626,6 @@ function nextPrev(n) {
       innerHtml = `<li>Reforma baño.</li>`
     }
 
-    switch(calcInputs[2].checkedInputs[0]){
-      case "gamaBaja":
-        innerHtml = innerHtml.concat(` `,`<li>Gama media de materiales</li>`);
-        break;
-      case "gamaMedia":
-        innerHtml = innerHtml.concat(` `,`<li>Gama comfort de materiales</li>`);
-        break;
-      case "gamaAlta":
-        innerHtml = innerHtml.concat(` `,`<li>Gama alta de materiales</li>`);
-        break;
-    }
 
     if(calcInputs[1].numValues){
     
@@ -668,6 +659,18 @@ function nextPrev(n) {
         }})
     }
 
+    switch(calcInputs[2].checkedInputs[0]){
+      case "gamaBaja":
+        innerHtml = innerHtml.concat(` `,`<li>Gama media de materiales</li>`);
+        break;
+      case "gamaMedia":
+        innerHtml = innerHtml.concat(` `,`<li>Gama comfort de materiales</li>`);
+        break;
+      case "gamaAlta":
+        innerHtml = innerHtml.concat(` `,`<li>Gama alta de materiales</li>`);
+        break;
+    }
+    
     innerHtml = innerHtml.concat(`<li class = "calc__choices--metros">${calcInputs[3].numValues.metros2} m²</li>`);
 
 
