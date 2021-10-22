@@ -360,10 +360,12 @@ a.hero__btn--galeria {
 
 .hab-text.hab-text-open{
   display: block;
-  position: fixed;
-  
+  position: absolute;
   z-index: 8;
-  top:0;bottom:0;left:0;right:0;
+  width: fit-content;
+  max-width: 400px;
+  top: 0;
+  height: 600px;
   padding: 2rem;
   font-size: 1.4rem;
   color: white;

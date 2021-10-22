@@ -259,11 +259,10 @@ items.forEach(item => {
 }
 
 function habClickHandler(e){
-    const currentItem = e.target.parentElement.parentElement;
+    const currentItem = e.target.parentElement;
     const habText = currentItem.querySelector(".hab-text");
-    console.log(e.target);
    
-   habText.classList.toggle("hab-text-open");
+    // habText.classList.toggle("hab-text-open");
 }
 
 
