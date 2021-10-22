@@ -38,10 +38,10 @@ body {
 }
 
 .nav__item img{
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
   margin-top: 15px;
-  transform: translateX(-3px);
+  transform: translateX(-3px) translateY(5px);
   position: relative;
   z-index: 3;
 }
@@ -49,6 +49,7 @@ body {
   position: relative;
   z-index: 3;
 }
+
 
 .nav__current {
   position: absolute;
@@ -79,7 +80,6 @@ body {
 
 .nav__burger {
   position: relative;
-
   display: none;
 }
 .nav__btn {
@@ -936,6 +936,9 @@ a.hero__btn--galeria {
   }
   .nav__list {
     padding: 0.7rem;
+  }
+  .nav__list.grow{
+    padding-bottom: 0;
   }
   .nav__burger {
     display: list-item;

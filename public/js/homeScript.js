@@ -673,9 +673,6 @@ function nextPrev(n) {
     
     innerHtml = innerHtml.concat(`<li class = "calc__choices--metros">${calcInputs[3].numValues.metros2} m²</li>`);
 
-
-
-
     
     return innerHtml;
 
