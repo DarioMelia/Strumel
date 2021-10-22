@@ -229,7 +229,9 @@ a.title{
 }
 
 .btn--animated:hover:before,
-.btn--animated:hover:after{
+.btn--animated:hover:after,
+.btn--animated:focus:before,
+.btn--animated:focus:after {
   width: calc(100% + 12px);
   height: calc(100% + 12px);
 }

@@ -11,8 +11,19 @@ AOS.init({                         //Iniciamos la librería para las animaciones
 
 const navLinks = Array.from(document.querySelectorAll(".nav__current")) ;
 const header = document.querySelector(".logo__title");
+const heroConocenosText = document.querySelector(".conocenos-text");
+const heroConocenosTextContent = document.querySelector(".conocenos-text__content");
 
 
+var heroObserver = new IntersectionObserver(entries =>{
+  if(entries[0].intersectionRatio < 0.8){
+    heroConocenosTextContent.classList.remove("active");
+    heroConocenosText.classList.remove("active");
+    
+  }
+})
+
+heroObserver.observe(document.getElementById("hero"));
 var observer = new IntersectionObserver(entries => {
     
     if(entries[0].intersectionRatio >= 0.7){
@@ -24,14 +35,16 @@ var observer = new IntersectionObserver(entries => {
         navLink[0].classList.add("current-section");
        
         
-    
     }else if(entries[0].intersectionRatio < 0.7){
-        const id = entries[0].target.id;
+      const id = entries[0].target.id;
         
-       
-        const navLink = navLinks.filter(link => link.name === id);
-       
-        navLink[0].classList.remove("current-section");
+      const navLink = navLinks.filter(link => link.name === id);
+     
+      navLink[0].classList.remove("current-section");
+
+      if(entries[0].target == hero){
+        
+      }
     }
 }, { threshold: 0.7})
 
@@ -107,21 +120,18 @@ window.onload = function() {
     document.body.appendChild(css);
 
 ///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
-const hero = document.getElementById("hero");
 const conocenosBtn = document.querySelector(".hero__btn--conocenos");
 const conocenosText = document.querySelector(".conocenos-text");
 const conocenosTextContent = document.querySelector(".conocenos-text__content");
 conocenosBtn.addEventListener("click", e => {
   conocenosText.classList.toggle("active");
-  setTimeout(() => {conocenosTextContent.style.transform = "scale(1)"
-                    conocenosTextContent.style.opacity = "1"}, 50);
+  setTimeout(() => {conocenosTextContent.classList.add("active")}, 20);
+                    
 })
 conocenosText.addEventListener("click", e => {
   if(conocenosText.classList.contains("active")){
-    conocenosTextContent.style.transform = "scale(0)";
-    conocenosTextContent.style.opacity = "0";
+    conocenosTextContent.classList.remove("active");
     setTimeout(() => {conocenosText.classList.remove("active")}, 400)
-
   }
 })
 

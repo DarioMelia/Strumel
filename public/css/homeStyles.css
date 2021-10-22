@@ -207,7 +207,7 @@ body {
   
 }
 .conocenos-text.active{
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(9px);
   position: absolute;
   width:100%;
   display:block;
@@ -219,19 +219,22 @@ body {
 }
 .conocenos-text__content{
   min-height: 0.0000001vw; /*Safari workAround */
- font-size: clamp(1.3rem, 6vw, 1.8rem); 
+ font-size: clamp(1.3rem, 6vw, 2rem); 
  color:rgb(255, 255, 255);
  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
  line-height: 1.4;
  font-weight: 600;
- padding: 3em;
+ padding: .5em;
  text-align: center;
  z-index: 6;
  width: 80%;
  transform: scale(0);
  transition: transform 400ms ease-in-out, opacity 400ms;
  transform-origin:bottom;
- 
+}
+.conocenos-text__content.active{
+  transform: scale(1);
+  opacity:1;
 }
 .conocenos-text.active .conocenos-text__content{
   cursor: pointer;
@@ -278,7 +281,6 @@ a.hero__btn--galeria {
   padding: 1rem 0 4rem 0;
   overflow-x: hidden;
   background: url(/css/images/cubes-texture.png);
-  
 }
 .calculator-flex {
   display: flex;
