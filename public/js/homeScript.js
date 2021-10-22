@@ -106,7 +106,25 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
 
-   
+///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
+const hero = document.getElementById("hero");
+const conocenosBtn = document.querySelector(".hero__btn--conocenos");
+const conocenosText = document.querySelector(".conocenos-text");
+const conocenosTextContent = document.querySelector(".conocenos-text__content");
+conocenosBtn.addEventListener("click", e => {
+  conocenosText.classList.toggle("active");
+  setTimeout(() => {conocenosTextContent.style.transform = "scale(1)"
+                    conocenosTextContent.style.opacity = "1"}, 50);
+})
+conocenosText.addEventListener("click", e => {
+  if(conocenosText.classList.contains("active")){
+    conocenosTextContent.style.transform = "scale(0)";
+    conocenosTextContent.style.opacity = "0";
+    setTimeout(() => {conocenosText.classList.remove("active")}, 400)
+
+  }
+})
+
     
    // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%     
         var item = 0,

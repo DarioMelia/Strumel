@@ -122,13 +122,13 @@ body {
   inset: 0;
   top:0;left:0;bottom:0;right:0;
   background-color: transparent;
-  z-index: 3;
+  z-index: 1;
 }
 .hero__bg-img {
   position: absolute;
   width: 2676px;
   height: 607px;
-  z-index: 2;
+  z-index: 0;
   bottom: -10px;
   left: -400px;
   background-image: url(images/obraBg.png);
@@ -142,7 +142,7 @@ body {
   justify-content: center;
   margin: 0;
   position: relative;
-  z-index: 4;
+  z-index: 2;
 }
 
 .title {
@@ -161,7 +161,7 @@ body {
 
 .presentation {
   position: relative;
-  z-index: 4;
+  z-index: 2;
   text-align: center;
   font-size: 3.7rem;
   font-family: var(--second-ff);
@@ -201,23 +201,58 @@ body {
 
 .hero__btn--conocenos{
   border: none;
-  }
+}
+.conocenos-text{
+  display:none;
+  
+}
+.conocenos-text.active{
+  backdrop-filter: blur(6px);
+  position: absolute;
+  width:100%;
+  display:block;
+  top:0;left:0;bottom:0;right:0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  z-index:4;
+}
+.conocenos-text__content{
+  min-height: 0.0000001vw; /*Safari workAround */
+ font-size: clamp(1.3rem, 6vw, 1.8rem); 
+ color:rgb(255, 255, 255);
+ text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
+ line-height: 1.4;
+ font-weight: 600;
+ padding: 3em;
+ text-align: center;
+ z-index: 6;
+ width: 80%;
+ transform: scale(0);
+ transition: transform 400ms ease-in-out, opacity 400ms;
+ transform-origin:bottom;
+ 
+}
+.conocenos-text.active .conocenos-text__content{
+  cursor: pointer;
+}
+
   
 a.hero__btn--galeria {
     color: rgb(0, 0, 0);
     display: inline-block;
-  }
+}
 
 
 
-.hero__btn--conocenos:before {
+.hero__btn--conocenos:before{
   top: -6px;
   left: -6px;
   border-width: 2px 0 0 2px;
   
 }
 
-.hero__btn--conocenos::after {
+.hero__btn--conocenos::after{
   bottom: -6px;
   right: -6px;
   border-width: 0 2px 2px 0;
@@ -852,6 +887,9 @@ a.hero__btn--galeria {
     /* gap: 2.4rem; */
     bottom: 18%;
   }
+  .conocenos-text__content{
+    width: 90%;
+  }
 
   .hero__btn--galeria{
     margin-top: 2.4rem;
@@ -918,6 +956,9 @@ a.hero__btn--galeria {
     display: flex;
     align-items: center;
     transition: transform 150ms ease-in;
+  }
+  .nav__list.grow .nav__btn{
+    margin-bottom: .7rem;
   }
    
   .nav__list:not(.grow) .nav__btn{
@@ -990,6 +1031,7 @@ a.hero__btn--galeria {
    #hero{
      padding-top: 20vh;
    }
+  
 
    .hero__bg-img{
     left: -960px;
