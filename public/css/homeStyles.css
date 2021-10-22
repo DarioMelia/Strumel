@@ -207,7 +207,7 @@ body {
   
 }
 .conocenos-text.active{
-  backdrop-filter: blur(9px);
+  background-color:rgba(15, 15, 15, 0.616);
   position: absolute;
   width:100%;
   display:block;
@@ -216,6 +216,12 @@ body {
   align-items: center;
   justify-content: center;
   z-index:4;
+}
+@supports (backdrop-filter: blur(5px)){
+  .conocenos-text.active{
+    backdrop-filter: blur(9px);
+    background-color: transparent;
+  }
 }
 .conocenos-text__content{
   min-height: 0.0000001vw; /*Safari workAround */
@@ -395,11 +401,11 @@ a.hero__btn--galeria {
 
 .calc__des{
   font-size: 1.3rem;
-  color:rgb(24, 24, 24);
+  color:rgb(255, 255, 255);
   font-weight: 600;
   padding: .6em;
-  background-color: rgba(98, 179, 255, 0.527);
-  border-radius:8px;
+  background-color: rgb(10, 142, 250);
+  border-radius:6px;
   text-align: left;
   width: fit-content;
   margin-bottom: .6em;
@@ -430,10 +436,14 @@ a.hero__btn--galeria {
   padding: .7em;
   border: 1px solid rgba(163, 163, 163, 0.2);
   border-bottom: 0;
+  
 }
 
 .calc__input > label{
   cursor: pointer;
+}
+.calc__input > input[type="number"]{
+  max-width: 60px;
 }
 .calculadora :is(input[type = "radio"], input[type = "checkbox"]){
   border:0;
