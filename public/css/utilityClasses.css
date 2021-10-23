@@ -58,18 +58,6 @@ select{
 }
 
 
-/* %%%%%%%%%%% LOADER %%%%%%%%%%% */
-/* #loader{
-  position:fixed;
-  top:0;right:0;bottom:0;left:0;
-  background: cornflowerblue;
-  z-index: 100;
-  display: grid;
-  align-content: center;
-  justify-items: center;
-
-} */
-
 /* %%%%%%%%%%%%% LOGO-TITLE %%%%%%%%%%%%%%%%%%% */
 .logo__title {
   text-align: center;

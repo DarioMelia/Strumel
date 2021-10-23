@@ -183,7 +183,7 @@ conocenosText.addEventListener("click", e => {
             }, 250);
           }
         const loader = document.getElementById("loader");
-        // loader.classList.add("display-none");
+        
 };
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
@@ -242,6 +242,7 @@ const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
 const habItems = document.querySelectorAll(".hab-item");
 const habTexts = document.querySelectorAll(".hab-text");
 
+
 nextHabBtns.forEach(btn => {
     btn.addEventListener("click", habSlideHandler);
 })
@@ -255,7 +256,8 @@ habCalc.addEventListener("click", e => {
     if(habText.classList.contains("hab-text-open")){
       removeHabText(habText);
     }
-  })
+  });
+  
 
 })
 

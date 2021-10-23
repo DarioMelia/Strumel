@@ -181,6 +181,10 @@ body {
   cursor:default;
 }
 
+.presentation a{
+  pointer-events: none;
+}
+
 .hero__btns{
   padding: 2rem 0;
   position: absolute;
@@ -348,8 +352,9 @@ a.hero__btn--galeria {
   transform: translateX(-800px);
   transition: transform 400ms ease-in, opacity 200ms;
   opacity: 0;
-  
+  -webkit-tap-highlight-color: transparent;
   }
+
 
 .hab-active{
   position:relative;
@@ -406,9 +411,7 @@ a.hero__btn--galeria {
   z-index: 1;
 }
 .hab-active:hover .hab-title,
-.hab-active:hover .fas,
-.hab-active:focus .hab-title,
-.hab-active:focus .fas{
+.hab-active:focus .hab-title{
   transform: scale(1.05);
 }
 
@@ -426,7 +429,6 @@ a.hero__btn--galeria {
   padding: 0.5em;
   color: white;
   background: rgba(8,79,255,.8);
-  transition: transform 200ms ease-in-out;
   border-radius: 50%;
 }
 
@@ -913,10 +915,6 @@ a.hero__btn--galeria {
 
 @media (hover: none) {
   
-  .hab-item:focus{
-    outline:none;
-    box-shadow: none;
-  }
   .gallery figure.on div button::before,
   .gallery figure.on div button::after{
     animation: galleryBtnAuto 4s infinite ease-in-out;
@@ -947,7 +945,6 @@ a.hero__btn--galeria {
   .hero__btns{
     flex-direction: column;
     align-items: center;
-    /* gap: 2.4rem; */
     bottom: 18%;
   }
   .conocenos-text__content{
