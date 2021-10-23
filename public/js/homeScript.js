@@ -237,8 +237,10 @@ if(navList.classList.contains("grow")){
 
 // %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%
 
+const habCalc = document.getElementById("habilidades-calculador");
 const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
 const habItems = document.querySelectorAll(".hab-item");
+const habTexts = document.querySelectorAll(".hab-text");
 
 nextHabBtns.forEach(btn => {
     btn.addEventListener("click", habSlideHandler);
@@ -246,6 +248,15 @@ nextHabBtns.forEach(btn => {
 
 habItems.forEach(item => {
     item.addEventListener("click", habClickHandler);
+})
+
+habCalc.addEventListener("click", e => {
+  habTexts.forEach(habText => {
+    if(habText.classList.contains("hab-text-open")){
+      removeHabText(habText);
+    }
+  })
+
 })
 
 
@@ -260,9 +271,23 @@ items.forEach(item => {
 
 function habClickHandler(e){
     const currentItem = e.target.parentElement;
-    const habText = currentItem.querySelector(".hab-text");
-   
-    // habText.classList.toggle("hab-text-open");
+    var habText = currentItem.querySelector(".hab-text");
+
+    if(habText){
+      if(habText.classList.contains("hab-text-open")){
+        removeHabText(habText);
+      }else{
+        habText.style.display = "block";
+        setTimeout(() => {habText.classList.add("hab-text-open")}, 20);
+        
+        
+      }
+    } 
+}
+
+function removeHabText(habText){
+  habText.classList.remove("hab-text-open");
+  setTimeout(()=>{habText.style.display ="none"}, 400);
 }
 
 

@@ -285,17 +285,19 @@ a.hero__btn--galeria {
 /* %%%%%%%%%%%%% HAB-CALC %%%%%%%%%%%%%% */
 #habilidades-calculador {
   padding: 1rem 0 4rem 0;
-  overflow-x: hidden;
   background: url(/css/images/cubes-texture.png);
+  overflow: hidden;
 }
 .calculator-flex {
   display: flex;
   gap: 12rem;
+  
 }
 
 .habilidades {
-  min-height: 600px;
+  min-height: 700px;
   font-family: var(--second-ff);
+
 }
 
 .habilidades > div {
@@ -303,7 +305,7 @@ a.hero__btn--galeria {
   top: -30px;
   min-height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: space-around;
 }
@@ -320,17 +322,21 @@ a.hero__btn--galeria {
   display: flex;
   align-items: center;
   font-size: 2.65rem;
-  right: 0;
+  right: -30px;
   bottom: 5px;
   color:rgb(73, 158, 255);
-  mix-blend-mode: screen;
-  z-index: 6;
+  z-index: 2;
+  padding: 0 .5rem;
   cursor: pointer;
 }
 
 .hab-item {
+  position:relative;
+  z-index:1;
   display: flex;
   gap: 0.3em;
+  border:none;
+  background:none;
   align-items: center;
   width: min(400px, 65vw);
   position: absolute;
@@ -355,26 +361,49 @@ a.hero__btn--galeria {
 }
 
 .hab-text{
-  display:none;
+  position: absolute;
+  display: none;
+  top: 3.7em;
+  font-size: .5em;
+  
 }
 
-.hab-text.hab-text-open{
-  display: block;
+
+.hab-text-content{
+  position:relative;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  opacity:0;
+  border-radius: 10px;
+  background: rgba(8,79,255,.9);
+  background-blend-mode: multiply;
+  padding: 1em .7em;
+  transform:translateY(-150%);
+  transition: transform 400ms cubic-bezier(.11,.7,.54,1.22), opacity 200ms;
+}
+.hab-text-content::after{
+  content:"";
+  display:block;
+  height:20px;
+  width:20px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid rgba(8,79,255,.9);
   position: absolute;
-  z-index: 8;
-  width: fit-content;
-  max-width: 400px;
-  top: 0;
-  height: 600px;
-  padding: 2rem;
-  font-size: 1.4rem;
-  color: white;
-  background-color:rgba(32, 32, 49, 0.856);
+  top: -20px;
+  left: 50%;
+}
+
+.hab-text.hab-text-open .hab-text-content{
+  transform:translateY(0%);
+  opacity: 1;
 }
 
 .hab-title {
   white-space: nowrap;
   transition: transform 200ms ease-in-out;
+  position:relative;
+  z-index: 1;
 }
 .hab-active:hover .hab-title,
 .hab-active:hover .fas,
@@ -884,6 +913,10 @@ a.hero__btn--galeria {
 
 @media (hover: none) {
   
+  .hab-item:focus{
+    outline:none;
+    box-shadow: none;
+  }
   .gallery figure.on div button::before,
   .gallery figure.on div button::after{
     animation: galleryBtnAuto 4s infinite ease-in-out;
@@ -928,22 +961,31 @@ a.hero__btn--galeria {
   .habilidades {
     min-height: 400px;
   }
+
   .habilidades > div {
     height: 400px;
   }
   .hab-item{
     min-width: 250px;
   }
+  .hab-text{
+    font-size: .6em;
+  }
+  .hab-text-content::after{
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 15px solid rgba(8,79,255,.9);
+  }
   .slide-set .next-hab-btn{
    justify-content: center;
    height: auto;
    width: 100%;
    right: 0 !important;
-   bottom: -40px;
+   top: -80px;
   }
 
   .calculator-flex > .calculadora{
-    padding: 4rem 0 2rem 0;
+    padding: .3rem 0 2rem 0;
   }
 
   .choices__list{
@@ -1072,13 +1114,13 @@ a.hero__btn--galeria {
   .calculator-flex {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .habilidades,
   .calculadora {
     width: 100% ;
-    overflow: hidden;
+
   }
   .hab-item {
     min-height: 0.0000001vw; /*Safari workAround */
@@ -1088,18 +1130,21 @@ a.hero__btn--galeria {
     min-height: 450px;
     display: flex;
     justify-content: center;
-    
+    padding-bottom: 3.5rem;
   }
+
   .habilidades > div {
     height: 450px;
   }
+  
+ 
 
   .next-hab-btn{
     right: -30px !important;
   }
 
   .calculadora{
-    padding: 6rem 0 3rem 0;
+    padding: .3rem 0 3rem 0;
   }
   .calc__tab.tab--integral{
     font-size: 1.2rem;
@@ -1148,7 +1193,7 @@ a.hero__btn--galeria {
     min-width: min(400px, 80vw);
   }
   .next-hab-btn{
-    right: 90px;
+    right: 40px;
   }
 
 }
