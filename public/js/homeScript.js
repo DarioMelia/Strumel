@@ -16,12 +16,12 @@ const heroConocenosTextContent = document.querySelector(".conocenos-text__conten
 
 
 var heroObserver = new IntersectionObserver(entries =>{
-  if(entries[0].intersectionRatio < 0.8){
+  if(entries[0].intersectionRatio < 1){
     heroConocenosTextContent.classList.remove("active");
-    heroConocenosText.classList.remove("active");
+    setTimeout(() => {heroConocenosText.classList.remove("active")}, 400);
     
   }
-})
+},{threshold:0.4})
 
 heroObserver.observe(document.getElementById("hero"));
 var observer = new IntersectionObserver(entries => {
@@ -266,6 +266,10 @@ habCalc.addEventListener("click", e => {
 function habSlideHandler(e){
 const currentSlideSet = e.target.parentElement.parentElement;
 const items = currentSlideSet.querySelectorAll(".hab-item");
+//Animación del botón;
+e.target.parentElement.classList.add("active");
+setTimeout(() => {e.target.parentElement.classList.remove("active")},200);
+
 items.forEach(item => {
     item.classList.toggle("hab-active");
 })
@@ -777,6 +781,24 @@ function closeHandler(e){
     document.body.classList.remove("overflow-hidden");
 }
 
+
+//%%%%%%%%%%%%%% ESCAPE HANDLING %%%%%%%%%%%%%%
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){
+   const openObraOverlay = document.querySelector(".obra-info.open");
+   const conocenosText = document.querySelector(".conocenos-text");
+   const conocenosTextContent = document.querySelector(".conocenos-text__content");
+   if(openObraOverlay){
+    openObraOverlay.classList.remove("open");
+    document.body.classList.remove("overflow-hidden");
+   }
+   if(conocenosText.classList.contains("active")){
+    conocenosTextContent.classList.remove("active");
+    setTimeout(() => {conocenosText.classList.remove("active")}, 400)
+  }
+
+  }
+})
 
 
  

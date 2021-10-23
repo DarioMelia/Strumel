@@ -208,11 +208,25 @@ body {
 }
 .conocenos-text{
   display:none;
-  
 }
+.conocenos-text__content::before{
+  content:"ATRÁS";
+  font-size: .8em;
+  font-family: var(--second-ff);
+  text-shadow: none;
+  letter-spacing: 2px;
+  font-weight: 500;
+  position: absolute;
+  top:-40px;
+  left:35%; right: 35%;
+  color:rgba(255, 255, 255, 0.726);
+  display:block;
+  border-bottom: 1px solid currentColor;
+}
+
 .conocenos-text.active{
   background-color:rgba(15, 15, 15, 0.616);
-  position: absolute;
+  position: fixed;
   width:100%;
   display:block;
   top:0;left:0;bottom:0;right:0;
@@ -325,13 +339,17 @@ a.hero__btn--galeria {
   height: auto;
   display: flex;
   align-items: center;
-  font-size: 2.65rem;
+  font-size: 2.4rem;
   right: -30px;
   bottom: 5px;
-  color:rgb(73, 158, 255);
+  color:rgb(10, 142, 250);
   z-index: 2;
   padding: 0 .5rem;
   cursor: pointer;
+  transition: transform 200ms ease-in;
+}
+.next-hab-btn.active{
+  transform: translateX(6px);
 }
 
 .hab-item {
@@ -361,7 +379,7 @@ a.hero__btn--galeria {
   transform-origin: right;
   transform: translateX(0);
   cursor: pointer;
-  z-index: 4;
+  z-index: 2;
   opacity:1;
 }
 
@@ -428,7 +446,7 @@ a.hero__btn--galeria {
 .hab-item .fas {
   padding: 0.5em;
   color: white;
-  background: rgba(8,79,255,.8);
+  background: rgba(8, 74, 255, 0.897);
   border-radius: 50%;
 }
 
