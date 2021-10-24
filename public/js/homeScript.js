@@ -24,12 +24,14 @@ var heroObserver = new IntersectionObserver(entries =>{
 },{threshold:0.4})
 
 heroObserver.observe(document.getElementById("hero"));
+
+
 var observer = new IntersectionObserver(entries => {
     
     if(entries[0].intersectionRatio >= 0.7){
         const id = entries[0].target.id;
       
-        const navLink = navLinks.filter(link => link.name === id);
+        const navLink = navLinks.filter(link => link.dataset.id === id);
      
        
         navLink[0].classList.add("current-section");
@@ -38,7 +40,7 @@ var observer = new IntersectionObserver(entries => {
     }else if(entries[0].intersectionRatio < 0.7){
       const id = entries[0].target.id;
         
-      const navLink = navLinks.filter(link => link.name === id);
+      const navLink = navLinks.filter(link => link.dataset.id === id);
      
       navLink[0].classList.remove("current-section");
 

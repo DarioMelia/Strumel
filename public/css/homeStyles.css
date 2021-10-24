@@ -59,7 +59,6 @@ body {
   background-color: rgba(216, 216, 216, 0.137);
   width:70px;
   height:100%;
- 
 }
 
 
@@ -343,10 +342,11 @@ a.hero__btn--galeria {
   right: -30px;
   bottom: 5px;
   color:rgb(10, 142, 250);
-  z-index: 2;
+  z-index: 1;
   padding: 0 .5rem;
   cursor: pointer;
   transition: transform 200ms ease-in;
+  -webkit-tap-highlight-color: transparent;
 }
 .next-hab-btn.active{
   transform: translateX(6px);

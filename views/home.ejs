@@ -24,26 +24,26 @@
         <li class="nav__btn"><span class="nav__burger"></span></li>
         
         <li class="nav__item">
-          <a href="#hero" name="hero" class="nav__current"></a>
-          <a href="#hero"><img src="/css/svg/logo_nav.svg"/></a>
+          <span href="#hero" data-id="hero" class="nav__current"></span>
+          <a href="#hero" aria-label="Link a inicio"><img src="/css/svg/logo_nav.svg" alt="Estrumel logo"/></a>
         </li>
 
         <li class="nav__item">
           
-          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__current"></a>
-          <a href="#habilidades-calculador"
+          <span href="#habilidades-calculador" data-id="habilidades-calculador" class="nav__current"></span>
+          <a href="#habilidades-calculador" aria-label="Link a calculadora"
             ><i class="fas fa-calculator"></i
           ></a>
         </li>
 
         <li class="nav__item">
-          <a href="#obras" name="obras" class="nav__current"></a>
-          <a href="#obras"><i class="fas fa-th"></i></a>
+          <span href="#obras" data-id="obras" class="nav__current"></span>
+          <a href="#obras" aria-label="Link a galeria de obras"><i class="fas fa-th"></i></a>
         </li>
 
         <li class="nav__item">
-          <a href="#contacto" name="contacto" class="nav__current"></a>
-          <a href="#contacto"><i class="fas fa-phone-square"></i></a>
+          <span href="#contacto" data-id="contacto" class="nav__current"></span>
+          <a href="#contacto" aria-label="Link a contacto"><i class="fas fa-phone-square"></i></a>
         </li>
      
 
@@ -70,7 +70,7 @@
           <!-- / LOGO / -->
            
           <div class="logo__title" data-aos="zoom-out-up" data-aos-duration="650" data-aos-delay="250">
-        <img src="css/svg/logo.svg" />
+        <img src="css/svg/logo.svg" alt="Estrumel logo, forma la letra E"/>
 
           <!-- / TITULO / -->
           <h1 class="title">STRUMEL</h1>
@@ -81,9 +81,9 @@
 
         <div class="presentation" data-aos="fade-up" data-aos-duration="650" data-aos-delay="800">
           <h1 class="presentation__title"><span>30</span> años </h1>
-          <a href="" class="typewrite" data-period="2000" data-type='[ "construyendo", "reformando", "arreglando", "a tu lado"]'>
+          <div class="typewrite" data-period="2000" data-type='[ "construyendo", "reformando", "arreglando", "a tu lado"]'>
             <span class="wrap"></span>
-          </a>
+          </div>
         </div>
 
         <div class="hero__btns" data-aos="fade-up" data-aos-duration="650" data-aos-delay="850" data-aos-offset="-100">
@@ -252,15 +252,15 @@
               </div>
               <div class="calc__input">
                 <label for="suelos">Suelos</label>
-                <input type="checkbox" id="suelos" class="calc__checkbox" name="lista-bano" value="suelos">
+                <input type="checkbox" id="suelos-baño" class="calc__checkbox" name="lista-bano" value="suelos">
               </div>
               <div class="calc__input">
                 <label for="paredes">Paredes</label>
-                <input type="checkbox" id="paredes" class="calc__checkbox" name="lista-bano" value="paredes">
+                <input type="checkbox" id="paredes-baño" class="calc__checkbox" name="lista-bano" value="paredes">
               </div>
               <div class="calc__input">
                 <label for="techos">Techos</label>
-                <input type="checkbox" id="techos" class="calc__checkbox" name="lista-bano" value="techos">
+                <input type="checkbox" id="techos-baño" class="calc__checkbox" name="lista-bano" value="techos">
               </div>
           
             </div>
