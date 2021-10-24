@@ -292,7 +292,7 @@ a.hero__btn--galeria {
   bottom: 5px;
   color:rgb(73, 158, 255);
   mix-blend-mode: screen;
-  z-index: 6;
+  z-index: 2;
   cursor: pointer;
 }
 
