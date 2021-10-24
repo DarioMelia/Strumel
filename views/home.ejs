@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Empresa madrileña de construccion y reformas con más de 30 años de experiencia.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,25 +24,25 @@
         <li class="nav__btn"><span class="nav__burger"></span></li>
         
         <li class="nav__item">
-          <a href="#hero" name="hero" class="nav__link">Estrumel</a>
-          <a href="#hero"><img src="/css/svg/favicon.svg"/></a>
+          <a href="#hero" name="hero" class="nav__current"></a>
+          <a href="#hero"><img src="/css/svg/logo_nav.svg"/></a>
         </li>
 
         <li class="nav__item">
           
-          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__link">Calculador de precio</a>
+          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__current"></a>
           <a href="#habilidades-calculador"
             ><i class="fas fa-calculator"></i
           ></a>
         </li>
 
         <li class="nav__item">
-          <a href="#obras" name="obras" class="nav__link">Galería</a>
+          <a href="#obras" name="obras" class="nav__current"></a>
           <a href="#obras"><i class="fas fa-th"></i></a>
         </li>
 
         <li class="nav__item">
-          <a href="#contacto" name="contacto" class="nav__link">Contacto</a>
+          <a href="#contacto" name="contacto" class="nav__current"></a>
           <a href="#contacto"><i class="fas fa-phone-square"></i></a>
         </li>
      
@@ -91,6 +91,9 @@
           <a href="/obras" class="hero__btn hero__btn--galeria btn--animated">Nuestro trabajo</a>
         </div>
 
+        <div class="conocenos-text"><p class="conocenos-text__content">Empresa madrileña, familiar, con más de 30 años 
+          de experiencia en reformas, construccion y estructuras metálicas.Lorem ipsum contenido, y eso, por rellenar.</p></div>
+
      
       </div>
     </section>
@@ -107,47 +110,20 @@
         <div class="habilidades">
 
           <div>
-            <div class="slide-set slide-set-1">
-
-              <div class="hab-item hab-active">
-                <i class="fas fa-tools"></i>
-                <h3 class="hab-title">Reforma</h3>
-              </div>
-
-              <div class="hab-item">
-                <i class="fas fa-house-damage"></i>
-                <h3 class="hab-title">Reparación</h3>
-              </div>
-
-            <span class="next-hab-btn"><i class="fas fa-angle-right"></i></span>
-            </div>
-
-
-
-            <div class="slide-set slide-set-2">
-
-              <div class="hab-item hab-active">
-                <i class="fas fa-paint-roller"></i>
-                <h3 class="hab-title">Pintura</h3>
-              </div>
-
-              <div class="hab-item">
-                <i class="fas fa-faucet"></i>
-                <h3 class="hab-title">Fontanería</h3>
-              </div>
-
-              <span class="next-hab-btn"><i class="fas fa-angle-right"></i></span>
-            </div>
-
-
-
-
             <div class="slide-set slide-set-3">
 
               <div class="hab-item hab-active">
                 <i class="fas fa-building"></i>
                 <h3 class="hab-title">Obra nueva</h3>
+                <div class="hab-text last-row-hab-text">
+                  <div class="hab-text-content last-row-hab-text">
+                    <p>Obra nueva maiorum habemus detraxit at. Timeam fabulas splendide et his.
+                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
+                       </p>
+                  </div>
+                </div>
               </div>
+           
             
               <div class="hab-item">
                 <i class="fas fa-check"></i>
@@ -155,10 +131,76 @@
                   <h3 >+30 años</h3>
                   <h5 >de experiencia</h5>
                 </div>
+              
               </div>
 
-              <span class="next-hab-btn"><i class="fas fa-angle-right"></i></span>
+              <span class="next-hab-btn"><i class="fas fa-chevron-right"></i></span>
             </div>
+
+
+            <div class="slide-set slide-set-2">
+
+              <div class="hab-item hab-active">
+                <i class="fas fa-paint-roller"></i>
+                <h3 class="hab-title">Pintura</h3>
+                <div class="hab-text">
+                  <div class="hab-text-content">
+                    <p>Pintura maiorum habemus detraxit at. Timeam fabulas splendide et his.
+                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
+                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
+                       </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hab-item">
+                <i class="fas fa-faucet"></i>
+                <h3 class="hab-title">Fontanería</h3>
+                <div class="hab-text">
+                  <div class="hab-text-content">
+                    <p>Fontaneria maiorum habemus detraxit at. Timeam fabulas splendide et his.
+                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
+                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
+                       </p>
+                  </div>
+                </div>
+              </div>
+
+              <span class="next-hab-btn"><i class="fas fa-chevron-right"></i></span>
+            </div>
+
+
+            <div class="slide-set slide-set-1">
+
+              <div class="hab-item hab-active">
+                <i class="fas fa-tools"></i>
+                <h3 class="hab-title">Reforma</h3>
+                <div class="hab-text">
+                  <div class="hab-text-content">
+                    <p>Reforma maiorum habemus detraxit at. Timeam fabulas splendide et his.
+                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
+                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
+                       </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hab-item">
+                <i class="fas fa-house-damage"></i>
+                <h3 class="hab-title">Reparación</h3>
+                <div class="hab-text">
+                  <div class="hab-text-content">
+                    <p>Reparacion maiorum habemus detraxit at. Timeam fabulas splendide et his.
+                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
+                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
+                       </p>
+                  </div>
+                </div>
+              </div>
+
+            <span class="next-hab-btn"><i class="fas fa-chevron-right"></i></span>
+            </div>
+
 
           </div>
 
@@ -168,48 +210,170 @@
            <!-- / CALCULADORA / --> 
 
         <div class="calculadora" data-aos="fade-left"  data-aos-offset="100">
-          
-         <form class="form__calculator">
-           
-           <div class="calculadorita">
-
-               <hr>
-                 <div class="primer">
-
-                <label for="vivienda">Tipo De Vivienda</label>
-                 <select id="vivienda">
-
-                 <option value="piso">Piso</option>
-                 <option value="chalet">Chalet</option>
-                 <option value="rural">Rural</option>
-                
-                 </select>
-                </div>
-                 
-           
-                <div class="segundo">
-                 <label for="servicio">Tipo De Servicio</label>
-                 <select id="servicio">
-               
-                 <option value="reformas">Reformas</option>
-                 <option value="pintura">Pintura</option>
-                 <option value="obra-nueva">Obra Nueva</option>
-                 <option value="reparación">Reparación</option>
-                 <option value="fontanería">Fontanería</option>
-                 </select>
-                </div>
-               
-                     <!-- range slide -->
-                  <div class="tercero">
-               <label for="metros">Metros</label>           
-              <input type="range" id="metros" min="0" max="500">
+            
+          <form action="/" id="calc__form">
+            <p class="calc__des">Estoy buscando...</p>
+            
+            <div class="calc__tab tab--main">
+              <div class="calc__input">
+                <label for="bano">Reforma baño</label>
+                <input type="radio" id="bano" name="tipo-reforma" value="reforma-bano">
+              </div>
+              <div class="calc__input">
+                <label for="cocina">Reforma cocina</label>
+                <input type="radio" id="cocina" name="tipo-reforma" value="reforma-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="integral">Reforma integral</label>
+                <input type="radio" id="integral" name="tipo-reforma" value="reforma-integral">
+              </div>
             </div>
 
-            <button class="calculadora-btn">Calcular</button>
-            <hr>
-           </div>
-           </form>
+            <div class="calc__tab tab--bano">
+              <div class="calc__input">
+                <label for="lavabo">Lavabo</label>
+                <input type="checkbox" id="lavabo" class="calc__checkbox" name="lista-bano" value="lavabo">
+              </div>
+              <div class="calc__input">
+                <label for="banera">Bañera</label>
+                <input type="checkbox" id="banera" class="calc__checkbox" name="lista-bano" value="banera">
+              </div>
+              <div class="calc__input">
+                <label for="plato-de-ducha">Plato de ducha</label>
+                <input type="checkbox" id="plato-de-ducha" class="calc__checkbox" name="lista-bano" value="plato-de-ducha">
+              </div>
+              <div class="calc__input">
+                <label for="mampara">Mampara</label>
+                <input type="checkbox" id="mampara" class="calc__checkbox" name="lista-bano" value="mampara">
+              </div>
+              <div class="calc__input">
+                <label for="wc">WC</label>
+                <input type="checkbox" id="wc" class="calc__checkbox" name="lista-bano" value="wc">
+              </div>
+              <div class="calc__input">
+                <label for="suelos">Suelos</label>
+                <input type="checkbox" id="suelos" class="calc__checkbox" name="lista-bano" value="suelos">
+              </div>
+              <div class="calc__input">
+                <label for="paredes">Paredes</label>
+                <input type="checkbox" id="paredes" class="calc__checkbox" name="lista-bano" value="paredes">
+              </div>
+              <div class="calc__input">
+                <label for="techos">Techos</label>
+                <input type="checkbox" id="techos" class="calc__checkbox" name="lista-bano" value="techos">
+              </div>
+          
+            </div>
 
+            <div class="calc__tab tab--cocina">
+              <div class="calc__input">
+                <label for="mobiliario">Mobiliario</label>
+                <input type="checkbox" id="mobiliario" class="calc__checkbox" name="lista-cocina" value="mobiliario">
+              </div>
+              <div class="calc__input">
+                <label for="unir-cocina-y-salón">Unir cocina y salón</label>
+                <input type="checkbox" id="unir-cocina-y-salón" class="calc__checkbox" name="lista-cocina" value="unir-cocina-y-salón">
+              </div>
+              <div class="calc__input">
+                <label for="isla-central">Isla central</label>
+                <input type="checkbox" id="isla-central" class="calc__checkbox" name="lista-cocina" value="isla-central">
+              </div>
+              <div class="calc__input">
+                <label for="suelos-cocina">Suelos</label>
+                <input type="checkbox" id="suelos-cocina" class="calc__checkbox" name="lista-cocina" value="suelos-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="paredes-cocina">Paredes</label>
+                <input type="checkbox" id="paredes-cocina" class="calc__checkbox" name="lista-cocina" value="paredes-cocina">
+              </div>
+              <div class="calc__input">
+                <label for="techos-cocina">Techos</label>
+                <input type="checkbox" id="techos-cocina" class="calc__checkbox" name="lista-cocina" value="techos-cocina">
+              </div>
+            </div>
+
+            <div class="calc__tab tab--integral">
+              <div class="calc__input">
+                <label for="banos">Baños</label>
+                <input type="number" id="banos" name="numBanos" min="1" max="10" >
+              </div>
+              <div class="calc__input">
+                <label for="climatizacion">Climatización</label>
+                <input type="checkbox" id="climatizacion" class="calc__checkbox" name="lista-integral" value="climatizacion">
+              </div>
+              <div class="calc__input">
+                <label for="electricidad">Electricidad</label>
+                <input type="checkbox" id="electricidad" class="calc__checkbox" name="lista-integral" value="electricidad">
+              </div>
+              <div class="calc__input">
+                <label for="fontaneria">Fontanería</label>
+                <input type="checkbox" id="fontaneria" class="calc__checkbox" name="lista-integral" value="fontaneria">
+              </div>
+              <div class="calc__input">
+                <label for="habitaciones">Habitaciones</label>
+                <input type="number" id="habitaciones" name="numHabitaciones" min="1" max="20">
+              </div>
+              <div class="calc__input">
+                <label for="ventanas">Ventanas</label>
+                <input type="number" id="ventanas" name="numVentanas" min="1" max="40">
+              </div>
+              <div class="calc__input">
+                <label for="puertas">Puertas</label>
+                <input type="number" id="puertas" name="numPuertas " min="1" max="30">
+              </div>
+              <div class="calc__input">
+                <label for="suelos">Suelos</label>
+                <input type="checkbox" id="suelos" class="calc__checkbox" name="lista-integral" value="suelos">
+              </div>
+              <div class="calc__input">
+                <label for="paredes">Paredes</label>
+                <input type="checkbox" id="paredes" class="calc__checkbox" name="lista-integral" value="paredes">
+              </div>
+              <div class="calc__input">
+                <label for="techos">Techos</label>
+                <input type="checkbox" id="techos" class="calc__checkbox" name="lista-integral" value="techos">
+              </div>
+
+            </div>
+
+            <div class="calc__tab tab--material">
+              <div class="calc__input">
+                <label for="gamaBaja">Media</label>
+                <input type="radio" id="gamaBaja" name="tipo-material" value="gamaBaja">
+              </div>
+              <div class="calc__input">
+                <label for="gamaMedia">Comfort</label>
+                <input type="radio" id="gamaMedia" name="tipo-material" value="gamaMedia">
+              </div>
+              <div class="calc__input">
+                <label for="gamaAlta">Alta</label>
+                <input type="radio" id="gamaAlta" name="tipo-material" value="gamaAlta">
+              </div>
+            </div>
+
+            <div class="calc__tab tab--metros">
+              <div class="calc__input">
+                <label for="metros2">Superficie en m²</label>
+                <input type="number" id="metros2" name="metros2" min="20" max="1000">
+              </div>
+            </div>
+
+            <div class="tab--final">
+              <h2 class="calc__price"></h2>
+              <div class="calc__user-choices">
+                <ul class="choices__list">
+                
+                </ul>
+              </div>
+              
+            </div>
+
+            <div class="calc__btns">
+              <button onclick="restartCalc()"class="calc__restart-btn">Repetir</button>
+              <button class="prev-btn" type="button" onclick="nextPrev(-1)">Atrás</button>
+              <button class="next-btn" type="button" onclick="nextPrev(1)">Siguiente</button>
+            </div>
+          </form>
         </div>
       </div>
 
