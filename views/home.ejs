@@ -7,8 +7,8 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Black+Ops+One&family=Open+Sans:wght@400;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6a6f348080.js" crossorigin="anonymous"></script>
+    <link  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Black+Ops+One&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://kit.fontawesome.com/6a6f348080.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/utilityClasses.css" />
     <link rel="stylesheet" href="/css/homeStyles.css" />
@@ -69,7 +69,7 @@
       <div class="container">
           <!-- / LOGO / -->
            
-          <div class="logo__title" data-aos="zoom-out-up" data-aos-duration="650" data-aos-delay="250">
+          <div class="logo__title">
         <img src="css/svg/logo.svg" alt="Estrumel logo, forma la letra E"/>
 
           <!-- / TITULO / -->
@@ -79,14 +79,14 @@
         <!-- / PRESENTACIÓN--ANIMACIÓN
               (LETRAS QUE SE MUEVEN)  /-->
 
-        <div class="presentation" data-aos="fade-up" data-aos-duration="650" data-aos-delay="800">
+        <div class="presentation">
           <h1 class="presentation__title"><span>30</span> años </h1>
           <div class="typewrite" data-period="2000" data-type='[ "construyendo", "reformando", "arreglando", "a tu lado"]'>
             <span class="wrap"></span>
           </div>
         </div>
 
-        <div class="hero__btns" data-aos="fade-up" data-aos-duration="650" data-aos-delay="850" data-aos-offset="-100">
+        <div class="hero__btns">
           <button class="hero__btn hero__btn--conocenos btn--animated">Conócenos</button>
           <a href="/obras" class="hero__btn hero__btn--galeria btn--animated">Nuestro trabajo</a>
         </div>
@@ -480,11 +480,12 @@
       
     </section>
 
-    <script src="js/particles/particles.js"></script>
-    <script src="js/particles/particlesConfig.js"></script>
+    <script defer src="js/particles/particles.min.js"></script>
+    <script defer src="js/particles/particlesConfig.js"></script>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/js/homeScript.js"></script>
+    <script  src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script async src="/js/homeScript.js"></script>
+    <script async src="/js/priceCalculator.js"></script>
     
   </body>
 </html>
