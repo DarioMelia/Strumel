@@ -251,15 +251,15 @@
                 <input type="checkbox" id="wc" class="calc__checkbox" name="lista-bano" value="wc">
               </div>
               <div class="calc__input">
-                <label for="suelos">Suelos</label>
+                <label for="suelos-baño">Suelos</label>
                 <input type="checkbox" id="suelos-baño" class="calc__checkbox" name="lista-bano" value="suelos">
               </div>
               <div class="calc__input">
-                <label for="paredes">Paredes</label>
+                <label for="paredes-baño">Paredes</label>
                 <input type="checkbox" id="paredes-baño" class="calc__checkbox" name="lista-bano" value="paredes">
               </div>
               <div class="calc__input">
-                <label for="techos">Techos</label>
+                <label for="techos-baño">Techos</label>
                 <input type="checkbox" id="techos-baño" class="calc__checkbox" name="lista-bano" value="techos">
               </div>
           
@@ -401,7 +401,7 @@
               <%}else{%>
                 <figure>
               <%}%>                       <!--  final if -->
-                <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>"/>
+                <img src="" alt="<%= obra.resumen %>"/>
                 <div>
                   <h2><%= obra.titulo %></h2>
                   <% let resumen = obra.resumen %>
@@ -436,7 +436,7 @@
               </button>
               <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
              <div class="obra-info__img">
-               <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>">
+               <img src="" alt="<%= obra.resumen %>">
               </div>
               <div class="contenido-scroll">
              <h3><%= obra.resumen %></h3>
