@@ -266,7 +266,7 @@ habCalc.addEventListener("click", e => {
 function habSlideHandler(e){
 const currentSlideSet = e.target.parentElement.parentElement;
 const items = currentSlideSet.querySelectorAll(".hab-item");
-//Animación del botón;
+//Animación del botón
 e.target.parentElement.classList.add("active");
 setTimeout(() => {e.target.parentElement.classList.remove("active")},200);
 
