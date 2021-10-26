@@ -59,7 +59,6 @@ body {
   background-color: rgba(216, 216, 216, 0.137);
   width:70px;
   height:100%;
- 
 }
 
 
@@ -131,7 +130,7 @@ body {
   z-index: 0;
   bottom: -10px;
   left: -400px;
-  background-image: url(images/obraBg.png);
+  background-image: url(images/obraBg.webp);
   background-size: cover;
   
 }
@@ -343,10 +342,11 @@ a.hero__btn--galeria {
   right: -30px;
   bottom: 5px;
   color:rgb(10, 142, 250);
-  z-index: 2;
+  z-index: 1;
   padding: 0 .5rem;
   cursor: pointer;
   transition: transform 200ms ease-in;
+  -webkit-tap-highlight-color: transparent;
 }
 .next-hab-btn.active{
   transform: translateX(6px);
@@ -846,7 +846,7 @@ a.hero__btn--galeria {
 #contacto{
  padding: 9rem 0;
  background-color: rgb(80, 80, 80);
- background-image: url("images/contact-img.jpg");
+ background-image: url("images/contact-img.webp");
  background-size: cover;
  background-blend-mode: multiply;
  position:relative;
@@ -1080,8 +1080,9 @@ a.hero__btn--galeria {
   .burger--close.nav__burger::before {
     visibility: visible;
     transform: scale(0.8);
-    transition: transform 200ms 400ms;
     -moz-transition: transform 200ms 400ms;
+    transition: transform 200ms 400ms;
+    
   }
 
   .burger--close.nav__burger::after {

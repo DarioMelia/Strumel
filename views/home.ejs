@@ -7,8 +7,8 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Black+Ops+One&family=Open+Sans:wght@400;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6a6f348080.js" crossorigin="anonymous"></script>
+    <link  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Black+Ops+One&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://kit.fontawesome.com/6a6f348080.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/utilityClasses.css" />
     <link rel="stylesheet" href="/css/homeStyles.css" />
@@ -24,26 +24,26 @@
         <li class="nav__btn"><span class="nav__burger"></span></li>
         
         <li class="nav__item">
-          <a href="#hero" name="hero" class="nav__current"></a>
-          <a href="#hero"><img src="/css/svg/logo_nav.svg"/></a>
+          <span href="#hero" data-id="hero" class="nav__current"></span>
+          <a href="#hero" aria-label="Link a inicio"><img src="/css/svg/logo_nav.svg" alt="Estrumel logo"/></a>
         </li>
 
         <li class="nav__item">
           
-          <a href="#habilidades-calculador" name="habilidades-calculador" class="nav__current"></a>
-          <a href="#habilidades-calculador"
+          <span href="#habilidades-calculador" data-id="habilidades-calculador" class="nav__current"></span>
+          <a href="#habilidades-calculador" aria-label="Link a calculadora"
             ><i class="fas fa-calculator"></i
           ></a>
         </li>
 
         <li class="nav__item">
-          <a href="#obras" name="obras" class="nav__current"></a>
-          <a href="#obras"><i class="fas fa-th"></i></a>
+          <span href="#obras" data-id="obras" class="nav__current"></span>
+          <a href="#obras" aria-label="Link a galeria de obras"><i class="fas fa-th"></i></a>
         </li>
 
         <li class="nav__item">
-          <a href="#contacto" name="contacto" class="nav__current"></a>
-          <a href="#contacto"><i class="fas fa-phone-square"></i></a>
+          <span href="#contacto" data-id="contacto" class="nav__current"></span>
+          <a href="#contacto" aria-label="Link a contacto"><i class="fas fa-phone-square"></i></a>
         </li>
      
 
@@ -69,8 +69,8 @@
       <div class="container">
           <!-- / LOGO / -->
            
-          <div class="logo__title" data-aos="zoom-out-up" data-aos-duration="650" data-aos-delay="250">
-        <img src="css/svg/logo.svg" />
+          <div class="logo__title">
+        <img src="css/svg/logo.svg" alt="Estrumel logo, forma la letra E"/>
 
           <!-- / TITULO / -->
           <h1 class="title">STRUMEL</h1>
@@ -79,14 +79,14 @@
         <!-- / PRESENTACIÓN--ANIMACIÓN
               (LETRAS QUE SE MUEVEN)  /-->
 
-        <div class="presentation" data-aos="fade-up" data-aos-duration="650" data-aos-delay="800">
+        <div class="presentation">
           <h1 class="presentation__title"><span>30</span> años </h1>
-          <a href="" class="typewrite" data-period="2000" data-type='[ "construyendo", "reformando", "arreglando", "a tu lado"]'>
+          <div class="typewrite" data-period="2000" data-type='[ "construyendo", "reformando", "arreglando", "a tu lado"]'>
             <span class="wrap"></span>
-          </a>
+          </div>
         </div>
 
-        <div class="hero__btns" data-aos="fade-up" data-aos-duration="650" data-aos-delay="850" data-aos-offset="-100">
+        <div class="hero__btns">
           <button class="hero__btn hero__btn--conocenos btn--animated">Conócenos</button>
           <a href="/obras" class="hero__btn hero__btn--galeria btn--animated">Nuestro trabajo</a>
         </div>
@@ -251,16 +251,16 @@
                 <input type="checkbox" id="wc" class="calc__checkbox" name="lista-bano" value="wc">
               </div>
               <div class="calc__input">
-                <label for="suelos">Suelos</label>
-                <input type="checkbox" id="suelos" class="calc__checkbox" name="lista-bano" value="suelos">
+                <label for="suelos-baño">Suelos</label>
+                <input type="checkbox" id="suelos-baño" class="calc__checkbox" name="lista-bano" value="suelos">
               </div>
               <div class="calc__input">
-                <label for="paredes">Paredes</label>
-                <input type="checkbox" id="paredes" class="calc__checkbox" name="lista-bano" value="paredes">
+                <label for="paredes-baño">Paredes</label>
+                <input type="checkbox" id="paredes-baño" class="calc__checkbox" name="lista-bano" value="paredes">
               </div>
               <div class="calc__input">
-                <label for="techos">Techos</label>
-                <input type="checkbox" id="techos" class="calc__checkbox" name="lista-bano" value="techos">
+                <label for="techos-baño">Techos</label>
+                <input type="checkbox" id="techos-baño" class="calc__checkbox" name="lista-bano" value="techos">
               </div>
           
             </div>
@@ -401,7 +401,7 @@
               <%}else{%>
                 <figure>
               <%}%>                       <!--  final if -->
-                <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>"/>
+                <img src="" alt="<%= obra.resumen %>"/>
                 <div>
                   <h2><%= obra.titulo %></h2>
                   <% let resumen = obra.resumen %>
@@ -436,7 +436,7 @@
               </button>
               <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
              <div class="obra-info__img">
-               <img src="<%= obra.imgUrl %>" alt="<%= obra.resumen %>">
+               <img src="" alt="<%= obra.resumen %>">
               </div>
               <div class="contenido-scroll">
              <h3><%= obra.resumen %></h3>
@@ -480,11 +480,12 @@
       
     </section>
 
-    <script src="js/particles/particles.js"></script>
-    <script src="js/particles/particlesConfig.js"></script>
+    <script defer src="js/particles/particles.min.js"></script>
+    <script defer src="js/particles/particlesConfig.js"></script>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/js/homeScript.js"></script>
+    <script  src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script async src="/js/homeScript.js"></script>
+    <script async src="/js/priceCalculator.js"></script>
     
   </body>
 </html>
