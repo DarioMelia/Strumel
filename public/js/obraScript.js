@@ -6,7 +6,7 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   
 
   const toggleBtns = document.querySelectorAll(".toggle-overlay");
-
+  const obras = document.querySelectorAll(".obra__box");
   const firstOverlays = document.querySelectorAll(".obra__overlay");
 
   
@@ -21,13 +21,27 @@ AOS.init({                         //Iniciamos la librería para las animaciones
     })
   })
 
+  obras.forEach((obra, i) => {
+    obra.onmouseover = () => {
+      obra.querySelector(".obra__overlay").classList.add("appear");
+      obra.querySelector(".toggle-overlay").classList.add("cross", "square");
+    };
+    obra.onmouseout = () => {
+      obra.querySelector(".obra__overlay").classList.remove("appear");
+      obra.querySelector(".toggle-overlay").classList.remove("cross", "square");
+    };
+  });
+
+
 
 
   // %%%%%% INFO OVERLAY %%%%%%%
 
 const infoBtns = document.querySelectorAll(".info-btn");
+
 const obraOverlays = document.querySelectorAll(".obra-info");
 const closeBtns = document.querySelectorAll(".obra-info--close");
+
 
 infoBtns.forEach(btn => {
     btn.addEventListener("click", obraOverlayHandler);
@@ -36,6 +50,7 @@ infoBtns.forEach(btn => {
 closeBtns.forEach(btn => {
     btn.addEventListener("click", closeHandler);
 })
+
 
 
 function obraOverlayHandler(e){
