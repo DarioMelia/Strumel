@@ -314,27 +314,25 @@ const galleryBtns = document.querySelectorAll(".gallery__btn button");
 const obraOverlays = document.querySelectorAll(".obra-info");
 const closeBtns = document.querySelectorAll(".obra-info--close");
 
-galleryBtns.forEach(btn => {
-    btn.addEventListener("click", obraOverlayHandler);
-})
+galleryBtns.forEach((btn) => {
+  btn.addEventListener("click", obraOverlayHandler);
+});
 
-closeBtns.forEach(btn => {
-    btn.addEventListener("click", closeHandler);
-})
+closeBtns.forEach((btn) => {
+  btn.addEventListener("click", closeHandler);
+});
 
-
-function obraOverlayHandler(e){
-    console.log(e.target);
-    const index = parseInt(e.target.name, 10);
-    obraOverlays[index].classList.add("open");
-    document.body.classList.add("overflow-hidden");
+function obraOverlayHandler(e) {
+  console.log(e.target);
+  const index = parseInt(e.target.name, 10);
+  obraOverlays[index].classList.add("open");
+  document.body.classList.add("overflow-hidden");
 }
 
-function closeHandler(e){
-    const index = parseInt(e.target.parentElement.name, 10);
-    
-    obraOverlays[index].classList.remove("open");
-    document.body.classList.remove("overflow-hidden");
+function closeHandler(e) {
+  const index = parseInt(e.target.parentElement.name, 10);
+  obraOverlays[index].classList.remove("open");
+  document.body.classList.remove("overflow-hidden");
 }
 
 

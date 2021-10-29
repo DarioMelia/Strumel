@@ -14,17 +14,21 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   toggleBtns.forEach((btn, i) => {
     
   btn.addEventListener("click", (e) => {
-      
+      console.log("uhhh, me tocaste, clickón")
       firstOverlays[i].classList.toggle("appear");
       e.target.classList.toggle("cross");
       e.target.classList.toggle("square");
     })
   })
 
+  //Display overlay on hover 
   obras.forEach((obra) => {
-    obra.onmouseover = () => {
-      obra.querySelector(".obra__overlay").classList.add("appear");
-      obra.querySelector(".toggle-overlay").classList.add("cross", "square");
+    obra.onmouseover = e => {
+      if(e.target !== obra.querySelector(".toggle-overlay")){
+        obra.querySelector(".obra__overlay").classList.add("appear");
+        obra.querySelector(".toggle-overlay").classList.add("cross", "square");
+      }
+    
     };
     obra.onmouseleave = () => {
       obra.querySelector(".obra__overlay").classList.remove("appear");
