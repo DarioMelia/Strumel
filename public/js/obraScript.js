@@ -21,12 +21,12 @@ AOS.init({                         //Iniciamos la librería para las animaciones
     })
   })
 
-  obras.forEach((obra, i) => {
+  obras.forEach((obra) => {
     obra.onmouseover = () => {
       obra.querySelector(".obra__overlay").classList.add("appear");
       obra.querySelector(".toggle-overlay").classList.add("cross", "square");
     };
-    obra.onmouseout = () => {
+    obra.onmouseleave = () => {
       obra.querySelector(".obra__overlay").classList.remove("appear");
       obra.querySelector(".toggle-overlay").classList.remove("cross", "square");
     };

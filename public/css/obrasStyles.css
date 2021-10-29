@@ -156,3 +156,9 @@ animation: grow-shrink 3.5s linear infinite;
     }
   
   }
+
+@media (hover:hover){
+  .toggle-overlay{
+    visibility: hidden;
+  }
+}
