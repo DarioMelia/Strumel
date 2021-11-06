@@ -5,7 +5,11 @@ const obraSchema = new mongoose.Schema({
     resumen: String,
     contenido:String,
     fecha: Date,
-    imgUrl: String
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
 })
 
 const Obra = new mongoose.model("obra", obraSchema);

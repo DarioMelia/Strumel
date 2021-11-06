@@ -27,7 +27,7 @@
   <div class="edit__overlay">
     <div class="edit__overlay__inner">
       <button class="edit__overlay--close"><i class="far fa-times-circle"></i></button>
-      <form action="/admin/update/<%=obra.id%>" method="POST">
+      <form action="/admin/update/<%=obra.id%>" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
           <label class="form-label" for="titulo">Título</label>
           <input
@@ -66,15 +66,9 @@
         </div>
        
         <div class="mb-3">
-          <label class="form-label" for="imgUrl">Url de la imagen</label>
-          <input
-            class="form-control"
-            id="imgUrl"
-            type="text"
-            name="imgUrl"
-            placeholder="Link a la imagen"
-            value="<%=obra.imgUrl%>"
-          />
+          <label class="form-label" for="image">Imagen</label>
+          <input  class="form-control" type="file" id="image" 
+                   name="image" value="<%=obra.img%>" required>
         </div>
         <button class="btn btn-success"type="submit">Editar</button>
       </form>

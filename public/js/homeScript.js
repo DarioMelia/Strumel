@@ -186,15 +186,6 @@ conocenosText.addEventListener("click", e => {
           }
         const loader = document.getElementById("loader");
 };
-//chapuza para displayear las rial imagenes
-const displayImages = ["/css/images/obras-images/escalera-flotante.webp",
-"/css/images/obras-images/estructura.webp",
-"/css/images/obras-images/solado.webp",
-"/css/images/obras-images/terraza.webp"];
-const galleryImages = document.querySelectorAll(".gallery img");
-const galleryOverlayImages = document.querySelectorAll(".obra-info img");
-galleryImages.forEach((img,i) => {img.src=displayImages[i]});
-galleryOverlayImages.forEach((img,i) => {img.src=displayImages[i]});
 
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%

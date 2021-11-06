@@ -9,7 +9,7 @@
           <h1 class="title title--submit">strumel<span class="admin-subtitle">Admin</span></h1>
         </div>
 
-        <form action="/admin/submit" method="POST">
+        <form action="/admin/submit" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label class="form-label" for="titulo">Título</label>
             <input
@@ -54,14 +54,9 @@
             />
           </div>
           <div class="mb-3">
-            <label class="form-label" for="imgUrl">Url de la imagen</label>
-            <input
-              class="form-control"
-              id="imgUrl"
-              type="text"
-              name="imgUrl"
-              placeholder="Link a la imagen"
-            />
+            <label class="form-label" for="image">Imagen</label>
+              <input  class="form-control" type="file" id="image" 
+                       name="image" value="" required>
           </div>
           <button class="btn btn-success"type="submit">Añadir</button>
         </form>
@@ -73,7 +68,9 @@
           <div class="grid--obras">
               <%obras.forEach(obra => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                   <div class="obra__box">
-                          <img src="<%=obra.imgUrl%>" alt="<%=obra.titulo%>">
+                          <img src="data:image/<%=obra.img.contentType%>;base64,
+                          <%=obra.img.data.toString('base64')%>" alt="<%=obra.titulo%>">
+
                           <div class="obra__overlay">
                               <div class="obra__overlay--inner">
                                   <h1><%=obra.titulo%></h1>

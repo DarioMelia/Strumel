@@ -1,3 +1,4 @@
+
 const Obra = require("../models/obra.js");
 const passport = require("passport");
 
@@ -30,34 +31,6 @@ exports.obrasGet = async (req,res) => {
 
 
 // %%%%%%%%%%%%%%% API %%%%%%%%%%%%%%%%
-exports.addObras = (req,res) => {
-    const {titulo, resumen, contenido, fecha, imgUrl} = req.body;
-    
-    const obra = {
-        titulo: titulo,
-        resumen:resumen,
-        contenido:contenido,
-        fecha:fecha,
-        imgUrl:imgUrl
-    }
-    const newObra = new Obra(obra);
-    try{
-        
-        newObra.save(err => {
-            if(!err){
-                res.redirect("/admin")
-            }else{
-                res.status(409).json({message:err.message})
-            }
-            
-        })
-    } catch(err){
-        res.status(409).json({message:err.message})
-    }
-
-}
-
-
 
 exports.deleteObra = (req,res) => {
     const id = req.body.delete;

@@ -401,7 +401,8 @@
               <%}else{%>
                 <figure>
               <%}%>                       <!--  final if -->
-                <img src="" alt="<%= obra.resumen %>"/>
+                <img src="data:image/<%=obra.img.contentType%>;base64,
+                <%=obra.img.data.toString('base64')%>" alt="<%= obra.resumen %>"/>
                 <div>
                   <h2><%= obra.titulo %></h2>
                   <% let resumen = obra.resumen %>
@@ -436,7 +437,8 @@
               </button>
               <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
              <div class="obra-info__img">
-               <img src="" alt="<%= obra.resumen %>">
+               <img src="data:image/<%=obra.img.contentType%>;base64,
+               <%=obra.img.data.toString('base64')%>" alt="<%= obra.resumen %>">
               </div>
               <div class="contenido-scroll">
              <h3><%= obra.resumen %></h3>
