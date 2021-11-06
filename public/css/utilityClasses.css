@@ -292,9 +292,19 @@ a.title{
    cursor: pointer;
    background: none;
    border: none;
-   color: rgba(255, 255, 255, 0.842);
+   color: rgb(255, 255, 255);
+   opacity: .7;
    position:absolute;
    bottom:5px;left:10px;
+   transition: transform 350ms 50ms ease-in-out, opacity 200ms;
+ }
+ .obra-info__expand-img-btn:hover{
+   opacity: 1;
+ }
+ .obra-info__expand-img-btn.grow{
+  transform: scale(1.35) rotate(180deg);
+  left: 40px;
+  bottom: 32px;
  }
  .obra-info--inner img{
   width: 100%;

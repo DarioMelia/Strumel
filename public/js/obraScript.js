@@ -77,8 +77,8 @@ document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
   btn.addEventListener("click", expandImage);
 })
 function expandImage(e){
-  console.log(e);
   const imgDiv = e.target.parentElement.parentElement;
+  e.target.parentElement.classList.toggle("grow");
   imgDiv.classList.toggle("expand-image");
 }
 
