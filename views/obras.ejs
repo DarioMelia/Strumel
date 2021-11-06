@@ -43,6 +43,7 @@
                <div class="obra-info__img">
                  <img src="data:image/<%=obra.img.contentType%>;base64,
                  <%=obra.img.data.toString('base64')%>" alt="<%= obra.resumen %>">
+                 <button class="obra-info__expand-img-btn"><i class="fas fa-expand"></i></button>
                 </div>
                 <div class="contenido-scroll">
                <h3><%= obra.resumen %></h3>

@@ -243,10 +243,11 @@ a.title{
  .obra-info.open{
    position: fixed;
    display: flex;
-   align-items: flex-end;
+   align-items: flex-start;
    justify-content: center;
    padding-bottom: .5rem;
    z-index: 20;
+   
  }
  
  
@@ -276,9 +277,16 @@ a.title{
    grid-row: 1fr;
    overflow: hidden;
  }
- /* .obra-info__img.expand-image{
-  
- } */
+ .obra-info__img.expand-image{
+  position: fixed;
+  z-index: 20;
+  top:0;left:0;bottom:0;
+  width: 100%;
+  max-height: 100vh;
+ }
+ .obra-info__img.expand-image img{
+   border-radius: 0;
+ }
  .obra-info__expand-img-btn{
    font-size: 2rem;
    cursor: pointer;
@@ -293,6 +301,7 @@ a.title{
   height: 100%;
   border-radius: 83px 2px 85px 2px;
   object-fit: cover;
+  transition: border-radius 250ms
  }
  .obra-info--inner h3{
    font-size: 1em;
@@ -385,6 +394,9 @@ a.title{
   }
   .obra-info--inner .obra-info__img img{
     border-radius: 0;
+  }
+  .obra-info__expand-img-btn{
+  display:none;
   }
 }
 
