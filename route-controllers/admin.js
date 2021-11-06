@@ -46,12 +46,12 @@ exports.deleteObra = (req,res) => {
 
 exports.updateObra = (req,res) => {
     const id = req.params.obraID;
-    const {titulo, resumen, contenido, imgUrl} = req.body;
+    const {titulo, resumen, contenido} = req.body;
+    
     Obra.findByIdAndUpdate(id,{
         titulo:titulo,
         resumen:resumen,
         contenido:contenido,
-        imgUrl:imgUrl
     }, err => {
         if(!err){
             res.redirect("/admin/obras/" + id);
