@@ -326,6 +326,16 @@ function closeHandler(e) {
   document.body.classList.remove("overflow-hidden");
 }
 
+//Exandir imagen
+// document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
+//   btn.addEventListener("click", expandImage);
+// })
+// function expandImage(e){
+//   console.log(e);
+//   const imageDiv = e.target.parentElement.parentElement;
+//   imageDiv.classList.toggle("expand-image");
+// }
+
 
 //%%%%%%%%%%%%%% ESCAPE HANDLING %%%%%%%%%%%%%%
 document.addEventListener("keydown", e => {

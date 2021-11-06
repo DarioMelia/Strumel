@@ -243,8 +243,9 @@ a.title{
  .obra-info.open{
    position: fixed;
    display: flex;
-   align-items: center;
+   align-items: flex-end;
    justify-content: center;
+   padding-bottom: .5rem;
    z-index: 20;
  }
  
@@ -254,33 +255,43 @@ a.title{
    font-size: clamp(1.2rem, 3.8vw, 1.6rem);
    text-align: center;
    position: relative;
-   background: rgba(255, 255, 255, 0.281);
-   padding: 2rem;
+   padding: 2.5rem 0 0 0;
    border-radius: 16px;
    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(3.8px);
    display: grid;
    gap: 2rem;
    justify-items: center;
    grid-template-columns: 1fr;
    grid-template-rows: 55vh 1fr ;
    color: white;
-   max-height: 90vh;
+   max-height: 95vh;
    max-width: 900px;
    width: 100%;
  }
  
  .obra-info__img{
+   position:relative;
    max-height: 55vh;
    width: 100%;
    grid-row: 1fr;
-   border-radius: 16px;
    overflow: hidden;
+ }
+ /* .obra-info__img.expand-image{
   
+ } */
+ .obra-info__expand-img-btn{
+   font-size: 2rem;
+   cursor: pointer;
+   background: none;
+   border: none;
+   color: rgba(255, 255, 255, 0.842);
+   position:absolute;
+   bottom:5px;left:10px;
  }
  .obra-info--inner img{
   width: 100%;
   height: 100%;
+  border-radius: 83px 2px 85px 2px;
   object-fit: cover;
  }
  .obra-info--inner h3{
@@ -296,7 +307,7 @@ a.title{
  
  .contenido-scroll{
    max-width: 90%;
-   padding: 1px;
+   padding: 0 2rem 2rem;
    overflow-y: auto;
    scrollbar-color: rgb(187, 187, 187) rgb(100, 100, 100);
    scrollbar-width: thin;
@@ -326,7 +337,7 @@ a.title{
    background: transparent;
    position: absolute;
    z-index: 5;
-   color: rgb(22, 22, 22);
+   color: rgb(240, 240, 240);
    font-size: 1.5rem;
    top: 6px;
    right: 10px;
@@ -365,13 +376,15 @@ a.title{
 
   /* %%%%% GALERIA %%%% */
   .obra-info--inner{
-    padding: 2rem 1rem; 
-    width: 95% !important;
+    width: 100% !important;
     grid-template-rows: 47vh 1fr;
   }
 
   .obra-info__img{
     grid-row: 1fr;
+  }
+  .obra-info--inner .obra-info__img img{
+    border-radius: 0;
   }
 }
 
@@ -379,16 +392,17 @@ a.title{
   /* %%%%% GALERRY OVERLAY %%%% */
   .obra-info--inner{
     text-align: left;
-    width: 80%;
+    width: 90%;
   }
   .obra-info--inner .contenido-scroll{
     max-width:100%;
     text-align: left;
   }
-
-  .obra-info__img{
-    width: auto;
+  .obra-info__img img{
+    border-radius: 60px 1px 60px 1px;
   }
+
+ 
 }
 
 /* %%%%%%%% ANIMATIONS %%%%%%%% */
