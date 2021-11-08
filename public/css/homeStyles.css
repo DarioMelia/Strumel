@@ -475,6 +475,7 @@ a.hero__btn--galeria {
   border-radius:6px;
   text-align: left;
   width: fit-content;
+  width: -moz-fit-content;
   margin-bottom: .6em;
   box-shadow: 5px 7px 5px -1px rgba(0, 0, 0, 0.568);
 }
@@ -893,6 +894,7 @@ a.hero__btn--galeria {
   display: flex;
   align-items: center;
   width: fit-content;
+  width: -moz-fit-content;
   gap: 8px;
   padding: 1rem 0;
   min-height: 0.0000001vw; /*Safari workAround */
@@ -995,8 +997,9 @@ a.hero__btn--galeria {
    justify-content: center;
    height: auto;
    width: 100%;
+   font-size: 1.7rem;
    right: 0 !important;
-   top: -80px;
+   top: -70px;
   }
 
   .calculator-flex > .calculadora{
