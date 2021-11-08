@@ -85,7 +85,7 @@ function nextPrev(n) {
     //cogemos el valor de la opción elegida, si no, salimos de la función
     try{
      var refElegida = document.querySelector('input[name="tipo-reforma"]:checked').value;
-     console.log(refElegida);
+    //  console.log(refElegida);
      chosenTabs = wichReforma(refElegida); //Devuelve el array de tabs correspondiente a la eleccion del cliente
     } catch(err){
         if(err){
@@ -97,7 +97,7 @@ function nextPrev(n) {
         //cogemos el valor de la opción elegida, si no, salimos de la función
         try{
          var gamaMatElegida = document.querySelector('input[name="tipo-material"]:checked').value;
-         console.log(gamaMatElegida);
+        //  console.log(gamaMatElegida);
         } catch(err){
             if(err && n==1){
                 return false}
@@ -175,7 +175,7 @@ function nextPrev(n) {
       numberInputs.forEach(input => {
           
           if(input.value){
-            console.log(input.value)
+            // console.log(input.value)
               atLeastOne = true;
           } 
       })
@@ -363,8 +363,8 @@ function nextPrev(n) {
 
 
 
-    console.log(((price * metros) + addPrice))
-    console.log(calcInputs);
+    // console.log(((price * metros) + addPrice))
+    // console.log(calcInputs);
     return (price * metros) + addPrice;
   };
 

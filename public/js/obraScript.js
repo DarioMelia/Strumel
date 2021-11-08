@@ -14,7 +14,7 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   toggleBtns.forEach((btn, i) => {
     
   btn.addEventListener("click", (e) => {
-      console.log("uhhh, me tocaste, clickón")
+      
       firstOverlays[i].classList.toggle("appear");
       e.target.classList.toggle("cross");
       e.target.classList.toggle("square");
@@ -58,7 +58,7 @@ closeBtns.forEach(btn => {
 
 
 function obraOverlayHandler(e){
-    console.log(e.target);
+    
     const index = parseInt(e.target.name, 10);
     obraOverlays[index].classList.add("open");
     document.body.classList.add("overflow-hidden");
@@ -76,8 +76,18 @@ function closeHandler(e){
 document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
   btn.addEventListener("click", expandImage);
 })
+
+document.querySelectorAll(".obra-info__img").forEach((img) => {
+  img.addEventListener("click", (e) => {
+    if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
+      if (img.classList.contains("expand-image")) {
+        img.classList.remove("expand-image");
+      }
+    }
+  });
+});
+
 function expandImage(e){
-  console.log(e);
   const imgDiv = e.target.parentElement.parentElement;
   imgDiv.classList.toggle("expand-image");
 }
