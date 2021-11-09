@@ -1,33 +1,39 @@
 const images = document.querySelectorAll(".obra-info__img > img");
 
+
 images.forEach(image => {
-    const minScale = 1;
-    const maxScale = 4;
-    const hammertime = new Hammer.Manager(image, {
-        touchAction: "auto",
-        recognizers: [
-          [Hammer.Pinch, { enable: true }]
-        ]
-      });
-    
-      hammertime.on('pinchstart', event => {
-        console.log('pinchstart', event);
-      });
-    
-      hammertime.on('pinchmove', event => {
-        // console.log('pinchmove', event);
-        imageScale = Math.min(Math.max(minScale, event.scale), maxScale);
-        updateRange();
-        updateImage(event.deltaX, event.deltaY);
-      });
-    
-      hammertime.on('pinchend', event => {
-        console.log('pinchend', event);
-        resetImage();
-      });
-})
-    
+const minScale = 1;
+const maxScale = 4;
+const hammertime = new Hammer.Manager(image, {
+    touchAction: "auto",
+    recognizers: [
+      [Hammer.Pinch, { enable: true }],
+      [Hammer.Tap]
+    ]
+  });
+
   
+  hammertime.on('tap', event => {
+      console.log('tap', event);
+    });
+  hammertime.on('pinchstart', event => {
+    console.log('pinchstart', event);
+  });
+
+  hammertime.on('pinchmove', event => {
+    // console.log('pinchmove', event);
+    imageScale = Math.min(Math.max(minScale, event.scale), maxScale);
+    updateRange();
+    updateImage(event.deltaX, event.deltaY);
+  });
+
+  hammertime.on('pinchend', event => {
+    console.log('pinchend', event);
+    resetImage();
+  });
+
+
+
     const imageWidth = image.offsetWidth;
     const imageHeight = image.offsetHeight;
   
@@ -39,10 +45,14 @@ images.forEach(image => {
     let rangeMaxY = 0;
     let rangeMinY = 0;
 
+  image.parentNode.style.overflow = 'visible';
+  image.classList.add('pz-Image');
+
+ 
+
   const updateRange = () => {
     const rangeX = Math.max(0, Math.round(imageWidth * imageScale) - imageWidth);
     const rangeY = Math.max(0, Math.round(imageHeight * imageScale) - imageHeight);
-
     rangeMaxX = Math.round(rangeX / 2);
     rangeMinX = Math.round(0 - rangeMaxX);
 
@@ -66,7 +76,10 @@ images.forEach(image => {
     image.style.zIndex = "";
   };
 
-  image.parentNode.style.overflow = 'visible';
-  image.classList.add('pz-Image');
-
   
+
+})
+
+
+
+
