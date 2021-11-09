@@ -4,6 +4,13 @@ const images = document.querySelectorAll(".obra-info__img > img");
 images.forEach(image => {
 const minScale = 1;
 const maxScale = 12;
+let imageScale = 1;
+  
+let rangeMaxX = 0;
+let rangeMinX = 0;
+
+let rangeMaxY = 0;
+let rangeMinY = 0;
 const hammertime = new Hammer.Manager(image, {
     touchAction: "auto",
     recognizers: [
@@ -37,13 +44,7 @@ const hammertime = new Hammer.Manager(image, {
     const imageWidth = image.offsetWidth;
     const imageHeight = image.offsetHeight;
   
-    let imageScale = 1;
-  
-    let rangeMaxX = 0;
-    let rangeMinX = 0;
-  
-    let rangeMaxY = 0;
-    let rangeMinY = 0;
+
 
   image.parentNode.style.overflow = 'visible';
   image.classList.add('pz-Image');
