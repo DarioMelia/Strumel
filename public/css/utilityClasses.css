@@ -71,6 +71,7 @@ select{
 
 .title {
   max-width: fit-content;
+  max-width: -moz-fit-content;
   margin: 0 auto;
   font-family: var(--title-ff);
   font-weight: 600;
@@ -236,7 +237,7 @@ a.title{
   top:0;left:0;bottom:0;right:0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.836);
  
  }
  
@@ -256,7 +257,7 @@ a.title{
    font-size: clamp(1.2rem, 3.8vw, 1.6rem);
    text-align: center;
    position: relative;
-   padding: 2.5rem 0 0 0;
+   padding: 2.65rem 0 0 0;
    border-radius: 16px;
    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
    display: grid;
@@ -286,6 +287,7 @@ a.title{
  }
  .obra-info__img.expand-image img{
    border-radius: 0;
+   cursor: pointer;
  }
  .obra-info__expand-img-btn{
    font-size: 2rem;
@@ -340,6 +342,7 @@ a.title{
  .contenido-scroll::-webkit-scrollbar-thumb {
    width: 26px;
    border-radius: 13px;
+   -webkit-background-clip: padding-box;
    background-clip: padding-box;
    border: 10px solid transparent;
  }

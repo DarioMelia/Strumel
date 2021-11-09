@@ -314,7 +314,7 @@ closeBtns.forEach((btn) => {
 });
 
 function obraOverlayHandler(e) {
-  console.log(e.target);
+  
   const index = parseInt(e.target.name, 10);
   obraOverlays[index].classList.add("open");
   document.body.classList.add("overflow-hidden");
@@ -330,6 +330,17 @@ function closeHandler(e) {
 document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
   btn.addEventListener("click", expandImage);
 })
+
+document.querySelectorAll(".obra-info__img").forEach((img) => {
+  img.addEventListener("click", (e) => {
+    if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
+      if (img.classList.contains("expand-image")) {
+        img.classList.remove("expand-image");
+      }
+    }
+  });
+});
+
 function expandImage(e){
   const imgDiv = e.target.parentElement.parentElement;
   e.target.parentElement.classList.toggle("grow");
@@ -343,6 +354,7 @@ document.addEventListener("keydown", e => {
    const openObraOverlay = document.querySelector(".obra-info.open");
    const conocenosText = document.querySelector(".conocenos-text");
    const conocenosTextContent = document.querySelector(".conocenos-text__content");
+   const obraInfoImageDiv = openObraOverlay.querySelector(".obra-info__img.expand-image");
    if(openObraOverlay){
     openObraOverlay.classList.remove("open");
     document.body.classList.remove("overflow-hidden");
@@ -351,8 +363,10 @@ document.addEventListener("keydown", e => {
     conocenosTextContent.classList.remove("active");
     setTimeout(() => {conocenosText.classList.remove("active")}, 400)
   }
-
+  if(obraInfoImageDiv){
+    obraInfoImageDiv.classList.remove("expand-image");
   }
+}
 })
 
 
