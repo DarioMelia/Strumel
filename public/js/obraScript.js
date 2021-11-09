@@ -81,6 +81,7 @@ document.querySelectorAll(".obra-info__img").forEach((img) => {
   img.addEventListener("click", (e) => {
     if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
       if (img.classList.contains("expand-image")) {
+        img.querySelector(".obra-info__expand-img-btn").classList.remove("grow");
         img.classList.remove("expand-image");
       }
     }
