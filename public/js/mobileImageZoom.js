@@ -3,7 +3,7 @@ const images = document.querySelectorAll(".obra-info__img > img");
 
 images.forEach(image => {
 const minScale = 1;
-const maxScale = 4;
+const maxScale = 12;
 const hammertime = new Hammer.Manager(image, {
     touchAction: "auto",
     recognizers: [
