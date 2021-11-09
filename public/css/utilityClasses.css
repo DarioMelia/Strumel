@@ -404,13 +404,19 @@ a.title{
 
   .obra-info__img{
     grid-row: 1fr;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
   }
  
   .obra-info--inner .obra-info__img img{
     border-radius: 0;
-    transition: transform 200ms;
-    
+
   }
+  .obra-info__img.expanded{
+    z-index: 10;
+    transform: scale(2.5);
+  }
+ 
   .obra-info__expand-img-btn{
   display:none;
   }
