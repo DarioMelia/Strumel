@@ -2,10 +2,7 @@ const Obra = require("../models/obra.js");
 
 exports.homeGet = async (req,res) => {
     try{
-        const obras = await Obra.find();
-        let inicio = obras.length - 4;
-        let final = obras.lenght;
-        const lastObras = obras.slice(inicio, final);
+        const lastObras = await Obra.find().sort({ createdAt: -1 }).limit(4);
         
         res.render("home", {obras:lastObras});
     }catch(err){
