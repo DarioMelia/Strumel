@@ -7,6 +7,8 @@ router.get("/", controllers.homeGet);
 
 router.get("/obras",controllers.obrasGet);
 
+router.get("/api/getLastImages",controllers.getLastImages);
+
 
 
 module.exports = router;

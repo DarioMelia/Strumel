@@ -402,8 +402,7 @@
               <%}else{%>
                 <figure>
               <%}%>                       <!--  final if -->
-                <img src="data:image/<%=obra.img.contentType%>;base64,
-                <%=obra.img.data.toString('base64')%>" alt="<%= obra.resumen %>"/>
+                <img class="gallery__img" src="" alt="<%= obra.resumen %>"/>
                 <div>
                   <h2><%= obra.titulo %></h2>
                   <% let resumen = obra.resumen %>
@@ -438,8 +437,7 @@
               </button>
               <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
              <div class="obra-info__img">
-               <img src="data:image/<%=obra.img.contentType%>;base64,
-               <%=obra.img.data.toString('base64')%>" alt="<%= obra.resumen %>">
+               <img src="" alt="<%= obra.resumen %>">
                <button class="obra-info__expand-img-btn"><i class="fas fa-expand"></i></button>
               </div>
               <div class="contenido-scroll">
@@ -490,6 +488,7 @@
     <script  src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script async src="/js/homeScript.js"></script>
     <script async src="/js/priceCalculator.js"></script>
+    <script async src="/js/lazyLoading.js"></script>
     
   </body>
 </html>
