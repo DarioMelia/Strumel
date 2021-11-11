@@ -30,8 +30,21 @@ exports.getLastImages = async (req, res) => {
       .select({ img: 1 })
       .sort({ createdAt: -1 })
       .limit(4);
-    res.send(lastObras);
+
+    var images = [];
+    lastObras.forEach((obra) => {
+      let base64data = obra.img.data.toString("base64");
+      let contentType = obra.img.contentType;
+      let image = {
+        data: base64data,
+        contentType: contentType,
+      };
+      images.push(image);
+    });
+
+    res.send(images);
   } catch (err) {
     res.send(err.message);
+    console.log(err.message);
   }
 };

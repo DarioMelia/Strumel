@@ -38,7 +38,7 @@ router.get("/obras/:obraID", admin.obrasGet)
 
 router.post("/submit",upload.single('image'), (req,res) => {
    const {titulo, resumen, contenido, fecha} = req.body;
-   console.log(req.file)
+  
    const obra = {
        titulo: titulo,
        resumen:resumen,
