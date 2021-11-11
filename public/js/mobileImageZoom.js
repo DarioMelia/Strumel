@@ -16,16 +16,18 @@ function debounce(func) {
     timer = setTimeout(func, 100, event);
   };
 }
-window.addEventListener(
-  "resize",
-  debounce(function (e) {
+window.addEventListener("resize",debounce(function (e) {
     console.log("end of resizing");
-    (vx = win.innerWidth || docElem.clientWidth || body.clientWidth),
-      (vy = win.innerHeight || docElem.clientHeight || body.clientHeight);
+    vx =  docElem.clientWidth || body.clientWidth,
+    vy =  docElem.clientHeight || body.clientHeight;
+    if(vx > 450){
+      let viewportChange = true;
+      makeImageZoom(viewportChange)
+    }
   })
 );
 
-function makeImageZoom() {
+function makeImageZoom(viewportChange) {
   const images = document.querySelectorAll(".obra-info__img > img");
 
   images.forEach((image) => {
@@ -35,6 +37,8 @@ function makeImageZoom() {
     hammertime.get("pan").set({ direction: Hammer.DIRECTION_ALL });
     hammertime.get("pinch").set({ enable: true });
 
+    
+    
     let isBig = false;
 
     hammertime.on("tap", (event) => {
@@ -51,7 +55,7 @@ function makeImageZoom() {
 
     hammertime.on("panmove", handleDrag);
     hammertime.on("panend", (ev) => {
-      console.log("panENd");
+      
       setTimeout(() => {
         ev.target.style.transform = "translate(0 ,0)";
         ev.target.parentElement.classList.remove("expanded");
@@ -91,5 +95,20 @@ function makeImageZoom() {
       elem.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
       elem.parentElement.classList.add("expanded");
     }
+    // if(viewportChange) { //if viewport has changed
+    //   hammertime.off("tap",hammerEnd);
+    //   hammertime.off("panmove",hammerEnd);
+    //   hammertime.off("panend",hammerEnd);
+    //   hammertime.off("pinchmove",hammerEnd);
+    //   hammertime.off("pinchend",hammerEnd);
+      
+    // }
+
+    
+    
   });
+}
+
+function hammerEnd(){
+  console.log("Hammer end")
 }
