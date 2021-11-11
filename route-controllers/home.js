@@ -12,7 +12,7 @@ exports.homeGet = async (req, res) => {
 
 exports.obrasGet = async (req, res) => {
   try {
-    const obras = await Obra.find();
+    const obras = await Obra.find().select({"img":0});
 
     res.render("obras", { obras: obras });
   } catch (err) {
@@ -24,6 +24,18 @@ exports.obrasGet = async (req, res) => {
 
 //Api para lazy loading de imagenes
 
+exports.getObraImg = async (req,res) => {
+  const obraID = req.params.obraID;
+  const obra = await Obra.findById(obraID);
+  let base64data = obra.img.data.toString("base64");
+  let contentType = obra.img.contentType;
+  let image = {
+    data: base64data,
+    contentType: contentType,
+  };
+  console.log(image);
+  res.send(image);
+}
 exports.getLastImages = async (req, res) => {
   try {
     const lastObras = await Obra.find({})

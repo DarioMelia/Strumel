@@ -5,11 +5,57 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   });
   
 
+ ///// ScrollSpy for Lazy Loading Images
+
+ const observerOptions = {};
+ const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+   entries.forEach(entry => {
+     if(!entry.isIntersecting){
+       return;
+     }else{
+       loadImage(entry.target);
+       imgObserver.unobserve(entry.target);
+     }
+   })
+ }, observerOptions);
+
+
+ function loadImage(img){
+  const url = `/api/getImage/${img.getAttribute("data-id")}`;
+ 
+  if(!url){
+    return;
+  }
+  
+  fetch(url).then(response => response.json()).then(data => {
+    let contentType = data.contentType;
+    let dataBase64 = data.data;
+    img.src = `data:image/${contentType};base64,
+    ${dataBase64}`; 
+    
+  });
+ }
+
+ const domImages = document.querySelectorAll(".gallery__img");
+ const domInfoImages = document.querySelectorAll(".obra-info__img img");
+
+ domImages.forEach(img => {
+   imgObserver.observe(img);
+ })
+ domInfoImages.forEach(img => {
+  imgObserver.observe(img);
+})
+
+
+
+
+
+
+
+  /// Animattion on button press for overlay
   const toggleBtns = document.querySelectorAll(".toggle-overlay");
   const obras = document.querySelectorAll(".obra__box");
   const firstOverlays = document.querySelectorAll(".obra__overlay");
-
-  
 
   toggleBtns.forEach((btn, i) => {
     
