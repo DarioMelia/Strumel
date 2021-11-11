@@ -55,6 +55,7 @@
   border-radius: 10px;
   position: relative;
   z-index: 3;
+  
 }
 .obra__overlay {
     max-height: 450px;

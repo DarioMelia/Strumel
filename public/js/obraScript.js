@@ -33,6 +33,8 @@ AOS.init({                         //Iniciamos la librería para las animaciones
     img.src = `data:image/${contentType};base64,
     ${dataBase64}`; 
     
+    
+    
   });
  }
 

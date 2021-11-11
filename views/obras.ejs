@@ -15,7 +15,7 @@
         <div class="obras__grid">
             <%obras.forEach((obra,i) => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                 <div class="obra__box" data-aos="fade-up">
-                        <img data-id="<%= obra.id %>" class="gallery__img" src="" alt="<%=obra.titulo%>">
+                        <img data-id="<%= obra.id %>" class="gallery__img" src="/css/images/loader.gif" alt="<%=obra.titulo%>">
                         <span class="toggle-overlay"></span>
                         <div class="obra__overlay">
                             <div class="obra__overlay--inner">
@@ -40,7 +40,7 @@
                 </button>
                 <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
                <div class="obra-info__img">
-                 <img data-id="<%= obra.id %>" src="" alt="<%= obra.resumen %>">
+                 <img data-id="<%= obra.id %>" src="/css/images/loader.gif" alt="<%= obra.resumen %>">
                  <button class="obra-info__expand-img-btn"><i class="fas fa-expand"></i></button>
                 </div>
                 <div class="contenido-scroll">

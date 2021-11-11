@@ -33,7 +33,6 @@ exports.getObraImg = async (req,res) => {
     data: base64data,
     contentType: contentType,
   };
-  console.log(image);
   res.send(image);
 }
 exports.getLastImages = async (req, res) => {
