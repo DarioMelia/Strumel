@@ -5,8 +5,10 @@ var win = window,
   vx = docElem.clientWidth || body.clientWidth,
   vy = docElem.clientHeight || body.clientHeight;
 
+ 
+  var hammertimes;
 if (vx <= 450) {
-  makeImageZoom();
+  hammertimes = makeImageZoom();
 }
 
 function debounce(func) {
@@ -18,18 +20,33 @@ function debounce(func) {
 }
 window.addEventListener("resize",debounce(function (e) {
     console.log("end of resizing");
+    let oldVx = vx;
+    //Recalculamos las medidas de la pantalla
     vx =  docElem.clientWidth || body.clientWidth,
     vy =  docElem.clientHeight || body.clientHeight;
-    if(vx > 450){
-      let viewportChange = true;
-      makeImageZoom(viewportChange)
+
+    if(vx > 450 && oldVx <= 450){ //Cancelamos la detección de touch eventes cuando ha resizeado a mas grande que movil
+      if(hammertimes){
+        hammertimes.forEach(hammertime => {
+          hammertime.off("tap",hammerEnd);
+          hammertime.off("panmove",hammerEnd);
+          hammertime.off("panend",hammerEnd);
+          hammertime.off("pinchmove",hammerEnd);
+          hammertime.off("pinchend",hammerEnd);
+        });
+      }
+    
     }
-  })
-);
+    if(vx <= 450 && oldVx > 450){
+      hammertimes = makeImageZoom();
+    }
+    
+  }));
 
-function makeImageZoom(viewportChange) {
+function makeImageZoom() {
+  
   const images = document.querySelectorAll(".obra-info__img > img");
-
+  var hammertimes = [];
   images.forEach((image) => {
     image.parentNode.style.overflow = "visible";
 
@@ -95,18 +112,12 @@ function makeImageZoom(viewportChange) {
       elem.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
       elem.parentElement.classList.add("expanded");
     }
-    // if(viewportChange) { //if viewport has changed
-    //   hammertime.off("tap",hammerEnd);
-    //   hammertime.off("panmove",hammerEnd);
-    //   hammertime.off("panend",hammerEnd);
-    //   hammertime.off("pinchmove",hammerEnd);
-    //   hammertime.off("pinchend",hammerEnd);
-      
-    // }
+  
 
     
-    
+    hammertimes.push(hammertime);
   });
+  return hammertimes;
 }
 
 function hammerEnd(){
