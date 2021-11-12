@@ -150,7 +150,6 @@ a.title{
 .obra__overlay {
   grid-row: 1 / -1;
   grid-column: 1 / -1;
-  
   max-height: 400px;
   background: rgba(77, 77, 77, 0.25);
   backdrop-filter: blur(4px);
@@ -163,6 +162,11 @@ a.title{
   justify-items: center;
   transition: transform 300ms ease-in-out;
   transform: translateY(100%);
+}
+@supports not (backdrop-filter: blur(4px)){
+  .obra__overlay{
+    background: rgba(22, 22, 22, 0.733);
+  }
 }
 
 

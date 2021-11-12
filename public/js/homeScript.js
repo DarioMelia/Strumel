@@ -142,59 +142,106 @@ conocenosText.addEventListener("click", e => {
    // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%     
         var item = 0,
           itemNo = figures.length;
-    
+
         function transitionSlide() {
           item++;
           if (item > itemNo - 1) {
             item = 0;
           }
-    
-         handleClassChanges(item);
-    
+
+          handleClassChanges(item);
         }
-      
+
         var autoTransition = setInterval(transitionSlide, 6000);
-      
-        figures.forEach(figure => {
-            figure.addEventListener("click", (e) => {
-                clearInterval(autoTransition);
-                var figuresArray = Array.prototype.slice.call( document.querySelector(".gallery").children);
 
-                item = figuresArray.indexOf(e.target.parentElement);
+        figures.forEach((figure) => {
+          figure.addEventListener("click", (e) => {
+            clearInterval(autoTransition);
+            var figuresArray = Array.prototype.slice.call(
+              document.querySelector(".gallery").children
+            );
 
-            if(e.target.type != "submit"){
-                handleClassChanges(item);
-                autoTransition = setInterval(transitionSlide, 6000);
+            item = figuresArray.indexOf(e.target.parentElement);
+
+            if (e.target.type != "submit") {
+              handleClassChanges(item);
             }
-               
-            })
-        })
-    
-        function handleClassChanges(item){
-            figures.forEach((figure,i) => {
-              if(i !== item){ //Si se ha clickeado en el mismo figure no reiniciart la animnacion
-                figure.classList.remove("on");
-              }
-                
-            });
-        
-            descriptions.forEach(description => {
-              if(description !== descriptions[item]){//Si se ha clickeado en el mismo figure no reiniciart la animnacion
-                description.classList.remove("gallery__descript--grow");
-              }
-              
-            });
-        
-            figures[item].classList.add("on");
+            autoTransition = setInterval(transitionSlide, 6000);
+          });
+        });
 
-            
-            setTimeout(() => {
-                descriptions[item].classList.add("gallery__descript--grow");
-            }, 250);
-          
-          }
+        function handleClassChanges(item) {
+          figures.forEach((figure, i) => {
+            if (i !== item) {
+              //Si se ha clickeado en el mismo figure no reiniciart la animnacion
+              figure.classList.remove("on");
+            }
+          });
+
+          descriptions.forEach((description) => {
+            if (description !== descriptions[item]) {
+              //Si se ha clickeado en el mismo figure no reiniciart la animnacion
+              description.classList.remove("gallery__descript--grow");
+            }
+          });
+
+          figures[item].classList.add("on");
+
+          setTimeout(() => {
+            descriptions[item].classList.add("gallery__descript--grow");
+          }, 250);
+        }
         
 };
+
+// %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
+
+const galleryBtns = document.querySelectorAll(".gallery__btn button");
+const obraOverlays = document.querySelectorAll(".obra-info");
+const closeBtns = document.querySelectorAll(".obra-info--close");
+
+galleryBtns.forEach((btn) => {
+  btn.addEventListener("click", obraOverlayHandler);
+});
+
+closeBtns.forEach((btn) => {
+  btn.addEventListener("click", closeHandler);
+});
+
+function obraOverlayHandler(e) {
+  const index = parseInt(e.target.name, 10);
+  obraOverlays[index].classList.add("open");
+  document.body.classList.add("overflow-hidden");
+}
+
+function closeHandler(e) {
+  const index = parseInt(e.target.parentElement.name, 10);
+  obraOverlays[index].classList.remove("open");
+  document.body.classList.remove("overflow-hidden");
+}
+
+//Exandir imagen
+document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
+  btn.addEventListener("click", expandImage);
+})
+
+document.querySelectorAll(".obra-info__img").forEach((img) => {
+  img.addEventListener("click", (e) => {
+    if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
+      if (img.classList.contains("expand-image")) {
+        img.querySelector(".obra-info__expand-img-btn").classList.remove("grow");
+        img.classList.remove("expand-image");
+      }
+    }
+  });
+});
+
+function expandImage(e){
+  const imgDiv = e.target.parentElement.parentElement;
+  e.target.parentElement.classList.toggle("grow");
+  imgDiv.classList.toggle("expand-image");
+}
+
 
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
@@ -308,54 +355,6 @@ function removeHabText(habText){
 }
 
 
-// %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
-
-const galleryBtns = document.querySelectorAll(".gallery__btn button");
-const obraOverlays = document.querySelectorAll(".obra-info");
-const closeBtns = document.querySelectorAll(".obra-info--close");
-
-galleryBtns.forEach((btn) => {
-  btn.addEventListener("click", obraOverlayHandler);
-});
-
-closeBtns.forEach((btn) => {
-  btn.addEventListener("click", closeHandler);
-});
-
-function obraOverlayHandler(e) {
-  
-  const index = parseInt(e.target.name, 10);
-  obraOverlays[index].classList.add("open");
-  document.body.classList.add("overflow-hidden");
-}
-
-function closeHandler(e) {
-  const index = parseInt(e.target.parentElement.name, 10);
-  obraOverlays[index].classList.remove("open");
-  document.body.classList.remove("overflow-hidden");
-}
-
-//Exandir imagen
-document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
-  btn.addEventListener("click", expandImage);
-})
-
-document.querySelectorAll(".obra-info__img").forEach((img) => {
-  img.addEventListener("click", (e) => {
-    if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
-      if (img.classList.contains("expand-image")) {
-        img.querySelector(".obra-info__expand-img-btn").classList.remove("grow");
-        img.classList.remove("expand-image");
-      }
-    }
-  });
-});
-
-function expandImage(e){
-  const imgDiv = e.target.parentElement.parentElement;
-  e.target.parentElement.classList.toggle("grow");
-  imgDiv.classList.toggle("expand-image");
-}
 
 
 //%%%%%%%%%%%%%% ESCAPE HANDLING %%%%%%%%%%%%%%
