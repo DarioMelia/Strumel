@@ -1,4 +1,5 @@
 
+
 AOS.init({                         //Iniciamos la librería para las animaciones de scroll.
     easing: 'ease-in-sine',
     duration: 400,
@@ -152,7 +153,7 @@ conocenosText.addEventListener("click", e => {
     
         }
       
-        var autoTransition = setInterval(transitionSlide, 9000);
+        var autoTransition = setInterval(transitionSlide, 6000);
       
         figures.forEach(figure => {
             figure.addEventListener("click", (e) => {
@@ -163,28 +164,36 @@ conocenosText.addEventListener("click", e => {
 
             if(e.target.type != "submit"){
                 handleClassChanges(item);
-                autoTransition = setInterval(transitionSlide, 9000);
+                autoTransition = setInterval(transitionSlide, 6000);
             }
                
             })
         })
     
         function handleClassChanges(item){
-            figures.forEach(figure => {
+            figures.forEach((figure,i) => {
+              if(i !== item){ //Si se ha clickeado en el mismo figure no reiniciart la animnacion
                 figure.classList.remove("on");
+              }
+                
             });
         
             descriptions.forEach(description => {
-              description.classList.remove("gallery__descript--grow");
+              if(description !== descriptions[item]){//Si se ha clickeado en el mismo figure no reiniciart la animnacion
+                description.classList.remove("gallery__descript--grow");
+              }
+              
             });
         
             figures[item].classList.add("on");
-        
+
+            
             setTimeout(() => {
                 descriptions[item].classList.add("gallery__descript--grow");
             }, 250);
+          
           }
-        const loader = document.getElementById("loader");
+        
 };
 
 
