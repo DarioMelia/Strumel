@@ -107,91 +107,94 @@ TxtType.prototype.tick = function() {
 const figures = document.querySelectorAll(".gallery figure");         //Gallery consts
 const descriptions = document.querySelectorAll(".gallery__descript"); //Gallery consts
 
-window.onload = function() {
-    var elements = document.getElementsByClassName('typewrite');
-    for (var i=0; i<elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-type');
-        var period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-          new TxtType(elements[i], JSON.parse(toRotate), period);
-        }
+window.onload = function () {
+  var elements = document.getElementsByClassName("typewrite");
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute("data-type");
+    var period = elements[i].getAttribute("data-period");
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
     }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-    document.body.appendChild(css);
-
-///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
-const conocenosBtn = document.querySelector(".hero__btn--conocenos");
-const conocenosText = document.querySelector(".conocenos-text");
-const conocenosTextContent = document.querySelector(".conocenos-text__content");
-conocenosBtn.addEventListener("click", e => {
-  conocenosText.classList.toggle("active");
-  setTimeout(() => {conocenosTextContent.classList.add("active")}, 20);
-                    
-})
-conocenosText.addEventListener("click", e => {
-  if(conocenosText.classList.contains("active")){
-    conocenosTextContent.classList.remove("active");
-    setTimeout(() => {conocenosText.classList.remove("active")}, 400)
   }
-})
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
 
-    
-   // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%     
-        var item = 0,
-          itemNo = figures.length;
+  ///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
+  const conocenosBtn = document.querySelector(".hero__btn--conocenos");
+  const conocenosText = document.querySelector(".conocenos-text");
+  const conocenosTextContent = document.querySelector(
+    ".conocenos-text__content"
+  );
+  conocenosBtn.addEventListener("click", (e) => {
+    conocenosText.classList.toggle("active");
+    setTimeout(() => {
+      conocenosTextContent.classList.add("active");
+    }, 20);
+  });
+  conocenosText.addEventListener("click", (e) => {
+    if (conocenosText.classList.contains("active")) {
+      conocenosTextContent.classList.remove("active");
+      setTimeout(() => {
+        conocenosText.classList.remove("active");
+      }, 400);
+    }
+  });
 
-        function transitionSlide() {
-          item++;
-          if (item > itemNo - 1) {
-            item = 0;
-          }
+  // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%
+  var item = 0,
+    itemNo = figures.length;
 
-          handleClassChanges(item);
-        }
+  function transitionSlide() {
+    item++;
+    if (item > itemNo - 1) {
+      item = 0;
+    }
 
-        var autoTransition = setInterval(transitionSlide, 6000);
+    handleClassChanges(item);
+  }
 
-        figures.forEach((figure) => {
-          figure.addEventListener("click", (e) => {
-            clearInterval(autoTransition);
-            var figuresArray = Array.prototype.slice.call(
-              document.querySelector(".gallery").children
-            );
+  var autoTransition = setInterval(transitionSlide, 6000);
 
-            item = figuresArray.indexOf(e.target.parentElement);
+  figures.forEach((figure) => {
+    figure.addEventListener("click", (e) => {
+      clearInterval(autoTransition);
+      var figuresArray = Array.prototype.slice.call(
+        document.querySelector(".gallery").children
+      );
 
-            if (e.target.type != "submit") {
-              handleClassChanges(item);
-            }
-            autoTransition = setInterval(transitionSlide, 6000);
-          });
-        });
+      item = figuresArray.indexOf(e.target.parentElement);
 
-        function handleClassChanges(item) {
-          figures.forEach((figure, i) => {
-            if (i !== item) {
-              //Si se ha clickeado en el mismo figure no reiniciart la animnacion
-              figure.classList.remove("on");
-            }
-          });
+      if (e.target.type != "submit") {
+        handleClassChanges(item);
+      }
+      autoTransition = setInterval(transitionSlide, 6000);
+    });
+  });
 
-          descriptions.forEach((description) => {
-            if (description !== descriptions[item]) {
-              //Si se ha clickeado en el mismo figure no reiniciart la animnacion
-              description.classList.remove("gallery__descript--grow");
-            }
-          });
+  function handleClassChanges(item) {
+    figures.forEach((figure, i) => {
+      if (i !== item) {
+        //Si se ha clickeado en el mismo figure no reiniciart la animnacion
+        figure.classList.remove("on");
+      }
+    });
 
-          figures[item].classList.add("on");
+    descriptions.forEach((description) => {
+      if (description !== descriptions[item]) {
+        //Si se ha clickeado en el mismo figure no reiniciart la animnacion
+        description.classList.remove("gallery__descript--grow");
+      }
+    });
 
-          setTimeout(() => {
-            descriptions[item].classList.add("gallery__descript--grow");
-          }, 250);
-        }
-        
+    figures[item].classList.add("on");
+
+    setTimeout(() => {
+      descriptions[item].classList.add("gallery__descript--grow");
+    }, 250);
+  }
 };
 
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
@@ -200,6 +203,7 @@ const galleryBtns = document.querySelectorAll(".gallery__btn button");
 const obraOverlays = document.querySelectorAll(".obra-info");
 const closeBtns = document.querySelectorAll(".obra-info--close");
 
+
 galleryBtns.forEach((btn) => {
   btn.addEventListener("click", obraOverlayHandler);
 });
@@ -207,6 +211,8 @@ galleryBtns.forEach((btn) => {
 closeBtns.forEach((btn) => {
   btn.addEventListener("click", closeHandler);
 });
+
+
 
 function obraOverlayHandler(e) {
   const index = parseInt(e.target.name, 10);
@@ -299,6 +305,8 @@ const habCalc = document.getElementById("habilidades-calculador");
 const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
 const habItems = document.querySelectorAll(".hab-item");
 const habTexts = document.querySelectorAll(".hab-text");
+const calculadoraLink = document.querySelector(".calculadora__link");
+const calculadora = document.querySelector(".calculadora");
 
 
 nextHabBtns.forEach(btn => {
@@ -312,12 +320,19 @@ habItems.forEach(item => {
 habCalc.addEventListener("click", e => {
   habTexts.forEach(habText => {
     if(habText.classList.contains("hab-text-open")){
-      removeHabText(habText);
+        removeHabText(habText);
     }
+    console.log(e.target.parentElement)
+   
   });
-  
-
 })
+
+calculadoraLink.addEventListener("click", (e) => {
+  calculadora.classList.add("grow");
+  setTimeout(() => {
+    calculadora.classList.remove("grow");
+  }, 900);
+}) 
 
 
 

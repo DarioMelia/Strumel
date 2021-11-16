@@ -144,12 +144,9 @@
               <div class="hab-item hab-active">
                 <i class="fas fa-paint-roller"></i>
                 <h3 class="hab-title">Pintura</h3>
-                <div class="hab-text">
+                <div class="hab-text hab-text--pintura">
                   <div class="hab-text-content">
-                    <p>Pintura maiorum habemus detraxit at. Timeam fabulas splendide et his.
-                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
-                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
-                       </p>
+                    <%- include('partials/pinturaCalc') %>
                   </div>
                 </div>
               </div>
@@ -159,9 +156,8 @@
                 <h3 class="hab-title">Fontanería</h3>
                 <div class="hab-text">
                   <div class="hab-text-content">
-                    <p>Fontaneria maiorum habemus detraxit at. Timeam fabulas splendide et his.
-                       Facilisi aliquando sea ad, vel ne consetetur adversarium.
-                       Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui.
+                    <p>Desde arreglos menores a instalaciones completas. 
+                      Se cual sea tu caso, <a href="#contacto"> contacta con nosotros.</a>
                        </p>
                   </div>
                 </div>
@@ -179,7 +175,7 @@
                 <div class="hab-text">
                   <div class="hab-text-content">
                     <p>Reforma integral o parcial, exterior o interior. 
-                      Puedes consultar un precio aproximado en nuestra <a href="#calculadora">calculadora de precio</a>.
+                      Puedes consultar un precio aproximado en nuestra <a class="calculadora__link" href="#calculadora">calculadora de precio</a>.
                        </p>
                   </div>
                 </div>
@@ -206,7 +202,7 @@
 
 
            <!-- / CALCULADORA / --> 
-
+           
            <%- include('partials/priceCalculator') %>
       </div>
 
