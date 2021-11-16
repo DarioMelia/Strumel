@@ -7,7 +7,11 @@ const tabsBano = [tabs[0], tabs[1], tabs[4], tabs[5]];
 const tabsCocina = [tabs[0], tabs[2], tabs[4], tabs[5]];
 const tabsIntegral = [tabs[0], tabs[3], tabs[4], tabs[5]];
 
-
+const formatter = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+  minimumFractionDigits: 0
+})
 
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.
@@ -47,11 +51,7 @@ function showTab(n, chosenTabs) {
 }
 
 function showFinalTab(price, calcInputs){
-  const formatter = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0
-  })
+  
   
   const formattedPrice = formatter.format(Math.round(price));
   const finalTab = document.querySelector(".tab--final");
@@ -447,3 +447,89 @@ function nextPrev(n) {
     return innerHtml;
 
   }
+
+
+
+/// CALCULADORA PINTURA /////////////
+
+const pintCalcBtn = document.querySelector(".pintCalc__btn");
+const pintCalc = document.querySelector(".pintCalc");
+
+
+const pintResult = document.querySelector(".pint-result");
+const pintPrice = pintResult.querySelector(".pint-precio");
+const pintRestart = pintResult.querySelector(".pintCalc__restartBtn");
+
+
+pintCalcBtn.addEventListener("click", pintCalcResult);
+pintRestart.addEventListener("click", pintCalcRestart);
+
+
+function pintCalcResult(e) {
+  const selectedInput = pintCalc.querySelector('input[type="radio"]:checked');
+  const metros = pintCalc.querySelector("input[type='number']");
+  
+  if(selectedInput && metros.value !== ""){
+    var finalPrice = getPintPrice(selectedInput.id, metros.value);
+    if(finalPrice > 1000){
+      pintPrice.classList.add("big-number");
+    }else {
+      if(pintPrice.classList.contains("big-number")){
+        pintPrice.classList.remove("big-number");
+      }
+    }
+    if(finalPrice > 99000){
+      finalPrice = "+99.999€";
+    }else {
+      finalPrice = formatter.format(Math.round(finalPrice)); 
+      finalPrice = finalPrice.substring(0, finalPrice.length - 2) +"€";
+    }
+    pintPrice.innerHTML = finalPrice;
+    pintCalc.classList.add("display-none");
+    if(pintCalc.classList.contains("open")){
+      pintCalc.classList.remove("open");
+    }
+
+    
+    pintResult.style.display = "block";
+    setTimeout(() => {
+      pintResult.classList.add("open");
+    }, 20);
+    
+  }
+}
+
+function getPintPrice(pintura, metros){
+  metros = parseInt(metros);
+  let precioPlastica = 8;
+  let precioTemple = 9;
+  let precioEsmalte = 11;
+  let finalPrice;
+  switch(pintura){
+    case "plastica":
+      finalPrice = metros * precioPlastica;
+      break;
+    case "temple":
+      finalPrice = metros * precioTemple;
+      break;
+    case "esmalte":
+      finalPrice = metros * precioEsmalte;
+      break;
+  }
+
+  return finalPrice;
+}
+
+function pintCalcRestart(e){
+  
+  pintResult.classList.remove("open");
+    setTimeout(() => {
+      pintResult.style.display = "none";
+      pintCalc.classList.remove("display-none");
+      setTimeout(() => {
+        pintCalc.classList.add("open");
+      }, 20);
+      
+    }, 200);
+    
+}
