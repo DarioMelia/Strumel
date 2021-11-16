@@ -458,11 +458,13 @@ const pintCalc = document.querySelector(".pintCalc");
 
 const pintResult = document.querySelector(".pint-result");
 const pintPrice = pintResult.querySelector(".pint-precio");
-const pintRestart = pintResult.querySelector(".pintCalc__restartBtn");
+const pintRestart = document.querySelector(".pintCalc__restartBtn");
+
 
 
 pintCalcBtn.addEventListener("click", pintCalcResult);
 pintRestart.addEventListener("click", pintCalcRestart);
+pintRestart.classList.add("display-none");
 
 
 function pintCalcResult(e) {
@@ -489,8 +491,7 @@ function pintCalcResult(e) {
     if(pintCalc.classList.contains("open")){
       pintCalc.classList.remove("open");
     }
-
-    
+    pintRestart.classList.remove("display-none");
     pintResult.style.display = "block";
     setTimeout(() => {
       pintResult.classList.add("open");
@@ -526,6 +527,7 @@ function pintCalcRestart(e){
     setTimeout(() => {
       pintResult.style.display = "none";
       pintCalc.classList.remove("display-none");
+      pintRestart.classList.add("display-none");
       setTimeout(() => {
         pintCalc.classList.add("open");
       }, 20);

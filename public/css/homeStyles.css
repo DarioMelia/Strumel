@@ -474,8 +474,8 @@ a.hero__btn--galeria {
 
 .pintCalc__restartBtn{
   position: absolute;
-  bottom: -15%;
-  left: -3%;
+  bottom: 0;
+  left: 0;
   background: none;
   border: none;
   color: white;
@@ -1149,13 +1149,14 @@ button.pintCalc__restartBtn .fas:active{
     font-size: .8rem;
     margin-top: 8px;
   }
+ 
   .pint-precio{
     padding: 1em .6em;
   }
   .pint-precio.big-number{
-    padding:1.2em 1em;
+    padding:1em;
   }
-  .pint-result .fas.fa-sync-alt{
+  button.pintCalc__restartBtn .fas {
     font-size: 1.2rem;
   }
 
