@@ -508,11 +508,15 @@ button.pintCalc__restartBtn .fas:active{
 }
 .pint-precio{
   font-size: 3em;
+  font-weight: 500;
   padding: 1em 1.2em; 
 }
+
 .pint-precio.big-number{
-  font-size: 2em;
+  min-height: 0.0000001vw; /*Safari workAround */
+  font-size: clamp(2em, 9vw, 3em);
 }
+
 /* .pint-precio::before{
   content: "aprox.";
   position: absolute;
@@ -1154,6 +1158,7 @@ button.pintCalc__restartBtn .fas:active{
     padding: 1em .6em;
   }
   .pint-precio.big-number{
+    
     padding:1em;
   }
   button.pintCalc__restartBtn .fas {
