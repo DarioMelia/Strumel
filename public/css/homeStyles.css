@@ -1064,6 +1064,28 @@ a.hero__btn--galeria {
   .hab-text{
     font-size: .6em;
   }
+  .hab-text--pintura{
+    font-size: .6em;
+  }
+  .pintCalc{
+    gap:12px;
+  }
+  .hab-text--pintura h4, .pintCalc__right label{
+    font-size: max(.9em, 3vw);
+  }
+  .pintCalc__right{
+    gap:15px;
+  }
+  .pintCalc__right input{
+    padding:0;
+    width: 60%;
+  }
+  .pintCalc__btn{
+    font-size: .8rem;
+    margin-top: 8px;
+  }
+
+ 
   .hab-text-content::after{
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;

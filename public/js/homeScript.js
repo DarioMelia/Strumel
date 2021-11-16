@@ -305,8 +305,10 @@ const habCalc = document.getElementById("habilidades-calculador");
 const nextHabBtns = document.querySelectorAll(".next-hab-btn .fas");
 const habItems = document.querySelectorAll(".hab-item");
 const habTexts = document.querySelectorAll(".hab-text");
+const habTextPintura = document.querySelector(".hab-text--pintura");
 const calculadoraLink = document.querySelector(".calculadora__link");
 const calculadora = document.querySelector(".calculadora");
+
 
 
 nextHabBtns.forEach(btn => {
@@ -320,9 +322,14 @@ habItems.forEach(item => {
 habCalc.addEventListener("click", e => {
   habTexts.forEach(habText => {
     if(habText.classList.contains("hab-text-open")){
+      if(habTextPintura.contains(e.target)){
+        return;
+      }else{
         removeHabText(habText);
+      }
+        
     }
-    console.log(e.target.parentElement)
+    
    
   });
 })
