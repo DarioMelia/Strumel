@@ -6,7 +6,8 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   
 
  ///// ScrollSpy for Lazy Loading Images
-
+ const domImages = document.querySelectorAll(".gallery__img");
+ 
  const observerOptions = {};
  const imgObserver = new IntersectionObserver((entries, imgObserver) => {
    entries.forEach(entry => {
@@ -32,25 +33,14 @@ AOS.init({                         //Iniciamos la librería para las animaciones
     let dataBase64 = data.data;
     img.src = `data:image/${contentType};base64,
     ${dataBase64}`; 
-    
-    
-    
   });
  }
 
- const domImages = document.querySelectorAll(".gallery__img");
- const domInfoImages = document.querySelectorAll(".obra-info__img img");
+
 
  domImages.forEach(img => {
    imgObserver.observe(img);
  })
- domInfoImages.forEach(img => {
-  imgObserver.observe(img);
-})
-
-
-
-
 
 
 
@@ -90,34 +80,63 @@ AOS.init({                         //Iniciamos la librería para las animaciones
   // %%%%%% INFO OVERLAY %%%%%%%
 
 const infoBtns = document.querySelectorAll(".info-btn");
-
-const obraOverlays = document.querySelectorAll(".obra-info");
-const closeBtns = document.querySelectorAll(".obra-info--close");
+const obraOverlay = document.querySelector(".obra-info");
+const fecha = obraOverlay.querySelector(".obra-info__date");
+const resumen = obraOverlay.querySelector(".contenido-scroll > h3");
+const contenido = obraOverlay.querySelector(".contenido-scroll > p");
+const img = obraOverlay.querySelector(".obra-info__img img");
+const closeBtn = document.querySelector(".obra-info--close");
 
 
 infoBtns.forEach(btn => {
     btn.addEventListener("click", obraOverlayHandler);
 })
 
-closeBtns.forEach(btn => {
-    btn.addEventListener("click", closeHandler);
-})
-
+closeBtn.addEventListener("click", closeHandler);
 
 
 function obraOverlayHandler(e){
-    
-    const index = parseInt(e.target.name, 10);
-    obraOverlays[index].classList.add("open");
+  if(e.target.getAttribute("data-id") === obraOverlay.getAttribute("data-id")){
+    obraOverlay.classList.add("open");
     document.body.classList.add("overflow-hidden");
+    return;
+  }else{
+    obraOverlay.setAttribute("data-id", e.target.getAttribute("data-id"));
+    obraOverlay.classList.add("open");
+    document.body.classList.add("overflow-hidden");
+    img.src = "/css/images/loader.gif";
+    setTimeout(() => {
+      loadobraOverlay();
+    }, 20);
+  }
+ 
 }
 
 function closeHandler(e){
-    const index = parseInt(e.target.parentElement.name, 10);
-    
-    obraOverlays[index].classList.remove("open");
+    obraOverlay.classList.remove("open");
     document.body.classList.remove("overflow-hidden");
 }
+
+
+
+function loadobraOverlay(){
+  const url = `/api/getObra/${obraOverlay.getAttribute("data-id")}`;
+  if(!url){
+    return;
+  }
+  fetch(url).then(response => response.json()).then(data => {
+    var obra = data;
+
+    fecha.innerText = obra.fecha;
+    resumen.innerText = obra.resumen;
+    contenido.innerText = obra.contenido;
+    img.setAttribute("alt", obra.resumen);
+    img.src = `data:image/${obra.img.contentType};base64,
+    ${obra.img.data}`; 
+
+  });
+
+ }
 
 
 //Exandir imagen

@@ -11,6 +11,7 @@ router.get("/obras",controllers.obrasGet);
 //Lazy loading images api
 router.get("/api/getLastImages",controllers.getLastImages);
 router.get("/api/getImage/:obraID",controllers.getObraImg);
+router.get("/api/getObra/:obraID", controllers.getObra);
 
 
 

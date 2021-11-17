@@ -24,35 +24,35 @@
 
                                 <h1><%=obra.titulo%></h1>
                                 <h2><%=resumen%></h2>
-                                <button class="btn--animated info-btn" name="<%= i %>">Saber Más</button>
+                                <button class="btn--animated info-btn" name="<%= i %>" data-id="<%= obra.id %>">Saber Más</button>
                                 
                             </div>
                         </div>
                 </div>
             <%})%>
                 <!-- %%% OBRA OVERLAY %%% -->
-        <% obras.forEach((obra, i)=> { %>
-            <div class="obra-info">
+       
+            <div class="obra-info" data-id="obraID">
               <div class="obra-info--inner">
   
-                <button class="obra-info--close" name=<%= i %>>
+                <button class="obra-info--close" name="0">
                   <i class="fas fa-times"></i>
                 </button>
-                <span class="obra-info__date"><%= obra.fecha.toLocaleDateString("de-DE") %></span>
+                <span class="obra-info__date">fecha</span>
                <div class="obra-info__img">
-                 <img data-id="<%= obra.id %>" src="/css/images/loader.gif" alt="<%= obra.resumen %>">
+                 <img  src="/css/images/loader.gif" alt="resumen">
                  <button class="obra-info__expand-img-btn"><i class="fas fa-expand"></i></button>
                 </div>
                 <div class="contenido-scroll">
-               <h3><%= obra.resumen %></h3>
+               <h3>resumen</h3>
                
-                 <p><%= obra.contenido %></p>
+                 <p>contenido</p>
                </div>
   
              </div>
             </div>
   
-          <% }) %>
+          
         </div>
     </section>
     <script src="js/particles/particles.min.js"></script>

@@ -35,6 +35,23 @@ exports.getObraImg = async (req,res) => {
   };
   res.send(image);
 }
+exports.getObra = async (req,res) => {
+  const obraID = req.params.obraID;
+  const obra = await Obra.findById(obraID);
+  const obraObj = {
+    titulo: obra.titulo,
+    resumen: obra.resumen,
+    contenido: obra.contenido,
+    fecha: obra.fecha.toLocaleDateString("de-DE"),
+    img:
+    {
+        data: obra.img.data.toString("base64"),
+        contentType: obra.img.contentType
+    }
+  }
+
+  res.send(obraObj);
+}
 exports.getLastImages = async (req, res) => {
   try {
     const lastObras = await Obra.find({})
