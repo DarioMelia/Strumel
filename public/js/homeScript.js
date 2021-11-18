@@ -257,8 +257,6 @@ const burgerLine = document.querySelector(".nav__burger");
 const navItems = document.querySelectorAll(".nav__item");
 const navList = document.querySelector(".nav__list");
 
-
-
 burger.addEventListener("click", e =>{
     
 navItems.forEach(item =>{
@@ -294,9 +292,7 @@ if(navList.classList.contains("grow")){
     }, 100);
 }
 
-
 })
-
 
 
 // %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%

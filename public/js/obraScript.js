@@ -130,6 +130,7 @@ function loadobraOverlay(){
     fecha.innerText = obra.fecha;
     resumen.innerText = obra.resumen;
     contenido.innerText = obra.contenido;
+    obraOverlay.querySelector(".contenido-scroll").scrollTop = 0;
     img.setAttribute("alt", obra.resumen);
     img.src = `data:image/${obra.img.contentType};base64,
     ${obra.img.data}`; 

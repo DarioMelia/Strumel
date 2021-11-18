@@ -517,15 +517,17 @@ button.pintCalc__restartBtn .fas:active{
   font-size: clamp(2em, 9vw, 3em);
 }
 
-/* .pint-precio::before{
+.pint-result::before{
   content: "aprox.";
   position: absolute;
   color: white;
-  opacity: .7;
-  font-size: .8rem;
+  opacity: .8;
+  min-height: 0.0000001vw; /*Safari workAround */
+  font-size: clamp(.7rem, 3vw, 1rem);
   bottom: 0;
-  right:0;
-} */
+  right: 5%;
+ 
+}
 
 .pintCalc .calc__input{
   border: none;
@@ -1153,7 +1155,11 @@ button.pintCalc__restartBtn .fas:active{
     font-size: .8rem;
     margin-top: 8px;
   }
- 
+   
+  .pint-result::before{
+    bottom: 1.7%;
+    right:0;
+  }
   .pint-precio{
     padding: 1em .6em;
   }
