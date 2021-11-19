@@ -533,21 +533,32 @@ button.pintCalc__restartBtn .fas:active{
   border: none;
 }
 
+.pintCalc__left{
+  border-right: 1px solid rgba(204, 204, 204, 0.76); 
+  padding-right: 30px;
+}
+
 .pintCalc__right{
   display:flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 17px;
+   
 }
 .pintCalc__right label{
   font-weight: 600;
+  text-align: left;
+  transform: translateX(-10px);
+  
 }
 .pintCalc__right input{
-  width: 80%;
+  width: 70%;
   cursor: pointer;
   border-radius: 5px;
   border:none;
   padding: .3rem;
+  
 }
+
 .pintCalc__btn{
   width: fit-content;
   padding: .35em .5em;
@@ -1143,6 +1154,12 @@ button.pintCalc__restartBtn .fas:active{
   }
   .hab-text--pintura h4, .pintCalc__right label{
     font-size: max(.9em, 3vw);
+    transform: translateX(0);
+  }
+  
+  .pintCalc__left{
+    border-right: 1px solid rgba(204, 204, 204, 0.76); 
+    padding-right: .5em;
   }
   .pintCalc__right{
     gap:15px;
