@@ -1119,7 +1119,16 @@ button.pintCalc__restartBtn .fas:active{
     animation-delay: 3.5s;
   }
 }
-
+@media (max-width: 350px){
+ .slide-set .next-hab-btn{
+   justify-content: center;
+   height: auto;
+   width: 100%;
+   font-size: 1.7rem;
+   right: 0 !important;
+   top: -70px;
+  }
+}
 @media (max-width: 450px) {
   .container {
     width: 93%;
@@ -1200,13 +1209,10 @@ button.pintCalc__restartBtn .fas:active{
     border-right: 12px solid transparent;
     border-bottom: 15px solid rgba(8,79,255,.9);
   }
+ 
   .slide-set .next-hab-btn{
-   justify-content: center;
-   height: auto;
-   width: 100%;
-   font-size: 1.7rem;
-   right: 0 !important;
-   top: -70px;
+    font-size: 1.7rem;
+    bottom: .6rem;
   }
 
   .calculator-flex > .calculadora{
