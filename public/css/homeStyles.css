@@ -387,7 +387,7 @@ a.hero__btn--galeria {
   position: absolute;
   display: none;
   top: 3.7em;
-  font-size: .5em;
+  font-size: .45em;
 }
 .hab-text--pintura{
   cursor: default;
@@ -569,15 +569,15 @@ button.pintCalc__restartBtn .fas:active{
   background: none;
   color: white;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1em;
   font-family: var(--second-ff);
   margin-top: 3px;
+  margin-left: -.7em;
+  opacity: .7;
   transition: opacity 150ms;
   
 }
-.pintCalc__btn:hover{
- opacity: .7;
-}
+
 
 
 @supports (accent-color: green){
@@ -1171,6 +1171,7 @@ button.pintCalc__restartBtn .fas:active{
   .pintCalc__btn{
     font-size: .8rem;
     margin-top: 8px;
+    margin-left: 0;
   }
    
   .pint-result::before{

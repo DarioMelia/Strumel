@@ -460,17 +460,22 @@ const pintResult = document.querySelector(".pint-result");
 const pintPrice = pintResult.querySelector(".pint-precio");
 const pintRestart = document.querySelector(".pintCalc__restartBtn");
 
+const metrosInput = pintCalc.querySelector("input[type='number']");
+const radioInputs = pintCalc.querySelectorAll('input[type="radio"]');
 
 
 pintCalcBtn.addEventListener("click", pintCalcResult);
 pintRestart.addEventListener("click", pintCalcRestart);
+metrosInput.addEventListener("input", pintCalcIsChecked);
+radioInputs.forEach(input => input.addEventListener("change", pintCalcIsChecked));
+
 pintRestart.classList.add("display-none");
 
 
+
 function pintCalcResult(e) {
-  const selectedInput = pintCalc.querySelector('input[type="radio"]:checked');
-  const metros = pintCalc.querySelector("input[type='number']");
-  
+const selectedInput = pintCalc.querySelector('input[type="radio"]:checked');
+const metros = pintCalc.querySelector("input[type='number']");
   if(selectedInput && metros.value !== ""){
     var finalPrice = getPintPrice(selectedInput.id, metros.value);
     if(finalPrice > 1000){
@@ -520,6 +525,25 @@ function getPintPrice(pintura, metros){
 
   return finalPrice;
 }
+
+
+function pintCalcIsChecked(e){
+  if(e.target.type === "number"){
+    if(pintCalc.querySelector('input[type="radio"]:checked')){
+      pintCalcBtn.classList.add("full-opacity");
+    }
+    if(pintCalc.querySelector("input[type='number']").value == ""){
+      if(pintCalcBtn.classList.contains("full-opacity")){pintCalcBtn.classList.remove("full-opacity");}
+    }
+  
+  }else{
+    if(pintCalc.querySelector("input[type='number']").value != ""){
+      pintCalcBtn.classList.add("full-opacity");
+    }
+  }
+}
+
+
 
 function pintCalcRestart(e){
   

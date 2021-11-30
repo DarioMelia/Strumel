@@ -56,7 +56,9 @@ select{
 .overflow-hidden{
   overflow: hidden;
 }
-
+.full-opacity{
+  opacity: 1 !important;
+}
 .anchor {
   position: absolute;
   transform: translateY(-45vh);
