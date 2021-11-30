@@ -452,10 +452,15 @@ a.hero__btn--galeria {
 }
 
 .hab-item .fas {
-  padding: 0.5em;
   color: white;
+}
+.hab-item__fas-outer{
+  font-size: .9em;
   background: rgba(8, 74, 255, 0.897);
   border-radius: 50%;
+  text-align: center;
+  height: 2em;
+  width: 2em;
 }
 
 /* Calculadora pintura */
@@ -474,8 +479,8 @@ a.hero__btn--galeria {
 
 .pintCalc__restartBtn{
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: .7em;
+  left: .7em;
   background: none;
   border: none;
   color: white;
