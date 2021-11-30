@@ -1167,6 +1167,7 @@ button.pintCalc__restartBtn .fas:active{
     gap:12px;
   }
   .hab-text--pintura h4, .pintCalc__right label{
+    min-height: 0.0000001vw; /*Safari workAround */
     font-size: max(.9em, 3vw);
     transform: translateX(0);
   }

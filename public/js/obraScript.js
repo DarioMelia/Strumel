@@ -98,11 +98,19 @@ closeBtn.addEventListener("click", closeHandler);
 function obraOverlayHandler(e){
   if(e.target.getAttribute("data-id") === obraOverlay.getAttribute("data-id")){
     obraOverlay.classList.add("open");
+    obraOverlay.classList.add("full-opacity");
+    setTimeout(() => {
+      obraOverlay.firstElementChild.classList.add("grow");
+    }, 20);
     document.body.classList.add("overflow-hidden");
     return;
   }else{
     obraOverlay.setAttribute("data-id", e.target.getAttribute("data-id"));
     obraOverlay.classList.add("open");
+    obraOverlay.classList.add("full-opacity");
+    setTimeout(() => {
+      obraOverlay.firstElementChild.classList.add("grow");
+    }, 20);
     document.body.classList.add("overflow-hidden");
     img.src = "/css/images/loader.gif";
     setTimeout(() => {
@@ -113,8 +121,13 @@ function obraOverlayHandler(e){
 }
 
 function closeHandler(e){
-    obraOverlay.classList.remove("open");
-    document.body.classList.remove("overflow-hidden");
+    obraOverlay.firstElementChild.classList.remove("grow");
+    obraOverlay.classList.remove("full-opacity");
+    setTimeout(() => {
+      obraOverlay.classList.remove("open");
+      document.body.classList.remove("overflow-hidden");
+    }, 350);
+   
 }
 
 

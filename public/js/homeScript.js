@@ -216,14 +216,30 @@ closeBtns.forEach((btn) => {
 
 function obraOverlayHandler(e) {
   const index = parseInt(e.target.name, 10);
-  obraOverlays[index].classList.add("open");
+  const currentOverlay = obraOverlays[index];
+  const overlayInner = currentOverlay.querySelector(".obra-info--inner");
+  console.log(currentOverlay)
+  currentOverlay.classList.add("open");
+  currentOverlay.classList.add("full-opacity");
+  setTimeout(() => {
+    overlayInner.classList.add("grow");
+  }, 20);
   document.body.classList.add("overflow-hidden");
 }
 
 function closeHandler(e) {
   const index = parseInt(e.target.parentElement.name, 10);
-  obraOverlays[index].classList.remove("open");
-  document.body.classList.remove("overflow-hidden");
+  const currentOverlay = obraOverlays[index];
+  const overlayInner = currentOverlay.querySelector(".obra-info--inner");
+  
+  overlayInner.classList.remove("grow");
+  currentOverlay.classList.remove("full-opacity")
+  
+  setTimeout(() => {
+    currentOverlay.classList.remove("open");
+    document.body.classList.remove("overflow-hidden");
+  }, 350);
+  
 }
 
 //Exandir imagen

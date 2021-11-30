@@ -249,6 +249,8 @@ a.title{
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.836);
+  opacity:0;
+  transition: opacity 250ms;
  
  }
  
@@ -259,7 +261,6 @@ a.title{
    justify-content: center;
    padding-bottom: .5rem;
    z-index: 20;
-   
  }
  
  
@@ -280,6 +281,11 @@ a.title{
    max-height: 95vh;
    max-width: 900px;
    width: 100%;
+   transform: scale(0.1);
+   transition: transform 400ms;
+ }
+ .obra-info--inner.grow{
+   transform: scale(1);
  }
  
  .obra-info__img{
@@ -293,7 +299,7 @@ a.title{
   position: fixed;
   z-index: 20;
   top:0;left:0;bottom:0;
-  width: 100%;
+  width: 100vw;
   max-height: 100vh;
  }
  .obra-info__img.expand-image img{
