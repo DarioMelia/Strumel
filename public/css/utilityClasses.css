@@ -250,7 +250,7 @@ a.title{
   height: 100vh;
   background: rgba(0, 0, 0, 0.836);
   opacity:0;
-  transition: opacity 250ms;
+  transition: opacity 300ms;
  
  }
  
@@ -281,12 +281,9 @@ a.title{
    max-height: 95vh;
    max-width: 900px;
    width: 100%;
-   transform: scale(0.1);
-   transition: transform 400ms;
+   
  }
- .obra-info--inner.grow{
-   transform: scale(1);
- }
+ 
  
  .obra-info__img{
    position:relative;

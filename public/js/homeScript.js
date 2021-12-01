@@ -217,30 +217,36 @@ closeBtns.forEach((btn) => {
 function obraOverlayHandler(e) {
   const index = parseInt(e.target.name, 10);
   const currentOverlay = obraOverlays[index];
-  const overlayInner = currentOverlay.querySelector(".obra-info--inner");
-  console.log(currentOverlay)
   currentOverlay.classList.add("open");
-  currentOverlay.classList.add("full-opacity");
+  
   setTimeout(() => {
-    overlayInner.classList.add("grow");
+    currentOverlay.classList.add("full-opacity");
   }, 20);
   document.body.classList.add("overflow-hidden");
 }
 
-function closeHandler(e) {
+//Podemos acceder a esta funcionj desde el botón o pulsando escape
+//Solo a traves de escape recibe openObraOverlay, y solo a traves de escape el target tiene name
+function closeHandler(e, openObraOverlay) {
   const index = parseInt(e.target.parentElement.name, 10);
-  const currentOverlay = obraOverlays[index];
-  const overlayInner = currentOverlay.querySelector(".obra-info--inner");
-  
-  overlayInner.classList.remove("grow");
+  var currentOverlay = obraOverlays[index];
+
+  if(openObraOverlay){
+    currentOverlay = openObraOverlay;
+    if(currentOverlay.querySelector(".obra-info__expand-img-btn").classList.contains("grow")){
+      currentOverlay.querySelector(".obra-info__expand-img-btn").classList.remove("grow")
+    }
+  }
+
   currentOverlay.classList.remove("full-opacity")
-  
+  document.body.classList.remove("overflow-hidden");
   setTimeout(() => {
     currentOverlay.classList.remove("open");
-    document.body.classList.remove("overflow-hidden");
+    
   }, 350);
   
 }
+
 
 //Exandir imagen
 document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
@@ -398,10 +404,11 @@ document.addEventListener("keydown", e => {
    const conocenosText = document.querySelector(".conocenos-text");
    const conocenosTextContent = document.querySelector(".conocenos-text__content");
    const obraInfoImageDiv = openObraOverlay.querySelector(".obra-info__img.expand-image");
+  
    if(openObraOverlay){
-    openObraOverlay.classList.remove("open");
-    document.body.classList.remove("overflow-hidden");
+    closeHandler(e, openObraOverlay);
    }
+
    if(conocenosText.classList.contains("active")){
     conocenosTextContent.classList.remove("active");
     setTimeout(() => {conocenosText.classList.remove("active")}, 400)

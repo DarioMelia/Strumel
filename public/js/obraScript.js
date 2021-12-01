@@ -81,6 +81,7 @@ AOS.init({                         //Iniciamos la librería para las animaciones
 
 const infoBtns = document.querySelectorAll(".info-btn");
 const obraOverlay = document.querySelector(".obra-info");
+const imgDiv = document.querySelector(".obra-info__img");
 const fecha = obraOverlay.querySelector(".obra-info__date");
 const resumen = obraOverlay.querySelector(".contenido-scroll > h3");
 const contenido = obraOverlay.querySelector(".contenido-scroll > p");
@@ -98,34 +99,40 @@ closeBtn.addEventListener("click", closeHandler);
 function obraOverlayHandler(e){
   if(e.target.getAttribute("data-id") === obraOverlay.getAttribute("data-id")){
     obraOverlay.classList.add("open");
-    obraOverlay.classList.add("full-opacity");
-    setTimeout(() => {
-      obraOverlay.firstElementChild.classList.add("grow");
-    }, 20);
     document.body.classList.add("overflow-hidden");
+    setTimeout(() => {
+      obraOverlay.classList.add("full-opacity");
+    }, 20);
+
+    
     return;
   }else{
     obraOverlay.setAttribute("data-id", e.target.getAttribute("data-id"));
     obraOverlay.classList.add("open");
-    obraOverlay.classList.add("full-opacity");
-    setTimeout(() => {
-      obraOverlay.firstElementChild.classList.add("grow");
-    }, 20);
     document.body.classList.add("overflow-hidden");
+    setTimeout(() => {
+      
+      obraOverlay.classList.add("full-opacity");
+    }, 20);
+ 
     img.src = "/css/images/loader.gif";
     setTimeout(() => {
       loadobraOverlay();
+      obraOverlay.classList.add("full-opacity");
     }, 20);
   }
  
 }
 
 function closeHandler(e){
-    obraOverlay.firstElementChild.classList.remove("grow");
     obraOverlay.classList.remove("full-opacity");
+    document.body.classList.remove("overflow-hidden");
+    if(imgDiv.classList.contains("expand-image")){
+      imgDiv.classList.remove("expand-image");
+      obraOverlay.querySelector(".obra-info__expand-img-btn").classList.remove("grow");
+    }
     setTimeout(() => {
       obraOverlay.classList.remove("open");
-      document.body.classList.remove("overflow-hidden");
     }, 350);
    
 }
@@ -175,4 +182,15 @@ function expandImage(e){
   imgDiv.classList.toggle("expand-image");
 }
 
-  
+
+
+//////ESCAPE HANDLING %%%%%%%%
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){
+   
+   if(obraOverlay){
+    closeHandler(e);
+   }
+
+}
+})
