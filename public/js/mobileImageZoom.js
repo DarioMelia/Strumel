@@ -18,20 +18,18 @@ function debounce(func) {
     timer = setTimeout(func, 100, event);
   };
 }
-// const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
+
 window.addEventListener("resize",debounce(function (e) {
-    console.log("end of resizing");
-    
-    //Adaptar pantalla en movil por menu
-    
-    // if(isMobileDevice){
-    //   document.getElementById("hero").height = "100vh";
-    // }
-    
+   
     let oldVx = vx;
     //Recalculamos las medidas de la pantalla
     vx =  docElem.clientWidth || body.clientWidth,
     vy =  docElem.clientHeight || body.clientHeight;
+
+    //Adaptar pantalla en movil por menu
+    if(isMobileDevice && vx > 450){
+      document.getElementById("hero").style.height = "100vh";
+    }
 
     if(vx > 450 && oldVx <= 450){ //Cancelamos la detección de touch eventes cuando ha resizeado a mas grande que movil
       if(hammertimes){
