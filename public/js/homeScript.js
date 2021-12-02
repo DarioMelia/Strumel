@@ -15,7 +15,7 @@ const header = document.querySelector(".logo__title");
 const heroConocenosText = document.querySelector(".conocenos-text");
 const heroConocenosTextContent = document.querySelector(".conocenos-text__content");
 
-
+//Observer que al salir del hero quita el texto de conocenos
 var heroObserver = new IntersectionObserver(entries =>{
   if(entries[0].intersectionRatio < 1){
     heroConocenosTextContent.classList.remove("active");
@@ -26,33 +26,25 @@ var heroObserver = new IntersectionObserver(entries =>{
 
 heroObserver.observe(document.getElementById("hero"));
 
-
+//Observer para saber el punto de la pagina, y realzar el simbolo correspondiente en el navList
 var observer = new IntersectionObserver(entries => {
     
     if(entries[0].intersectionRatio >= 0.7){
-        const id = entries[0].target.id;
-      
-        const navLink = navLinks.filter(link => link.dataset.id === id);
-     
-       
-        navLink[0].classList.add("current-section");
+        const id = entries[0].target.id; //Id de la sección que predomina en el viewport
+        const navLink = navLinks.filter(link => link.dataset.id === id); //Buscamos el link asociado a esa sección
+        navLink[0].classList.add("current-section");//Añadimos la clase que hace realzar el fondo del simbolo
        
         
     }else if(entries[0].intersectionRatio < 0.7){
+      //Lo mismo que anteriormente pero para quitar el realze al salir la seccion del viewport
       const id = entries[0].target.id;
-        
       const navLink = navLinks.filter(link => link.dataset.id === id);
-     
       navLink[0].classList.remove("current-section");
-
-      if(entries[0].target == hero){
-        
-      }
     }
 }, { threshold: 0.7})
 
 
-
+//Observar todas las secciones
 observer.observe(document.getElementById("hero"));
 observer.observe(document.getElementById("habilidades-calculador"));
 observer.observe(document.getElementById("obras"));
@@ -60,6 +52,26 @@ observer.observe(document.getElementById("contacto"));
 
 
 
+  ///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
+  const conocenosBtn = document.querySelector(".hero__btn--conocenos");
+  const conocenosText = document.querySelector(".conocenos-text");
+  const conocenosTextContent = document.querySelector(
+    ".conocenos-text__content"
+  );
+  conocenosBtn.addEventListener("click", (e) => {
+    conocenosText.classList.toggle("active");
+    setTimeout(() => {
+      conocenosTextContent.classList.add("active");
+    }, 20);
+  });
+  conocenosText.addEventListener("click", (e) => {
+    if (conocenosText.classList.contains("active")) {
+      conocenosTextContent.classList.remove("active");
+      setTimeout(() => {
+        conocenosText.classList.remove("active");
+      }, 400);
+    }
+  });
 
 // %%%%%%%%%%%%% TYPEWRITER %%%%%%%%%%%%%%%%
 
@@ -103,7 +115,7 @@ TxtType.prototype.tick = function() {
     that.tick();
     }, delta);
 };
-
+//%%%%%% NO SOLO TYPEWRITTER TAMBIEN CAMBIOS DE GALERIA A HACER EN ONLOAD %%%%%%
 const figures = document.querySelectorAll(".gallery figure");         //Gallery consts
 const descriptions = document.querySelectorAll(".gallery__descript"); //Gallery consts
 
@@ -122,55 +134,35 @@ window.onload = function () {
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
   document.body.appendChild(css);
 
-  ///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
-  const conocenosBtn = document.querySelector(".hero__btn--conocenos");
-  const conocenosText = document.querySelector(".conocenos-text");
-  const conocenosTextContent = document.querySelector(
-    ".conocenos-text__content"
-  );
-  conocenosBtn.addEventListener("click", (e) => {
-    conocenosText.classList.toggle("active");
-    setTimeout(() => {
-      conocenosTextContent.classList.add("active");
-    }, 20);
-  });
-  conocenosText.addEventListener("click", (e) => {
-    if (conocenosText.classList.contains("active")) {
-      conocenosTextContent.classList.remove("active");
-      setTimeout(() => {
-        conocenosText.classList.remove("active");
-      }, 400);
-    }
-  });
 
-  // %%%%%%%%%%%%%%% GALLERY %%%%%%%%%%%%%%%%%
+  // %%%%%%%%%%%%%%% GALLERY cosas que hacer en onload %%%%%%%%%%%%%%%%%
   var item = 0,
-    itemNo = figures.length;
+    itemNo = figures.length; //numero de imagenes en galeria
 
   function transitionSlide() {
-    item++;
+    item++; //Pasamos al sigeuienbte item
     if (item > itemNo - 1) {
-      item = 0;
+      item = 0; //reiniciamos si ha superado el máximo
     }
 
-    handleClassChanges(item);
+    handleClassChanges(item); //cabiamos el item de la galería
   }
 
-  var autoTransition = setInterval(transitionSlide, 6000);
+  var autoTransition = setInterval(transitionSlide, 6000); //Cada 6s pasa automaticamente al siguiente
 
   figures.forEach((figure) => {
     figure.addEventListener("click", (e) => {
-      clearInterval(autoTransition);
+      clearInterval(autoTransition);//Si pulsas la que ya está abierta, el tiempo se reinicia
       var figuresArray = Array.prototype.slice.call(
-        document.querySelector(".gallery").children
+        document.querySelector(".gallery").children //array de figures
       );
 
-      item = figuresArray.indexOf(e.target.parentElement);
+      item = figuresArray.indexOf(e.target.parentElement);//Item pasa a ser el index de la figura clickeada
 
       if (e.target.type != "submit") {
-        handleClassChanges(item);
+        handleClassChanges(item); //Cuando no pulsas en saber más, cambiamos al item en cuestion
       }
-      autoTransition = setInterval(transitionSlide, 6000);
+      autoTransition = setInterval(transitionSlide, 6000); //Se vuelve a activar la animación automatica
     });
   });
 
@@ -189,13 +181,14 @@ window.onload = function () {
       }
     });
 
-    figures[item].classList.add("on");
+    figures[item].classList.add("on");//Abrimos el figure que toque en el auto o haya sido clickeada
 
     setTimeout(() => {
-      descriptions[item].classList.add("gallery__descript--grow");
+      descriptions[item].classList.add("gallery__descript--grow");//Despues la animacion del fondo azul de la descripción
     }, 250);
   }
 };
+
 
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
 
@@ -215,10 +208,11 @@ closeBtns.forEach((btn) => {
 
 
 function obraOverlayHandler(e) {
-  const index = parseInt(e.target.name, 10);
+  const index = parseInt(e.target.name, 10); //Cada Overlay tiene su index en el array como nombre
   const currentOverlay = obraOverlays[index];
-  currentOverlay.classList.add("open");
   
+  //Primero quitamos el display none, luego añadimos la opacidad para animar la aparición, y luego bloqueamos el scroll
+  currentOverlay.classList.add("open");
   setTimeout(() => {
     currentOverlay.classList.add("full-opacity");
   }, 20);
@@ -231,13 +225,14 @@ function closeHandler(e, openObraOverlay) {
   const index = parseInt(e.target.parentElement.name, 10);
   var currentOverlay = obraOverlays[index];
 
-  if(openObraOverlay){
+  if(openObraOverlay){//Solo hay openObraOverlay si venimos de pulsar Escape
     currentOverlay = openObraOverlay;
     if(currentOverlay.querySelector(".obra-info__expand-img-btn").classList.contains("grow")){
+      //Para evitar que expand button siga grande al volver a abrir
       currentOverlay.querySelector(".obra-info__expand-img-btn").classList.remove("grow")
     }
   }
-
+  //Quitando la clase, animacion de opacidad, luego cerrramos el overlay
   currentOverlay.classList.remove("full-opacity")
   document.body.classList.remove("overflow-hidden");
   setTimeout(() => {
@@ -255,6 +250,7 @@ document.querySelectorAll(".obra-info__expand-img-btn").forEach(btn => {
 
 document.querySelectorAll(".obra-info__img").forEach((img) => {
   img.addEventListener("click", (e) => {
+    //Al pulksart cualquier cosa que no sea el boton, por evitar redundancia. Quitamos expand y vuelve a su tamaño
     if (e.target !== img.querySelector(".obra-info__expand-img-btn .fas")) {
       if (img.classList.contains("expand-image")) {
         img.querySelector(".obra-info__expand-img-btn").classList.remove("grow");
@@ -266,7 +262,7 @@ document.querySelectorAll(".obra-info__img").forEach((img) => {
 
 function expandImage(e){
   const imgDiv = e.target.parentElement.parentElement;
-  e.target.parentElement.classList.toggle("grow");
+  e.target.parentElement.classList.toggle("grow"); //MOdificamos el grow del boton
   imgDiv.classList.toggle("expand-image");
 }
 
@@ -284,13 +280,15 @@ burger.addEventListener("click", e =>{
 navItems.forEach(item =>{
     item.classList.add("nav__open");
 })
-burgerLine.classList.add("burger--close");
+burgerLine.classList.add("burger--close");//Animacion para la hamburguer en cruz
 
 void navList.offsetWidth; 
 
+//Animación del botón al cerrarlo
 if(navList.classList.contains("grow")){
     burgerLine.classList.remove("burger--close");
     burger.classList.toggle("nav__btn--spin");
+    //Primero gira el botón, luego cerramos el list
     setTimeout(() => {
         navList.classList.remove("grow");
         navList.classList.add("shrink");
@@ -304,10 +302,12 @@ if(navList.classList.contains("grow")){
     
     
 }else{
+    //Abrimos primero el list
     navList.classList.add("grow");
     if(navList.classList.contains("shrink")){
         navList.classList.remove("shrink");
     }
+    //LUego la animación
     setTimeout(()=>{
             burger.classList.toggle("nav__btn--spin");
       
@@ -337,6 +337,7 @@ habItems.forEach(item => {
     item.addEventListener("click", habClickHandler);
 })
 
+//Si pinchamos en la calculadora de pintura, no se cierra, al pulsar en cualquier otr sí
 habCalc.addEventListener("click", e => {
   habTexts.forEach(habText => {
     if(habText.classList.contains("hab-text-open")){
@@ -344,14 +345,12 @@ habCalc.addEventListener("click", e => {
         return;
       }else{
         removeHabText(habText);
-      }
-        
-    }
-    
-   
+      } 
+    } 
   });
 })
 
+//Animacion de la calculadora al pulsar el link de reforma
 calculadoraLink.addEventListener("click", (e) => {
   calculadora.classList.add("grow");
   setTimeout(() => {
@@ -364,24 +363,26 @@ calculadoraLink.addEventListener("click", (e) => {
 function habSlideHandler(e){
 const currentSlideSet = e.target.parentElement.parentElement;
 const items = currentSlideSet.querySelectorAll(".hab-item");
+
 //Animación del botón
 e.target.parentElement.classList.add("active");
 setTimeout(() => {e.target.parentElement.classList.remove("active")},200);
 
+//el que esté displayeado lo quitamos y el que no lo displayeamos
 items.forEach(item => {
     item.classList.toggle("hab-active");
 })
 }
 
 function habClickHandler(e){
-    const currentItem = e.target.parentElement;
+    const currentItem = e.target.parentElement;//hab-item
     var habText = currentItem.querySelector(".hab-text");
 
-    if(habText){
+    if(habText){//Si tiene habText, que uno no
       if(habText.classList.contains("hab-text-open")){
         removeHabText(habText);
       }else{
-        habText.style.display = "block";
+        habText.style.display = "block"; //si no está abierto lo displayeamos
         setTimeout(() => {habText.classList.add("hab-text-open")}, 20);
         
         
@@ -390,8 +391,8 @@ function habClickHandler(e){
 }
 
 function removeHabText(habText){
-  habText.classList.remove("hab-text-open");
-  setTimeout(()=>{habText.style.display ="none"}, 400);
+  habText.classList.remove("hab-text-open");//Primero quitamos la clase para la animacion
+  setTimeout(()=>{habText.style.display ="none"}, 400);//Luego display none
 }
 
 
@@ -405,15 +406,15 @@ document.addEventListener("keydown", e => {
    const conocenosTextContent = document.querySelector(".conocenos-text__content");
    const obraInfoImageDiv = openObraOverlay.querySelector(".obra-info__img.expand-image");
   
-   if(openObraOverlay){
+   if(openObraOverlay){//Si hay un overlay abiero
     closeHandler(e, openObraOverlay);
    }
 
-   if(conocenosText.classList.contains("active")){
+   if(conocenosText.classList.contains("active")){//Si el texto de conocenos está abierto
     conocenosTextContent.classList.remove("active");
     setTimeout(() => {conocenosText.classList.remove("active")}, 400)
   }
-  if(obraInfoImageDiv){
+  if(obraInfoImageDiv){//Desexpandir la imgaen si está grande
     obraInfoImageDiv.classList.remove("expand-image");
   }
 }

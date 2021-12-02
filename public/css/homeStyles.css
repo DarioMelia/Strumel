@@ -388,6 +388,7 @@ a.hero__btn--galeria {
   display: none;
   top: 3.7em;
   font-size: .45em;
+  
 }
 .hab-text--pintura{
   cursor: default;
@@ -1128,7 +1129,7 @@ button.pintCalc__restartBtn .fas:active{
    font-size: 1.5rem;
    right: 0;
    bottom: 11px;
-   z-index: 8;
+   z-index: 2;
   }
 }
 @media (max-width: 450px) {
