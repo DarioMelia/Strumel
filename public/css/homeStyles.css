@@ -111,6 +111,7 @@ body {
 #hero {
   position: relative;
   overflow: hidden;
+  height: 100vh;
   padding-top: 4.5rem;
   background: rgb(8,79,255);
   background: linear-gradient(169deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
@@ -296,6 +297,58 @@ a.hero__btn--galeria {
   top: -6px;
   right: -6px;
   border-width: 2px 2px 0 0;
+}
+
+.scroll-arrows {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 35px;
+  transition: transform 300ms ease-in, opacity 200ms 100ms ;
+}
+.scroll-arrows.disapear{
+  transform: translateY(-80px);
+  opacity: 0;
+}
+
+.scroll-arrows path {
+  stroke: #5EA6DF;
+  fill: transparent;
+  stroke-width: 5px;  
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite; 
+}
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.scroll-arrows path.a1 {
+  animation-delay:-1s;
+  -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.scroll-arrows path.a2 {
+  animation-delay:-0.5s;
+  -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.scroll-arrows path.a3 { 
+  animation-delay:0s;
+  -webkit-animation-delay:0s; /* Safari 和 Chrome */
 }
 
 
@@ -580,8 +633,8 @@ button.pintCalc__restartBtn .fas:active{
   font-family: var(--second-ff);
   margin-top: 3px;
   margin-left: -.7em;
-  opacity: .7;
-  transition: opacity 150ms;
+  opacity: .6;
+  transition: opacity 350ms;
   
 }
 
@@ -1063,7 +1116,10 @@ button.pintCalc__restartBtn .fas:active{
   gap: 8px;
   padding: 1rem 0;
   min-height: 0.0000001vw; /*Safari workAround */
-  font-size: clamp(.75rem, 4vw, 1.8rem);
+  font-size: clamp(.7rem, 4vw, 1.8rem);
+}
+.contact__item .fa-envelope{
+  margin-top: .45em;
 }
 
 .contact__item a{
@@ -1150,6 +1206,11 @@ button.pintCalc__restartBtn .fas:active{
     margin-top: 2.4rem;
   }
 
+  .scroll-arrows {
+    bottom: 8px;
+  }
+
+  /* %% HABILIDADES %% */
   .habilidades {
     min-height: 400px;
   }

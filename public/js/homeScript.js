@@ -14,12 +14,21 @@ const navLinks = Array.from(document.querySelectorAll(".nav__current")) ;
 const header = document.querySelector(".logo__title");
 const heroConocenosText = document.querySelector(".conocenos-text");
 const heroConocenosTextContent = document.querySelector(".conocenos-text__content");
+const scrollArrows = document.querySelector(".scroll-arrows");
 
-//Observer que al salir del hero quita el texto de conocenos
+//Observer que al salir del hero quita el texto de conocenos y la scroll-arrow
 var heroObserver = new IntersectionObserver(entries =>{
   if(entries[0].intersectionRatio < 1){
-    heroConocenosTextContent.classList.remove("active");
-    setTimeout(() => {heroConocenosText.classList.remove("active")}, 400);
+    scrollArrows.classList.add("disapear");
+    setTimeout(() => {
+      scrollArrows.classList.add("display-none");
+    }, 300);
+    
+    if(heroConocenosTextContent.classList.contains("active")){
+      heroConocenosTextContent.classList.remove("active");
+      setTimeout(() => {heroConocenosText.classList.remove("active")}, 400);
+    }
+    
     
   }
 },{threshold:0.4})
@@ -53,11 +62,25 @@ observer.observe(document.getElementById("contacto"));
 
 
   ///// %%%%%%%%%%%%%% HERO %%%%%%%%%%%%%%%%
+  const hero = document.getElementById("hero");
   const conocenosBtn = document.querySelector(".hero__btn--conocenos");
   const conocenosText = document.querySelector(".conocenos-text");
   const conocenosTextContent = document.querySelector(
     ".conocenos-text__content"
   );
+
+  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
+
+    if(isMobileDevice && window.innerWidth < 450){
+      console.log("Es un movil")
+      let vh1 = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh1}px`);
+      hero.style.height = "calc(var(--vh, 1vh) * 100)";
+    }
+
+
+  
+  
   conocenosBtn.addEventListener("click", (e) => {
     conocenosText.classList.toggle("active");
     setTimeout(() => {
