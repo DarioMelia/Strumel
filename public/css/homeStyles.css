@@ -541,6 +541,7 @@ button.pintCalc__restartBtn .fas:active{
 .pintCalc__left{
   border-right: 1px solid rgba(204, 204, 204, 0.76); 
   padding-right: 30px;
+  white-space: nowrap;
 }
 
 .pintCalc__right{
