@@ -1121,13 +1121,14 @@ button.pintCalc__restartBtn .fas:active{
   }
 }
 @media (max-width: 350px){
- .slide-set .next-hab-btn{
-   justify-content: center;
-   height: auto;
-   width: 100%;
+ .hab-title{
    font-size: 1.7rem;
-   right: 0 !important;
-   top: -70px;
+ }
+ .habilidades div .slide-set .next-hab-btn{
+   font-size: 1.5rem;
+   right: 0;
+   bottom: 11px;
+   z-index: 8;
   }
 }
 @media (max-width: 450px) {
@@ -1373,8 +1374,8 @@ button.pintCalc__restartBtn .fas:active{
   
  
 
-  .next-hab-btn{
-    right: -30px !important;
+  .slide-set .next-hab-btn{
+    right: -30px;
   }
 
   .calculadora{
