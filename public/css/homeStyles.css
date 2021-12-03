@@ -358,10 +358,10 @@ a.hero__btn--galeria {
   background: url(/css/images/cubes-texture.png);
   overflow: hidden;
 }
+
 .calculator-flex {
   display: flex;
   gap: 12rem;
-  
 }
 
 .habilidades {

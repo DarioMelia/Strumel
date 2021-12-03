@@ -427,19 +427,21 @@ document.addEventListener("keydown", e => {
    const openObraOverlay = document.querySelector(".obra-info.open");
    const conocenosText = document.querySelector(".conocenos-text");
    const conocenosTextContent = document.querySelector(".conocenos-text__content");
-   const obraInfoImageDiv = openObraOverlay.querySelector(".obra-info__img.expand-image");
+   
   
    if(openObraOverlay){//Si hay un overlay abiero
     closeHandler(e, openObraOverlay);
+    const obraInfoImageDiv = openObraOverlay.querySelector(".obra-info__img.expand-image");
+    if(obraInfoImageDiv){//Desexpandir la imgaen si está grande
+      obraInfoImageDiv.classList.remove("expand-image");
+    }
    }
 
    if(conocenosText.classList.contains("active")){//Si el texto de conocenos está abierto
     conocenosTextContent.classList.remove("active");
     setTimeout(() => {conocenosText.classList.remove("active")}, 400)
   }
-  if(obraInfoImageDiv){//Desexpandir la imgaen si está grande
-    obraInfoImageDiv.classList.remove("expand-image");
-  }
+
 }
 })
 
