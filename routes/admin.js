@@ -11,7 +11,7 @@ const path = require('path');
 
 // Set up multer for storing uploaded files
   
-const multer = require('multer');
+const multer = require('multer'); //Nos permite subit imagenes
   
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {

@@ -1533,47 +1533,6 @@ button.pintCalc__restartBtn .fas:active{
   }
 }
 
-/* %% HABILIDADES %% */
-
-/* .slide-set > * {
-  position: absolute;
-  animation: 16s habAutoplay infinite ease-in-out; 
-}
-.slide-set-1 > *:nth-child(1) {animation-delay: 0s}
-.slide-set-1 > *:nth-child(2) {animation-delay: 8s}
-
-.slide-set-2 > *:nth-child(1) {animation-delay: 1.5s}
-.slide-set-2 > *:nth-child(2) {animation-delay: 9.5s}
-
-.slide-set-3 > *:nth-child(1) {animation-delay: 3s}
-.slide-set-3 > *:nth-child(2) {animation-delay: 11s}
-
-@keyframes habAutoplay {
-  0% {
-    right: 150px;
-    opacity: 0;
-  }
-  4% {
-    right: 0;
-    opacity: 1;
-  }
-  44.33% {
-    right: 0;
-    opacity: 1;
-  }
-  48.33% {
-    right: -150px;
-    opacity: 0;
-  }
-  100% {
-    right: -150px;
-    opacity: 0;
-  }
-} */
-
-
-
-
 /* %% GALERIA %% */
 
 .all-obras-link a::after,
