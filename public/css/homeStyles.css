@@ -112,6 +112,7 @@ body {
   position: relative;
   overflow: hidden;
   height: 100vh;
+  
   padding-top: 4.5rem;
   background: rgb(8,79,255);
   background: linear-gradient(169deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
@@ -911,6 +912,8 @@ button.pintCalc__restartBtn .fas:active{
 }
 
 .gallery figure.on >div {
+  min-height: 0.0000001vw; /*Safari workAround */
+  font-size: clamp(1rem, 3.5vw, 3rem);
   position: absolute;
   pointer-events: none;
   max-width: 95%;
@@ -918,7 +921,6 @@ button.pintCalc__restartBtn .fas:active{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 3rem;
   color: rgb(255, 255, 255);
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
   /* From https://css.glass */
@@ -1186,6 +1188,11 @@ button.pintCalc__restartBtn .fas:active{
    right: 0;
    bottom: 11px;
    z-index: 2;
+  }
+
+  #gallery .gallery figure.on >div {
+    font-size: 1.3rem;
+    
   }
 }
 @media (max-width: 450px) {
@@ -1471,7 +1478,7 @@ button.pintCalc__restartBtn .fas:active{
 
   .gallery figure.on >div {
     min-height: 0.0000001vw; /*Safari workAround */
-    font-size: clamp(1rem, 6vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
     padding: 0.5em;
     width: 95%;
   }

@@ -69,7 +69,7 @@ observer.observe(document.getElementById("contacto"));
     ".conocenos-text__content"
   );
 
-  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
+  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent);
 
     if(isMobileDevice && window.innerWidth < 450){
       console.log("Es un movil")
