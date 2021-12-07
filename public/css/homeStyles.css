@@ -729,6 +729,19 @@ button.pintCalc__restartBtn .fas:active{
   width: 1rem;
   height: 1rem;
 }
+.input-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.number-input-btn{
+  font-weight: 600;
+  font-size: 1rem;
+  width:16px;
+  height: 16px;
+  cursor: pointer;
+  color:rgb(53, 53, 53);
+}
 
 @supports (accent-color: green){
   .calc__tab input{

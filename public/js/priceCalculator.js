@@ -15,6 +15,38 @@ const formatter = new Intl.NumberFormat('de-DE', {
   minimumFractionDigits: 0
 })
 
+
+const controlInputBtns = document.querySelectorAll(".number-input-btn");
+controlInputBtns.forEach(btn => {
+  btn.addEventListener("click", numInputChangeHandler);
+})
+
+function numInputChangeHandler(e){
+  const btnType = e.target.getAttribute("data-btn-type");
+  if(btnType === "minus"){
+    const input = e.target.nextElementSibling;
+    if(!input.value){
+      input.value = 0;
+    }else{
+      if(parseInt(input.value) <= 0){
+       input.value = 0;
+      }else{
+        input.value = parseInt(input.value) - 1;
+      }
+      
+      
+    }
+
+  }else if(btnType === "plus"){
+    const input = e.target.previousElementSibling;
+    if(!input.value){
+      input.value = 1;
+    }else{
+      input.value = parseInt(input.value) + 1;
+    }
+  }
+}
+
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.
   const nextBtn = document.querySelector(".calc__btns .next-btn");
@@ -361,7 +393,6 @@ function nextPrev(n) {
       addPrice += 200 * calcInputs[1].numValues.numPuertas;
     }
   }
-
 
 
     // console.log(((price * metros) + addPrice))
