@@ -1,12 +1,14 @@
 const tabs = document.querySelectorAll(".calc__tab");
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+var currentTab = 0; // Current tab es la primera tab (0)
+showTab(currentTab); // Display current tab
 
 var chosenTabs;
+//A cada posible combinacion de tabs, le asignamos las tabs correspondientes
 const tabsBano = [tabs[0], tabs[1], tabs[4], tabs[5]];
 const tabsCocina = [tabs[0], tabs[2], tabs[4], tabs[5]];
 const tabsIntegral = [tabs[0], tabs[3], tabs[4], tabs[5]];
 
+//Formatter para euros
 const formatter = new Intl.NumberFormat('de-DE', {
   style: 'currency',
   currency: 'EUR',
@@ -25,12 +27,13 @@ function showTab(n, chosenTabs) {
     tabs[n].style.display = "block";
     setTimeout(()=>{tabs[n].style.transform = "translateX(0%)";},50);
   } else {
-      
+    //Displayemos la tab correspondiente con su animación
     chosenTabs[n].style.transform = "translateX(100%)"
-      chosenTabs[n].style.display = "block";
+    chosenTabs[n].style.display = "block";
     setTimeout(()=>{chosenTabs[n].style.transform = "translateX(0%)";},25);
     
-      adaptCalcDesscription(chosenTabs[n]);
+      adaptCalcDesscription(chosenTabs[n]);//Cambiamos el contenido de la descreip según la tab
+
       //CAmbiamos el contenido del boton siguiente por terminar al final.
       if (n == (chosenTabs.length - 1)) {
         nextBtn.innerHTML = "Terminar";
@@ -51,9 +54,6 @@ function showTab(n, chosenTabs) {
 }
 
 function showFinalTab(price, calcInputs){
-  
-  
-  const formattedPrice = formatter.format(Math.round(price));
   const finalTab = document.querySelector(".tab--final");
   const choicesList = finalTab.querySelector(".choices__list");
   const nextBtn = document.querySelector(".calc__btns .next-btn");
@@ -61,17 +61,21 @@ function showFinalTab(price, calcInputs){
   const calcDes = document.querySelector(".calc__des");
   const restartBtn = document.querySelector(".calc__restart-btn");
 
+  const formattedPrice = formatter.format(Math.round(price));
+  
+  //Displayeamos la tab del final, con el resultado y las elecciones del usuario
   finalTab.querySelector(".calc__price").innerHTML = formattedPrice ;
   finalTab.style.display = "block";
-  setTimeout(() => finalTab.querySelector(".calc__price").style.transform = "scale(1)", 100);
+  setTimeout(() => finalTab.querySelector(".calc__price").style.transform = "scale(1)", 100); //delay para la animacion
   restartBtn.style.display = "block";
-  restartBtn.addEventListener("click", e => {e.preventDefault()})
-  nextBtn.style.display = "none";
-  prevBtn.style.display = "none";
-  calcDes.innerHTML = "Su precio aproximado es:";
-  
-  choicesList.innerHTML = insertChoicesHtml(calcInputs);
+  restartBtn.addEventListener("click", e => {e.preventDefault()})//Para que no nos recargue la página auqnue el form esté completo
 
+  nextBtn.style.display = "none";//Desaparecen los botones
+  prevBtn.style.display = "none";
+
+  calcDes.innerHTML = "Su precio aproximado es:";//Cambiamos la des
+  
+  choicesList.innerHTML = insertChoicesHtml(calcInputs);//Mostramos las elecciones que ha hecho el usuario
 
 }
 
@@ -85,7 +89,6 @@ function nextPrev(n) {
     //cogemos el valor de la opción elegida, si no, salimos de la función
     try{
      var refElegida = document.querySelector('input[name="tipo-reforma"]:checked').value;
-    //  console.log(refElegida);
      chosenTabs = wichReforma(refElegida); //Devuelve el array de tabs correspondiente a la eleccion del cliente
     } catch(err){
         if(err){
@@ -94,10 +97,9 @@ function nextPrev(n) {
     };
 
     if(chosenTabs[currentTab].classList.contains("tab--material")){
-        //cogemos el valor de la opción elegida, si no, salimos de la función
+        //Comprobamos si el usuario ha elegido un tipo de material, si no, no puede avanzar
         try{
-         var gamaMatElegida = document.querySelector('input[name="tipo-material"]:checked').value;
-        //  console.log(gamaMatElegida);
+         document.querySelector('input[name="tipo-material"]:checked').value;
         } catch(err){
             if(err && n==1){
                 return false}
@@ -128,7 +130,6 @@ function nextPrev(n) {
      
       showFinalTab(finalPrice, calcInputs);
 
-      // document.getElementById("calc__form").submit();
       return false;
     }
     //Si no están rellenos reseteamos current tab
@@ -144,7 +145,7 @@ function nextPrev(n) {
 
 
   function wichReforma(refElegida){
-
+   
       switch(refElegida){
           case "reforma-bano":
               return tabsBano;
