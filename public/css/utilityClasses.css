@@ -374,16 +374,15 @@ a.title{
    position: absolute;
    z-index: 5;
    color: rgb(240, 240, 240);
-   font-size: 1.5rem;
-   font-weight: 200;
-   top: 6px;
-   right: 5px;
+   font-size: 1.4rem;
+   top: 10px;
+   right: 2px;
    cursor: pointer;
  }
  
  .obra-info__date{
    position: absolute;
-   top: 4px;
+   top: 8px;
    color: rgb(209, 209, 209);
    font-size: 1.2rem;
  }
@@ -434,6 +433,9 @@ a.title{
  
   .obra-info__expand-img-btn{
   display:none;
+  }
+  .obra-info--close{
+    right: 12px;
   }
 }
 
