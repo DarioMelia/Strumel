@@ -15,7 +15,7 @@ const formatter = new Intl.NumberFormat('de-DE', {
   minimumFractionDigits: 0
 })
 
-
+////%%%%%%% ADD AND SUBSTREACT NUMBER INPUTS IN INTEGRAL %%%%%%%%
 const controlInputBtns = document.querySelectorAll(".number-input-btn");
 controlInputBtns.forEach(btn => {
   btn.addEventListener("click", numInputChangeHandler);
@@ -33,10 +33,7 @@ function numInputChangeHandler(e){
       }else{
         input.value = parseInt(input.value) - 1;
       }
-      
-      
     }
-
   }else if(btnType === "plus"){
     const input = e.target.previousElementSibling;
     if(!input.value){
@@ -46,6 +43,10 @@ function numInputChangeHandler(e){
     }
   }
 }
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.

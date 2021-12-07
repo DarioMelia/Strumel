@@ -71,7 +71,7 @@ observer.observe(document.getElementById("contacto"));
 
   
 
-  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
+  let isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
 
     if(isMobileDevice && window.innerWidth < 450){ //Si es una movil y es tamaño móvil
       let vh1 = window.innerHeight * 0.01; //Queremos saber cuant oes 1vh real, teniendo en cuenta el browser menu

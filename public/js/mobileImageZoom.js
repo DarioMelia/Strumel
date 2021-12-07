@@ -20,7 +20,7 @@ function debounce(func) { //solo se llama al termiar el resize o pasado un tiemp
     timer = setTimeout(func, 100, event);
   };
 }
-
+let isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
 window.addEventListener("resize",debounce(function (e) {
   
     let oldVx = vx;
@@ -28,6 +28,7 @@ window.addEventListener("resize",debounce(function (e) {
     vx =  docElem.clientWidth || body.clientWidth,
     vy =  docElem.clientHeight || body.clientHeight;
 
+    if(document.getElementById("hero")){
     //Adaptar pantalla en movil por menu
     //Con esto el hero mantiene el tamaño real de viewport que le damos en homeScript cuando es mobil ,
     //Pero si resizeamos en developer tools pasa a ser 100vh
@@ -37,6 +38,8 @@ window.addEventListener("resize",debounce(function (e) {
     if(oldVx < 450 && vx < 450 && oldVx != vx){ //Si el resize es dentro de movil y no es solo en y, tambien hero es 100vh
       document.getElementById("hero").style.height = "100vh";
     }
+    }
+   
 
     if(vx > 450 && oldVx <= 450){ //Cancelamos la detección de touch eventes cuando ha resizeado a mas grande que movil
       if(hammertimes){

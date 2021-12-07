@@ -720,7 +720,7 @@ button.pintCalc__restartBtn .fas:active{
 .calc__input > label{
   cursor: pointer;
 }
-.calc__input > input[type="number"]{
+.calc__input input[type="number"]{
   max-width: 60px;
 }
 .calculadora :is(input[type = "radio"], input[type = "checkbox"]){
