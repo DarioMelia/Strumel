@@ -69,18 +69,21 @@ observer.observe(document.getElementById("contacto"));
     ".conocenos-text__content"
   );
 
-  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent);
+  
 
-    if(isMobileDevice && window.innerWidth < 450){
-      console.log("Es un movil")
-      let vh1 = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh1}px`);
-      hero.style.height = "calc(var(--vh, 1vh) * 100)";
+  const isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
+
+    if(isMobileDevice && window.innerWidth < 450){ //Si es una movil y es tamaño móvil
+      let vh1 = window.innerHeight * 0.01; //Queremos saber cuant oes 1vh real, teniendo en cuenta el browser menu
+      document.documentElement.style.setProperty('--vh', `${vh1}px`); //creamos una property en root
+      hero.style.height = "calc(var(--vh, 1vh) * 100)"; //Y la usamos para establecer el height total de la pantalla.
+      //Antes de esto 100vh consideraba el tamaño completo de pantalla, con esto considera solo lo visible.
     }
 
 
   
-  
+  //Abrimos el conocenos text. con un delay para la animnacion, al pulsar el botón, 
+  //y lo cerramos al pulsar en cualquyier parte sobre el overlay
   conocenosBtn.addEventListener("click", (e) => {
     conocenosText.classList.toggle("active");
     setTimeout(() => {

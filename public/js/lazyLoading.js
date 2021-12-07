@@ -13,7 +13,7 @@ fetch(url).then(response => response.json()).then(data => {
 
 function generateSrc(imagesData,imagesDom){
   imagesDom.forEach((img, i )=> {
-    let currentImage = imagesData[i]; //la imagen del servidor correspondiente a la imagen en cuestion
+    let currentImage = imagesData[i]; //la imagen del servidor correspondiente a la imagen en cuestion. el server nos la devuelve en base64
     let contentType = currentImage.contentType;
     let dataBase64 = currentImage.data;
     
