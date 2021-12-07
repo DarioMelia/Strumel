@@ -20,7 +20,7 @@ function debounce(func) { //solo se llama al termiar el resize o pasado un tiemp
     timer = setTimeout(func, 100, event);
   };
 }
-let isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
+var isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
 window.addEventListener("resize",debounce(function (e) {
   
     let oldVx = vx;
