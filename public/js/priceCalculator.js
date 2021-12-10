@@ -50,8 +50,9 @@ function numInputChangeHandler(e){
 
 function showTab(n, chosenTabs) {
   // Esta funcion displayea la tab correspondiente dentro del array elegido.
-  const nextBtn = document.querySelector(".calc__btns .next-btn");
-  const prevBtn = document.querySelector(".calc__btns .prev-btn");
+  const calcBtns = document.querySelector(".calc__btns");
+  const nextBtn = calcBtns.querySelector(".next-btn");
+  const prevBtn = calcBtns.querySelector(".prev-btn");
   if(nextBtn.classList.contains("submit-btn")){
       nextBtn.classList.remove("submit-btn");
   }
@@ -79,6 +80,8 @@ function showTab(n, chosenTabs) {
   // solo hacemos parecer el botón de atrás cuando no estemos en la primera página
   if (n == 0) {
     prevBtn.style.display = "none";
+    document.querySelector(".calc__contactLink").classList.add("display-none");
+    calcBtns.classList.remove("final");
   } else {
     prevBtn.style.display = "inline";
   }
@@ -89,10 +92,12 @@ function showTab(n, chosenTabs) {
 function showFinalTab(price, calcInputs){
   const finalTab = document.querySelector(".tab--final");
   const choicesList = finalTab.querySelector(".choices__list");
+  const calcBtns = document.querySelector(".calc__btns");
   const nextBtn = document.querySelector(".calc__btns .next-btn");
   const prevBtn = document.querySelector(".calc__btns .prev-btn");
   const calcDes = document.querySelector(".calc__des");
   const restartBtn = document.querySelector(".calc__restart-btn");
+  const contactLink = document.querySelector(".calc__contactLink");
 
   const formattedPrice = formatter.format(Math.round(price));
   
@@ -100,8 +105,13 @@ function showFinalTab(price, calcInputs){
   finalTab.querySelector(".calc__price").innerHTML = formattedPrice ;
   finalTab.style.display = "block";
   setTimeout(() => finalTab.querySelector(".calc__price").style.transform = "scale(1)", 100); //delay para la animacion
+  
+  calcBtns.classList.add("final");
+
   restartBtn.style.display = "block";
   restartBtn.addEventListener("click", e => {e.preventDefault()})//Para que no nos recargue la página auqnue el form esté completo
+  
+  contactLink.classList.remove("display-none");
 
   nextBtn.style.display = "none";//Desaparecen los botones
   prevBtn.style.display = "none";
@@ -492,7 +502,7 @@ const pintCalc = document.querySelector(".pintCalc");
 const pintResult = document.querySelector(".pint-result");
 const pintPrice = pintResult.querySelector(".pint-precio");
 const pintRestart = document.querySelector(".pintCalc__restartBtn");
-const pintInfo = document.querySelector(".pintCalc__infoBtn");
+
 
 const metrosInput = pintCalc.querySelector("input[type='number']");
 const radioInputs = pintCalc.querySelectorAll('input[type="radio"]');
@@ -529,7 +539,6 @@ const metros = pintCalc.querySelector("input[type='number']");
       pintCalc.classList.remove("open");
     }
     pintRestart.classList.remove("display-none");
-    pintInfo.classList.remove("display-none");
     pintResult.style.display = "block";
     setTimeout(() => {
       pintResult.classList.add("open");
@@ -585,7 +594,6 @@ function pintCalcRestart(e){
       pintResult.style.display = "none";
       pintCalc.classList.remove("display-none");
       pintRestart.classList.add("display-none");
-      pintInfo.classList.add("display-none");
       setTimeout(() => {
         pintCalc.classList.add("open");
       }, 20);

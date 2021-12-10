@@ -770,6 +770,10 @@ button.pintCalc__infoBtn{
   gap: 1em;
   justify-content: flex-end;
 }
+.calc__btns.final{
+  gap: 2.5rem;
+  
+}
 
 .calc__btns > button{
   font-size: 1rem;
@@ -783,7 +787,7 @@ button.pintCalc__infoBtn{
   
 }
 @media (hover:hover){
-.calc__btns > button:hover{
+.calc__btns > button:hover, .calc__btns a.calc__contactLink:hover{
   transform: scale(1.06);
 }
 }
@@ -792,7 +796,7 @@ button.pintCalc__infoBtn{
   font-weight: 600;
   
 }
-.calc__btns .next-btn.submit-btn, .calc__btns .calc__restart-btn{
+.calc__btns .next-btn.submit-btn, .calc__btns .calc__contactLink{
   font-family: var(--main-ff);
   font-weight: 600;
   padding: 7px;
@@ -800,6 +804,10 @@ button.pintCalc__infoBtn{
   border-radius: 6px;
   color: white;
   border: 0;
+}
+
+.calc__contactLink{
+  transition: transform 150ms ease-in-out;
 }
 
 .calc__user-choices{
@@ -831,15 +839,11 @@ button.pintCalc__infoBtn{
   font-family: var(--second-ff);
 }
 
-.calc__contact-item{
-  border:none;
-  background:transparent;
-  
+.calc__btns .calc__restart-btn{
+  padding: 0;
 }
-.calc__contact-item .fas{
-  font-size: 1rem;
-  color: rgb(37, 37, 37);
-}
+
+
 
 
 
