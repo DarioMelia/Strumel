@@ -492,6 +492,7 @@ const pintCalc = document.querySelector(".pintCalc");
 const pintResult = document.querySelector(".pint-result");
 const pintPrice = pintResult.querySelector(".pint-precio");
 const pintRestart = document.querySelector(".pintCalc__restartBtn");
+const pintInfo = document.querySelector(".pintCalc__infoBtn");
 
 const metrosInput = pintCalc.querySelector("input[type='number']");
 const radioInputs = pintCalc.querySelectorAll('input[type="radio"]');
@@ -501,8 +502,6 @@ pintCalcBtn.addEventListener("click", pintCalcResult);
 pintRestart.addEventListener("click", pintCalcRestart);
 metrosInput.addEventListener("input", pintCalcIsChecked);
 radioInputs.forEach(input => input.addEventListener("change", pintCalcIsChecked));
-
-pintRestart.classList.add("display-none");
 
 
 
@@ -530,6 +529,7 @@ const metros = pintCalc.querySelector("input[type='number']");
       pintCalc.classList.remove("open");
     }
     pintRestart.classList.remove("display-none");
+    pintInfo.classList.remove("display-none");
     pintResult.style.display = "block";
     setTimeout(() => {
       pintResult.classList.add("open");
@@ -585,6 +585,7 @@ function pintCalcRestart(e){
       pintResult.style.display = "none";
       pintCalc.classList.remove("display-none");
       pintRestart.classList.add("display-none");
+      pintInfo.classList.add("display-none");
       setTimeout(() => {
         pintCalc.classList.add("open");
       }, 20);

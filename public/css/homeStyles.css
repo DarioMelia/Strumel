@@ -551,6 +551,21 @@ button.pintCalc__restartBtn .fas:hover,
 button.pintCalc__restartBtn .fas:active{
   transform: rotate(360deg);
 }
+
+button.pintCalc__infoBtn{
+  position:absolute;
+  top:.5em;
+  right:.5em;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 1rem;
+  font-family: "Times New Roman", serif;
+  font-weight: 800;
+  color:white;
+  border:2px solid white;
+  border-radius: 50%;
+  background: transparent;
+}
 .pint-result{
   transform: scale(.3);
   display:none;
@@ -570,6 +585,7 @@ button.pintCalc__restartBtn .fas:active{
   font-size: 3em;
   font-weight: 500;
   padding: 1em 1.2em; 
+  text-shadow: 4px 4px 4px rgba(39, 39, 39, 0.589);
 }
 
 .pint-precio.big-number{
@@ -636,7 +652,6 @@ button.pintCalc__restartBtn .fas:active{
   margin-left: -.7em;
   opacity: .6;
   transition: opacity 350ms;
-  
 }
 
 
@@ -814,8 +829,18 @@ button.pintCalc__restartBtn .fas:active{
   opacity: .6;
   min-width: 140px;
   font-family: var(--second-ff);
+}
+
+.calc__contact-item{
+  border:none;
+  background:transparent;
   
 }
+.calc__contact-item .fas{
+  font-size: 1rem;
+  color: rgb(37, 37, 37);
+}
+
 
 
 /* %%%%%%%%%%%%%%%%%%% GALERIA %%%%%%%%%%%%%%%%%%%%%% */
