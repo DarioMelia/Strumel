@@ -656,6 +656,8 @@ button.pintCalc__infoBtn{
 
 
 
+
+
 @supports (accent-color: green){
   .pintCalc input{
     accent-color: rgb(82, 235, 255);
@@ -756,6 +758,11 @@ button.pintCalc__infoBtn{
   height: 16px;
   cursor: pointer;
   color:rgb(53, 53, 53);
+  -webkit-tap-highlight-color: transparent;
+}
+.number-input-btn::selection{
+  background: transparent;
+  color: rgb(53, 53, 53);
 }
 
 @supports (accent-color: green){

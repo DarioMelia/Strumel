@@ -498,11 +498,9 @@ function nextPrev(n) {
 const pintCalcBtn = document.querySelector(".pintCalc__btn");
 const pintCalc = document.querySelector(".pintCalc");
 
-
 const pintResult = document.querySelector(".pint-result");
 const pintPrice = pintResult.querySelector(".pint-precio");
 const pintRestart = document.querySelector(".pintCalc__restartBtn");
-
 
 const metrosInput = pintCalc.querySelector("input[type='number']");
 const radioInputs = pintCalc.querySelectorAll('input[type="radio"]');
