@@ -174,7 +174,7 @@ window.onload = function () {
     handleClassChanges(item); //cabiamos el item de la galería
   }
 
-  var autoTransition = setInterval(transitionSlide, 6000); //Cada 6s pasa automaticamente al siguiente
+  var autoTransition = setInterval(transitionSlide, 7000); //Cada 6s pasa automaticamente al siguiente
 
   figures.forEach((figure) => {
     figure.addEventListener("click", (e) => {
@@ -182,14 +182,14 @@ window.onload = function () {
       var figuresArray = Array.prototype.slice.call(
         document.querySelector(".gallery").children //array de figures
       );
-
       item = figuresArray.indexOf(e.target.parentElement);//Item pasa a ser el index de la figura clickeada
-
+      
       if (e.target.type != "submit") {
         handleClassChanges(item); //Cuando no pulsas en saber más, cambiamos al item en cuestion
       }
-      autoTransition = setInterval(transitionSlide, 6000); //Se vuelve a activar la animación automatica
+      autoTransition = setInterval(transitionSlide, 7000)
     });
+
   });
 
   function handleClassChanges(item) {
@@ -420,6 +420,9 @@ function removeHabText(habText){
   habText.classList.remove("hab-text-open");//Primero quitamos la clase para la animacion
   setTimeout(()=>{habText.style.display ="none"}, 400);//Luego display none
 }
+
+
+
 
 
 

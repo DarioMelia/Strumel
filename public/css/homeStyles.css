@@ -938,13 +938,15 @@ button.pintCalc__infoBtn{
   height: 100%;
   position: relative;
   flex-basis: 10%;
-  transition: 0.8s ease-in-out;
-  filter: saturate(25%);
+  transition: 0.8s ease-in-out, transform 250ms, filter 300ms;
+  filter: saturate(20%);
   z-index: 4;
-  
+  transform: scale(1);
 }
 .gallery figure:not(.on):hover {
   cursor: pointer;
+  transform:scale(1.15);
+  filter: saturate(85%);
 }
 .gallery figure img {
   width: 100%;
@@ -1218,14 +1220,6 @@ button.pintCalc__infoBtn{
     animation: galleryBtnAutoBoxShadow 5s infinite ease-in-out;
   }
 
-  /* .gallery figure.on div button {
-    color: white;
-    animation: galleryBgAuto 8s infinite ease-in-out;
-    border-color: rgba(24,131,187,.5);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
-  } */
-
-  
   .contact__item::after{
     transform-origin: inherit;
     animation: transitionLeftRight 7s infinite ease-in-out;
@@ -1636,25 +1630,6 @@ button.pintCalc__infoBtn{
   }
 }
 
-
-@keyframes galleryBgAuto {
-  0% {
-    background: transparent;
-  }
-
-  20% {
-    background: transparent;
-  }
-  50% {
-    background: rgba(24,131,187,.5);
-  }
-  80% {
-    background: rgba(24,131,187,.5);
-  }
-  100% {
-    background: transparent;
-  }
-}
 
 
 /* %%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%% */
