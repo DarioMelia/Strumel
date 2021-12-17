@@ -388,9 +388,12 @@ a.title{
  }
 
 @media (hover:none){
-  .btn--animated::after,
+  
   .btn--animated::before {
     animation: galleryBtnAuto 8s infinite ease-in-out;
+  }
+  .btn--animated::after{
+    animation: galleryBtnAutoBoxShadow 8s infinite ease-in-out;
   }
 } 
 @media (max-width: 450px) {
@@ -479,6 +482,35 @@ a.title{
   100% {
     width: 1em;
     height: 1em;
+  }
+}
+
+@keyframes galleryBtnAutoBoxShadow {
+  0% {
+    width: 1em;
+    height: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.247);
+  }
+
+  20% {
+    width: 1em;
+    height: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.250);
+  }
+  45% {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.466);
+  }
+  85% {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.466);
+  }
+  100% {
+    width: 1em;
+    height: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.250);
   }
 }
 

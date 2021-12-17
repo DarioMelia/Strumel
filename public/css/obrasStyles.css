@@ -29,8 +29,6 @@
 
 #obras{
     padding: 2rem 5vw;
-    background: rgb(63,94,251);
-    background: linear-gradient(150deg, rgba(63,94,251,1) 0%, rgba(171,95,224,1) 39%, rgba(201,77,188,1) 68%, rgba(252,70,107,1) 100%);
 }
 
 
@@ -38,8 +36,8 @@
   position: fixed;
   inset: 0;
   top:0;left:0;bottom:0;right:0;
-  background: rgb(63,94,251);
-  background: linear-gradient(150deg, rgba(63,94,251,1) 0%, rgba(171,95,224,1) 39%, rgba(201,77,188,1) 68%, rgba(252,70,107,1) 100%);
+  background: rgb(8,79,255);
+  background: linear-gradient(169deg, rgba(8,79,255,1) 12%, rgba(24,131,187,1) 47%, rgba(155,197,255,1) 100%);
   z-index: 1;
 }
 
@@ -63,10 +61,14 @@
     width: 100%;
   }
 
+.obra__overlay--inner h1, .obra__overlay--inner h2{
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  
+}
 .obra__overlay--inner h2{
   margin: .5rem auto;
   line-height: 1.5;
-
+  color:rgb(255, 255, 255);
 }
 .obra__overlay.appear{
   transform: translateY(-0%);
@@ -130,13 +132,22 @@ animation: grow-shrink 3.5s linear infinite;
   backdrop-filter: none;
   margin-top: 1.5rem;
   font-family: var(--second-ff);
-  color:rgb(245, 24, 134);
-  font-weight: 600;
+  color: #5bd9ff;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  
+  font-weight: 800;
 }
 
 .info-btn::after,
 .info-btn::before{
-  border-color: rgb(245, 24, 134);
+  border-color: #5bd9ff;
+}
+.info-btn.btn--animated::after{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.116);
+  transition: width 400ms ease-in-out, height 400ms ease-in-out, box-shadow 450ms ease-in;
+}
+button.info-btn.btn--animated:hover::after{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.466);
 }
 
 

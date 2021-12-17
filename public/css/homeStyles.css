@@ -59,7 +59,9 @@ body {
   background-color: rgba(216, 216, 216, 0.137);
   width:70px;
   height:100%;
+  cursor:pointer;
 }
+
 
 
 @media (min-width: 750px) {
@@ -1031,22 +1033,19 @@ button.pintCalc__infoBtn{
   height: calc(100% + 9px);
 }
 .gallery figure.on div button {
-  color: #fff;
+  color: #ffffff;
   pointer-events: auto;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 3px rgba(0, 0, 0, 0.5);
   border: none;
-  background: transparent;
+  background:none;
   cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  font-weight: 600;
-  transition: 0.3s ease;
+  font-size: 1em;
+  font-weight: 700;
   position: relative;
   margin: 1em;
   display: inline-block;
-  padding: 0.5em 1em;
-  transition: all 0.3s ease-in-out;
+  padding: 0.2em 0.6em;
+  transition:all 400ms ease-in-out;
   text-align: center;
 }
 .gallery figure.on div button:before,
@@ -1054,35 +1053,40 @@ button.pintCalc__infoBtn{
   content: "";
   display: block;
   position: absolute;
-  border-color: rgba(24,131,187,1);
+  border-color: #ffffff;
   box-sizing: border-box;
   border-style: solid;
   width: 1em;
   height: 1em;
-  transition: all 0.3s ease-in-out;
+  transition: width 400ms ease-in-out, height 400ms ease-in-out;
 }
 
 .gallery figure.on div button:before {
-  top: -6px;
-  left: -6px;
+  top: -2px;
+  left: -2px;
   border-width: 2px 0 0 2px;
   z-index: 5;
 }
 
 .gallery figure.on div button:after {
-  bottom: -6px;
-  right: -6px;
+  bottom: -2px;
+  right: -2px;
   border-width: 0 2px 2px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.116);
+  transition: width 400ms ease-in-out, height 400ms ease-in-out, box-shadow 450ms ease-in;
 }
 
 .gallery figure.on div button:hover:before,
 .gallery figure.on div button:hover:after,
 .gallery figure.on div button:focus:before,
 .gallery figure.on div button:focus:after {
-  width: calc(100% + 12px);
-  height: calc(100% + 12px);
-  border-color: rgba(24,131,187,.5);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
 }
+.gallery figure.on div button:hover::after,
+.gallery figure.on div button:focus::after{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.466);
+} 
 
 .gallery figure.on div button:hover,
 .gallery figure.on div button:focus {
@@ -1207,17 +1211,19 @@ button.pintCalc__infoBtn{
 
 @media (hover: none) {
   
-  .gallery figure.on div button::before,
+  .gallery figure.on div button::before{
+    animation: galleryBtnAuto 5s infinite ease-in-out;
+  }
   .gallery figure.on div button::after{
-    animation: galleryBtnAuto 4s infinite ease-in-out;
+    animation: galleryBtnAutoBoxShadow 5s infinite ease-in-out;
   }
 
-  .gallery figure.on div button {
+  /* .gallery figure.on div button {
     color: white;
-    animation: galleryBgAuto 4s infinite ease-in-out;
+    animation: galleryBgAuto 8s infinite ease-in-out;
     border-color: rgba(24,131,187,.5);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 3px rgba(0, 0, 0, 0.7);
-  }
+  } */
 
   
   .contact__item::after{
