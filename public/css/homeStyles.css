@@ -188,6 +188,7 @@ body {
   pointer-events: none;
 }
 
+/* HERO BUTTONS */
 .hero__btns{
   padding: 2rem 0;
   position: absolute;
@@ -273,13 +274,19 @@ a.hero__btn--galeria {
     display: inline-block;
 }
 
+.hero__btn::after{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0);
+  transition: width 400ms ease-in-out, height 400ms ease-in-out, box-shadow 400ms ease-in ;
+} 
 
-
+.hero__btn--conocenos:hover::after,
+.hero__btn--conocenos:focus::after{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.466);
+} 
 .hero__btn--conocenos:before{
   top: -6px;
   left: -6px;
   border-width: 2px 0 0 2px;
-  
 }
 
 .hero__btn--conocenos::after{
@@ -288,20 +295,33 @@ a.hero__btn--galeria {
   border-width: 0 2px 2px 0;
 }
 
+
 .hero__btn--galeria::before {
   bottom: -6px ;
   top: inherit;
   left: -6px;
   border-width: 0 0 2px 2px;
-  
+  box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0);
+  transition: width 400ms ease-in-out, height 400ms ease-in-out, box-shadow 400ms ease-in ;
+}
+.hero__btn--galeria:hover::before,
+.hero__btn--galeria:focus::before{
+  box-shadow: 0px 8px 5px -3px rgba(0, 0, 0, .5);
 }
 
-.hero__btn--galeria:after {
+.hero__btn--galeria::after {
   top: -6px;
   right: -6px;
   border-width: 2px 2px 0 0;
+  box-shadow: 4px 0px 5px -3px rgba(0, 0, 0, 0);
+}
+.hero__btn--galeria:hover::after,
+.hero__btn--galeria:focus::after{
+  box-shadow: 8px 0px 5px -3px rgba(0, 0, 0, .5);
 }
 
+
+/* SCROLL ARROWS */
 .scroll-arrows {
   width: 80px;
   height: 80px;
@@ -1219,7 +1239,9 @@ button.pintCalc__infoBtn{
   .gallery figure.on div button::after{
     animation: galleryBtnAutoBoxShadow 5s infinite ease-in-out;
   }
-
+  .hero__btn::after, .hero__btn::before {
+    animation: galleryBtnAuto 8s infinite ease-in-out;
+  }
   .contact__item::after{
     transform-origin: inherit;
     animation: transitionLeftRight 7s infinite ease-in-out;
