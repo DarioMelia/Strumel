@@ -65,11 +65,10 @@ observer.observe(document.getElementById("contacto"));
   const hero = document.getElementById("hero");
   const conocenosBtn = document.querySelector(".hero__btn--conocenos");
   const conocenosText = document.querySelector(".conocenos-text");
-  const conocenosTextContent = document.querySelector(
-    ".conocenos-text__content"
-  );
-
+  const conocenosTextContent = document.querySelector(".conocenos-text__content");
   
+
+
 
   var isMobileDevice = /Mobi/i.test(window.navigator.userAgent); //Comprueba si user agent contiene "mobi" en su nbombre 
 
@@ -79,9 +78,7 @@ observer.observe(document.getElementById("contacto"));
       hero.style.height = "calc(var(--vh, 1vh) * 100)"; //Y la usamos para establecer el height total de la pantalla.
       //Antes de esto 100vh consideraba el tamaño completo de pantalla, con esto considera solo lo visible.
     }
-
-
-  
+ 
   //Abrimos el conocenos text. con un delay para la animnacion, al pulsar el botón, 
   //y lo cerramos al pulsar en cualquyier parte sobre el overlay
   conocenosBtn.addEventListener("click", (e) => {
@@ -98,6 +95,13 @@ observer.observe(document.getElementById("contacto"));
       }, 400);
     }
   });
+
+  //Scroll Arrows declarado en scrollspy
+  scrollArrows.addEventListener("click", e => {
+    if(e.target.parentElement.parentElement === scrollArrows){
+      location.href = "#habilidades-calculador"; 
+    }
+  })
 
 // %%%%%%%%%%%%% TYPEWRITER %%%%%%%%%%%%%%%%
 

@@ -69,6 +69,7 @@ select{
 .logo__title {
   text-align: center;
   margin-top: 1.5rem;
+  
 }
 .logo__title img {
   min-height: 0.0000001vw; /*Safari workAround */
@@ -85,10 +86,12 @@ select{
   min-height: 0.0000001vw; /*Safari workAround */
   font-size: clamp(3rem, 15vw, 5.6rem);
   position: relative;
+  text-shadow: .05em .05em .06em rgba(0, 0, 0, 0.473);
 }
 a.title{
   display: inline-block;
   color: black;
+  
 }
 
 
@@ -121,6 +124,7 @@ a.title{
 
 .header .title {
   font-size: 1.4rem;
+  text-shadow: none;
 }
 
 
