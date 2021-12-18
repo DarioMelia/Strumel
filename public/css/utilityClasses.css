@@ -84,7 +84,8 @@ select{
   font-family: var(--title-ff);
   font-weight: 600;
   min-height: 0.0000001vw; /*Safari workAround */
-  font-size: clamp(3rem, 15vw, 5.6rem);
+  font-size: clamp(3rem, 15vw, 5.6rem); 
+  
   position: relative;
   text-shadow: .05em .05em .06em rgba(0, 0, 0, 0.473);
 }

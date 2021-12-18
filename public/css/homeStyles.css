@@ -149,11 +149,16 @@ body {
 .title {
   margin: 0;
   min-height: 0.0000001vw; /*Safari workAround */
+  font-size: 9rem; /* for browsers not supporting clamp */
   font-size: clamp(2.6rem, 16vw, 9rem);
   font-family: var(--title-ff);
 }
 
 .logo__title img {
+  /* for browsers not supporting clamp */
+  width: 180px;
+  height:180px;
+
   min-height: 0.0000001vw; /*Safari workAround */
   width: clamp(50px, 16vw, 200px);
   height: clamp(50px, 16vw, 200px);
