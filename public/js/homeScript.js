@@ -97,9 +97,12 @@ observer.observe(document.getElementById("contacto"));
   });
 
   //Scroll Arrows declarado en scrollspy
+  //Jump link para las flechas, pero no cambia el url
   scrollArrows.addEventListener("click", e => {
     if(e.target.parentElement.parentElement === scrollArrows){
-      location.href = "#habilidades-calculador"; 
+      var url = location.href; 
+      location.href = "#habilidades-calculador";
+      history.replaceState(null,null,url); 
     }
   })
 
@@ -217,7 +220,7 @@ window.onload = function () {
       descriptions[item].classList.add("gallery__descript--grow");//Despues la animacion del fondo azul de la descripción
     }, 250);
   }
-};
+}; //%%%%% FIN DE ONLOAD %%%%
 
 
 // %%%%%%%%%% GALLERY BUTTON %%%%%%%%%%%%%%
@@ -299,52 +302,53 @@ function expandImage(e){
 
 
 //%%%%%%%%%%%%%%%%%%% RESPONSIVE NAV %%%%%%%%%%%%%%%%%%%
+const nav = document.getElementById("nav");
+const burger = nav.querySelector(".nav__btn");
+const burgerLine = nav.querySelector(".nav__burger");
+const navItems = nav.querySelectorAll(".nav__item");
+const navList = nav.querySelector(".nav__list");
 
-const burger = document.querySelector(".nav__btn");
-const burgerLine = document.querySelector(".nav__burger");
-const navItems = document.querySelectorAll(".nav__item");
-const navList = document.querySelector(".nav__list");
+var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+  nav.classList.add("is-firefox");
+}
 
-burger.addEventListener("click", e =>{
-    
-navItems.forEach(item =>{
+burger.addEventListener("click", (e) => {
+  navItems.forEach((item) => {
     item.classList.add("nav__open");
-})
-burgerLine.classList.add("burger--close");//Animacion para la hamburguer en cruz
+  });
+  burgerLine.classList.add("burger--close"); //Animacion para la hamburguer en cruz
 
-void navList.offsetWidth; 
+  void navList.offsetWidth;
 
-//Animación del botón al cerrarlo
-if(navList.classList.contains("grow")){
+  //Animación del botón al cerrarlo
+  if (navList.classList.contains("grow")) {
     burgerLine.classList.remove("burger--close");
     burger.classList.toggle("nav__btn--spin");
     //Primero gira el botón, luego cerramos el list
     setTimeout(() => {
-        navList.classList.remove("grow");
-        navList.classList.add("shrink");
-        setTimeout(()=>{
-            navItems.forEach(item =>{
-                item.classList.remove("nav__open");
-                
-            })
-        }, 252);
+      navList.classList.remove("grow");
+      navList.classList.add("shrink");
+      setTimeout(() => {
+        navItems.forEach((item) => {
+          item.classList.remove("nav__open");
+          nav.classList.remove("is-big");
+        });
+      }, 252);
     }, 500);
-    
-    
-}else{
+  } else {
     //Abrimos primero el list
+    nav.classList.add("is-big");
     navList.classList.add("grow");
-    if(navList.classList.contains("shrink")){
-        navList.classList.remove("shrink");
+    if (navList.classList.contains("shrink")) {
+      navList.classList.remove("shrink");
     }
     //LUego la animación
-    setTimeout(()=>{
-            burger.classList.toggle("nav__btn--spin");
-      
+    setTimeout(() => {
+      burger.classList.toggle("nav__btn--spin");
     }, 100);
-}
-
-})
+  }
+});
 
 
 // %%%%%%%%%% HAB SLIDE %%%%%%%%%%%%%%

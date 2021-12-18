@@ -13,8 +13,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  top:48%;
-  bottom: 48%;
+  top:48vh;
+  bottom: 48vh;
   right: 0;
   font-family: var(--main-ff);
 }
@@ -68,7 +68,6 @@ body {
   .nav__item:hover .nav__current,
   .nav__item:focus .nav__current {
     opacity: 1;
-   
   }
 }
 
@@ -1395,6 +1394,22 @@ button.pintCalc__infoBtn{
 }
 
 @media (max-width: 750px) {
+  #nav{
+    top:unset;
+    bottom: 45vh;
+  }
+  #nav.is-firefox{
+    top:45vh;
+    bottom: unset;
+  }
+  #nav.is-big{
+    top: unset;
+    bottom: 22vh;
+  }
+  #nav.is-big.is-firefox{
+    top:22vh;
+    bottom: unset;
+  }
   .nav__item {
     display: none;
   }
