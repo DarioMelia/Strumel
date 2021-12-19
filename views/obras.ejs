@@ -1,5 +1,12 @@
 <%- include('partials/obrasHead') %>
 <body>
+    <!-- %%%%%%%%%%% MENSAGE BROWSER ANTIGUO %%%%%%%%%%%% -->
+    <div id="oldBrowser-msg" class="display-none">
+      <p>Parece que su versión de <strong><span id="navName">Navegador</span></strong> es antigua, lo que puede afectar al correcto funcionamiento de la página.
+         <strong>Actualice</strong> su navegador para disfrutar esta página de la forma más óptima posible.</p>
+      <button aria-label="Cerrar">x</button>
+    </div>
+    
     <%- include('partials/header') %>
 
     
@@ -58,6 +65,8 @@
     <script src="js/particles/particles.min.js"></script>
     <script src="js/particles/particlesConfig.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/bowser@2.4.0/es5.js"></script>
+    <script defer src="js/browserDetection.js"></script> 
     <script async src="/js/mobileImageZoom.js"></script>
     <script src="/js/obraScript.js"></script>
 </body>

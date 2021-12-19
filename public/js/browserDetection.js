@@ -1,40 +1,53 @@
-var result = bowser.getParser(window.navigator.userAgent);
+
+const oldBrowserMsg = document.getElementById("oldBrowser-msg");
+
+oldBrowserMsg.addEventListener("click", e => oldBrowserMsg.classList.add("display-none"));
 
 
-var os = result.parsedResult.os.name;
-var browser = result.parsedResult.browser.name;
-var version = parseInt(result.parsedResult.browser.version.slice(0,2));
-var platform = result.parsedResult.platform.type
-console.log(os,browser,version, platform)
+const result = bowser.getParser(window.navigator.userAgent);
+const os = result.parsedResult.os.name;
+const browser = result.parsedResult.browser.name;
+const version = parseInt(result.parsedResult.browser.version.slice(0,2));
+const platform = result.parsedResult.platform.type
+
+// alert(os +" "+ browser +" "+version +" "+ platform)
+
+if(browser === "Chrome" && version <= 83){
+  displayMsg(browser)
+}
+if(browser === "Microsoft Edge" && version <= 83){
+  displayMsg(browser)
+}
+
+
 if(platform === "desktop"){
-  if(browser === "Chrome" && version <= 83){
-    alert("Version antigua de Chrome en ordenador")
-  }
-  if(browser === "Microsoft Edge" && version <= 83){
-    alert("Version antigua de Edge en ordenador")
-  }
   if(browser === "Firefox" && version <= 74){
-    alert("Version antigua de Firefox en ordenador")
+    displayMsg(browser)
   }
   if(browser === "Safari" && version <= 14){
-    alert("Version antigua de Safari en ordenador")
+    displayMsg(browser)
   }
   if(browser === "Opera" && version <= 72){
-    alert("Version antigua de Opera en ordenador")
+    displayMsg(browser)
   }
 
 }else if(platform === "mobile"){
+  if(browser === "Firefox" && version <= 79){
+    displayMsg(browser)
+  }
+  if(browser === "Opera" && version <= 59){
+    displayMsg(browser)
+  }
   if(browser === "Safari" && parseInt(result.parsedResult.browser.version.slice(0,3)) <= 14.4){
-    alert("Version antigua de Safari en movil")
+    displayMsg(browser)
   }
 }
 
-//chrome 83 abajo
-//edge 83 abajo
-//firefox 74
-//Safari 14 abajo
-//Safari mobile 14.4 abajo
-//Opera 72 abajo
+
+function displayMsg(browser){
+  oldBrowserMsg.classList.remove("display-none");
+  oldBrowserMsg.querySelector("span").innerHTML = browser;
+}
 
 
     

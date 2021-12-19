@@ -64,6 +64,33 @@ select{
   transform: translateY(-45vh);
 }
 
+#oldBrowser-msg{
+  position:fixed;
+  z-index: 100;
+  top:0;
+  width:100vw;
+  padding: 2rem;
+  background: rgba(167, 252, 31, 0.945);
+  color: black;
+  text-align: center;
+  cursor:pointer;
+}
+#oldBrowser-msg p{
+  font-family: var(--second-ff);
+  font-weight: 600;
+}
+#oldBrowser-msg button{
+  position: absolute;
+  top: 10px;
+  right: 8%;
+  background: none;
+  border:none;
+  font-size: 1rem;
+  font-weight: 200;
+  cursor:inherit;
+  
+}
+
 
 /* %%%%%%%%%%%%% LOGO-TITLE %%%%%%%%%%%%%%%%%%% */
 .logo__title {
