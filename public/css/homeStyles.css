@@ -431,6 +431,17 @@ a.hero__btn--galeria {
   transition: transform 200ms ease-in;
   -webkit-tap-highlight-color: transparent;
 }
+.next-hab-btn--prev{
+  left: -50px;
+  right: unset;
+}
+
+
+@media (hover: hover){
+  .next-hab-btn:hover{
+    transform: scale(1.08);
+  }
+}
 .next-hab-btn.active{
   transform: translateX(6px);
 }
@@ -1261,6 +1272,9 @@ button.pintCalc__infoBtn{
  .hab-title{
    font-size: 1.7rem;
  }
+ .slide-set{
+   left:15px;
+ }
  .habilidades div .slide-set .next-hab-btn{
    font-size: 1.5rem;
    right: 0;
@@ -1271,6 +1285,10 @@ button.pintCalc__infoBtn{
   #gallery .gallery figure.on >div {
     font-size: 1.3rem;
     
+  }
+  .next-hab-btn.next-hab-btn--prev{
+    left:-30px;
+    right: unset;
   }
 }
 @media (max-width: 450px) {
@@ -1314,6 +1332,10 @@ button.pintCalc__infoBtn{
   }
   .pintCalc{
     gap:12px;
+  }
+  .next-hab-btn--prev{
+    left: -40px;
+    right: unset;
   }
   .hab-text--pintura h4, .pintCalc__right label{
     min-height: 0.0000001vw; /*Safari workAround */
