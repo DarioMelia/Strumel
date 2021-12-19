@@ -6,7 +6,7 @@
          <strong>Actualice</strong> su navegador para disfrutar esta página de la forma más óptima posible.</p>
       <button aria-label="Cerrar">x</button>
     </div>
-    
+
     <%- include('partials/header') %>
 
     
@@ -22,7 +22,7 @@
         <div class="obras__grid">
             <%obras.forEach((obra,i) => { %>   <!-- %%%%%%% OBRA.FOREACH -->
                 <div class="obra__box" data-aos="fade-up">
-                        <img data-id="<%= obra.id %>" class="gallery__img" src="/css/images/loader.gif" alt="<%=obra.titulo%>">
+                        <img data-id="<%= obra.id %>" class="gallery__img" src="/css/svg/loader.svg" alt="<%=obra.titulo%>">
                         <span class="toggle-overlay" aria-label="Más información/Menos información" role="button"></span>
                         <div class="obra__overlay">
                             <div class="obra__overlay--inner">
@@ -47,7 +47,7 @@
                 </button>
                 <span class="obra-info__date">fecha</span>
                <div class="obra-info__img">
-                 <img  src="/css/images/loader.gif" alt="resumen">
+                 <img  src="/css/svg/loader.svg" alt="resumen">
                  <button class="obra-info__expand-img-btn" aria-label="Expandir imagen"><i class="fas fa-expand"></i></button>
                 </div>
                 <div class="contenido-scroll">

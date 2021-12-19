@@ -115,7 +115,7 @@ function obraOverlayHandler(e){
       obraOverlay.classList.add("full-opacity");
     }, 20);
  
-    img.src = "/css/images/loader.gif";
+    img.src = "/css/svg/loader.svg";
     setTimeout(() => {
       loadobraOverlay();
       obraOverlay.classList.add("full-opacity");

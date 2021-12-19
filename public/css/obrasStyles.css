@@ -53,7 +53,10 @@
   border-radius: 10px;
   position: relative;
   z-index: 3;
-  
+}
+
+.obra__box img{
+  max-height: 450px;
 }
 .obra__overlay {
     max-height: 450px;
@@ -164,10 +167,11 @@ img[src="/css/images/loader.gif"].gallery__img  {
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       grid-auto-rows: 280px;
     }
-  
+    .obra__box img{
+      max-height: 280px;
+    }
     .obra__overlay {
       max-height: 280px;
-      
     }
 
     .obra__overlay--inner h2{

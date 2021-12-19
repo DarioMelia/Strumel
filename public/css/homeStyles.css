@@ -334,7 +334,7 @@ a.hero__btn--galeria {
   left: 50%;
   margin-left: -30px;
   bottom: 35px;
-  z-index: 20;
+  z-index: 2;
   transition: transform 300ms ease-in, opacity 200ms 100ms ;
 }
 .scroll-arrows.disapear{
