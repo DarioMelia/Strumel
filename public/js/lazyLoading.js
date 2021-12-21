@@ -5,10 +5,13 @@ const domImages = document.querySelectorAll(".gallery__img");
 const domInfoImages = document.querySelectorAll(".obra-info__img img");
 
 //hacemos la llamada a la api del server y generamos el src correspondiente a cada imagen
-fetch(url).then(response => response.json()).then(data => {
-  generateSrc(data,domImages);
-  generateSrc(data,domInfoImages);
-});
+
+  fetch(url).then(response => response.json()).then(data => {
+    generateSrc(data,domImages);
+    generateSrc(data,domInfoImages);
+  });
+
+
 
 
 function generateSrc(imagesData,imagesDom){
