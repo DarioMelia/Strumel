@@ -186,9 +186,8 @@ function nextPrev(n) {
   };
 
 
-
+  //Según la reforma elegida, asignamos uno de los arrays de tabs ya creados.
   function wichReforma(refElegida){
-   
       switch(refElegida){
           case "reforma-bano":
               return tabsBano;
@@ -201,15 +200,16 @@ function nextPrev(n) {
               break;
           default:
               return undefined;
-
       }
   }
 
+  //Comprueba si al menos un input está checkeado
   function atLeastOneCheckboxChecked(tab){
       const checkboxes = Array.from(tab.querySelectorAll(".calc__checkbox"));
       return checkboxes.reduce((acc,curr) => acc || curr.checked, false);
   }
 
+  //Si hay al menos un input number con valor en la tab, devuleve true, si no, false.
   function atLeastOneNumberHasValue(tab){
       let atLeastOne = false;
       const numberInputs = Array.from(tab.querySelectorAll("input[type = number]"));
@@ -228,6 +228,7 @@ function nextPrev(n) {
       }else{return false}
   };
 
+  //Adaptamos la descripcion del cuadro azul según la tab en lña que etemos
   function adaptCalcDesscription(tab){
       let tabName = tab.classList[1];
       const calcDes = document.querySelector(".calc__des");
@@ -298,12 +299,14 @@ function nextPrev(n) {
     return calcInputs;
   }
 
+  //Recibe un array con los inputs seleccionados.
   function getPrice(calcInputs){
     let price = 0;
     let gamaMultiplier = 1;
     let addPrice = 0;
     let metros = calcInputs[3].numValues.metros2;
-
+ 
+    //Según el tipo de reforma que haya elegido, precio base por m2
     switch(calcInputs[0].checkedInputs[0]){
       case "bano":
         price += 20;
@@ -315,6 +318,7 @@ function nextPrev(n) {
         price += 50;
       break;
     }
+    //Según la gama de materiales, tenemos un multiplier.
     switch(calcInputs[2].checkedInputs[0]){
       case "gamaBaja":
         gamaMultiplier = 1;
@@ -325,7 +329,8 @@ function nextPrev(n) {
       case "gamaAlta":
         gamaMultiplier = 1.7;
     }
-
+    //Según el tipo de reforma recibimos los inputs de su tab. Luego recorremos todos los inputs de la tab y
+    //según su valor asignamos un precio que se multiplica por la gama
     switch(calcInputs[1].type){
       case "bano":
         calcInputs[1].checkedInputs.forEach(input => {
@@ -386,10 +391,11 @@ function nextPrev(n) {
           }
         })
        }
-    
       break;
-
     }
+
+
+   //En la reforma integral, estos calculos son para los input numbers
    if(calcInputs[1].numValues){
     if(calcInputs[1].numValues.numBanos){
       addPrice += 1400 * calcInputs[1].numValues.numBanos;
@@ -404,8 +410,6 @@ function nextPrev(n) {
       addPrice += 200 * calcInputs[1].numValues.numPuertas;
     }
   }
-
-
     // console.log(((price * metros) + addPrice))
     // console.log(calcInputs);
     return (price * metros) + addPrice;
@@ -414,11 +418,10 @@ function nextPrev(n) {
   function restartCalc(){
     const finalTab = document.querySelector(".tab--final");
     const nextBtn = document.querySelector(".calc__btns .next-btn");
-    const prevBtn = document.querySelector(".calc__btns .prev-btn");
     const calcDes = document.querySelector(".calc__des");
     const form = document.getElementById("calc__form");
     const restartBtn = document.querySelector(".calc__restart-btn");
-    
+    //Reseteamos el form y volvemos a la primera tab
     form.reset();
     finalTab.querySelector(".calc__price").style.transform = "scale(0)";
     finalTab.style.display = "none";
@@ -431,14 +434,13 @@ function nextPrev(n) {
   }
 
 
-  
+  //ASigna y formatea las elecciones del usuaria para mostrarlas junto al precio
   function insertChoicesHtml(calcInputs){
     let innerHtml = `<li>Reforma ${calcInputs[0].checkedInputs[0]}</li>`;
     
     if(calcInputs[0].checkedInputs[0] == "bano"){
       innerHtml = `<li>Reforma baño.</li>`
     }
-
 
     if(calcInputs[1].numValues){
     
@@ -459,8 +461,10 @@ function nextPrev(n) {
 
     if(calcInputs[1].checkedInputs){
       calcInputs[1].checkedInputs.forEach(input => {
+        //Cambiamos los giones de las propiedades por espacios, para no hardcodearlo todo
         sentenceCaseInput = input.replace(/-/g, ' ');
         sentenceCaseInput = sentenceCaseInput.slice(0, 1).toUpperCase() + sentenceCaseInput.slice(1);
+        //Las tildes y eñes sí deben ser hardcodeadas
         if(input === "fontaneria"){
           innerHtml = innerHtml.concat(`<li>Fontanería</li>`)
         }else if(input === "climatizacion"){
@@ -509,15 +513,19 @@ const radioInputs = pintCalc.querySelectorAll('input[type="radio"]');
 pintCalcBtn.addEventListener("click", pintCalcResult);
 pintRestart.addEventListener("click", pintCalcRestart);
 metrosInput.addEventListener("input", pintCalcIsChecked);
+//Cuando se selecciona cualquiera de lso radios, se comprueba si el input-num tiene valor que no sea "". Para activar el btn
 radioInputs.forEach(input => input.addEventListener("change", pintCalcIsChecked));
 
 
 
 function pintCalcResult(e) {
+//El radio-input que esté seleccionado.
 const selectedInput = pintCalc.querySelector('input[type="radio"]:checked');
 const metros = pintCalc.querySelector("input[type='number']");
+//Si hay un radio seleccionado y el de metros tiene valor, calculamos el precio.
   if(selectedInput && metros.value !== ""){
     var finalPrice = getPintPrice(selectedInput.id, metros.value);
+    //Si el precio supera los 1000 añadimos una clase de css que adapta el tamaño
     if(finalPrice > 1000){
       pintPrice.classList.add("big-number");
     }else {
@@ -525,13 +533,16 @@ const metros = pintCalc.querySelector("input[type='number']");
         pintPrice.classList.remove("big-number");
       }
     }
+    //Si es demasiado grande 
     if(finalPrice > 99000){
       finalPrice = "+99.999€";
     }else {
+      //Si es un numero "aceptable" se formatea a moneda
       finalPrice = formatter.format(Math.round(finalPrice)); 
       finalPrice = finalPrice.substring(0, finalPrice.length - 2) +"€";
     }
     pintPrice.innerHTML = finalPrice;
+    //desaparece la calculadora y mostramos el resultado con el botón de restart
     pintCalc.classList.add("display-none");
     if(pintCalc.classList.contains("open")){
       pintCalc.classList.remove("open");
@@ -568,6 +579,8 @@ function getPintPrice(pintura, metros){
 
 
 function pintCalcIsChecked(e){
+  //Salto al change en el number input. Si hay radio checkeado, aumenta opacity del boton, si el valor se reduce a nulo,
+  //vuelve a perder la opacity, y si es diferente de nulo, lña recupera
   if(e.target.type === "number"){
     if(pintCalc.querySelector('input[type="radio"]:checked')){
       pintCalcBtn.classList.add("full-opacity");
@@ -586,7 +599,7 @@ function pintCalcIsChecked(e){
 
 
 function pintCalcRestart(e){
-  
+  //Escondemos el restrart-btn y el resultado, luego volvemos a mostrar la calculadora
   pintResult.classList.remove("open");
     setTimeout(() => {
       pintResult.style.display = "none";

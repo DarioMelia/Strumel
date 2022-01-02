@@ -1,8 +1,10 @@
 
+//Usando bowser detectamos el navegador que se está utilizando, y segun el nombre y la version displayeamos un
+//mensaje en las versiones de navegador donde la página empieza a fallar(normalmente por clamp() o el flex-gap), pidiendo
+//que actualice la versión del navegador.
+
 const oldBrowserMsg = document.getElementById("oldBrowser-msg");
-
 oldBrowserMsg.addEventListener("click", e => oldBrowserMsg.classList.add("display-none"));
-
 
 const result = bowser.getParser(window.navigator.userAgent);
 const os = result.parsedResult.os.name;
